@@ -8,7 +8,7 @@ Store name: "72h – Rodinná připravenost" / "72h – Family Preparedness". Mu
 
 Tabs: **Zásoby** (locations, items with expiry, readiness in days, CZ checklist) · **Mapa** (offline OSM map, meeting points, arrow + distance, last family location – Plus) · **Rodina** (members, QR/link invite, optional location sharing – Plus) · **Více** (country comparison, go-bag, contacts, subscription, settings, language).
 Onboarding: people + pets → first stock location → meeting point (skippable).
-Languages: cs + en via i18next, no hardcoded UI strings.
+Languages: cs + en via i18next, no hardcoded UI strings. **CHANGE 2026-09-22 (user):** also sk, pl, fi (target countries) – machine-translated, need native review before release.
 
 ## Tiers (config constants in one place)
 | | Free | Plus (100 Kč/yr · Supporter 249 Kč/yr · Lifetime 299 Kč) |
@@ -31,7 +31,7 @@ Show usage + reset date. Paywall only on attempt to use a Plus feature, always s
 - Family key generated on device, shared only via invite (QR/link). Server never sees it. Sync: last write wins.
 - Last location: opt-in, off by default, visible when on, ~1×/h or >1 km move, encrypted with family key (libsodium), server keeps only latest ciphertext, deleted on leaving group.
 - Legal: GDPR minimal data, EU hosting, export + delete account in app. App is an aid, not an official warning system; emergency 112. OSM attribution (ODbL).
-- NOT in 1.0: non-CZ maps, more countries/languages, barcodes, continuous tracking, history, geofence, SOS, route navigation, PDF export, widget, B2B, Redis.
+- NOT in 1.0: non-CZ maps, barcodes, continuous tracking, history, geofence, SOS, route navigation, PDF export, widget, B2B, Redis.
 
 ## Architecture
 - `app/` Expo (RN, TypeScript), Expo Router, expo-sqlite (offline-first), expo-notifications, expo-location + task-manager, MapLibre RN, i18next, react-native-libsodium, RevenueCat. Dev builds via EAS (profiles `development`, `development-simulator`).
@@ -67,6 +67,8 @@ Show usage + reset date. Paywall only on attempt to use a Plus feature, always s
 - [ ] **M7 Beta & release** – security, TestFlight, Play closed test, store texts, privacy policy, labels, reviewer notes. *Done:* approved in both stores.
 
 ## Status
+Human-readable progress (Czech) is in `docs/PROGRESS.md` – update it after every step.
+
 - 2026-09-22: M0 approved. Done: skeleton, GitHub `git@github.com:ohm01/72H.git` (deploy key), .env (local), Docker Compose running, `https://api.jennase.org/health` OK, Expo SDK 57 app with 4 tabs + i18next (cs/en), tsc + expo-doctor OK.
   Cloudflare: tunnel is dashboard-managed (token); geo-block WAF rule scoped to `rejstrik.jennase.org` (library).
   Next: EAS (user logs in), dev builds, backup check.

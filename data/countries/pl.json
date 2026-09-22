@@ -1,0 +1,312 @@
+{
+  "country": "PL",
+  "name": {
+    "cs": "Polsko",
+    "en": "Poland"
+  },
+  "selfSufficiencyDays": 3,
+  "source": {
+    "publisher": "Rządowe Centrum Bezpieczeństwa / MSWiA / MON",
+    "title": {
+      "cs": "Poradnik bezpieczeństwa – Przygotuj swoje otoczenie",
+      "en": "Safety guide – Prepare your surroundings"
+    },
+    "url": "https://www.gov.pl/web/poradnikbezpieczenstwa/przygotuj-swoje-otoczenie",
+    "verifiedAt": "2026-09-22"
+  },
+  "notes": {
+    "cs": "Převyprávěno vlastními slovy.",
+    "en": "Paraphrased in our own words."
+  },
+  "items": [
+    {
+      "id": "water",
+      "type": "water",
+      "priority": "essential",
+      "quantity": {
+        "basis": "person",
+        "amount": 3,
+        "unit": "l",
+        "perDay": true
+      },
+      "label": {
+        "cs": "Pitná voda",
+        "en": "Drinking water"
+      },
+      "note": {
+        "cs": "Minimálně 3 l na osobu a den.",
+        "en": "At least 3 l per person per day."
+      }
+    },
+    {
+      "id": "food",
+      "type": "food",
+      "priority": "essential",
+      "quantity": {
+        "basis": "person",
+        "amount": 1,
+        "unit": "ration",
+        "perDay": true
+      },
+      "label": {
+        "cs": "Trvanlivé jídlo připravené k jídlu, konzervy",
+        "en": "Ready-to-eat long-life food, canned goods"
+      }
+    },
+    {
+      "id": "medicines",
+      "type": "medicine",
+      "priority": "essential",
+      "quantity": {
+        "basis": "person",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Pravidelně užívané léky a léky proti bolesti",
+        "en": "Regular medication and painkillers"
+      }
+    },
+    {
+      "id": "candles",
+      "type": "light",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Svíčky a zapalovač",
+        "en": "Candles and lighter"
+      }
+    },
+    {
+      "id": "warm_clothes",
+      "type": "other",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "person",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Deky, spacáky, teplé oblečení",
+        "en": "Blankets, sleeping bags, warm clothes"
+      }
+    },
+    {
+      "id": "tape",
+      "type": "tools",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Lepicí páska a fólie na utěsnění",
+        "en": "Tape and plastic sheeting for sealing"
+      }
+    },
+    {
+      "id": "fuel",
+      "type": "energy",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Plná nádrž v autě",
+        "en": "Full fuel tank"
+      }
+    },
+    {
+      "id": "fire",
+      "type": "tools",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Hasicí přístroj (v autě)",
+        "en": "Fire extinguisher (in the car)"
+      }
+    },
+    {
+      "id": "paper_map",
+      "type": "tools",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Papírová nebo offline mapa",
+        "en": "Paper or offline map"
+      }
+    },
+    {
+      "id": "first_aid",
+      "type": "medicine",
+      "priority": "essential",
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Lékárnička",
+        "en": "First aid kit"
+      }
+    },
+    {
+      "id": "radio",
+      "type": "energy",
+      "priority": "essential",
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Rádio na baterie",
+        "en": "Battery-powered radio"
+      }
+    },
+    {
+      "id": "flashlight",
+      "type": "light",
+      "priority": "essential",
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Svítilna a náhradní baterie",
+        "en": "Flashlight and spare batteries"
+      }
+    },
+    {
+      "id": "cash",
+      "type": "documents",
+      "priority": "essential",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Hotovost v menších bankovkách",
+        "en": "Cash in small notes"
+      }
+    },
+    {
+      "id": "powerbank",
+      "type": "energy",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Nabitá powerbanka a nabíječka",
+        "en": "Charged power bank and charger"
+      }
+    },
+    {
+      "id": "documents",
+      "type": "documents",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Doklady a důležité dokumenty",
+        "en": "ID and important documents"
+      }
+    },
+    {
+      "id": "hygiene",
+      "type": "hygiene",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Toaletní papír a hygienické potřeby",
+        "en": "Toilet paper and hygiene supplies"
+      }
+    },
+    {
+      "id": "sanitizer",
+      "type": "hygiene",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Dezinfekce na ruce",
+        "en": "Hand sanitizer"
+      }
+    },
+    {
+      "id": "bags",
+      "type": "hygiene",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Pytle na odpadky",
+        "en": "Garbage bags"
+      }
+    },
+    {
+      "id": "pet_food",
+      "type": "pets",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "pet",
+        "amount": 1,
+        "unit": "ration",
+        "perDay": true
+      },
+      "label": {
+        "cs": "Krmivo pro zvířata",
+        "en": "Pet food"
+      }
+    }
+  ]
+}

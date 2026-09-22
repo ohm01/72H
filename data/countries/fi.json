@@ -1,0 +1,275 @@
+{
+  "country": "FI",
+  "name": {
+    "cs": "Finsko",
+    "en": "Finland"
+  },
+  "selfSufficiencyDays": 3,
+  "source": {
+    "publisher": "Pelastustoimi (záchranné služby, Ministerstvo vnitra Finska)",
+    "title": {
+      "cs": "72 hodin",
+      "en": "72 hours"
+    },
+    "url": "https://pelastustoimi.fi/en/home-everyday-life/accident-prevention/72-hours",
+    "relatedUrls": [
+      "https://72tuntia.fi/en/"
+    ],
+    "verifiedAt": "2026-09-22"
+  },
+  "notes": {
+    "cs": "Vzor pro ostatní země. Zásoba nemusí být oddělená – stačí běžné potraviny, které průběžně obměňujete.",
+    "en": "Model for other countries. Supplies need not be separate – everyday food you rotate is fine."
+  },
+  "items": [
+    {
+      "id": "water",
+      "type": "water",
+      "priority": "essential",
+      "quantity": {
+        "basis": "person",
+        "amount": 2,
+        "unit": "l",
+        "perDay": true
+      },
+      "label": {
+        "cs": "Pitná voda",
+        "en": "Drinking water"
+      },
+      "note": {
+        "cs": "2 l na pití na osobu a den; celkem s vařením a hygienou 10–20 l.",
+        "en": "2 l drinking per person per day; 10–20 l in total with cooking and hygiene."
+      }
+    },
+    {
+      "id": "water_containers",
+      "type": "water",
+      "priority": "essential",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Nádoby na vodu",
+        "en": "Water containers"
+      }
+    },
+    {
+      "id": "food",
+      "type": "food",
+      "priority": "essential",
+      "quantity": {
+        "basis": "person",
+        "amount": 1,
+        "unit": "ration",
+        "perDay": true
+      },
+      "label": {
+        "cs": "Jídlo, které není třeba vařit",
+        "en": "Food that needs no cooking"
+      }
+    },
+    {
+      "id": "medicines",
+      "type": "medicine",
+      "priority": "essential",
+      "quantity": {
+        "basis": "person",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Pravidelně užívané léky",
+        "en": "Regular medication"
+      },
+      "note": {
+        "cs": "Zdroj neuvádí dobu.",
+        "en": "Duration not stated."
+      },
+      "uncertain": true
+    },
+    {
+      "id": "warm_clothes",
+      "type": "other",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "person",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Teplé oblečení, deky, spacák",
+        "en": "Warm clothes, blankets, sleeping bag"
+      }
+    },
+    {
+      "id": "fire",
+      "type": "tools",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Hasicí přístroj nebo hasicí deka",
+        "en": "Fire extinguisher or fire blanket"
+      }
+    },
+    {
+      "id": "first_aid",
+      "type": "medicine",
+      "priority": "essential",
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Lékárnička",
+        "en": "First aid kit"
+      }
+    },
+    {
+      "id": "radio",
+      "type": "energy",
+      "priority": "essential",
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Rádio na baterie",
+        "en": "Battery-powered radio"
+      }
+    },
+    {
+      "id": "flashlight",
+      "type": "light",
+      "priority": "essential",
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Svítilna a náhradní baterie",
+        "en": "Flashlight and spare batteries"
+      }
+    },
+    {
+      "id": "cash",
+      "type": "documents",
+      "priority": "essential",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Hotovost v menších bankovkách",
+        "en": "Cash in small notes"
+      }
+    },
+    {
+      "id": "powerbank",
+      "type": "energy",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Nabitá powerbanka a nabíječka",
+        "en": "Charged power bank and charger"
+      }
+    },
+    {
+      "id": "documents",
+      "type": "documents",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Doklady a důležité dokumenty",
+        "en": "ID and important documents"
+      }
+    },
+    {
+      "id": "hygiene",
+      "type": "hygiene",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Toaletní papír a hygienické potřeby",
+        "en": "Toilet paper and hygiene supplies"
+      }
+    },
+    {
+      "id": "sanitizer",
+      "type": "hygiene",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Dezinfekce na ruce",
+        "en": "Hand sanitizer"
+      }
+    },
+    {
+      "id": "bags",
+      "type": "hygiene",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Pytle na odpadky",
+        "en": "Garbage bags"
+      }
+    },
+    {
+      "id": "pet_food",
+      "type": "pets",
+      "priority": "recommended",
+      "quantity": {
+        "basis": "pet",
+        "amount": 1,
+        "unit": "ration",
+        "perDay": true
+      },
+      "label": {
+        "cs": "Krmivo pro zvířata",
+        "en": "Pet food"
+      }
+    }
+  ]
+}
