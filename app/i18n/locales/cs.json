@@ -1,0 +1,16 @@
+{
+  "tabs": {
+    "stock": "Zásoby",
+    "map": "Mapa",
+    "family": "Rodina",
+    "more": "Více"
+  },
+  "common": {
+    "comingSoon": "Připravujeme"
+  },
+  "notFound": {
+    "title": "Stránka nenalezena",
+    "message": "Tato obrazovka neexistuje.",
+    "goHome": "Zpět na začátek"
+  }
+}

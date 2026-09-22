@@ -1,0 +1,16 @@
+{
+  "tabs": {
+    "stock": "Supplies",
+    "map": "Map",
+    "family": "Family",
+    "more": "More"
+  },
+  "common": {
+    "comingSoon": "Coming soon"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "message": "This screen doesn't exist.",
+    "goHome": "Go to start"
+  }
+}
