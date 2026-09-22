@@ -37,9 +37,11 @@ export function Text(props: TextProps) {
   return <DefaultText style={[{ color }, style]} {...otherProps} />;
 }
 
+// Transparent unless a color is given, so nested views don't paint over cards.
 export function View(props: ViewProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
+  const theme = useColorScheme();
+  const backgroundColor = theme === 'dark' ? darkColor : lightColor;
 
-  return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
+  return <DefaultView style={[backgroundColor ? { backgroundColor } : null, style]} {...otherProps} />;
 }

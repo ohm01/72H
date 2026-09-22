@@ -6,7 +6,129 @@
     "more": "More"
   },
   "common": {
-    "comingSoon": "Coming soon"
+    "comingSoon": "Coming soon",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "next": "Next",
+    "back": "Back",
+    "skip": "Skip",
+    "done": "Done",
+    "all": "All",
+    "optional": "optional",
+    "confirmDelete": "Delete “{{name}}”?"
+  },
+  "units": {
+    "l": "l",
+    "ration": "daily rations",
+    "pcs": "pcs",
+    "pack": "pack"
+  },
+  "unitNames": {
+    "l": "Litres",
+    "ration": "Daily rations (1 person/day)",
+    "pcs": "Pieces",
+    "pack": "Packs"
+  },
+  "itemTypes": {
+    "water": "Water",
+    "food": "Food",
+    "medicine": "Medicine",
+    "hygiene": "Hygiene",
+    "energy": "Energy",
+    "light": "Light",
+    "documents": "Documents & cash",
+    "tools": "Tools",
+    "pets": "Pets",
+    "other": "Other"
+  },
+  "days_one": "{{n}} day",
+  "days_other": "{{n}} days",
+  "stock": {
+    "readinessTitle": "How many days we are covered",
+    "readinessValue": "{{days}} of {{target}}",
+    "readinessHint": "Counted for {{persons}} people. Water: {{water}}, food: {{food}}.",
+    "readinessGoal": "The recommendation is supplies for at least 72 hours.",
+    "byLocation": "By location",
+    "items": "Items",
+    "addItem": "Add item",
+    "checklist": "What to keep at home (checklist)",
+    "locations": "Locations",
+    "empty": "Nothing here yet. Start with water and food – they decide how many days you are covered.",
+    "expired": "expired",
+    "expiresToday": "expires today",
+    "expiresIn": "expires in {{days}}",
+    "noExpiry": "no expiry"
+  },
+  "item": {
+    "newTitle": "New item",
+    "editTitle": "Edit item",
+    "name": "Name",
+    "namePlaceholder": "e.g. Bottled water 1.5 l",
+    "type": "Type",
+    "quantity": "Quantity",
+    "unit": "Unit",
+    "location": "Location",
+    "expiresOn": "Expiry date from the package",
+    "setExpiry": "Set date",
+    "clearExpiry": "No expiry",
+    "note": "Note",
+    "readinessHint": "Days of readiness count water in litres and food in daily rations.",
+    "errorName": "Please enter a name.",
+    "errorQuantity": "Enter a quantity greater than 0.",
+    "errorLocation": "Create a location first."
+  },
+  "locations": {
+    "title": "Supply locations",
+    "hint": "Where you keep supplies – e.g. Home, Cottage, Grandma's.",
+    "namePlaceholder": "Location name",
+    "add": "Add location",
+    "deleteWarning": "This also deletes {{count}} items in this location."
+  },
+  "checklist": {
+    "title": "Checklist",
+    "intro": "Recommendation for your household ({{persons}} people, {{pets}} pets) for {{days}}.",
+    "essential": "Most important",
+    "recommended": "Also useful",
+    "source": "Source: {{publisher}}, verified {{date}}",
+    "openSource": "Open source",
+    "disclaimer": "Paraphrased in our own words. This is not an official government app."
+  },
+  "onboarding": {
+    "welcomeTitle": "Welcome to 72h",
+    "welcomeText": "We help you keep track of supplies and agree with your family on a plan for when things stop working. Calmly, step by step.",
+    "householdTitle": "How many of you are there?",
+    "persons": "People",
+    "pets": "Pets",
+    "locationTitle": "Where do you keep supplies?",
+    "locationText": "Name the first place. You can add more later.",
+    "locationDefault": "Home",
+    "meetingTitle": "Where will you meet?",
+    "meetingText": "If phones stop working, your family should know where to meet. You can pin it on the map later.",
+    "meetingName": "Meeting point name",
+    "meetingPlaceholder": "e.g. At the school",
+    "meetingNote": "Note",
+    "finish": "Start"
+  },
+  "more": {
+    "household": "Household",
+    "language": "Language",
+    "languageSystem": "System default",
+    "reminders": "Expiry reminders",
+    "remindersText": "We remind you 30 and 7 days before items expire.",
+    "remindersPlus": "Expiry reminders are part of Plus.",
+    "remindersDenied": "Notifications are turned off in phone settings.",
+    "remindersEnable": "Allow notifications",
+    "about": "About",
+    "disclaimer": "72h is a preparedness aid, not an official warning system. In an emergency call 112."
+  },
+  "reminders": {
+    "channelName": "Supply expiry",
+    "title": "Expiring soon: {{name}}",
+    "body_one": "{{name}} expires in {{count}} day.",
+    "body_other": "{{name}} expires in {{count}} days."
   },
   "notFound": {
     "title": "Page not found",

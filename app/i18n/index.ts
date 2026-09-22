@@ -12,11 +12,20 @@ export const resources = {
 } as const;
 
 export type Language = keyof typeof resources;
+export const LANGUAGES = Object.keys(resources) as Language[];
 export const fallbackLanguage: Language = 'en';
+
+/** User preference stored in settings: a language code or 'system'. */
+export type LanguagePreference = Language | 'system';
 
 function deviceLanguage(): Language {
   const code = getLocales()[0]?.languageCode;
   return code && code in resources ? (code as Language) : fallbackLanguage;
+}
+
+export function applyLanguage(pref: LanguagePreference | null): Promise<unknown> {
+  const lang = pref && pref !== 'system' && pref in resources ? pref : deviceLanguage();
+  return i18n.changeLanguage(lang);
 }
 
 i18n.use(initReactI18next).init({

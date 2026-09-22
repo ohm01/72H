@@ -1,10 +1,12 @@
 import { SymbolView, type SymbolViewProps } from 'expo-symbols';
-import { Tabs } from 'expo-router';
+import { Redirect, Tabs } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
+import { isOnboarded } from '@/lib/repo';
+import { useDbQuery } from '@/lib/useDbQuery';
 
 type TabDef = {
   name: string;
@@ -22,6 +24,11 @@ const TABS: TabDef[] = [
 export default function TabLayout() {
   const colorScheme = useColorScheme();
   const { t } = useTranslation();
+  const { data: onboarded } = useDbQuery(isOnboarded);
+  const headerShown = useClientOnlyValue(false, true);
+
+  if (onboarded === undefined) return null;
+  if (!onboarded) return <Redirect href="/onboarding" />;
 
   return (
     <Tabs
@@ -29,7 +36,7 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme].tint,
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
+        headerShown,
       }}>
       {TABS.map((tab) => (
         <Tabs.Screen
