@@ -48,7 +48,7 @@
   "days_other": "{{n}} päivää",
   "stock": {
     "readinessTitle": "Moneksi päiväksi meillä on varaa",
-    "readinessValue": "{{days}} / {{target}}",
+    "readinessValue": "{{days}} · tavoite {{target}}",
     "readinessHint": "Laskettu {{persons}} hengelle. Vesi: {{water}}, ruoka: {{food}}.",
     "readinessGoal": "Suositus on varautua vähintään 72 tunniksi.",
     "byLocation": "Paikoittain",
@@ -85,11 +85,11 @@
     "hint": "Missä pidät varoja – esim. Koti, Mökki, Mummola.",
     "namePlaceholder": "Paikan nimi",
     "add": "Lisää paikka",
-    "deleteWarning": "Myös tämän paikan {{count}} tuotetta poistetaan."
+    "deleteWarning": "Myös tämän paikan tuotteet poistetaan (määrä: {{count}})."
   },
   "checklist": {
     "title": "Tarkistuslista",
-    "intro": "Suositus kotitaloudellesi ({{persons}} henkeä, {{pets}} lemmikkiä) ajalle {{days}}.",
+    "intro": "Suositus kotitaloudellesi (henkilöt: {{persons}}, lemmikit: {{pets}}) ajalle {{days}}.",
     "essential": "Tärkeimmät",
     "recommended": "Hyödyllisiä lisäksi",
     "source": "Lähde: {{publisher}}, tarkistettu {{date}}",

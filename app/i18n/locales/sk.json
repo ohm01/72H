@@ -50,7 +50,7 @@
   "days_other": "{{n}} dní",
   "stock": {
     "readinessTitle": "Na koľko dní sme zásobení",
-    "readinessValue": "{{days}} z {{target}}",
+    "readinessValue": "{{days}} · cieľ {{target}}",
     "readinessHint": "Počítané pre {{persons}} os. Voda: {{water}}, jedlo: {{food}}.",
     "readinessGoal": "Odporúča sa mať zásoby aspoň na 72 hodín.",
     "byLocation": "Podľa lokality",
@@ -87,11 +87,11 @@
     "hint": "Kde máte zásoby – napr. Doma, Chata, U babky.",
     "namePlaceholder": "Názov lokality",
     "add": "Pridať lokalitu",
-    "deleteWarning": "Zmaže sa aj {{count}} položiek v tejto lokalite."
+    "deleteWarning": "Zmažú sa aj položky v tejto lokalite (počet: {{count}})."
   },
   "checklist": {
     "title": "Checklist",
-    "intro": "Odporúčanie pre domácnosť ({{persons}} os., {{pets}} zvierat) na {{days}}.",
+    "intro": "Odporúčanie pre domácnosť (osoby: {{persons}}, zvieratá: {{pets}}) na {{days}}.",
     "essential": "Najdôležitejšie",
     "recommended": "Ďalej sa hodí",
     "source": "Zdroj: {{publisher}}, overené {{date}}",

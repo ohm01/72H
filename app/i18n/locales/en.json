@@ -48,7 +48,7 @@
   "days_other": "{{n}} days",
   "stock": {
     "readinessTitle": "How many days we are covered",
-    "readinessValue": "{{days}} of {{target}}",
+    "readinessValue": "{{days}} · goal {{target}}",
     "readinessHint": "Counted for {{persons}} people. Water: {{water}}, food: {{food}}.",
     "readinessGoal": "The recommendation is supplies for at least 72 hours.",
     "byLocation": "By location",
@@ -85,11 +85,11 @@
     "hint": "Where you keep supplies – e.g. Home, Cottage, Grandma's.",
     "namePlaceholder": "Location name",
     "add": "Add location",
-    "deleteWarning": "This also deletes {{count}} items in this location."
+    "deleteWarning": "Items in this location will be deleted too (count: {{count}})."
   },
   "checklist": {
     "title": "Checklist",
-    "intro": "Recommendation for your household ({{persons}} people, {{pets}} pets) for {{days}}.",
+    "intro": "Recommendation for your household (people: {{persons}}, pets: {{pets}}) for {{days}}.",
     "essential": "Most important",
     "recommended": "Also useful",
     "source": "Source: {{publisher}}, verified {{date}}",

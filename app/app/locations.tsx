@@ -5,12 +5,15 @@ import { Alert, StyleSheet } from 'react-native';
 
 import { View } from '@/components/Themed';
 import { Button, Card, Muted, Screen, TextField } from '@/components/ui';
+import { useLimits } from '@/lib/entitlement';
+import { syncReminders } from '@/lib/notifications';
 import { deleteLocation, listItems, listLocations, saveLocation } from '@/lib/repo';
 import { useDbQuery } from '@/lib/useDbQuery';
 
 export default function LocationsScreen() {
   const db = useSQLiteContext();
   const { t } = useTranslation();
+  const limits = useLimits();
   const { data: locations, reload } = useDbQuery(listLocations);
   const [newName, setNewName] = useState('');
   const [edits, setEdits] = useState<Record<string, string>>({});
@@ -41,6 +44,8 @@ export default function LocationsScreen() {
         style: 'destructive',
         onPress: async () => {
           await deleteLocation(db, id);
+          // Its items are gone too: drop their expiry reminders.
+          await syncReminders(await listItems(db), limits.expiryReminders);
           reload();
         },
       },

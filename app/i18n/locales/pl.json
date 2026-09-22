@@ -50,7 +50,7 @@
   "days_other": "{{n}} dnia",
   "stock": {
     "readinessTitle": "Na ile dni mamy zapasy",
-    "readinessValue": "{{days}} z {{target}}",
+    "readinessValue": "{{days}} · cel {{target}}",
     "readinessHint": "Obliczone dla {{persons}} os. Woda: {{water}}, jedzenie: {{food}}.",
     "readinessGoal": "Zaleca się mieć zapasy na co najmniej 72 godziny.",
     "byLocation": "Według miejsca",
@@ -87,11 +87,11 @@
     "hint": "Gdzie trzymasz zapasy – np. Dom, Działka, U babci.",
     "namePlaceholder": "Nazwa miejsca",
     "add": "Dodaj miejsce",
-    "deleteWarning": "Zostanie też usuniętych {{count}} pozycji w tym miejscu."
+    "deleteWarning": "Usunięte zostaną też pozycje w tym miejscu (liczba: {{count}})."
   },
   "checklist": {
     "title": "Lista",
-    "intro": "Zalecenia dla gospodarstwa domowego ({{persons}} os., {{pets}} zwierząt) na {{days}}.",
+    "intro": "Zalecenia dla gospodarstwa domowego (osoby: {{persons}}, zwierzęta: {{pets}}) na {{days}}.",
     "essential": "Najważniejsze",
     "recommended": "Warto mieć",
     "source": "Źródło: {{publisher}}, sprawdzono {{date}}",
