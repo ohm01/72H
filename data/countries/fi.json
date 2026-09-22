@@ -2,14 +2,20 @@
   "country": "FI",
   "name": {
     "cs": "Finsko",
-    "en": "Finland"
+    "en": "Finland",
+    "sk": "Fínsko",
+    "pl": "Finlandia",
+    "fi": "Suomi"
   },
   "selfSufficiencyDays": 3,
   "source": {
     "publisher": "Pelastustoimi (záchranné služby, Ministerstvo vnitra Finska)",
     "title": {
       "cs": "72 hodin",
-      "en": "72 hours"
+      "en": "72 hours",
+      "sk": "72 hodín",
+      "pl": "72 godziny",
+      "fi": "72 tuntia"
     },
     "url": "https://pelastustoimi.fi/en/home-everyday-life/accident-prevention/72-hours",
     "relatedUrls": [
@@ -19,7 +25,10 @@
   },
   "notes": {
     "cs": "Vzor pro ostatní země. Zásoba nemusí být oddělená – stačí běžné potraviny, které průběžně obměňujete.",
-    "en": "Model for other countries. Supplies need not be separate – everyday food you rotate is fine."
+    "en": "Model for other countries. Supplies need not be separate – everyday food you rotate is fine.",
+    "sk": "Vzor pre ostatné krajiny. Zásoba nemusí byť oddelená – stačia bežné potraviny, ktoré priebežne obmieňate.",
+    "pl": "Wzór dla innych krajów. Zapasy nie muszą być osobne – wystarczy zwykła żywność, którą na bieżąco wymieniasz.",
+    "fi": "Malli muille maille. Varan ei tarvitse olla erillinen – tavallinen, kiertävä ruoka riittää."
   },
   "items": [
     {
@@ -34,11 +43,17 @@
       },
       "label": {
         "cs": "Pitná voda",
-        "en": "Drinking water"
+        "en": "Drinking water",
+        "sk": "Pitná voda",
+        "pl": "Woda pitna",
+        "fi": "Juomavesi"
       },
       "note": {
         "cs": "2 l na pití na osobu a den; celkem s vařením a hygienou 10–20 l.",
-        "en": "2 l drinking per person per day; 10–20 l in total with cooking and hygiene."
+        "en": "2 l drinking per person per day; 10–20 l in total with cooking and hygiene.",
+        "sk": "2 l na pitie na osobu a deň; spolu s varením a hygienou 10–20 l.",
+        "pl": "2 l do picia na osobę dziennie; łącznie z gotowaniem i higieną 10–20 l.",
+        "fi": "2 l juomavettä henkeä kohden päivässä; ruoanlaitto ja hygienia mukaan lukien yhteensä 10–20 l."
       }
     },
     {
@@ -53,7 +68,10 @@
       },
       "label": {
         "cs": "Nádoby na vodu",
-        "en": "Water containers"
+        "en": "Water containers",
+        "sk": "Nádoby na vodu",
+        "pl": "Pojemniki na wodę",
+        "fi": "Vesiastiat"
       }
     },
     {
@@ -68,7 +86,10 @@
       },
       "label": {
         "cs": "Jídlo, které není třeba vařit",
-        "en": "Food that needs no cooking"
+        "en": "Food that needs no cooking",
+        "sk": "Jedlo, ktoré netreba variť",
+        "pl": "Jedzenie, którego nie trzeba gotować",
+        "fi": "Ruoka, jota ei tarvitse kypsentää"
       }
     },
     {
@@ -83,11 +104,17 @@
       },
       "label": {
         "cs": "Pravidelně užívané léky",
-        "en": "Regular medication"
+        "en": "Regular medication",
+        "sk": "Pravidelne užívané lieky",
+        "pl": "Regularnie przyjmowane leki",
+        "fi": "Säännöllisesti käytettävät lääkkeet"
       },
       "note": {
         "cs": "Zdroj neuvádí dobu.",
-        "en": "Duration not stated."
+        "en": "Duration not stated.",
+        "sk": "Doba nie je uvedená.",
+        "pl": "Okres nie jest podany.",
+        "fi": "Aikaa ei ole mainittu."
       },
       "uncertain": true
     },
@@ -103,7 +130,10 @@
       },
       "label": {
         "cs": "Teplé oblečení, deky, spacák",
-        "en": "Warm clothes, blankets, sleeping bag"
+        "en": "Warm clothes, blankets, sleeping bag",
+        "sk": "Teplé oblečenie, prikrývky, spací vak",
+        "pl": "Ciepła odzież, koce, śpiwór",
+        "fi": "Lämpimät vaatteet, peitot, makuupussi"
       }
     },
     {
@@ -118,7 +148,10 @@
       },
       "label": {
         "cs": "Hasicí přístroj nebo hasicí deka",
-        "en": "Fire extinguisher or fire blanket"
+        "en": "Fire extinguisher or fire blanket",
+        "sk": "Hasiaci prístroj alebo hasiaca deka",
+        "pl": "Gaśnica lub koc gaśniczy",
+        "fi": "Sammutin tai sammutuspeite"
       }
     },
     {
@@ -133,7 +166,10 @@
       },
       "label": {
         "cs": "Lékárnička",
-        "en": "First aid kit"
+        "en": "First aid kit",
+        "sk": "Lekárnička",
+        "pl": "Apteczka",
+        "fi": "Ensiapulaukku"
       }
     },
     {
@@ -148,7 +184,10 @@
       },
       "label": {
         "cs": "Rádio na baterie",
-        "en": "Battery-powered radio"
+        "en": "Battery-powered radio",
+        "sk": "Rádio na batérie",
+        "pl": "Radio na baterie",
+        "fi": "Paristokäyttöinen radio"
       }
     },
     {
@@ -163,7 +202,10 @@
       },
       "label": {
         "cs": "Svítilna a náhradní baterie",
-        "en": "Flashlight and spare batteries"
+        "en": "Flashlight and spare batteries",
+        "sk": "Baterka a náhradné batérie",
+        "pl": "Latarka i zapasowe baterie",
+        "fi": "Taskulamppu ja varaparistot"
       }
     },
     {
@@ -178,7 +220,10 @@
       },
       "label": {
         "cs": "Hotovost v menších bankovkách",
-        "en": "Cash in small notes"
+        "en": "Cash in small notes",
+        "sk": "Hotovosť v menších bankovkách",
+        "pl": "Gotówka w drobnych banknotach",
+        "fi": "Käteistä pieninä seteleinä"
       }
     },
     {
@@ -193,7 +238,10 @@
       },
       "label": {
         "cs": "Nabitá powerbanka a nabíječka",
-        "en": "Charged power bank and charger"
+        "en": "Charged power bank and charger",
+        "sk": "Nabitá powerbanka a nabíjačka",
+        "pl": "Naładowany powerbank i ładowarka",
+        "fi": "Ladattu varavirtalähde ja laturi"
       }
     },
     {
@@ -208,7 +256,10 @@
       },
       "label": {
         "cs": "Doklady a důležité dokumenty",
-        "en": "ID and important documents"
+        "en": "ID and important documents",
+        "sk": "Doklady a dôležité písomnosti",
+        "pl": "Dowód osobisty i ważne dokumenty",
+        "fi": "Henkilöpaperit ja tärkeät asiakirjat"
       }
     },
     {
@@ -223,7 +274,10 @@
       },
       "label": {
         "cs": "Toaletní papír a hygienické potřeby",
-        "en": "Toilet paper and hygiene supplies"
+        "en": "Toilet paper and hygiene supplies",
+        "sk": "Toaletný papier a hygienické potreby",
+        "pl": "Papier toaletowy i środki higieniczne",
+        "fi": "WC-paperia ja hygieniatarvikkeita"
       }
     },
     {
@@ -238,7 +292,10 @@
       },
       "label": {
         "cs": "Dezinfekce na ruce",
-        "en": "Hand sanitizer"
+        "en": "Hand sanitizer",
+        "sk": "Dezinfekcia na ruky",
+        "pl": "Środek do dezynfekcji rąk",
+        "fi": "Käsidesi"
       }
     },
     {
@@ -253,7 +310,10 @@
       },
       "label": {
         "cs": "Pytle na odpadky",
-        "en": "Garbage bags"
+        "en": "Garbage bags",
+        "sk": "Vrecia na odpadky",
+        "pl": "Worki na śmieci",
+        "fi": "Jätesäkit"
       }
     },
     {
@@ -268,7 +328,10 @@
       },
       "label": {
         "cs": "Krmivo pro zvířata",
-        "en": "Pet food"
+        "en": "Pet food",
+        "sk": "Krmivo pre zvieratá",
+        "pl": "Karma dla zwierząt",
+        "fi": "Lemmikin ruoka"
       }
     }
   ]

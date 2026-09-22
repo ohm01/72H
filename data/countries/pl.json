@@ -2,21 +2,30 @@
   "country": "PL",
   "name": {
     "cs": "Polsko",
-    "en": "Poland"
+    "en": "Poland",
+    "sk": "Poľsko",
+    "pl": "Polska",
+    "fi": "Puola"
   },
   "selfSufficiencyDays": 3,
   "source": {
     "publisher": "Rządowe Centrum Bezpieczeństwa / MSWiA / MON",
     "title": {
       "cs": "Poradnik bezpieczeństwa – Przygotuj swoje otoczenie",
-      "en": "Safety guide – Prepare your surroundings"
+      "en": "Safety guide – Prepare your surroundings",
+      "sk": "Príručka bezpečnosti – Priprav svoje okolie",
+      "pl": "Poradnik bezpieczeństwa – Przygotuj swoje otoczenie",
+      "fi": "Turvallisuusopas – Valmistele ympäristösi"
     },
     "url": "https://www.gov.pl/web/poradnikbezpieczenstwa/przygotuj-swoje-otoczenie",
     "verifiedAt": "2026-09-22"
   },
   "notes": {
     "cs": "Převyprávěno vlastními slovy.",
-    "en": "Paraphrased in our own words."
+    "en": "Paraphrased in our own words.",
+    "sk": "Prerozprávané vlastnými slovami.",
+    "pl": "Opisane własnymi słowami.",
+    "fi": "Kerrottu omin sanoin."
   },
   "items": [
     {
@@ -31,11 +40,17 @@
       },
       "label": {
         "cs": "Pitná voda",
-        "en": "Drinking water"
+        "en": "Drinking water",
+        "sk": "Pitná voda",
+        "pl": "Woda pitna",
+        "fi": "Juomavesi"
       },
       "note": {
         "cs": "Minimálně 3 l na osobu a den.",
-        "en": "At least 3 l per person per day."
+        "en": "At least 3 l per person per day.",
+        "sk": "Minimálne 3 l na osobu a deň.",
+        "pl": "Co najmniej 3 l na osobę dziennie.",
+        "fi": "Vähintään 3 l henkeä kohden päivässä."
       }
     },
     {
@@ -50,7 +65,10 @@
       },
       "label": {
         "cs": "Trvanlivé jídlo připravené k jídlu, konzervy",
-        "en": "Ready-to-eat long-life food, canned goods"
+        "en": "Ready-to-eat long-life food, canned goods",
+        "sk": "Trvanlivé jedlo pripravené na jedenie, konzervy",
+        "pl": "Gotowa do spożycia żywność o długim terminie, konserwy",
+        "fi": "Syötäväksi valmis säilyvä ruoka, säilykkeet"
       }
     },
     {
@@ -65,7 +83,10 @@
       },
       "label": {
         "cs": "Pravidelně užívané léky a léky proti bolesti",
-        "en": "Regular medication and painkillers"
+        "en": "Regular medication and painkillers",
+        "sk": "Pravidelne užívané lieky a lieky proti bolesti",
+        "pl": "Regularnie przyjmowane leki i leki przeciwbólowe",
+        "fi": "Säännöllisesti käytettävät lääkkeet ja kipulääkkeet"
       }
     },
     {
@@ -80,7 +101,10 @@
       },
       "label": {
         "cs": "Svíčky a zapalovač",
-        "en": "Candles and lighter"
+        "en": "Candles and lighter",
+        "sk": "Sviečky a zapaľovač",
+        "pl": "Świece i zapalniczka",
+        "fi": "Kynttilät ja sytytin"
       }
     },
     {
@@ -95,7 +119,10 @@
       },
       "label": {
         "cs": "Deky, spacáky, teplé oblečení",
-        "en": "Blankets, sleeping bags, warm clothes"
+        "en": "Blankets, sleeping bags, warm clothes",
+        "sk": "Prikrývky, spacie vaky, teplé oblečenie",
+        "pl": "Koce, śpiwory, ciepła odzież",
+        "fi": "Peitot, makuupussit, lämpimät vaatteet"
       }
     },
     {
@@ -110,7 +137,10 @@
       },
       "label": {
         "cs": "Lepicí páska a fólie na utěsnění",
-        "en": "Tape and plastic sheeting for sealing"
+        "en": "Tape and plastic sheeting for sealing",
+        "sk": "Lepiaca páska a fólia na utesnenie",
+        "pl": "Taśma i folia do uszczelniania",
+        "fi": "Teippiä ja muovikalvoa tiivistämiseen"
       }
     },
     {
@@ -125,7 +155,10 @@
       },
       "label": {
         "cs": "Plná nádrž v autě",
-        "en": "Full fuel tank"
+        "en": "Full fuel tank",
+        "sk": "Plná nádrž v aute",
+        "pl": "Pełny bak w samochodzie",
+        "fi": "Täysi tankki autossa"
       }
     },
     {
@@ -140,7 +173,10 @@
       },
       "label": {
         "cs": "Hasicí přístroj (v autě)",
-        "en": "Fire extinguisher (in the car)"
+        "en": "Fire extinguisher (in the car)",
+        "sk": "Hasiaci prístroj (v aute)",
+        "pl": "Gaśnica (w samochodzie)",
+        "fi": "Sammutin (autossa)"
       }
     },
     {
@@ -155,7 +191,10 @@
       },
       "label": {
         "cs": "Papírová nebo offline mapa",
-        "en": "Paper or offline map"
+        "en": "Paper or offline map",
+        "sk": "Papierová alebo offline mapa",
+        "pl": "Papierowa lub offline mapa",
+        "fi": "Paperi- tai offline-kartta"
       }
     },
     {
@@ -170,7 +209,10 @@
       },
       "label": {
         "cs": "Lékárnička",
-        "en": "First aid kit"
+        "en": "First aid kit",
+        "sk": "Lekárnička",
+        "pl": "Apteczka",
+        "fi": "Ensiapulaukku"
       }
     },
     {
@@ -185,7 +227,10 @@
       },
       "label": {
         "cs": "Rádio na baterie",
-        "en": "Battery-powered radio"
+        "en": "Battery-powered radio",
+        "sk": "Rádio na batérie",
+        "pl": "Radio na baterie",
+        "fi": "Paristokäyttöinen radio"
       }
     },
     {
@@ -200,7 +245,10 @@
       },
       "label": {
         "cs": "Svítilna a náhradní baterie",
-        "en": "Flashlight and spare batteries"
+        "en": "Flashlight and spare batteries",
+        "sk": "Baterka a náhradné batérie",
+        "pl": "Latarka i zapasowe baterie",
+        "fi": "Taskulamppu ja varaparistot"
       }
     },
     {
@@ -215,7 +263,10 @@
       },
       "label": {
         "cs": "Hotovost v menších bankovkách",
-        "en": "Cash in small notes"
+        "en": "Cash in small notes",
+        "sk": "Hotovosť v menších bankovkách",
+        "pl": "Gotówka w drobnych banknotach",
+        "fi": "Käteistä pieninä seteleinä"
       }
     },
     {
@@ -230,7 +281,10 @@
       },
       "label": {
         "cs": "Nabitá powerbanka a nabíječka",
-        "en": "Charged power bank and charger"
+        "en": "Charged power bank and charger",
+        "sk": "Nabitá powerbanka a nabíjačka",
+        "pl": "Naładowany powerbank i ładowarka",
+        "fi": "Ladattu varavirtalähde ja laturi"
       }
     },
     {
@@ -245,7 +299,10 @@
       },
       "label": {
         "cs": "Doklady a důležité dokumenty",
-        "en": "ID and important documents"
+        "en": "ID and important documents",
+        "sk": "Doklady a dôležité písomnosti",
+        "pl": "Dowód osobisty i ważne dokumenty",
+        "fi": "Henkilöpaperit ja tärkeät asiakirjat"
       }
     },
     {
@@ -260,7 +317,10 @@
       },
       "label": {
         "cs": "Toaletní papír a hygienické potřeby",
-        "en": "Toilet paper and hygiene supplies"
+        "en": "Toilet paper and hygiene supplies",
+        "sk": "Toaletný papier a hygienické potreby",
+        "pl": "Papier toaletowy i środki higieniczne",
+        "fi": "WC-paperia ja hygieniatarvikkeita"
       }
     },
     {
@@ -275,7 +335,10 @@
       },
       "label": {
         "cs": "Dezinfekce na ruce",
-        "en": "Hand sanitizer"
+        "en": "Hand sanitizer",
+        "sk": "Dezinfekcia na ruky",
+        "pl": "Środek do dezynfekcji rąk",
+        "fi": "Käsidesi"
       }
     },
     {
@@ -290,7 +353,10 @@
       },
       "label": {
         "cs": "Pytle na odpadky",
-        "en": "Garbage bags"
+        "en": "Garbage bags",
+        "sk": "Vrecia na odpadky",
+        "pl": "Worki na śmieci",
+        "fi": "Jätesäkit"
       }
     },
     {
@@ -305,7 +371,10 @@
       },
       "label": {
         "cs": "Krmivo pro zvířata",
-        "en": "Pet food"
+        "en": "Pet food",
+        "sk": "Krmivo pre zvieratá",
+        "pl": "Karma dla zwierząt",
+        "fi": "Lemmikin ruoka"
       }
     }
   ]

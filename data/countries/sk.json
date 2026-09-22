@@ -2,21 +2,30 @@
   "country": "SK",
   "name": {
     "cs": "Slovensko",
-    "en": "Slovakia"
+    "en": "Slovakia",
+    "sk": "Slovensko",
+    "pl": "Słowacja",
+    "fi": "Slovakia"
   },
   "selfSufficiencyDays": 14,
   "source": {
     "publisher": "Ministerstvo vnútra SR – Sekcia krízového riadenia",
     "title": {
       "cs": "V prípade krízy alebo ozbrojeného konfliktu (brožura)",
-      "en": "In case of crisis or armed conflict (booklet)"
+      "en": "In case of crisis or armed conflict (booklet)",
+      "sk": "V prípade krízy alebo ozbrojeného konfliktu (brožúra)",
+      "pl": "Na wypadek kryzysu lub konfliktu zbrojnego (broszura)",
+      "fi": "Kriisin tai aseellisen konfliktin varalta (esite)"
     },
     "url": "https://www.minv.sk/swift_data/source/images/co-robit-v-pripade-krizy-alebo-ozbrojeneho-konfliktu.pdf",
     "verifiedAt": "2026-09-22"
   },
   "notes": {
     "cs": "Brožura neuvádí jednu obecnou dobu soběstačnosti. 14 dní je doporučení pro dlouhý výpadek proudu (blackout), obecná část uvádí 3–5 l vody na osobu a den, evakuační zavazadlo na 2–3 dny. Označeno jako nejisté.",
-    "en": "The booklet gives no single general self-sufficiency period. 14 days is the recommendation for a long blackout; the general part says 3–5 l of water per person per day, go-bag for 2–3 days. Marked as uncertain."
+    "en": "The booklet gives no single general self-sufficiency period. 14 days is the recommendation for a long blackout; the general part says 3–5 l of water per person per day, go-bag for 2–3 days. Marked as uncertain.",
+    "sk": "Brožúra neuvádza jednu všeobecnú dobu sebestačnosti. 14 dní je odporúčanie pre dlhý výpadok prúdu; všeobecná časť uvádza 3–5 l vody na osobu a deň, evakuačnú batožinu na 2–3 dni. Označené ako neisté.",
+    "pl": "Broszura nie podaje jednego ogólnego okresu samowystarczalności. 14 dni to zalecenie na długą awarię prądu; część ogólna mówi o 3–5 l wody na osobę dziennie, plecak ewakuacyjny na 2–3 dni. Oznaczone jako niepewne.",
+    "fi": "Esite ei anna yhtä yleistä omavaraisuusaikaa. 14 päivää on suositus pitkään sähkökatkoon; yleisosa mainitsee 3–5 l vettä henkeä kohden päivässä ja evakuointilaukun 2–3 päiväksi. Merkitty epävarmaksi."
   },
   "uncertain": true,
   "items": [
@@ -32,11 +41,17 @@
       },
       "label": {
         "cs": "Pitná voda",
-        "en": "Drinking water"
+        "en": "Drinking water",
+        "sk": "Pitná voda",
+        "pl": "Woda pitna",
+        "fi": "Juomavesi"
       },
       "note": {
         "cs": "Minimálně 4 l na osobu a den (2 l na pití, 2 l na vaření a hygienu); obecně 3–5 l.",
-        "en": "At least 4 l per person per day (2 l drinking, 2 l cooking and hygiene); generally 3–5 l."
+        "en": "At least 4 l per person per day (2 l drinking, 2 l cooking and hygiene); generally 3–5 l.",
+        "sk": "Minimálne 4 l na osobu a deň (2 l na pitie, 2 l na varenie a hygienu); všeobecne 3–5 l.",
+        "pl": "Co najmniej 4 l na osobę dziennie (2 l do picia, 2 l do gotowania i higieny); ogólnie 3–5 l.",
+        "fi": "Vähintään 4 l henkeä kohden päivässä (2 l juomiseen, 2 l ruoanlaittoon ja hygieniaan); yleisesti 3–5 l."
       }
     },
     {
@@ -51,7 +66,10 @@
       },
       "label": {
         "cs": "Nádoby na vodu s víkem nebo kohoutkem",
-        "en": "Water containers with lid or tap"
+        "en": "Water containers with lid or tap",
+        "sk": "Nádoby na vodu s vekom alebo kohútikom",
+        "pl": "Pojemniki na wodę z pokrywką lub kranikiem",
+        "fi": "Vesiastiat, joissa on kansi tai hana"
       }
     },
     {
@@ -66,7 +84,10 @@
       },
       "label": {
         "cs": "Trvanlivé jídlo, které jde připravit bez elektřiny",
-        "en": "Long-life food that can be prepared without power"
+        "en": "Long-life food that can be prepared without power",
+        "sk": "Trvanlivé jedlo, ktoré sa dá pripraviť bez elektriny",
+        "pl": "Żywność o długim terminie, którą można przygotować bez prądu",
+        "fi": "Säilyvä ruoka, jonka voi valmistaa ilman sähköä"
       }
     },
     {
@@ -81,11 +102,17 @@
       },
       "label": {
         "cs": "Pravidelně užívané léky",
-        "en": "Regular medication"
+        "en": "Regular medication",
+        "sk": "Pravidelne užívané lieky",
+        "pl": "Regularnie przyjmowane leki",
+        "fi": "Säännöllisesti käytettävät lääkkeet"
       },
       "note": {
         "cs": "Brožura neuvádí dobu, na kterou mít léky.",
-        "en": "The booklet does not state for how long."
+        "en": "The booklet does not state for how long.",
+        "sk": "Brožúra neuvádza, na ako dlho.",
+        "pl": "Broszura nie podaje, na jak długo.",
+        "fi": "Esite ei kerro, kuinka pitkäksi aikaa."
       },
       "uncertain": true
     },
@@ -101,7 +128,10 @@
       },
       "label": {
         "cs": "Teplé oblečení, deky, spacák",
-        "en": "Warm clothes, blankets, sleeping bag"
+        "en": "Warm clothes, blankets, sleeping bag",
+        "sk": "Teplé oblečenie, prikrývky, spací vak",
+        "pl": "Ciepła odzież, koce, śpiwór",
+        "fi": "Lämpimät vaatteet, peitot, makuupussi"
       }
     },
     {
@@ -116,7 +146,10 @@
       },
       "label": {
         "cs": "Svíčky a zápalky nebo zapalovač",
-        "en": "Candles and matches or lighter"
+        "en": "Candles and matches or lighter",
+        "sk": "Sviečky a zápalky alebo zapaľovač",
+        "pl": "Świece i zapałki lub zapalniczka",
+        "fi": "Kynttilät ja tulitikut tai sytytin"
       }
     },
     {
@@ -131,7 +164,10 @@
       },
       "label": {
         "cs": "Vařič na plyn nebo líh a palivo",
-        "en": "Gas or spirit stove and fuel"
+        "en": "Gas or spirit stove and fuel",
+        "sk": "Varič na plyn alebo lieh a palivo",
+        "pl": "Kuchenka gazowa lub spirytusowa i paliwo",
+        "fi": "Kaasu- tai spriikeitin ja polttoaine"
       }
     },
     {
@@ -146,7 +182,10 @@
       },
       "label": {
         "cs": "Palivo v nádrži",
-        "en": "Fuel in the tank"
+        "en": "Fuel in the tank",
+        "sk": "Palivo v nádrži",
+        "pl": "Paliwo w baku",
+        "fi": "Polttoainetta tankissa"
       }
     },
     {
@@ -161,7 +200,10 @@
       },
       "label": {
         "cs": "Hasicí přístroj",
-        "en": "Fire extinguisher"
+        "en": "Fire extinguisher",
+        "sk": "Hasiaci prístroj",
+        "pl": "Gaśnica",
+        "fi": "Sammutin"
       }
     },
     {
@@ -176,7 +218,10 @@
       },
       "label": {
         "cs": "Lékárnička",
-        "en": "First aid kit"
+        "en": "First aid kit",
+        "sk": "Lekárnička",
+        "pl": "Apteczka",
+        "fi": "Ensiapulaukku"
       }
     },
     {
@@ -191,7 +236,10 @@
       },
       "label": {
         "cs": "Rádio na baterie",
-        "en": "Battery-powered radio"
+        "en": "Battery-powered radio",
+        "sk": "Rádio na batérie",
+        "pl": "Radio na baterie",
+        "fi": "Paristokäyttöinen radio"
       }
     },
     {
@@ -206,7 +254,10 @@
       },
       "label": {
         "cs": "Svítilna a náhradní baterie",
-        "en": "Flashlight and spare batteries"
+        "en": "Flashlight and spare batteries",
+        "sk": "Baterka a náhradné batérie",
+        "pl": "Latarka i zapasowe baterie",
+        "fi": "Taskulamppu ja varaparistot"
       }
     },
     {
@@ -221,7 +272,10 @@
       },
       "label": {
         "cs": "Hotovost v menších bankovkách",
-        "en": "Cash in small notes"
+        "en": "Cash in small notes",
+        "sk": "Hotovosť v menších bankovkách",
+        "pl": "Gotówka w drobnych banknotach",
+        "fi": "Käteistä pieninä seteleinä"
       }
     },
     {
@@ -236,7 +290,10 @@
       },
       "label": {
         "cs": "Nabitá powerbanka a nabíječka",
-        "en": "Charged power bank and charger"
+        "en": "Charged power bank and charger",
+        "sk": "Nabitá powerbanka a nabíjačka",
+        "pl": "Naładowany powerbank i ładowarka",
+        "fi": "Ladattu varavirtalähde ja laturi"
       }
     },
     {
@@ -251,7 +308,10 @@
       },
       "label": {
         "cs": "Doklady a důležité dokumenty",
-        "en": "ID and important documents"
+        "en": "ID and important documents",
+        "sk": "Doklady a dôležité písomnosti",
+        "pl": "Dowód osobisty i ważne dokumenty",
+        "fi": "Henkilöpaperit ja tärkeät asiakirjat"
       }
     },
     {
@@ -266,7 +326,10 @@
       },
       "label": {
         "cs": "Toaletní papír a hygienické potřeby",
-        "en": "Toilet paper and hygiene supplies"
+        "en": "Toilet paper and hygiene supplies",
+        "sk": "Toaletný papier a hygienické potreby",
+        "pl": "Papier toaletowy i środki higieniczne",
+        "fi": "WC-paperia ja hygieniatarvikkeita"
       }
     },
     {
@@ -281,7 +344,10 @@
       },
       "label": {
         "cs": "Dezinfekce na ruce",
-        "en": "Hand sanitizer"
+        "en": "Hand sanitizer",
+        "sk": "Dezinfekcia na ruky",
+        "pl": "Środek do dezynfekcji rąk",
+        "fi": "Käsidesi"
       }
     },
     {
@@ -296,7 +362,10 @@
       },
       "label": {
         "cs": "Pytle na odpadky",
-        "en": "Garbage bags"
+        "en": "Garbage bags",
+        "sk": "Vrecia na odpadky",
+        "pl": "Worki na śmieci",
+        "fi": "Jätesäkit"
       }
     },
     {
@@ -311,7 +380,10 @@
       },
       "label": {
         "cs": "Krmivo pro zvířata",
-        "en": "Pet food"
+        "en": "Pet food",
+        "sk": "Krmivo pre zvieratá",
+        "pl": "Karma dla zwierząt",
+        "fi": "Lemmikin ruoka"
       }
     }
   ]

@@ -8,7 +8,7 @@ import { ensurePermission, syncReminders } from '@/lib/notifications';
 import { type Household, getHousehold, getSetting, listItems, setHousehold, setSetting } from '@/lib/repo';
 import { useDbQuery } from '@/lib/useDbQuery';
 
-const LANGUAGE_NAMES: Record<string, string> = { cs: 'Čeština', en: 'English' };
+const LANGUAGE_NAMES: Record<string, string> = { cs: 'Čeština', en: 'English', sk: 'Slovenčina', pl: 'Polski', fi: 'Suomi' };
 
 export default function MoreScreen() {
   const db = useSQLiteContext();

@@ -4,11 +4,17 @@ import { initReactI18next } from 'react-i18next';
 
 import cs from './locales/cs.json';
 import en from './locales/en.json';
+import fi from './locales/fi.json';
+import pl from './locales/pl.json';
+import sk from './locales/sk.json';
 
 // To add a language: create locales/<code>.json and register it here.
 export const resources = {
   cs: { translation: cs },
   en: { translation: en },
+  sk: { translation: sk },
+  pl: { translation: pl },
+  fi: { translation: fi },
 } as const;
 
 export type Language = keyof typeof resources;

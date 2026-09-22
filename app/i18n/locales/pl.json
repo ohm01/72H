@@ -1,0 +1,74 @@
+{
+  "tabs": { "stock": "Zapasy", "map": "Mapa", "family": "Rodzina", "more": "Więcej" },
+  "common": {
+    "comingSoon": "Wkrótce", "save": "Zapisz", "cancel": "Anuluj", "delete": "Usuń", "edit": "Edytuj",
+    "add": "Dodaj", "next": "Dalej", "back": "Wstecz", "skip": "Pomiń", "done": "Gotowe", "all": "Wszystko",
+    "optional": "opcjonalnie", "confirmDelete": "Czy na pewno usunąć „{{name}}”?"
+  },
+  "units": { "l": "l", "ration": "racje dzienne", "pcs": "szt.", "pack": "opak." },
+  "unitNames": { "l": "Litry", "ration": "Racje dzienne (1 osoba/dzień)", "pcs": "Sztuki", "pack": "Opakowania" },
+  "itemTypes": {
+    "water": "Woda", "food": "Jedzenie", "medicine": "Leki", "hygiene": "Higiena", "energy": "Energia", "light": "Światło",
+    "documents": "Dokumenty i gotówka", "tools": "Narzędzia", "pets": "Zwierzęta", "other": "Inne"
+  },
+  "days_one": "{{n}} dzień",
+  "days_few": "{{n}} dni",
+  "days_many": "{{n}} dni",
+  "days_other": "{{n}} dnia",
+  "stock": {
+    "readinessTitle": "Na ile dni mamy zapasy",
+    "readinessValue": "{{days}} z {{target}}",
+    "readinessHint": "Obliczone dla {{persons}} os. Woda: {{water}}, jedzenie: {{food}}.",
+    "readinessGoal": "Zaleca się mieć zapasy na co najmniej 72 godziny.",
+    "byLocation": "Według miejsca", "items": "Pozycje", "addItem": "Dodaj pozycję",
+    "checklist": "Co mieć w domu (lista)", "locations": "Miejsca",
+    "empty": "Na razie nic tu nie ma. Zacznij od wody i jedzenia – to one decydują, na ile dni wystarczy zapasów.",
+    "expired": "przeterminowane", "expiresToday": "kończy się dziś", "expiresIn": "kończy się za {{days}}", "noExpiry": "bez daty ważności"
+  },
+  "item": {
+    "newTitle": "Nowa pozycja", "editTitle": "Edytuj pozycję", "name": "Nazwa", "namePlaceholder": "np. Woda butelkowana 1,5 l",
+    "type": "Typ", "quantity": "Ilość", "unit": "Jednostka", "location": "Miejsce",
+    "expiresOn": "Data ważności z opakowania", "setExpiry": "Ustaw datę", "clearExpiry": "Bez daty ważności", "note": "Notatka",
+    "readinessHint": "Do liczby dni liczy się woda w litrach i jedzenie w racjach dziennych.",
+    "errorName": "Wpisz nazwę.", "errorQuantity": "Podaj ilość większą niż 0.", "errorLocation": "Najpierw utwórz miejsce."
+  },
+  "locations": {
+    "title": "Miejsca przechowywania zapasów", "hint": "Gdzie trzymasz zapasy – np. Dom, Działka, U babci.",
+    "namePlaceholder": "Nazwa miejsca", "add": "Dodaj miejsce",
+    "deleteWarning": "Zostanie też usuniętych {{count}} pozycji w tym miejscu."
+  },
+  "checklist": {
+    "title": "Lista",
+    "intro": "Zalecenia dla gospodarstwa domowego ({{persons}} os., {{pets}} zwierząt) na {{days}}.",
+    "essential": "Najważniejsze", "recommended": "Warto mieć",
+    "source": "Źródło: {{publisher}}, sprawdzono {{date}}", "openSource": "Otwórz źródło",
+    "disclaimer": "Opisane własnymi słowami. To nie jest oficjalna aplikacja rządowa."
+  },
+  "onboarding": {
+    "welcomeTitle": "Witaj w 72h",
+    "welcomeText": "Pomożemy Ci mieć przegląd zapasów i ustalić z rodziną plan na wypadek, gdyby coś przestało działać. Spokojnie, krok po kroku.",
+    "householdTitle": "Ile was jest?", "persons": "Liczba osób", "pets": "Liczba zwierząt",
+    "locationTitle": "Gdzie trzymasz zapasy?", "locationText": "Nazwij pierwsze miejsce. Kolejne możesz dodać później.",
+    "locationDefault": "Dom",
+    "meetingTitle": "Gdzie się spotkacie?",
+    "meetingText": "Gdy telefony przestaną działać, rodzina powinna wiedzieć, gdzie się spotkać. Na mapie wskażesz je później.",
+    "meetingName": "Nazwa miejsca spotkania", "meetingPlaceholder": "np. Przy szkole", "meetingNote": "Notatka", "finish": "Zaczynamy"
+  },
+  "more": {
+    "household": "Gospodarstwo domowe", "language": "Język", "languageSystem": "Jak w systemie",
+    "reminders": "Przypomnienia o ważności", "remindersText": "Przypomnimy 30 i 7 dni przed końcem daty ważności.",
+    "remindersPlus": "Przypomnienia o ważności są częścią Plus.",
+    "remindersDenied": "Powiadomienia są wyłączone w ustawieniach telefonu.", "remindersEnable": "Zezwól na powiadomienia",
+    "about": "O aplikacji",
+    "disclaimer": "72h to pomoc w przygotowaniach, nie oficjalny system ostrzegania. W nagłych wypadkach dzwoń pod 112."
+  },
+  "reminders": {
+    "channelName": "Ważność zapasów",
+    "title": "Zbliża się koniec ważności: {{name}}",
+    "body_one": "{{name}} traci ważność za {{count}} dzień.",
+    "body_few": "{{name}} traci ważność za {{count}} dni.",
+    "body_many": "{{name}} traci ważność za {{count}} dni.",
+    "body_other": "{{name}} traci ważność za {{count}} dnia."
+  },
+  "notFound": { "title": "Nie znaleziono strony", "message": "Ten ekran nie istnieje.", "goHome": "Wróć na początek" }
+}

@@ -1,169 +1,432 @@
 {
   "country": "CZ",
-  "name": { "cs": "Česko", "en": "Czechia" },
+  "name": {
+    "cs": "Česko",
+    "en": "Czechia",
+    "sk": "Česko",
+    "pl": "Czechy",
+    "fi": "Tšekki"
+  },
   "selfSufficiencyDays": 3,
   "source": {
     "publisher": "Ministerstvo vnitra ČR / HZS ČR",
-    "title": { "cs": "72 hodin – Nouzové zásoby", "en": "72 hours – Emergency supplies" },
+    "title": {
+      "cs": "72 hodin – Nouzové zásoby",
+      "en": "72 hours – Emergency supplies",
+      "sk": "72 hodín – Núdzové zásoby",
+      "pl": "72 godziny – Zapasy awaryjne",
+      "fi": "72 tuntia – Hätävarat"
+    },
     "url": "https://72h.gov.cz/cs/nouzove-zasoby",
-    "relatedUrls": ["https://72h.gov.cz/cs/voda", "https://72h.gov.cz/cs/jidlo", "https://72h.gov.cz/cs/evakuace"],
+    "relatedUrls": [
+      "https://72h.gov.cz/cs/voda",
+      "https://72h.gov.cz/cs/jidlo",
+      "https://72h.gov.cz/cs/evakuace"
+    ],
     "verifiedAt": "2026-09-22"
   },
   "notes": {
     "cs": "Převyprávěno vlastními slovy. Zdroj neuvádí množství jídla v kaloriích, proto počítáme s jednou denní dávkou na osobu a den.",
-    "en": "Paraphrased in our own words. The source does not state food amounts in calories, so we count one daily ration per person per day."
+    "en": "Paraphrased in our own words. The source does not state food amounts in calories, so we count one daily ration per person per day.",
+    "sk": "Prerozprávané vlastnými slovami. Zdroj neuvádza množstvo jedla v kalóriách, preto počítame s jednou dennou dávkou na osobu a deň.",
+    "pl": "Opisane własnymi słowami. Źródło nie podaje ilości jedzenia w kaloriach, dlatego liczymy jedną rację dzienną na osobę na dzień.",
+    "fi": "Kerrottu omin sanoin. Lähde ei kerro ruoan määrää kaloreina, joten laskemme yhden päiväannoksen henkeä kohden päivässä."
   },
   "items": [
     {
       "id": "water",
       "type": "water",
       "priority": "essential",
-      "quantity": { "basis": "person", "amount": 2, "unit": "l", "perDay": true },
-      "label": { "cs": "Balená pitná voda", "en": "Bottled drinking water" },
+      "quantity": {
+        "basis": "person",
+        "amount": 2,
+        "unit": "l",
+        "perDay": true
+      },
+      "label": {
+        "cs": "Balená pitná voda",
+        "en": "Bottled drinking water",
+        "sk": "Balená pitná voda",
+        "pl": "Butelkowana woda pitna",
+        "fi": "Pullotettu juomavesi"
+      },
       "note": {
         "cs": "Minimum 2 l na osobu a den jen na pití. S hygienou a vařením je to 10–15 l denně.",
-        "en": "At least 2 l per person per day for drinking only. Including hygiene and cooking it is 10–15 l a day."
+        "en": "At least 2 l per person per day for drinking only. Including hygiene and cooking it is 10–15 l a day.",
+        "sk": "Minimálne 2 l na osobu a deň len na pitie. S hygienou a varením je to 10–15 l denne.",
+        "pl": "Co najmniej 2 l na osobę dziennie tylko do picia. Z higieną i gotowaniem to 10–15 l dziennie.",
+        "fi": "Vähintään 2 l henkeä kohden päivässä pelkkään juomiseen. Hygienia ja ruoanlaitto mukaan lukien 10–15 l päivässä."
       }
     },
     {
       "id": "water_containers",
       "type": "water",
       "priority": "essential",
-      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
-      "label": { "cs": "Uzavíratelné nádoby na vodu", "en": "Sealable water containers" },
-      "note": { "cs": "Kanystry pro odběr vody z cisteren.", "en": "Jerry cans for collecting water from water tankers." }
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Uzavíratelné nádoby na vodu",
+        "en": "Sealable water containers",
+        "sk": "Uzatvárateľné nádoby na vodu",
+        "pl": "Szczelne pojemniki na wodę",
+        "fi": "Suljettavat vesiastiat"
+      },
+      "note": {
+        "cs": "Kanystry pro odběr vody z cisteren.",
+        "en": "Jerry cans for collecting water from water tankers.",
+        "sk": "Kanistre na odber vody z cisterien.",
+        "pl": "Kanistry do pobierania wody z beczkowozów.",
+        "fi": "Kanisterit veden hakemiseen vesiautoista."
+      }
     },
     {
       "id": "food",
       "type": "food",
       "priority": "essential",
-      "quantity": { "basis": "person", "amount": 1, "unit": "ration", "perDay": true },
-      "label": { "cs": "Trvanlivé jídlo", "en": "Long-life food" },
+      "quantity": {
+        "basis": "person",
+        "amount": 1,
+        "unit": "ration",
+        "perDay": true
+      },
+      "label": {
+        "cs": "Trvanlivé jídlo",
+        "en": "Long-life food",
+        "sk": "Trvanlivé jedlo",
+        "pl": "Żywność o długim terminie przydatności",
+        "fi": "Säilyvä ruoka"
+      },
       "note": {
         "cs": "Nejlépe jídlo, které není potřeba vařit: konzervy, trvanlivé pečivo, ořechy, sušené ovoce. Myslete na alergie a diety.",
-        "en": "Ideally food that needs no cooking: canned food, long-life bread, nuts, dried fruit. Mind allergies and diets."
+        "en": "Ideally food that needs no cooking: canned food, long-life bread, nuts, dried fruit. Mind allergies and diets.",
+        "sk": "Najlepšie jedlo, ktoré netreba variť: konzervy, trvanlivé pečivo, orechy, sušené ovocie. Myslite na alergie a diéty.",
+        "pl": "Najlepiej jedzenie, którego nie trzeba gotować: konserwy, pieczywo o długim terminie, orzechy, suszone owoce. Pamiętaj o alergiach i dietach.",
+        "fi": "Mieluiten ruokaa, jota ei tarvitse kypsentää: säilykkeitä, näkkileipää, pähkinöitä, kuivahedelmiä. Huomioi allergiat ja ruokavaliot."
       }
     },
     {
       "id": "first_aid",
       "type": "medicine",
       "priority": "essential",
-      "quantity": { "basis": "household", "amount": 1, "unit": "pcs", "perDay": false },
-      "label": { "cs": "Lékárnička", "en": "First aid kit" }
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Lékárnička",
+        "en": "First aid kit",
+        "sk": "Lekárnička",
+        "pl": "Apteczka",
+        "fi": "Ensiapulaukku"
+      }
     },
     {
       "id": "medicines",
       "type": "medicine",
       "priority": "essential",
-      "quantity": { "basis": "person", "amount": 7, "unit": "day", "perDay": false },
-      "label": { "cs": "Pravidelně užívané léky na týden", "en": "Regular medication for a week" }
+      "quantity": {
+        "basis": "person",
+        "amount": 7,
+        "unit": "day",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Pravidelně užívané léky na týden",
+        "en": "Regular medication for a week",
+        "sk": "Pravidelne užívané lieky na týždeň",
+        "pl": "Regularnie przyjmowane leki na tydzień",
+        "fi": "Säännöllisesti käytettävät lääkkeet viikoksi"
+      }
     },
     {
       "id": "radio",
       "type": "energy",
       "priority": "essential",
-      "quantity": { "basis": "household", "amount": 1, "unit": "pcs", "perDay": false },
-      "label": { "cs": "Rádio na baterie", "en": "Battery-powered radio" }
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Rádio na baterie",
+        "en": "Battery-powered radio",
+        "sk": "Rádio na batérie",
+        "pl": "Radio na baterie",
+        "fi": "Paristokäyttöinen radio"
+      }
     },
     {
       "id": "flashlight",
       "type": "light",
       "priority": "essential",
-      "quantity": { "basis": "household", "amount": 1, "unit": "pcs", "perDay": false },
-      "label": { "cs": "Svítilna na baterie", "en": "Battery-powered flashlight" }
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Svítilna na baterie",
+        "en": "Battery-powered flashlight",
+        "sk": "Baterka na batérie",
+        "pl": "Latarka na baterie",
+        "fi": "Paristokäyttöinen taskulamppu"
+      }
     },
     {
       "id": "cash",
       "type": "documents",
       "priority": "essential",
-      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
-      "label": { "cs": "Hotovost v mincích a menších bankovkách", "en": "Cash in coins and small notes" },
-      "note": { "cs": "Karty a bankomaty bez proudu nefungují.", "en": "Cards and ATMs do not work without power." }
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Hotovost v mincích a menších bankovkách",
+        "en": "Cash in coins and small notes",
+        "sk": "Hotovosť v minciach a menších bankovkách",
+        "pl": "Gotówka w monetach i drobnych banknotach",
+        "fi": "Käteistä kolikoina ja pieninä seteleinä"
+      },
+      "note": {
+        "cs": "Karty a bankomaty bez proudu nefungují.",
+        "en": "Cards and ATMs do not work without power.",
+        "sk": "Karty a bankomaty bez prúdu nefungujú.",
+        "pl": "Karty i bankomaty nie działają bez prądu.",
+        "fi": "Kortit ja pankkiautomaatit eivät toimi ilman sähköä."
+      }
     },
     {
       "id": "powerbank",
       "type": "energy",
       "priority": "recommended",
-      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
-      "label": { "cs": "Nabitá powerbanka a náhradní baterie", "en": "Charged power bank and spare batteries" }
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Nabitá powerbanka a náhradní baterie",
+        "en": "Charged power bank and spare batteries",
+        "sk": "Nabitá powerbanka a náhradné batérie",
+        "pl": "Naładowany powerbank i zapasowe baterie",
+        "fi": "Ladattu varavirtalähde ja varaparistot"
+      }
     },
     {
       "id": "documents",
       "type": "documents",
       "priority": "recommended",
-      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
-      "label": { "cs": "Kopie důležitých dokumentů", "en": "Copies of important documents" }
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Kopie důležitých dokumentů",
+        "en": "Copies of important documents",
+        "sk": "Kópie dôležitých dokladov",
+        "pl": "Kopie ważnych dokumentów",
+        "fi": "Tärkeiden asiakirjojen kopiot"
+      }
     },
     {
       "id": "stove",
       "type": "energy",
       "priority": "recommended",
-      "quantity": { "basis": "household", "amount": 1, "unit": "pcs", "perDay": false },
-      "label": { "cs": "Plynový vařič a zápalky", "en": "Gas stove and matches" }
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Plynový vařič a zápalky",
+        "en": "Gas stove and matches",
+        "sk": "Plynový varič a zápalky",
+        "pl": "Kuchenka gazowa i zapałki",
+        "fi": "Kaasukeitin ja tulitikut"
+      }
     },
     {
       "id": "sanitizer",
       "type": "hygiene",
       "priority": "recommended",
-      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
-      "label": { "cs": "Dezinfekce na ruce", "en": "Hand sanitizer" }
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Dezinfekce na ruce",
+        "en": "Hand sanitizer",
+        "sk": "Dezinfekcia na ruky",
+        "pl": "Środek do dezynfekcji rąk",
+        "fi": "Käsidesi"
+      }
     },
     {
       "id": "hygiene",
       "type": "hygiene",
       "priority": "recommended",
-      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
-      "label": { "cs": "Toaletní papír a hygienické potřeby", "en": "Toilet paper and hygiene supplies" }
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Toaletní papír a hygienické potřeby",
+        "en": "Toilet paper and hygiene supplies",
+        "sk": "Toaletný papier a hygienické potreby",
+        "pl": "Papier toaletowy i środki higieniczne",
+        "fi": "WC-paperia ja hygieniatarvikkeita"
+      }
     },
     {
       "id": "pet_food",
       "type": "pets",
       "priority": "recommended",
-      "quantity": { "basis": "pet", "amount": 1, "unit": "ration", "perDay": true },
-      "label": { "cs": "Krmivo pro zvířata", "en": "Pet food" }
+      "quantity": {
+        "basis": "pet",
+        "amount": 1,
+        "unit": "ration",
+        "perDay": true
+      },
+      "label": {
+        "cs": "Krmivo pro zvířata",
+        "en": "Pet food",
+        "sk": "Krmivo pre zvieratá",
+        "pl": "Karma dla zwierząt",
+        "fi": "Lemmikin ruoka"
+      }
     },
     {
       "id": "multitool",
       "type": "tools",
       "priority": "recommended",
-      "quantity": { "basis": "household", "amount": 1, "unit": "pcs", "perDay": false },
-      "label": { "cs": "Multifunkční nůž", "en": "Multi-tool knife" }
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Multifunkční nůž",
+        "en": "Multi-tool knife",
+        "sk": "Multifunkčný nôž",
+        "pl": "Scyzoryk wielofunkcyjny",
+        "fi": "Monitoimityökalu"
+      }
     },
     {
       "id": "fire",
       "type": "tools",
       "priority": "recommended",
-      "quantity": { "basis": "household", "amount": 1, "unit": "pcs", "perDay": false },
-      "label": { "cs": "Hasicí přístroj nebo hasicí deka", "en": "Fire extinguisher or fire blanket" }
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Hasicí přístroj nebo hasicí deka",
+        "en": "Fire extinguisher or fire blanket",
+        "sk": "Hasiaci prístroj alebo hasiaca deka",
+        "pl": "Gaśnica lub koc gaśniczy",
+        "fi": "Sammutin tai sammutuspeite"
+      }
     },
     {
       "id": "tape",
       "type": "tools",
       "priority": "recommended",
-      "quantity": { "basis": "household", "amount": 1, "unit": "pcs", "perDay": false },
-      "label": { "cs": "Pevná lepicí páska", "en": "Strong duct tape" }
+      "quantity": {
+        "basis": "household",
+        "amount": 1,
+        "unit": "pcs",
+        "perDay": false
+      },
+      "label": {
+        "cs": "Pevná lepicí páska",
+        "en": "Strong duct tape",
+        "sk": "Pevná lepiaca páska",
+        "pl": "Mocna taśma klejąca",
+        "fi": "Vahva ilmastointiteippi"
+      }
     },
     {
       "id": "bags",
       "type": "hygiene",
       "priority": "recommended",
-      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
-      "label": { "cs": "Pytle na odpadky", "en": "Garbage bags" },
-      "note": { "cs": "Poslouží i jako nouzová toaleta.", "en": "Also work as an emergency toilet." }
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Pytle na odpadky",
+        "en": "Garbage bags",
+        "sk": "Vrecia na odpadky",
+        "pl": "Worki na śmieci",
+        "fi": "Jätesäkit"
+      },
+      "note": {
+        "cs": "Poslouží i jako nouzová toaleta.",
+        "en": "Also work as an emergency toilet.",
+        "sk": "Poslúžia aj ako núdzová toaleta.",
+        "pl": "Przydadzą się też jako awaryjna toaleta.",
+        "fi": "Käyvät myös hätä-WC:ksi."
+      }
     },
     {
       "id": "fuel",
       "type": "energy",
       "priority": "recommended",
-      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
-      "label": { "cs": "Plná nádrž v autě (nabitý elektromobil)", "en": "Full fuel tank (charged EV)" }
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Plná nádrž v autě (nabitý elektromobil)",
+        "en": "Full fuel tank (charged EV)",
+        "sk": "Plná nádrž v aute (nabitý elektromobil)",
+        "pl": "Pełny bak (naładowany samochód elektryczny)",
+        "fi": "Täysi tankki (ladattu sähköauto)"
+      }
     },
     {
       "id": "detectors",
       "type": "tools",
       "priority": "recommended",
-      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
-      "label": { "cs": "Detektory kouře a plynů na baterie", "en": "Battery smoke and gas detectors" }
+      "quantity": {
+        "basis": "household",
+        "amount": null,
+        "unit": null,
+        "perDay": false
+      },
+      "label": {
+        "cs": "Detektory kouře a plynů na baterie",
+        "en": "Battery smoke and gas detectors",
+        "sk": "Detektory dymu a plynov na batérie",
+        "pl": "Czujniki dymu i gazów na baterie",
+        "fi": "Paristokäyttöiset savu- ja kaasuvaroittimet"
+      }
     }
   ]
 }
