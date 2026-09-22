@@ -1,14 +1,6 @@
-// Single source of truth for tiers, prices and limits.
+// Tiers, prices and limits come from /config/tiers.json (shared with the server).
 // Payments arrive in M4; until then see lib/entitlement.ts.
-
-export const PRODUCTS = {
-  plusYearly: { id: '72h.plus.yearly', priceCzk: 100, period: 'year' },
-  supporterYearly: { id: '72h.supporter.yearly', priceCzk: 249, period: 'year' },
-  lifetime: { id: '72h.lifetime', priceCzk: 299, period: 'lifetime' },
-} as const;
-
-// All paid products grant the same entitlement.
-export const ENTITLEMENT_ID = 'plus';
+import tiers from '../../config/tiers.json';
 
 export type Tier = 'free' | 'plus';
 
@@ -24,29 +16,20 @@ export type Limits = {
   familyLocation: boolean;
 };
 
+type RawLimits = { [K in keyof Limits]: Limits[K] extends number ? number | null : boolean };
+
+// JSON has no Infinity: null means unlimited.
+function toLimits(raw: RawLimits): Limits {
+  const out = {} as Record<string, number | boolean>;
+  for (const [k, v] of Object.entries(raw)) out[k] = v === null ? Infinity : v;
+  return out as Limits;
+}
+
+export const PRODUCTS = tiers.products;
+export const ENTITLEMENT_ID = tiers.entitlementId;
 export const LIMITS: Record<Tier, Limits> = {
-  free: {
-    familyMembers: 4,
-    stockItems: 30,
-    stockLocations: 1,
-    meetingPoints: 1,
-    mapAreas: 1,
-    mapAreaMaxKm2: 500,
-    mapDownloadsPerMonth: 2,
-    expiryReminders: false,
-    familyLocation: false,
-  },
-  plus: {
-    familyMembers: 8,
-    stockItems: Infinity,
-    stockLocations: Infinity,
-    meetingPoints: Infinity,
-    mapAreas: 5,
-    mapAreaMaxKm2: 5000,
-    mapDownloadsPerMonth: 10,
-    expiryReminders: true,
-    familyLocation: true,
-  },
+  free: toLimits(tiers.limits.free),
+  plus: toLimits(tiers.limits.plus),
 };
 
 // Expiry thresholds (days) for colors and reminders.

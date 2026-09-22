@@ -17,11 +17,18 @@ services:
     # No published port: DB reachable only from the api container.
 
   api:
-    build: ./server
+    build:
+      context: .
+      dockerfile: server/Dockerfile
     restart: unless-stopped
     env_file: .env
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      MAP_SOURCE: ${MAP_SOURCE:-/maps/cz.pmtiles}
+      EXTRACTS_DIR: /data/extracts
+    volumes:
+      - ./maps:/maps:ro
+      - ./var/extracts:/data/extracts
     depends_on:
       db:
         condition: service_healthy

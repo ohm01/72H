@@ -1,0 +1,7 @@
+# Build context is the repo root; send only what the server image needs.
+*
+!config/
+!server/app/
+!server/tests/
+!server/requirements.txt
+**/__pycache__

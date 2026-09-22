@@ -1,0 +1,33 @@
+{
+  "_comment": "Single source of truth for tiers, prices and limits (app + server). null = unlimited.",
+  "entitlementId": "plus",
+  "products": {
+    "plusYearly": { "id": "72h.plus.yearly", "priceCzk": 100, "period": "year" },
+    "supporterYearly": { "id": "72h.supporter.yearly", "priceCzk": 249, "period": "year" },
+    "lifetime": { "id": "72h.lifetime", "priceCzk": 299, "period": "lifetime" }
+  },
+  "limits": {
+    "free": {
+      "familyMembers": 4,
+      "stockItems": 30,
+      "stockLocations": 1,
+      "meetingPoints": 1,
+      "mapAreas": 1,
+      "mapAreaMaxKm2": 500,
+      "mapDownloadsPerMonth": 2,
+      "expiryReminders": false,
+      "familyLocation": false
+    },
+    "plus": {
+      "familyMembers": 8,
+      "stockItems": null,
+      "stockLocations": null,
+      "meetingPoints": null,
+      "mapAreas": 5,
+      "mapAreaMaxKm2": 5000,
+      "mapDownloadsPerMonth": 10,
+      "expiryReminders": true,
+      "familyLocation": true
+    }
+  }
+}
