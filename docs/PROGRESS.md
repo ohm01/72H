@@ -14,6 +14,7 @@ Aktualizuje Claude po každém kroku. Legenda: ✅ hotovo · 🔄 rozpracováno 
 1. `cd /srv/72h/app && npx eas-cli login` (účet expo.dev) a pak mi dej vědět.
 2. Rozhodnout bundle ID / package name (návrh `org.jennase.family72h`), po vydání nejde změnit.
 3. Schválit zdroje a nejistoty v `docs/country-comparison.md`.
+3b. Projít `docs/threat-model.md` a rozhodnout R1–R5 (potřebné pro M3 a M6).
 4. Volitelně (restart RPi): zapnout memory cgroup, aby platily limity paměti v Dockeru:
    `sudo sed -i '1 s/$/ cgroup_enable=memory cgroup_memory=1/' /boot/firmware/cmdline.txt && sudo reboot`
 5. Volitelně: token cloudflared přesunout z příkazové řádky do souboru s právy 600.
@@ -76,10 +77,13 @@ Připraveno: ceny, produkty a limity na jednom místě v `config/tiers.json` (č
 |---|---|
 | Data CZ, SK, PL, FI (JSON) | ✅ návrh |
 | Srovnávací tabulka ke kontrole | ✅ `docs/country-comparison.md` ⏳ schválení |
-| Obrazovka srovnání, volba standardu | ⬜ |
+| Obrazovka srovnání, volba standardu (moje země / nejpřísnější) | ✅ kód + testy |
+| Checklist, cílový počet dní a voda na den se řídí zvoleným standardem | ✅ |
 
 ### M6 – Poslední známá poloha ⬜
+Připraveno: **model hrozeb a návrh šifrování** `docs/threat-model.md` ⏳ čeká na schválení (rozhodnutí R1–R5).
 ### M7 – Beta a vydání ⬜
+Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs + en).
 
 ### Grafický styl (tvůj požadavek, poslední krok dne) ⬜
 
@@ -99,3 +103,5 @@ Připraveno: ceny, produkty a limity na jednom místě v `config/tiers.json` (č
   - Agenti tester a committer.
   - Jazyky sk, pl, fi (rozhraní i data zemí).
   - M2 server: výřez mapy, limity, testy, dočasný klíč.
+  - M5: obrazovka srovnání a volba standardu.
+  - Dokumenty: model hrozeb, zásady ochrany soukromí, texty pro obchody (koncepty).
