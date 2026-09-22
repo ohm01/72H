@@ -1,15 +1,48 @@
 {
-  "tabs": { "stock": "Zásoby", "map": "Mapa", "family": "Rodina", "more": "Viac" },
-  "common": {
-    "comingSoon": "Pripravujeme", "save": "Uložiť", "cancel": "Zrušiť", "delete": "Zmazať", "edit": "Upraviť",
-    "add": "Pridať", "next": "Ďalej", "back": "Späť", "skip": "Preskočiť", "done": "Hotovo", "all": "Všetko",
-    "optional": "nepovinné", "confirmDelete": "Naozaj zmazať „{{name}}“?"
+  "tabs": {
+    "stock": "Zásoby",
+    "map": "Mapa",
+    "family": "Rodina",
+    "more": "Viac"
   },
-  "units": { "l": "l", "ration": "denné dávky", "pcs": "ks", "pack": "bal." },
-  "unitNames": { "l": "Litre", "ration": "Denné dávky (1 osoba/deň)", "pcs": "Kusy", "pack": "Balenia" },
+  "common": {
+    "comingSoon": "Pripravujeme",
+    "save": "Uložiť",
+    "cancel": "Zrušiť",
+    "delete": "Zmazať",
+    "edit": "Upraviť",
+    "add": "Pridať",
+    "next": "Ďalej",
+    "back": "Späť",
+    "skip": "Preskočiť",
+    "done": "Hotovo",
+    "all": "Všetko",
+    "optional": "nepovinné",
+    "confirmDelete": "Naozaj zmazať „{{name}}“?"
+  },
+  "units": {
+    "l": "l",
+    "ration": "denné dávky",
+    "pcs": "ks",
+    "pack": "bal."
+  },
+  "unitNames": {
+    "l": "Litre",
+    "ration": "Denné dávky (1 osoba/deň)",
+    "pcs": "Kusy",
+    "pack": "Balenia"
+  },
   "itemTypes": {
-    "water": "Voda", "food": "Jedlo", "medicine": "Lieky", "hygiene": "Hygiena", "energy": "Energia", "light": "Svetlo",
-    "documents": "Doklady a hotovosť", "tools": "Náradie", "pets": "Zvieratá", "other": "Ostatné"
+    "water": "Voda",
+    "food": "Jedlo",
+    "medicine": "Lieky",
+    "hygiene": "Hygiena",
+    "energy": "Energia",
+    "light": "Svetlo",
+    "documents": "Doklady a hotovosť",
+    "tools": "Náradie",
+    "pets": "Zvieratá",
+    "other": "Ostatné"
   },
   "days_one": "{{n}} deň",
   "days_few": "{{n}} dni",
@@ -20,47 +53,79 @@
     "readinessValue": "{{days}} z {{target}}",
     "readinessHint": "Počítané pre {{persons}} os. Voda: {{water}}, jedlo: {{food}}.",
     "readinessGoal": "Odporúča sa mať zásoby aspoň na 72 hodín.",
-    "byLocation": "Podľa lokality", "items": "Položky", "addItem": "Pridať položku",
-    "checklist": "Čo mať doma (checklist)", "locations": "Lokality",
+    "byLocation": "Podľa lokality",
+    "items": "Položky",
+    "addItem": "Pridať položku",
+    "checklist": "Čo mať doma (checklist)",
+    "locations": "Lokality",
     "empty": "Zatiaľ tu nič nie je. Začnite vodou a jedlom – rozhodujú o tom, na koľko dní vystačíte.",
-    "expired": "po záruke", "expiresToday": "končí dnes", "expiresIn": "končí o {{days}}", "noExpiry": "bez expirácie"
+    "expired": "po záruke",
+    "expiresToday": "končí dnes",
+    "expiresIn": "končí o {{days}}",
+    "noExpiry": "bez expirácie"
   },
   "item": {
-    "newTitle": "Nová položka", "editTitle": "Upraviť položku", "name": "Názov", "namePlaceholder": "napr. Balená voda 1,5 l",
-    "type": "Typ", "quantity": "Množstvo", "unit": "Jednotka", "location": "Lokalita",
-    "expiresOn": "Dátum spotreby z obalu", "setExpiry": "Nastaviť dátum", "clearExpiry": "Bez expirácie", "note": "Poznámka",
+    "newTitle": "Nová položka",
+    "editTitle": "Upraviť položku",
+    "name": "Názov",
+    "namePlaceholder": "napr. Balená voda 1,5 l",
+    "type": "Typ",
+    "quantity": "Množstvo",
+    "unit": "Jednotka",
+    "location": "Lokalita",
+    "expiresOn": "Dátum spotreby z obalu",
+    "setExpiry": "Nastaviť dátum",
+    "clearExpiry": "Bez expirácie",
+    "note": "Poznámka",
     "readinessHint": "Do výpočtu dní sa počíta voda v litroch a jedlo v denných dávkach.",
-    "errorName": "Vyplňte názov.", "errorQuantity": "Zadajte množstvo väčšie ako 0.", "errorLocation": "Najprv vytvorte lokalitu."
+    "errorName": "Vyplňte názov.",
+    "errorQuantity": "Zadajte množstvo väčšie ako 0.",
+    "errorLocation": "Najprv vytvorte lokalitu."
   },
   "locations": {
-    "title": "Lokality zásob", "hint": "Kde máte zásoby – napr. Doma, Chata, U babky.",
-    "namePlaceholder": "Názov lokality", "add": "Pridať lokalitu",
+    "title": "Lokality zásob",
+    "hint": "Kde máte zásoby – napr. Doma, Chata, U babky.",
+    "namePlaceholder": "Názov lokality",
+    "add": "Pridať lokalitu",
     "deleteWarning": "Zmaže sa aj {{count}} položiek v tejto lokalite."
   },
   "checklist": {
     "title": "Checklist",
     "intro": "Odporúčanie pre domácnosť ({{persons}} os., {{pets}} zvierat) na {{days}}.",
-    "essential": "Najdôležitejšie", "recommended": "Ďalej sa hodí",
-    "source": "Zdroj: {{publisher}}, overené {{date}}", "openSource": "Otvoriť zdroj",
+    "essential": "Najdôležitejšie",
+    "recommended": "Ďalej sa hodí",
+    "source": "Zdroj: {{publisher}}, overené {{date}}",
+    "openSource": "Otvoriť zdroj",
     "disclaimer": "Prerozprávané vlastnými slovami. Aplikácia nie je oficiálnou aplikáciou štátu."
   },
   "onboarding": {
     "welcomeTitle": "Vitajte v 72h",
     "welcomeText": "Pomôžeme vám mať prehľad o zásobách a dohodnúť sa s rodinou, keby niečo nefungovalo. V pokoji, krok za krokom.",
-    "householdTitle": "Koľko vás je?", "persons": "Počet osôb", "pets": "Počet zvierat",
-    "locationTitle": "Kde máte zásoby?", "locationText": "Pomenujte prvé miesto. Ďalšie môžete pridať neskôr.",
+    "householdTitle": "Koľko vás je?",
+    "persons": "Počet osôb",
+    "pets": "Počet zvierat",
+    "locationTitle": "Kde máte zásoby?",
+    "locationText": "Pomenujte prvé miesto. Ďalšie môžete pridať neskôr.",
     "locationDefault": "Doma",
     "meetingTitle": "Kde sa stretnete?",
     "meetingText": "Keď nebude fungovať telefón, rodina by mala vedieť, kde sa stretnúť. Na mape ho spresníte neskôr.",
-    "meetingName": "Názov miesta stretnutia", "meetingPlaceholder": "napr. Pri škole", "meetingNote": "Poznámka", "finish": "Začať"
+    "meetingName": "Názov miesta stretnutia",
+    "meetingPlaceholder": "napr. Pri škole",
+    "meetingNote": "Poznámka",
+    "finish": "Začať"
   },
   "more": {
-    "household": "Domácnosť", "language": "Jazyk", "languageSystem": "Podľa systému",
-    "reminders": "Pripomienky expirácie", "remindersText": "Upozorníme vás 30 a 7 dní pred koncom trvanlivosti.",
+    "household": "Domácnosť",
+    "language": "Jazyk",
+    "languageSystem": "Podľa systému",
+    "reminders": "Pripomienky expirácie",
+    "remindersText": "Upozorníme vás 30 a 7 dní pred koncom trvanlivosti.",
     "remindersPlus": "Pripomienky expirácie sú súčasťou Plus.",
-    "remindersDenied": "Notifikácie sú v nastaveniach telefónu vypnuté.", "remindersEnable": "Povoliť notifikácie",
+    "remindersDenied": "Notifikácie sú v nastaveniach telefónu vypnuté.",
+    "remindersEnable": "Povoliť notifikácie",
     "about": "O aplikácii",
-    "disclaimer": "72h je pomôcka na prípravu, nie oficiálny varovný systém. V núdzi volajte 112."
+    "disclaimer": "72h je pomôcka na prípravu, nie oficiálny varovný systém. V núdzi volajte 112.",
+    "compare": "Porovnanie krajín a štandard"
   },
   "reminders": {
     "channelName": "Expirácia zásob",
@@ -70,5 +135,22 @@
     "body_many": "{{name}} končí o {{count}} dňa.",
     "body_other": "{{name}} končí o {{count}} dní."
   },
-  "notFound": { "title": "Stránka nenájdená", "message": "Táto obrazovka neexistuje.", "goHome": "Späť na začiatok" }
+  "notFound": {
+    "title": "Stránka nenájdená",
+    "message": "Táto obrazovka neexistuje.",
+    "goHome": "Späť na začiatok"
+  },
+  "compare": {
+    "title": "Porovnanie krajín",
+    "intro": "Odporúčania štátov sa líšia. Vyberte svoju krajinu a podľa čoho sa má počítať checklist.",
+    "myCountry": "Moja krajina",
+    "standard": "Štandard",
+    "standardCountry": "Moja krajina",
+    "standardStrictest": "Najprísnejší",
+    "result": "Checklist počíta so zásobami na {{days}}.",
+    "period": "Doba sebestačnosti",
+    "perDay": "/ os. / deň",
+    "uncertain": "⚠️ Zdroj nie je jednoznačný.",
+    "legend": "✓ odporúčané bez množstva · – zdroj neuvádza · ⚠️ neistota. Len oficiálne štátne zdroje."
+  }
 }

@@ -83,6 +83,7 @@ function RootLayoutNav() {
         <Stack.Screen name="item/[id]" options={{ presentation: 'modal', title: t('item.editTitle') }} />
         <Stack.Screen name="locations" options={{ title: t('locations.title') }} />
         <Stack.Screen name="checklist" options={{ title: t('checklist.title') }} />
+        <Stack.Screen name="compare" options={{ title: t('compare.title') }} />
       </Stack>
     </ThemeProvider>
   );

@@ -122,7 +122,8 @@
     "remindersDenied": "Notifications are turned off in phone settings.",
     "remindersEnable": "Allow notifications",
     "about": "About",
-    "disclaimer": "72h is a preparedness aid, not an official warning system. In an emergency call 112."
+    "disclaimer": "72h is a preparedness aid, not an official warning system. In an emergency call 112.",
+    "compare": "Country comparison and standard"
   },
   "reminders": {
     "channelName": "Supply expiry",
@@ -134,5 +135,18 @@
     "title": "Page not found",
     "message": "This screen doesn't exist.",
     "goHome": "Go to start"
+  },
+  "compare": {
+    "title": "Country comparison",
+    "intro": "Government recommendations differ. Choose your country and what the checklist should be based on.",
+    "myCountry": "My country",
+    "standard": "Standard",
+    "standardCountry": "My country",
+    "standardStrictest": "Strictest",
+    "result": "The checklist counts supplies for {{days}}.",
+    "period": "Self-sufficiency period",
+    "perDay": "/ person / day",
+    "uncertain": "⚠️ The source is not clear-cut.",
+    "legend": "✓ recommended without amount · – not listed · ⚠️ uncertain. Official government sources only."
   }
 }

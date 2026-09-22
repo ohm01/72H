@@ -1,15 +1,48 @@
 {
-  "tabs": { "stock": "Varasto", "map": "Kartta", "family": "Perhe", "more": "Lisää" },
-  "common": {
-    "comingSoon": "Tulossa", "save": "Tallenna", "cancel": "Peruuta", "delete": "Poista", "edit": "Muokkaa",
-    "add": "Lisää", "next": "Seuraava", "back": "Takaisin", "skip": "Ohita", "done": "Valmis", "all": "Kaikki",
-    "optional": "valinnainen", "confirmDelete": "Poistetaanko ”{{name}}”?"
+  "tabs": {
+    "stock": "Varasto",
+    "map": "Kartta",
+    "family": "Perhe",
+    "more": "Lisää"
   },
-  "units": { "l": "l", "ration": "päiväannosta", "pcs": "kpl", "pack": "pkt" },
-  "unitNames": { "l": "Litrat", "ration": "Päiväannokset (1 henkilö/päivä)", "pcs": "Kappaleet", "pack": "Pakkaukset" },
+  "common": {
+    "comingSoon": "Tulossa",
+    "save": "Tallenna",
+    "cancel": "Peruuta",
+    "delete": "Poista",
+    "edit": "Muokkaa",
+    "add": "Lisää",
+    "next": "Seuraava",
+    "back": "Takaisin",
+    "skip": "Ohita",
+    "done": "Valmis",
+    "all": "Kaikki",
+    "optional": "valinnainen",
+    "confirmDelete": "Poistetaanko ”{{name}}”?"
+  },
+  "units": {
+    "l": "l",
+    "ration": "päiväannosta",
+    "pcs": "kpl",
+    "pack": "pkt"
+  },
+  "unitNames": {
+    "l": "Litrat",
+    "ration": "Päiväannokset (1 henkilö/päivä)",
+    "pcs": "Kappaleet",
+    "pack": "Pakkaukset"
+  },
   "itemTypes": {
-    "water": "Vesi", "food": "Ruoka", "medicine": "Lääkkeet", "hygiene": "Hygienia", "energy": "Energia", "light": "Valo",
-    "documents": "Asiakirjat ja käteinen", "tools": "Työkalut", "pets": "Lemmikit", "other": "Muut"
+    "water": "Vesi",
+    "food": "Ruoka",
+    "medicine": "Lääkkeet",
+    "hygiene": "Hygienia",
+    "energy": "Energia",
+    "light": "Valo",
+    "documents": "Asiakirjat ja käteinen",
+    "tools": "Työkalut",
+    "pets": "Lemmikit",
+    "other": "Muut"
   },
   "days_one": "{{n}} päivä",
   "days_other": "{{n}} päivää",
@@ -18,47 +51,79 @@
     "readinessValue": "{{days}} / {{target}}",
     "readinessHint": "Laskettu {{persons}} hengelle. Vesi: {{water}}, ruoka: {{food}}.",
     "readinessGoal": "Suositus on varautua vähintään 72 tunniksi.",
-    "byLocation": "Paikoittain", "items": "Tuotteet", "addItem": "Lisää tuote",
-    "checklist": "Mitä kotona kannattaa olla (tarkistuslista)", "locations": "Paikat",
+    "byLocation": "Paikoittain",
+    "items": "Tuotteet",
+    "addItem": "Lisää tuote",
+    "checklist": "Mitä kotona kannattaa olla (tarkistuslista)",
+    "locations": "Paikat",
     "empty": "Täällä ei ole vielä mitään. Aloita vedestä ja ruoasta – ne ratkaisevat, moneksi päiväksi varat riittävät.",
-    "expired": "vanhentunut", "expiresToday": "vanhenee tänään", "expiresIn": "vanhenee {{days}} kuluttua", "noExpiry": "ei päiväystä"
+    "expired": "vanhentunut",
+    "expiresToday": "vanhenee tänään",
+    "expiresIn": "vanhenee {{days}} kuluttua",
+    "noExpiry": "ei päiväystä"
   },
   "item": {
-    "newTitle": "Uusi tuote", "editTitle": "Muokkaa tuotetta", "name": "Nimi", "namePlaceholder": "esim. Pullovesi 1,5 l",
-    "type": "Tyyppi", "quantity": "Määrä", "unit": "Yksikkö", "location": "Paikka",
-    "expiresOn": "Parasta ennen -päiväys pakkauksesta", "setExpiry": "Aseta päivämäärä", "clearExpiry": "Ei päiväystä", "note": "Muistiinpano",
+    "newTitle": "Uusi tuote",
+    "editTitle": "Muokkaa tuotetta",
+    "name": "Nimi",
+    "namePlaceholder": "esim. Pullovesi 1,5 l",
+    "type": "Tyyppi",
+    "quantity": "Määrä",
+    "unit": "Yksikkö",
+    "location": "Paikka",
+    "expiresOn": "Parasta ennen -päiväys pakkauksesta",
+    "setExpiry": "Aseta päivämäärä",
+    "clearExpiry": "Ei päiväystä",
+    "note": "Muistiinpano",
     "readinessHint": "Päivien laskennassa huomioidaan vesi litroina ja ruoka päiväannoksina.",
-    "errorName": "Anna nimi.", "errorQuantity": "Anna määrä, joka on suurempi kuin 0.", "errorLocation": "Luo ensin paikka."
+    "errorName": "Anna nimi.",
+    "errorQuantity": "Anna määrä, joka on suurempi kuin 0.",
+    "errorLocation": "Luo ensin paikka."
   },
   "locations": {
-    "title": "Varastopaikat", "hint": "Missä pidät varoja – esim. Koti, Mökki, Mummola.",
-    "namePlaceholder": "Paikan nimi", "add": "Lisää paikka",
+    "title": "Varastopaikat",
+    "hint": "Missä pidät varoja – esim. Koti, Mökki, Mummola.",
+    "namePlaceholder": "Paikan nimi",
+    "add": "Lisää paikka",
     "deleteWarning": "Myös tämän paikan {{count}} tuotetta poistetaan."
   },
   "checklist": {
     "title": "Tarkistuslista",
     "intro": "Suositus kotitaloudellesi ({{persons}} henkeä, {{pets}} lemmikkiä) ajalle {{days}}.",
-    "essential": "Tärkeimmät", "recommended": "Hyödyllisiä lisäksi",
-    "source": "Lähde: {{publisher}}, tarkistettu {{date}}", "openSource": "Avaa lähde",
+    "essential": "Tärkeimmät",
+    "recommended": "Hyödyllisiä lisäksi",
+    "source": "Lähde: {{publisher}}, tarkistettu {{date}}",
+    "openSource": "Avaa lähde",
     "disclaimer": "Kerrottu omin sanoin. Tämä ei ole viranomaisten virallinen sovellus."
   },
   "onboarding": {
     "welcomeTitle": "Tervetuloa 72h:hon",
     "welcomeText": "Autamme pitämään varat järjestyksessä ja sopimaan perheen kanssa, mitä tehdään, jos jokin lakkaa toimimasta. Rauhassa, askel kerrallaan.",
-    "householdTitle": "Kuinka monta teitä on?", "persons": "Henkilöitä", "pets": "Lemmikkejä",
-    "locationTitle": "Missä pidät varoja?", "locationText": "Nimeä ensimmäinen paikka. Voit lisätä muita myöhemmin.",
+    "householdTitle": "Kuinka monta teitä on?",
+    "persons": "Henkilöitä",
+    "pets": "Lemmikkejä",
+    "locationTitle": "Missä pidät varoja?",
+    "locationText": "Nimeä ensimmäinen paikka. Voit lisätä muita myöhemmin.",
     "locationDefault": "Koti",
     "meetingTitle": "Missä tapaatte?",
     "meetingText": "Jos puhelimet eivät toimi, perheen pitää tietää, missä tavata. Voit merkitä paikan kartalle myöhemmin.",
-    "meetingName": "Tapaamispaikan nimi", "meetingPlaceholder": "esim. Koulun luona", "meetingNote": "Muistiinpano", "finish": "Aloita"
+    "meetingName": "Tapaamispaikan nimi",
+    "meetingPlaceholder": "esim. Koulun luona",
+    "meetingNote": "Muistiinpano",
+    "finish": "Aloita"
   },
   "more": {
-    "household": "Kotitalous", "language": "Kieli", "languageSystem": "Järjestelmän mukaan",
-    "reminders": "Päiväysmuistutukset", "remindersText": "Muistutamme 30 ja 7 päivää ennen päiväyksen umpeutumista.",
+    "household": "Kotitalous",
+    "language": "Kieli",
+    "languageSystem": "Järjestelmän mukaan",
+    "reminders": "Päiväysmuistutukset",
+    "remindersText": "Muistutamme 30 ja 7 päivää ennen päiväyksen umpeutumista.",
     "remindersPlus": "Päiväysmuistutukset kuuluvat Plus-tilaukseen.",
-    "remindersDenied": "Ilmoitukset on poistettu käytöstä puhelimen asetuksissa.", "remindersEnable": "Salli ilmoitukset",
+    "remindersDenied": "Ilmoitukset on poistettu käytöstä puhelimen asetuksissa.",
+    "remindersEnable": "Salli ilmoitukset",
     "about": "Tietoa sovelluksesta",
-    "disclaimer": "72h on varautumisen apuväline, ei virallinen varoitusjärjestelmä. Hätätilanteessa soita 112."
+    "disclaimer": "72h on varautumisen apuväline, ei virallinen varoitusjärjestelmä. Hätätilanteessa soita 112.",
+    "compare": "Maavertailu ja standardi"
   },
   "reminders": {
     "channelName": "Varojen päiväykset",
@@ -66,5 +131,22 @@
     "body_one": "{{name}} vanhenee {{count}} päivän kuluttua.",
     "body_other": "{{name}} vanhenee {{count}} päivän kuluttua."
   },
-  "notFound": { "title": "Sivua ei löytynyt", "message": "Tätä näkymää ei ole.", "goHome": "Takaisin alkuun" }
+  "notFound": {
+    "title": "Sivua ei löytynyt",
+    "message": "Tätä näkymää ei ole.",
+    "goHome": "Takaisin alkuun"
+  },
+  "compare": {
+    "title": "Maavertailu",
+    "intro": "Maiden suositukset eroavat. Valitse maasi ja mihin tarkistuslista perustuu.",
+    "myCountry": "Oma maa",
+    "standard": "Standardi",
+    "standardCountry": "Oma maa",
+    "standardStrictest": "Tiukin",
+    "result": "Tarkistuslista laskee varat ajalle {{days}}.",
+    "period": "Omavaraisuusaika",
+    "perDay": "/ hlö / päivä",
+    "uncertain": "⚠️ Lähde ei ole yksiselitteinen.",
+    "legend": "✓ suositeltu ilman määrää · – ei mainittu · ⚠️ epävarma. Vain viranomaislähteet."
+  }
 }

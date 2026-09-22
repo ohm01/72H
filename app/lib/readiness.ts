@@ -24,7 +24,12 @@ function usable(item: ReadinessItem, today: Date): boolean {
   return expiryStatus(item.expiresOn, today) !== 'expired';
 }
 
-export function computeReadiness(items: ReadinessItem[], persons: number, today: Date = new Date()): Readiness {
+export function computeReadiness(
+  items: ReadinessItem[],
+  persons: number,
+  today: Date = new Date(),
+  waterLPerPersonDay: number = WATER_L_PER_PERSON_DAY
+): Readiness {
   if (persons <= 0) return { days: 0, waterDays: 0, foodDays: 0 };
   let waterL = 0;
   let foodRations = 0;
@@ -33,7 +38,7 @@ export function computeReadiness(items: ReadinessItem[], persons: number, today:
     if (item.type === 'water' && item.unit === 'l') waterL += item.quantity;
     if (item.type === 'food' && item.unit === 'ration') foodRations += item.quantity;
   }
-  const waterDays = waterL / (WATER_L_PER_PERSON_DAY * persons);
+  const waterDays = waterL / (waterLPerPersonDay * persons);
   const foodDays = foodRations / (FOOD_RATIONS_PER_PERSON_DAY * persons);
   return {
     days: floor1(Math.min(waterDays, foodDays)),
@@ -45,13 +50,14 @@ export function computeReadiness(items: ReadinessItem[], persons: number, today:
 export function readinessByLocation(
   items: ReadinessItem[],
   persons: number,
-  today: Date = new Date()
+  today: Date = new Date(),
+  waterLPerPersonDay: number = WATER_L_PER_PERSON_DAY
 ): Record<string, Readiness> {
   const groups: Record<string, ReadinessItem[]> = {};
   for (const item of items) (groups[item.locationId] ??= []).push(item);
   const result: Record<string, Readiness> = {};
   for (const [locationId, group] of Object.entries(groups)) {
-    result[locationId] = computeReadiness(group, persons, today);
+    result[locationId] = computeReadiness(group, persons, today, waterLPerPersonDay);
   }
   return result;
 }

@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { useTranslation } from 'react-i18next';
 
@@ -58,6 +59,9 @@ export default function MoreScreen() {
           <Muted>{t('more.remindersPlus')}</Muted>
         )}
       </Card>
+
+      <Button title={t('more.compare')} variant="secondary" onPress={() => router.push('/compare')} />
+      <Button title={t('stock.checklist')} variant="secondary" onPress={() => router.push('/checklist')} />
 
       <Card>
         <Label>{t('more.language')}</Label>

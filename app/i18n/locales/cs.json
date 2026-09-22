@@ -124,7 +124,8 @@
     "remindersDenied": "Notifikace jsou v nastavení telefonu vypnuté.",
     "remindersEnable": "Povolit notifikace",
     "about": "O aplikaci",
-    "disclaimer": "72h je pomůcka pro přípravu, ne oficiální varovný systém. V nouzi volejte 112."
+    "disclaimer": "72h je pomůcka pro přípravu, ne oficiální varovný systém. V nouzi volejte 112.",
+    "compare": "Srovnání zemí a standard"
   },
   "reminders": {
     "channelName": "Expirace zásob",
@@ -138,5 +139,18 @@
     "title": "Stránka nenalezena",
     "message": "Tato obrazovka neexistuje.",
     "goHome": "Zpět na začátek"
+  },
+  "compare": {
+    "title": "Srovnání zemí",
+    "intro": "Doporučení států se liší. Vyberte svou zemi a podle čeho chcete počítat checklist.",
+    "myCountry": "Moje země",
+    "standard": "Standard",
+    "standardCountry": "Moje země",
+    "standardStrictest": "Nejpřísnější",
+    "result": "Checklist počítá se zásobami na {{days}}.",
+    "period": "Doba soběstačnosti",
+    "perDay": "/ os. / den",
+    "uncertain": "⚠️ Zdroj není jednoznačný.",
+    "legend": "✓ doporučeno bez množství · – zdroj neuvádí · ⚠️ nejistota. Jen oficiální státní zdroje."
   }
 }

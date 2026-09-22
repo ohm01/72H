@@ -6,17 +6,21 @@ import { Pressable, StyleSheet } from 'react-native';
 import { Text, View } from '@/components/Themed';
 import { Button, Card, Chip, ChipRow, Label, Muted, Screen, Title } from '@/components/ui';
 import { ExpiryColors } from '@/constants/Colors';
-import { COUNTRIES } from '@/lib/countries';
-import { DEFAULT_COUNTRY } from '@/lib/config';
 import { compareByExpiry, expiryStatus } from '@/lib/expiry';
 import { daysText, expiryText, quantityText } from '@/lib/format';
 import { computeReadiness, readinessByLocation } from '@/lib/readiness';
 import { getHousehold, listItems, listLocations } from '@/lib/repo';
 import { useDbQuery } from '@/lib/useDbQuery';
+import { loadStandard, waterPerDay } from '@/lib/useStandard';
 
 async function loadStock(db: Parameters<typeof listItems>[0]) {
-  const [items, locations, household] = await Promise.all([listItems(db), listLocations(db), getHousehold(db)]);
-  return { items, locations, household };
+  const [items, locations, household, standard] = await Promise.all([
+    listItems(db),
+    listLocations(db),
+    getHousehold(db),
+    loadStandard(db),
+  ]);
+  return { items, locations, household, standard };
 }
 
 export default function StockScreen() {
@@ -26,16 +30,17 @@ export default function StockScreen() {
 
   const view = useMemo(() => {
     if (!data) return null;
-    const { items, locations, household } = data;
-    const total = computeReadiness(items, household.persons);
-    const perLocation = readinessByLocation(items, household.persons);
+    const { items, locations, household, standard } = data;
+    const water = waterPerDay(standard);
+    const total = computeReadiness(items, household.persons, new Date(), water);
+    const perLocation = readinessByLocation(items, household.persons, new Date(), water);
     const visible = items.filter((i) => !filter || i.locationId === filter).sort(compareByExpiry);
     const locationName = Object.fromEntries(locations.map((l) => [l.id, l.name]));
-    return { total, perLocation, visible, locationName, locations, household };
+    return { total, perLocation, visible, locationName, locations, household, target: standard.rec.selfSufficiencyDays };
   }, [data, filter]);
 
   if (!view) return null;
-  const target = COUNTRIES[DEFAULT_COUNTRY].selfSufficiencyDays;
+  const target = view.target;
   const days = (n: number) => daysText(t, n);
 
   return (

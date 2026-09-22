@@ -7,21 +7,26 @@ import { Text, View } from '@/components/Themed';
 import { Button, Card, Label, Muted, Screen } from '@/components/ui';
 import { ExpiryColors } from '@/constants/Colors';
 import { type ChecklistEntry, loc, scaleChecklist } from '@/lib/checklist';
-import { DEFAULT_COUNTRY } from '@/lib/config';
-import { COUNTRIES } from '@/lib/countries';
 import { daysText, formatNumber } from '@/lib/format';
 import { getChecks, getHousehold, setCheck } from '@/lib/repo';
 import { useDbQuery } from '@/lib/useDbQuery';
+import { loadStandard } from '@/lib/useStandard';
+import { router } from 'expo-router';
 
 export default function ChecklistScreen() {
   const db = useSQLiteContext();
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
-  const country = DEFAULT_COUNTRY; // country choice arrives in M5
-  const rec = COUNTRIES[country];
-  const { data, reload } = useDbQuery(async (d) => ({ household: await getHousehold(d), checks: await getChecks(d, country) }));
+  const { data, reload } = useDbQuery(async (d) => {
+    const standard = await loadStandard(d);
+    // Checks are stored per standard so switching standards keeps both lists.
+    const country = standard.mode === 'strictest' ? 'STRICTEST' : standard.rec.country;
+    return { standard, country, household: await getHousehold(d), checks: await getChecks(d, country) };
+  });
 
   if (!data) return null;
+  const { standard, country } = data;
+  const rec = standard.rec;
   const entries = scaleChecklist(rec, data.household);
 
   async function toggle(id: string) {
@@ -50,6 +55,7 @@ export default function ChecklistScreen() {
               <View style={{ flex: 1 }}>
                 <Text style={[styles.label, checked && styles.done]}>{loc(e.label, lang)}</Text>
                 {e.note && <Muted>{loc(e.note, lang)}</Muted>}
+                {e.uncertain && <Muted>{t('compare.uncertain')}</Muted>}
               </View>
               <Text style={styles.amount}>{amount(e)}</Text>
             </View>
@@ -75,10 +81,16 @@ export default function ChecklistScreen() {
         {section('recommended')}
       </Card>
       <Card>
-        <Muted>{t('checklist.source', { publisher: rec.source.publisher, date: rec.source.verifiedAt })}</Muted>
-        {rec.notes && <Muted>{loc(rec.notes, lang)}</Muted>}
+        <Muted>{standard.mode === 'strictest' ? t('compare.standardStrictest') : loc(rec.name, lang)}</Muted>
+        {standard.sources.map((src) => (
+          <View key={src.url} style={{ gap: 4 }}>
+            <Muted>{t('checklist.source', { publisher: src.publisher, date: src.verifiedAt })}</Muted>
+            <Button title={t('checklist.openSource')} variant="secondary" onPress={() => WebBrowser.openBrowserAsync(src.url)} />
+          </View>
+        ))}
+        {standard.mode === 'country' && rec.notes && <Muted>{loc(rec.notes, lang)}</Muted>}
         <Muted>{t('checklist.disclaimer')}</Muted>
-        <Button title={t('checklist.openSource')} variant="secondary" onPress={() => WebBrowser.openBrowserAsync(rec.source.url)} />
+        <Button title={t('compare.title')} variant="secondary" onPress={() => router.push('/compare')} />
       </Card>
     </Screen>
   );
