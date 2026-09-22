@@ -52,16 +52,24 @@ Aktualizuje Claude po každém kroku. Legenda: ✅ hotovo · 🔄 rozpracováno 
 
 *Hotovo, když:* máš zadané zásoby doma a na chatě a přijde připomínka ⏳.
 
-### M2 – Mapa a místa srazu ⬜
-Připraveno: tabulka `meeting_points` (bez souřadnic), místo srazu z onboardingu se ukládá.
-Soubor mapy ČR (PMTiles) stáhneme až na SSD.
+### M2 – Mapa a místa srazu 🔄
+| Část | Stav |
+|---|---|
+| Server: výřez oblasti z mapy (`POST /v1/maps/extracts`) | ✅ ověřeno naživo přes `api.jennase.org` (9,5 km² Prahy = 5,1 MB, 34 s) |
+| Server: kontrola, že je oblast v ČR, a limit plochy (zdarma 500 km²) | ✅ + testy |
+| Server: stažení s podporou pokračování (HTTP Range) | ✅ + testy |
+| Server: počítání stažení za měsíc | ⬜ potřebuje přihlášení (M3) |
+| Dočasná ochrana endpointu klíčem `X-Dev-Key` (do M3) | ✅ (klíč je v `.env`) |
+| Zdroj mapy: zatím vzdálené sestavení Protomaps, po SSD lokální `maps/cz.pmtiles` | 🔄 |
+| Aplikace: MapLibre, výběr oblasti, stažení, offline mapa, GPS, místa srazu, šipka, dětská obrazovka | ⬜ |
+Připraveno: tabulka `meeting_points`, místo srazu z onboardingu se ukládá.
 
 ### M3 – Účty a rodina ⬜
 **Změna zadání:** přihlášení e-mailem s kódem + Google + Apple (Apple je povinný, pokud je nabízený Google). Další poskytovatelé upřesníme.
 Připraveno: všechny tabulky mají UUID, `updated_at` a `deleted_at` pro synchronizaci.
 
 ### M4 – Platby a limity ⬜
-Připraveno: ceny, produkty a limity v `app/lib/config.ts`.
+Připraveno: ceny, produkty a limity na jednom místě v `config/tiers.json` (čte aplikace i server).
 
 ### M5 – Srovnání zemí 🔄
 | Část | Stav |
@@ -89,3 +97,5 @@ Připraveno: ceny, produkty a limity v `app/lib/config.ts`.
   - M1: kompletní kód zásob.
   - M5: data 4 zemí.
   - Agenti tester a committer.
+  - Jazyky sk, pl, fi (rozhraní i data zemí).
+  - M2 server: výřez mapy, limity, testy, dočasný klíč.
