@@ -38,7 +38,7 @@ Show usage + reset date. Paywall only on attempt to use a Plus feature, always s
 - `server/` Python FastAPI + PostgreSQL, Docker Compose. API port 8000, DB local only. Emails via Brevo/Resend.
 - `data/countries/` recommendation JSON per country (CZ, SK, PL, FI).
 - `maps/` map files (not in git). `docs/` plan, threat model, store texts.
-- Public access: Cloudflare Tunnel, hostname `api.<domain>` → localhost:8000.
+- Public access: Cloudflare Tunnel, hostname `api.jennase.org` → localhost:8000.
 
 ## Environment & constraints
 - Raspberry Pi (aarch64), **905 MB RAM + 904 MB swap**, shared with Rodinná E-knihovna.
@@ -67,7 +67,9 @@ Show usage + reset date. Paywall only on attempt to use a Plus feature, always s
 - [ ] **M7 Beta & release** – security, TestFlight, Play closed test, store texts, privacy policy, labels, reviewer notes. *Done:* approved in both stores.
 
 ## Status
-- 2026-09-22: M0 approved. Done: skeleton, git init, .env (local), compose + FastAPI /health (untested, Docker not installed yet), Expo SDK 57 app with 4 tabs + i18next (cs/en), tsc + expo-doctor OK.
-  Waiting on user: GitHub repo `72h` + deploy key, Docker install, Cloudflare hostname `api.<library domain>` + WAF scoped to library host.
+- 2026-09-22: M0 approved. Done: skeleton, GitHub `git@github.com:ohm01/72H.git` (deploy key), .env (local), Docker Compose running, `https://api.jennase.org/health` OK, Expo SDK 57 app with 4 tabs + i18next (cs/en), tsc + expo-doctor OK.
+  Cloudflare: tunnel is dashboard-managed (token); geo-block WAF rule scoped to `rejstrik.jennase.org` (library).
+  Next: EAS (user logs in), dev builds, backup check.
+- Known issue: kernel has no memory cgroup → compose `mem_limit` ignored (needs `cgroup_enable=memory` in cmdline.txt + reboot).
 - Decisions: all runtime data inside project dir (`var/`, `maps/`) for easy SSD move. Metro runs on the Mac (RPi RAM too small), RPi = source of truth + server. eas-cli via `npx`, no global install. GitHub access via repo deploy key (not account key).
 - App: `app/AGENTS.md` (from Expo template) says to check versioned Expo docs – SDK 57 APIs may differ from training data.
