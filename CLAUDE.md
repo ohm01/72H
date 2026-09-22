@@ -27,11 +27,11 @@ Show usage + reset date. Paywall only on attempt to use a Plus feature, always s
 
 ## Key decisions
 - Maps: OpenStreetMap only (no Google). CZ only in 1.0. One CZ PMTiles file extracted from a Protomaps build (`pmtiles extract` with CZ bbox). Server cuts user area, limits checked server-side.
-- Auth: email + one-time code only.
+- Auth: email + one-time code. **CHANGE 2026-09-22 (user):** also SSO – Google + Sign in with Apple (Apple guideline 4.8 requires Apple when Google is offered); other providers TBD at M3. Server verifies provider ID tokens (JWKS), no third-party auth service.
 - Family key generated on device, shared only via invite (QR/link). Server never sees it. Sync: last write wins.
 - Last location: opt-in, off by default, visible when on, ~1×/h or >1 km move, encrypted with family key (libsodium), server keeps only latest ciphertext, deleted on leaving group.
 - Legal: GDPR minimal data, EU hosting, export + delete account in app. App is an aid, not an official warning system; emergency 112. OSM attribution (ODbL).
-- NOT in 1.0: non-CZ maps, more countries/languages, barcodes, Google/Apple login, continuous tracking, history, geofence, SOS, route navigation, PDF export, widget, B2B, Redis.
+- NOT in 1.0: non-CZ maps, more countries/languages, barcodes, continuous tracking, history, geofence, SOS, route navigation, PDF export, widget, B2B, Redis.
 
 ## Architecture
 - `app/` Expo (RN, TypeScript), Expo Router, expo-sqlite (offline-first), expo-notifications, expo-location + task-manager, MapLibre RN, i18next, react-native-libsodium, RevenueCat. Dev builds via EAS (profiles `development`, `development-simulator`).

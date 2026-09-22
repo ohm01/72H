@@ -1,0 +1,169 @@
+{
+  "country": "CZ",
+  "name": { "cs": "Česko", "en": "Czechia" },
+  "selfSufficiencyDays": 3,
+  "source": {
+    "publisher": "Ministerstvo vnitra ČR / HZS ČR",
+    "title": { "cs": "72 hodin – Nouzové zásoby", "en": "72 hours – Emergency supplies" },
+    "url": "https://72h.gov.cz/cs/nouzove-zasoby",
+    "relatedUrls": ["https://72h.gov.cz/cs/voda", "https://72h.gov.cz/cs/jidlo", "https://72h.gov.cz/cs/evakuace"],
+    "verifiedAt": "2026-09-22"
+  },
+  "notes": {
+    "cs": "Převyprávěno vlastními slovy. Zdroj neuvádí množství jídla v kaloriích, proto počítáme s jednou denní dávkou na osobu a den.",
+    "en": "Paraphrased in our own words. The source does not state food amounts in calories, so we count one daily ration per person per day."
+  },
+  "items": [
+    {
+      "id": "water",
+      "type": "water",
+      "priority": "essential",
+      "quantity": { "basis": "person", "amount": 2, "unit": "l", "perDay": true },
+      "label": { "cs": "Balená pitná voda", "en": "Bottled drinking water" },
+      "note": {
+        "cs": "Minimum 2 l na osobu a den jen na pití. S hygienou a vařením je to 10–15 l denně.",
+        "en": "At least 2 l per person per day for drinking only. Including hygiene and cooking it is 10–15 l a day."
+      }
+    },
+    {
+      "id": "water_containers",
+      "type": "water",
+      "priority": "essential",
+      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
+      "label": { "cs": "Uzavíratelné nádoby na vodu", "en": "Sealable water containers" },
+      "note": { "cs": "Kanystry pro odběr vody z cisteren.", "en": "Jerry cans for collecting water from water tankers." }
+    },
+    {
+      "id": "food",
+      "type": "food",
+      "priority": "essential",
+      "quantity": { "basis": "person", "amount": 1, "unit": "ration", "perDay": true },
+      "label": { "cs": "Trvanlivé jídlo", "en": "Long-life food" },
+      "note": {
+        "cs": "Nejlépe jídlo, které není potřeba vařit: konzervy, trvanlivé pečivo, ořechy, sušené ovoce. Myslete na alergie a diety.",
+        "en": "Ideally food that needs no cooking: canned food, long-life bread, nuts, dried fruit. Mind allergies and diets."
+      }
+    },
+    {
+      "id": "first_aid",
+      "type": "medicine",
+      "priority": "essential",
+      "quantity": { "basis": "household", "amount": 1, "unit": "pcs", "perDay": false },
+      "label": { "cs": "Lékárnička", "en": "First aid kit" }
+    },
+    {
+      "id": "medicines",
+      "type": "medicine",
+      "priority": "essential",
+      "quantity": { "basis": "person", "amount": 7, "unit": "day", "perDay": false },
+      "label": { "cs": "Pravidelně užívané léky na týden", "en": "Regular medication for a week" }
+    },
+    {
+      "id": "radio",
+      "type": "energy",
+      "priority": "essential",
+      "quantity": { "basis": "household", "amount": 1, "unit": "pcs", "perDay": false },
+      "label": { "cs": "Rádio na baterie", "en": "Battery-powered radio" }
+    },
+    {
+      "id": "flashlight",
+      "type": "light",
+      "priority": "essential",
+      "quantity": { "basis": "household", "amount": 1, "unit": "pcs", "perDay": false },
+      "label": { "cs": "Svítilna na baterie", "en": "Battery-powered flashlight" }
+    },
+    {
+      "id": "cash",
+      "type": "documents",
+      "priority": "essential",
+      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
+      "label": { "cs": "Hotovost v mincích a menších bankovkách", "en": "Cash in coins and small notes" },
+      "note": { "cs": "Karty a bankomaty bez proudu nefungují.", "en": "Cards and ATMs do not work without power." }
+    },
+    {
+      "id": "powerbank",
+      "type": "energy",
+      "priority": "recommended",
+      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
+      "label": { "cs": "Nabitá powerbanka a náhradní baterie", "en": "Charged power bank and spare batteries" }
+    },
+    {
+      "id": "documents",
+      "type": "documents",
+      "priority": "recommended",
+      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
+      "label": { "cs": "Kopie důležitých dokumentů", "en": "Copies of important documents" }
+    },
+    {
+      "id": "stove",
+      "type": "energy",
+      "priority": "recommended",
+      "quantity": { "basis": "household", "amount": 1, "unit": "pcs", "perDay": false },
+      "label": { "cs": "Plynový vařič a zápalky", "en": "Gas stove and matches" }
+    },
+    {
+      "id": "sanitizer",
+      "type": "hygiene",
+      "priority": "recommended",
+      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
+      "label": { "cs": "Dezinfekce na ruce", "en": "Hand sanitizer" }
+    },
+    {
+      "id": "hygiene",
+      "type": "hygiene",
+      "priority": "recommended",
+      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
+      "label": { "cs": "Toaletní papír a hygienické potřeby", "en": "Toilet paper and hygiene supplies" }
+    },
+    {
+      "id": "pet_food",
+      "type": "pets",
+      "priority": "recommended",
+      "quantity": { "basis": "pet", "amount": 1, "unit": "ration", "perDay": true },
+      "label": { "cs": "Krmivo pro zvířata", "en": "Pet food" }
+    },
+    {
+      "id": "multitool",
+      "type": "tools",
+      "priority": "recommended",
+      "quantity": { "basis": "household", "amount": 1, "unit": "pcs", "perDay": false },
+      "label": { "cs": "Multifunkční nůž", "en": "Multi-tool knife" }
+    },
+    {
+      "id": "fire",
+      "type": "tools",
+      "priority": "recommended",
+      "quantity": { "basis": "household", "amount": 1, "unit": "pcs", "perDay": false },
+      "label": { "cs": "Hasicí přístroj nebo hasicí deka", "en": "Fire extinguisher or fire blanket" }
+    },
+    {
+      "id": "tape",
+      "type": "tools",
+      "priority": "recommended",
+      "quantity": { "basis": "household", "amount": 1, "unit": "pcs", "perDay": false },
+      "label": { "cs": "Pevná lepicí páska", "en": "Strong duct tape" }
+    },
+    {
+      "id": "bags",
+      "type": "hygiene",
+      "priority": "recommended",
+      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
+      "label": { "cs": "Pytle na odpadky", "en": "Garbage bags" },
+      "note": { "cs": "Poslouží i jako nouzová toaleta.", "en": "Also work as an emergency toilet." }
+    },
+    {
+      "id": "fuel",
+      "type": "energy",
+      "priority": "recommended",
+      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
+      "label": { "cs": "Plná nádrž v autě (nabitý elektromobil)", "en": "Full fuel tank (charged EV)" }
+    },
+    {
+      "id": "detectors",
+      "type": "tools",
+      "priority": "recommended",
+      "quantity": { "basis": "household", "amount": null, "unit": null, "perDay": false },
+      "label": { "cs": "Detektory kouře a plynů na baterie", "en": "Battery smoke and gas detectors" }
+    }
+  ]
+}
