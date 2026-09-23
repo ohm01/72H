@@ -1,4 +1,4 @@
-import { Camera, LogManager, Map, Marker, NativeUserLocation } from '@maplibre/maplibre-react-native';
+import { Camera, Map, Marker, NativeUserLocation } from '@maplibre/maplibre-react-native';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, type ViewStyle } from 'react-native';
@@ -9,10 +9,6 @@ import type { LatLon } from '@/lib/geo';
 import { assetsDir } from '@/lib/mapDownload';
 import { buildOfflineStyle, unionBBox } from '@/lib/mapStyle';
 import type { MapArea, MeetingPoint } from '@/lib/repo';
-
-// Fonts cover Latin, Greek and Cyrillic only (scripts/fetch-map-assets.sh). Labels in other scripts
-// just lose those characters; that is expected offline, so don't report it as an error.
-LogManager.onLog(({ message }) => message.includes('Failed to load glyph range'));
 
 type Props = {
   areas: MapArea[];

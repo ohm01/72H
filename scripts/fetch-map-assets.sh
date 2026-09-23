@@ -6,10 +6,9 @@ cd "$(dirname "$0")/.."
 BASE=https://raw.githubusercontent.com/protomaps/basemaps-assets/main
 OUT=maps/assets
 FONTS=("Noto Sans Regular" "Noto Sans Medium" "Noto Sans Italic")
-# Basic Latin, Latin-1, Latin Extended-A/B (Czech/Slovak/Polish/Finnish), Greek + combining marks,
-# Cyrillic (+ supplement), General Punctuation, Letterlike Symbols. These cover labels in the CZ data;
-# other scripts are rare and the app just skips those characters (see components/OfflineMap.tsx).
-RANGES=("0-255" "256-511" "512-767" "768-1023" "1024-1279" "1280-1535" "8192-8447" "8448-8703")
+# Every range that labels in the CZ data use: Latin (+ extended), Greek, Cyrillic, Arabic, Georgian,
+# punctuation, letterlike symbols, variation selectors. A missing range makes MapLibre log an error.
+RANGES=("0-255" "256-511" "512-767" "768-1023" "1024-1279" "1280-1535" "1536-1791" "8192-8447" "8448-8703" "11520-11775" "65024-65279")
 SPRITES=(light light@2x dark dark@2x)
 
 mkdir -p "$OUT/sprites"
