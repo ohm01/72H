@@ -7,6 +7,7 @@ import { Alert } from 'react-native';
 import { createTestDb } from './helpers/sqlite';
 
 import ChecklistScreen from '@/app/checklist';
+import GuideScreen from '@/app/guide/[id]';
 import ItemScreen from '@/app/item/[id]';
 import LocationsScreen from '@/app/locations';
 import Onboarding from '@/app/onboarding';
@@ -25,6 +26,7 @@ import {
   saveLocation,
   setHousehold,
 } from '@/lib/repo';
+import { getChecks as getGuideChecks } from '@/lib/repo';
 
 // First render lazily loads/transforms RN modules; slow on the Raspberry Pi.
 jest.setTimeout(120_000);
@@ -217,3 +219,32 @@ describe('LocationsScreen', () => {
     await waitFor(() => expect(syncReminders).toHaveBeenLastCalledWith(remaining, expect.any(Boolean)));
   });
 });
+
+describe('Emergency bag and food guide', () => {
+  it('adds the emergency bag as a location with a packing guide', async () => {
+    await saveLocation(mockDb, { name: 'Doma', lat: null, lon: null });
+    await render(<LocationsScreen />);
+    await fireEvent.press(await screen.findByText('Přidat krizové zavazadlo'));
+    await waitFor(async () => expect((await listLocations(mockDb)).map((l) => l.name)).toContain('Krizové zavazadlo'));
+    await fireEvent.press(await screen.findByText('Co zabalit'));
+    expect(router.push).toHaveBeenCalledWith('/guide/gobag');
+    expect(screen.queryByText('Přidat krizové zavazadlo')).toBeNull();
+  });
+
+  it('packing guide: checks persist, pets group only with pets', async () => {
+    (useLocalSearchParams as jest.Mock).mockReturnValue({ id: 'gobag' });
+    await render(<GuideScreen />);
+    expect(await screen.findByText('Osobní věci')).toBeTruthy();
+    expect(screen.queryByText('Domácí mazlíčci')).toBeNull();
+    await fireEvent.press(screen.getByText('Klíče'));
+    await waitFor(async () => expect((await getGuideChecks(mockDb, 'GUIDE:gobag')).has('keys')).toBe(true));
+    expect(await screen.findByText('Máte 1 z 23')).toBeTruthy();
+  });
+
+  it('checklist links food to the concrete food list', async () => {
+    await render(<ChecklistScreen />);
+    await fireEvent.press(await screen.findByText('Co konkrétně? →'));
+    expect(router.push).toHaveBeenCalledWith('/guide/food');
+  });
+});
+

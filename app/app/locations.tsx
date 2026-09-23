@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -7,14 +8,16 @@ import { View } from '@/components/Themed';
 import { Button, Card, Muted, Screen, TextField } from '@/components/ui';
 import { useLimits } from '@/lib/entitlement';
 import { syncReminders } from '@/lib/notifications';
-import { deleteLocation, listItems, listLocations, saveLocation } from '@/lib/repo';
+import { GOBAG_KEY, deleteLocation, getSetting, listItems, listLocations, saveLocation, setSetting } from '@/lib/repo';
 import { useDbQuery } from '@/lib/useDbQuery';
 
 export default function LocationsScreen() {
   const db = useSQLiteContext();
   const { t } = useTranslation();
   const limits = useLimits();
-  const { data: locations, reload } = useDbQuery(listLocations);
+  const { data, reload } = useDbQuery(async (d) => ({ locations: await listLocations(d), gobagId: await getSetting(d, GOBAG_KEY) }));
+  const locations = data?.locations;
+  const gobagId = locations?.some((l) => l.id === data?.gobagId) ? data?.gobagId : null;
   const [newName, setNewName] = useState('');
   const [edits, setEdits] = useState<Record<string, string>>({});
 
@@ -22,6 +25,13 @@ export default function LocationsScreen() {
     if (!newName.trim()) return;
     await saveLocation(db, { name: newName.trim(), lat: null, lon: null });
     setNewName('');
+    reload();
+  }
+
+  // Emergency bag = an ordinary stock location (expiry works as usual) with a packing guide.
+  async function addGobag() {
+    const id = await saveLocation(db, { name: t('guides.gobag'), lat: null, lon: null });
+    await setSetting(db, GOBAG_KEY, id);
     reload();
   }
 
@@ -62,6 +72,7 @@ export default function LocationsScreen() {
             onChangeText={(v) => setEdits((e) => ({ ...e, [l.id]: v }))}
             onEndEditing={() => rename(l.id)}
           />
+          {l.id === gobagId && <Button title={t('guides.whatToPack')} variant="secondary" onPress={() => router.push('/guide/gobag')} />}
           {(locations?.length ?? 0) > 1 && <Button title={t('common.delete')} variant="danger" onPress={() => remove(l.id, l.name)} />}
         </Card>
       ))}
@@ -71,6 +82,12 @@ export default function LocationsScreen() {
         </View>
         <Button title={t('locations.add')} onPress={add} disabled={!newName.trim()} />
       </Card>
+      {!gobagId && (
+        <Card>
+          <Muted>{t('guides.gobagOffer')}</Muted>
+          <Button title={t('guides.addGobag')} variant="secondary" onPress={addGobag} />
+        </Card>
+      )}
     </Screen>
   );
 }

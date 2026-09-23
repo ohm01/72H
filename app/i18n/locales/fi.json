@@ -230,5 +230,15 @@
     "searching": "Haetaan osoitetta…",
     "found": "Löytyi: {{label}}",
     "notFound": "Osoitetta ei löytynyt. Tarkista se tai lisää paikkakunta."
+  },
+  "guides": {
+    "food": "Ruoka – mitä pitää kotona",
+    "gobag": "Hätälaukku",
+    "tips": "Vinkit",
+    "progress": "{{done}}/{{total}} valmiina",
+    "foodMore": "Mitä tarkalleen? →",
+    "whatToPack": "Mitä pakata",
+    "addGobag": "Lisää hätälaukku",
+    "gobagOffer": "Laukku nopeaa lähtöä varten. Sisältä löydät pakkauslistan, ja seuraamme myös päiväyksiä."
   }
 }

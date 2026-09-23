@@ -76,16 +76,18 @@ Připraveno: tabulka `meeting_points`, místo srazu z onboardingu se ukládá.
 
 ## Návrhy do dalších milníků (nejsou kritické)
 
+**Zásada (2026-09-23):** aplikace musí zůstat jednoduchá. Nové věci přidávat jako **volitelnou možnost s návodem uvnitř** (vzor: „Přidat krizové zavazadlo“), ne jako další odkazy na hlavních obrazovkách.
+
 | Priorita | Návrh | Milník | Proč |
 |---|---|---|---|
-| 1 | Doporučené jídlo doma (konkrétní seznam) | M5 – další krok | Základní obsah aplikace, dnes jen „Trvanlivé jídlo“. Jen data + stávající checklist. |
-| 2 | Krizové (evakuační) zavazadlo | M5 – další krok | Základní obsah (Zuzka), v plánu už jako „go-bag“. Data + checklist. |
+| ✅ | Doporučené jídlo doma (konkrétní seznam) | hotovo 2026-09-23 | Checklist → Trvanlivé jídlo → „Co konkrétně?“ |
+| ✅ | Krizové (evakuační) zavazadlo | hotovo 2026-09-23 | Lokality → „Přidat krizové zavazadlo“ → „Co zabalit“ |
 | 3 | Kontakty rodiny | začátek M3 | Největší přínos v nouzi, malá práce, navazuje na dětskou obrazovku. |
 | 4 | Složení domácnosti: dospělí / děti / miminka + potřeby miminek | M5 | Mění onboarding a checklist – lepší před vydáním. Malá změna dat. |
 | 5 | Role rodič / dítě | M3 (s rodinnou skupinou) | Dává smysl, až bude mít aplikaci víc členů rodiny. |
 | 6 | Jídlo podle kalorií a pestrosti | M5 (po bodu 4) | Vylepšení výpočtu, větší změna. Stávající denní dávky zatím stačí. |
 
-### Doporučené jídlo doma → M5 (priorita 1)
+### Doporučené jídlo doma ✅
 Nápad (2026-09-23): chybí doporučení, **co za jídlo** mít doma.
 
 | Část | Jak |
@@ -94,7 +96,7 @@ Nápad (2026-09-23): chybí doporučení, **co za jídlo** mít doma.
 | Aplikace | Stávající checklist (Zásoby → Co mít doma) – nová skupina „Jídlo“ s těmito položkami. Kód skoro beze změny. |
 | Ostatní země | SK/PL/FI doplnit ze stejných oficiálních zdrojů, ke schválení v `docs/country-comparison.md`. |
 
-### Krizové zavazadlo → M5 (priorita 2)
+### Krizové zavazadlo ✅
 Nápad (2026-09-23, Zuzka): evakuační zavazadlo pro rychlý odchod z domu.
 
 | Část | Jak |
@@ -110,6 +112,7 @@ Nápad (2026-09-23): v onboardingu a ve Více zvolit počet **dospělých, dět�
 | Část | Jak |
 |---|---|
 | Domácnost | Tři počitadla: dospělí, děti (3–14 let), miminka (0–2 roky) + zvířata. Stávající „osoby“ = dospělí. |
+| Jak přidat | Vzorem „Přidat krizové zavazadlo“: volba „Přidat potřeby pro miminko“ / „pro dítě“, návod uvnitř. |
 | Checklist | Položky v datech zemí dostanou základ `baby` / `child` vedle `person`. Položky pro miminka (pleny, vlhčené ubrousky, kojenecké mléko nebo příkrmy, láhev, teploměr, léky pro děti) se ukážou **jen když je miminko > 0**. |
 | Voda a jídlo | Děti a miminka počítat vlastní potřebou (zdroj doplnit při schvalování dat M5). Kojenecké mléko = voda navíc na přípravu. |
 | Zdroje | Doplnit do `docs/country-comparison.md` ke schválení. |
@@ -209,3 +212,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - M2 aplikace: záložka Mapa, oblasti mapy, místa srazu, navigace se šipkou, dětská obrazovka. Texty v 5 jazycích (sk/pl/fi strojově).
   - Opravy mapy (písma, střed mapy, Metro v CI režimu nesledoval změny), dohledání adres, víc míst v onboardingu, „Offline mapy“ místo „Oblasti mapy“.
   - Návrhy s prioritou: kontakty rodiny (M3), domácnost dospělí/děti/miminka (M5), role rodič/dítě (M3), kalorie a pestrost jídla (M5).
+  - Jídlo doma (konkrétní seznam) a krizové zavazadlo podle 72h.gov.cz (`data/guides.json`, sk/pl/fi strojově). Zavazadlo = volitelné místo zásob s návodem. **M4:** zavazadlo nepočítat do limitu míst zásob ve Free.

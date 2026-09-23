@@ -230,5 +230,15 @@
     "searching": "Looking up the address…",
     "found": "Found: {{label}}",
     "notFound": "We couldn't find that address. Check it or add the town."
+  },
+  "guides": {
+    "food": "Food – what to keep at home",
+    "gobag": "Emergency bag",
+    "tips": "Tips",
+    "progress": "You have {{done}} of {{total}}",
+    "foodMore": "What exactly? →",
+    "whatToPack": "What to pack",
+    "addGobag": "Add emergency bag",
+    "gobagOffer": "A bag for leaving home quickly. Inside you'll find what to pack, and we track expiry too."
   }
 }

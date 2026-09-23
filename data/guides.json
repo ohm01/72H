@@ -1,0 +1,541 @@
+{
+ "food": {
+  "source": {
+   "publisher": "Ministerstvo vnitra ČR / HZS ČR",
+   "url": "https://72h.gov.cz/cs/jidlo",
+   "verifiedAt": "2026-09-23"
+  },
+  "intro": {
+   "cs": "Jídlo, které dlouho vydrží a nemusí se vařit. Skladujte ho s běžnými potravinami a doplňujte při nákupech. Zásoby aspoň na 72 hodin.",
+   "en": "Food that keeps for a long time and needs no cooking. Store it with your everyday food and top it up when shopping. Supplies for at least 72 hours.",
+   "sk": "Jedlo, ktoré dlho vydrží a netreba ho variť. Skladujte ho s bežnými potravinami a dopĺňajte pri nákupoch. Zásoby aspoň na 72 hodín.",
+   "pl": "Jedzenie, które długo się przechowuje i nie wymaga gotowania. Trzymaj je razem ze zwykłą żywnością i uzupełniaj przy zakupach. Zapasy na co najmniej 72 godziny.",
+   "fi": "Ruokaa, joka säilyy pitkään eikä vaadi kypsentämistä. Säilytä sitä muiden ruokien kanssa ja täydennä ostosten yhteydessä. Varat vähintään 72 tunniksi."
+  },
+  "groups": [
+   {
+    "id": "food",
+    "label": {
+     "cs": "Co mít doma",
+     "en": "What to keep at home",
+     "sk": "Čo mať doma",
+     "pl": "Co mieć w domu",
+     "fi": "Mitä pitää kotona"
+    },
+    "items": [
+     {
+      "id": "drinks",
+      "label": {
+       "cs": "Balená voda, sirupy, džusy",
+       "en": "Bottled water, cordials, juices",
+       "sk": "Balená voda, sirupy, džúsy",
+       "pl": "Woda butelkowana, syropy, soki",
+       "fi": "Pullovesi, mehutiivisteet, mehut"
+      }
+     },
+     {
+      "id": "milk",
+      "label": {
+       "cs": "Trvanlivé mléko",
+       "en": "Long-life milk",
+       "sk": "Trvanlivé mlieko",
+       "pl": "Mleko UHT",
+       "fi": "Säilykemaito (UHT)"
+      }
+     },
+     {
+      "id": "bread",
+      "label": {
+       "cs": "Trvanlivé pečivo",
+       "en": "Long-life bread",
+       "sk": "Trvanlivé pečivo",
+       "pl": "Pieczywo o długim terminie",
+       "fi": "Säilyvä leipä, näkkileipä"
+      }
+     },
+     {
+      "id": "cereals",
+      "label": {
+       "cs": "Cereálie, müsli, ovesné vločky, ořechy a semínka",
+       "en": "Cereals, muesli, oats, nuts and seeds",
+       "sk": "Cereálie, müsli, ovsené vločky, orechy a semienka",
+       "pl": "Płatki, musli, płatki owsiane, orzechy i nasiona",
+       "fi": "Murot, mysli, kaurahiutaleet, pähkinät ja siemenet"
+      }
+     },
+     {
+      "id": "canned_meat",
+      "label": {
+       "cs": "Konzervované maso a fazole",
+       "en": "Canned meat and beans",
+       "sk": "Konzervované mäso a fazuľa",
+       "pl": "Mięso i fasola w puszkach",
+       "fi": "Liha- ja papusäilykkeet"
+      }
+     },
+     {
+      "id": "canned_veg",
+      "label": {
+       "cs": "Konzervované ovoce a zelenina",
+       "en": "Canned fruit and vegetables",
+       "sk": "Konzervované ovocie a zelenina",
+       "pl": "Owoce i warzywa w puszkach",
+       "fi": "Hedelmä- ja vihannessäilykkeet"
+      }
+     },
+     {
+      "id": "jam",
+      "label": {
+       "cs": "Džemy, med a zavařeniny",
+       "en": "Jams, honey and preserves",
+       "sk": "Džemy, med a zaváraniny",
+       "pl": "Dżemy, miód i przetwory",
+       "fi": "Hillot, hunaja ja säilykkeet"
+      }
+     },
+     {
+      "id": "dried",
+      "label": {
+       "cs": "Sušené ovoce a sušené maso",
+       "en": "Dried fruit and dried meat",
+       "sk": "Sušené ovocie a sušené mäso",
+       "pl": "Suszone owoce i suszone mięso",
+       "fi": "Kuivatut hedelmät ja kuivaliha"
+      }
+     },
+     {
+      "id": "snacks",
+      "label": {
+       "cs": "Energetické a proteinové tyčinky, sušenky, čokoláda, hroznový cukr",
+       "en": "Energy and protein bars, biscuits, chocolate, glucose",
+       "sk": "Energetické a proteínové tyčinky, sušienky, čokoláda, hroznový cukor",
+       "pl": "Batony energetyczne i proteinowe, herbatniki, czekolada, glukoza",
+       "fi": "Energia- ja proteiinipatukat, keksit, suklaa, rypälesokeri"
+      }
+     },
+     {
+      "id": "instant",
+      "label": {
+       "cs": "Instantní jídla a polévky (když máte vařič)",
+       "en": "Instant meals and soups (if you have a stove)",
+       "sk": "Instantné jedlá a polievky (ak máte varič)",
+       "pl": "Dania i zupy instant (jeśli masz kuchenkę)",
+       "fi": "Pikaruoat ja -keitot (jos on retkikeitin)"
+      }
+     }
+    ]
+   }
+  ],
+  "tips": [
+   {
+    "cs": "Rýže a těstoviny potřebují na přípravu hodně vody i energie – nespoléhejte jen na ně.",
+    "en": "Rice and pasta need a lot of water and energy to cook – don't rely on them alone.",
+    "sk": "Ryža a cestoviny potrebujú na prípravu veľa vody aj energie – nespoliehajte sa len na ne.",
+    "pl": "Ryż i makaron wymagają dużo wody i energii – nie polegaj tylko na nich.",
+    "fi": "Riisi ja pasta vaativat paljon vettä ja energiaa – älä luota vain niihin."
+   },
+   {
+    "cs": "Má někdo v rodině alergii nebo dietu? Myslete na něj.",
+    "en": "Does anyone in the family have an allergy or special diet? Plan for them.",
+    "sk": "Má niekto v rodine alergiu alebo diétu? Myslite na neho.",
+    "pl": "Czy ktoś w rodzinie ma alergię lub dietę? Pamiętaj o nim.",
+    "fi": "Onko perheessä allergioita tai erityisruokavalioita? Huomioi ne."
+   },
+   {
+    "cs": "Nezapomeňte na krmivo pro zvířata.",
+    "en": "Don't forget pet food.",
+    "sk": "Nezabudnite na krmivo pre zvieratá.",
+    "pl": "Nie zapomnij o karmie dla zwierząt.",
+    "fi": "Muista lemmikkien ruoka."
+   }
+  ]
+ },
+ "gobag": {
+  "source": {
+   "publisher": "Ministerstvo vnitra ČR / HZS ČR",
+   "url": "https://72h.gov.cz/cs/evakuace",
+   "verifiedAt": "2026-09-23"
+  },
+  "intro": {
+   "cs": "Zavazadlo pro rychlý odchod z domu, třeba při evakuaci. Připravte ho pro každého člena rodiny a označte štítkem se jménem a telefonem.",
+   "en": "A bag for leaving home quickly, e.g. during an evacuation. Prepare one for every family member and label it with name and phone number.",
+   "sk": "Batožina na rýchly odchod z domu, napríklad pri evakuácii. Pripravte ju pre každého člena rodiny a označte štítkom s menom a telefónom.",
+   "pl": "Torba na szybkie opuszczenie domu, np. podczas ewakuacji. Przygotuj ją dla każdego członka rodziny i oznacz etykietą z imieniem i telefonem.",
+   "fi": "Laukku nopeaa lähtöä varten, esim. evakuoinnissa. Valmista jokaiselle perheenjäsenelle ja merkitse nimellä ja puhelinnumerolla."
+  },
+  "groups": [
+   {
+    "id": "personal",
+    "label": {
+     "cs": "Osobní věci",
+     "en": "Personal items",
+     "sk": "Osobné veci",
+     "pl": "Rzeczy osobiste",
+     "fi": "Henkilökohtaiset tavarat"
+    },
+    "items": [
+     {
+      "id": "id_cards",
+      "label": {
+       "cs": "Občanský průkaz, pas, kartička pojišťovny",
+       "en": "ID card, passport, health insurance card",
+       "sk": "Občiansky preukaz, pas, kartička poisťovne",
+       "pl": "Dowód osobisty, paszport, karta ubezpieczenia",
+       "fi": "Henkilökortti, passi, Kela-kortti"
+      }
+     },
+     {
+      "id": "doc_copies",
+      "label": {
+       "cs": "Kopie důležitých dokumentů",
+       "en": "Copies of important documents",
+       "sk": "Kópie dôležitých dokumentov",
+       "pl": "Kopie ważnych dokumentów",
+       "fi": "Tärkeiden asiakirjojen kopiot"
+      },
+      "note": {
+       "cs": "Rodný list, oddací list, důležité smlouvy",
+       "en": "Birth and marriage certificates, important contracts",
+       "sk": "Rodný list, sobášny list, dôležité zmluvy",
+       "pl": "Akt urodzenia, akt małżeństwa, ważne umowy",
+       "fi": "Syntymä- ja vihkitodistus, tärkeät sopimukset"
+      }
+     },
+     {
+      "id": "keys",
+      "label": {
+       "cs": "Klíče",
+       "en": "Keys",
+       "sk": "Kľúče",
+       "pl": "Klucze",
+       "fi": "Avaimet"
+      }
+     },
+     {
+      "id": "money",
+      "label": {
+       "cs": "Hotovost a platební karty",
+       "en": "Cash and payment cards",
+       "sk": "Hotovosť a platobné karty",
+       "pl": "Gotówka i karty płatnicze",
+       "fi": "Käteinen ja maksukortit"
+      },
+      "note": {
+       "cs": "Mince a bankovky různé hodnoty",
+       "en": "Coins and notes of various values",
+       "sk": "Mince a bankovky rôznej hodnoty",
+       "pl": "Monety i banknoty o różnych nominałach",
+       "fi": "Kolikoita ja eri arvoisia seteleitä"
+      }
+     }
+    ]
+   },
+   {
+    "id": "health",
+    "label": {
+     "cs": "Zdraví a hygiena",
+     "en": "Health and hygiene",
+     "sk": "Zdravie a hygiena",
+     "pl": "Zdrowie i higiena",
+     "fi": "Terveys ja hygienia"
+    },
+    "items": [
+     {
+      "id": "first_aid",
+      "label": {
+       "cs": "Lékárnička a pravidelně užívané léky na týden",
+       "en": "First-aid kit and regular medicines for a week",
+       "sk": "Lekárnička a pravidelne užívané lieky na týždeň",
+       "pl": "Apteczka i stałe leki na tydzień",
+       "fi": "Ensiapulaukku ja säännölliset lääkkeet viikoksi"
+      }
+     },
+     {
+      "id": "glasses",
+      "label": {
+       "cs": "Brýle, kontaktní čočky",
+       "en": "Glasses, contact lenses",
+       "sk": "Okuliare, kontaktné šošovky",
+       "pl": "Okulary, soczewki kontaktowe",
+       "fi": "Silmälasit, piilolinssit"
+      }
+     },
+     {
+      "id": "sanitizer",
+      "label": {
+       "cs": "Dezinfekce na ruce",
+       "en": "Hand sanitiser",
+       "sk": "Dezinfekcia na ruky",
+       "pl": "Płyn do dezynfekcji rąk",
+       "fi": "Käsidesi"
+      }
+     },
+     {
+      "id": "toiletries",
+      "label": {
+       "cs": "Toaletní papír a hygienické potřeby",
+       "en": "Toilet paper and toiletries",
+       "sk": "Toaletný papier a hygienické potreby",
+       "pl": "Papier toaletowy i środki higieniczne",
+       "fi": "Wc-paperi ja hygieniatarvikkeet"
+      }
+     },
+     {
+      "id": "towel",
+      "label": {
+       "cs": "Ručník",
+       "en": "Towel",
+       "sk": "Uterák",
+       "pl": "Ręcznik",
+       "fi": "Pyyhe"
+      }
+     }
+    ]
+   },
+   {
+    "id": "food",
+    "label": {
+     "cs": "Jídlo a pití",
+     "en": "Food and drink",
+     "sk": "Jedlo a pitie",
+     "pl": "Jedzenie i picie",
+     "fi": "Ruoka ja juoma"
+    },
+    "items": [
+     {
+      "id": "water",
+      "label": {
+       "cs": "Balená voda na pití",
+       "en": "Bottled drinking water",
+       "sk": "Balená pitná voda",
+       "pl": "Butelkowana woda pitna",
+       "fi": "Pullotettu juomavesi"
+      },
+      "note": {
+       "cs": "Dospělý vystačí nouzově se 2 l denně.",
+       "en": "In an emergency an adult needs 2 l a day.",
+       "sk": "Dospelý vystačí núdzovo s 2 l denne.",
+       "pl": "Dorosły w sytuacji awaryjnej potrzebuje 2 l dziennie.",
+       "fi": "Aikuinen tarvitsee hätätilanteessa 2 l päivässä."
+      }
+     },
+     {
+      "id": "food_day",
+      "label": {
+       "cs": "Trvanlivé jídlo na den",
+       "en": "Long-life food for a day",
+       "sk": "Trvanlivé jedlo na deň",
+       "pl": "Żywność o długim terminie na jeden dzień",
+       "fi": "Säilyvää ruokaa päiväksi"
+      }
+     },
+     {
+      "id": "dishes",
+      "label": {
+       "cs": "Hrnek, miska, příbor",
+       "en": "Mug, bowl, cutlery",
+       "sk": "Hrnček, miska, príbor",
+       "pl": "Kubek, miska, sztućce",
+       "fi": "Muki, kulho, aterimet"
+      }
+     },
+     {
+      "id": "knife",
+      "label": {
+       "cs": "Multifunkční nůž",
+       "en": "Multi-tool knife",
+       "sk": "Multifunkčný nôž",
+       "pl": "Scyzoryk wielofunkcyjny",
+       "fi": "Monitoimityökalu"
+      }
+     }
+    ]
+   },
+   {
+    "id": "clothes",
+    "label": {
+     "cs": "Oblečení a spaní",
+     "en": "Clothing and sleeping",
+     "sk": "Oblečenie a spanie",
+     "pl": "Odzież i spanie",
+     "fi": "Vaatteet ja nukkuminen"
+    },
+    "items": [
+     {
+      "id": "shoes",
+      "label": {
+       "cs": "Pevná obuv, pláštěnka",
+       "en": "Sturdy shoes, raincoat",
+       "sk": "Pevná obuv, pršiplášť",
+       "pl": "Solidne buty, peleryna",
+       "fi": "Tukevat kengät, sadetakki"
+      }
+     },
+     {
+      "id": "clothes",
+      "label": {
+       "cs": "Náhradní oblečení a prádlo",
+       "en": "Spare clothes and underwear",
+       "sk": "Náhradné oblečenie a bielizeň",
+       "pl": "Ubrania i bielizna na zmianę",
+       "fi": "Vaihtovaatteet ja alusvaatteet"
+      }
+     },
+     {
+      "id": "sleeping",
+      "label": {
+       "cs": "Spacák nebo deka, karimatka",
+       "en": "Sleeping bag or blanket, sleeping mat",
+       "sk": "Spacák alebo deka, karimatka",
+       "pl": "Śpiwór lub koc, karimata",
+       "fi": "Makuupussi tai huopa, makuualusta"
+      }
+     }
+    ]
+   },
+   {
+    "id": "electronics",
+    "label": {
+     "cs": "Elektronika",
+     "en": "Electronics",
+     "sk": "Elektronika",
+     "pl": "Elektronika",
+     "fi": "Elektroniikka"
+    },
+    "items": [
+     {
+      "id": "phone",
+      "label": {
+       "cs": "Telefon s nabíječkou",
+       "en": "Phone with charger",
+       "sk": "Telefón s nabíjačkou",
+       "pl": "Telefon z ładowarką",
+       "fi": "Puhelin ja laturi"
+      }
+     },
+     {
+      "id": "numbers",
+      "label": {
+       "cs": "Telefonní čísla blízkých na papíře",
+       "en": "Family phone numbers on paper",
+       "sk": "Telefónne čísla blízkych na papieri",
+       "pl": "Numery bliskich na papierze",
+       "fi": "Läheisten puhelinnumerot paperilla"
+      }
+     },
+     {
+      "id": "radio",
+      "label": {
+       "cs": "Rádio a svítilna na baterie",
+       "en": "Battery radio and torch",
+       "sk": "Rádio a baterka na batérie",
+       "pl": "Radio i latarka na baterie",
+       "fi": "Paristoradio ja taskulamppu"
+      }
+     },
+     {
+      "id": "powerbank",
+      "label": {
+       "cs": "Nabitá powerbanka, náhradní baterie a kabely",
+       "en": "Charged power bank, spare batteries and cables",
+       "sk": "Nabitá powerbanka, náhradné batérie a káble",
+       "pl": "Naładowany powerbank, zapasowe baterie i kable",
+       "fi": "Ladattu varavirtalähde, paristot ja kaapelit"
+      }
+     }
+    ]
+   },
+   {
+    "id": "pets",
+    "pets": true,
+    "label": {
+     "cs": "Domácí mazlíčci",
+     "en": "Pets",
+     "sk": "Domáce zvieratá",
+     "pl": "Zwierzęta domowe",
+     "fi": "Lemmikit"
+    },
+    "items": [
+     {
+      "id": "pet_food",
+      "label": {
+       "cs": "Krmivo, léky, misky",
+       "en": "Food, medicines, bowls",
+       "sk": "Krmivo, lieky, misky",
+       "pl": "Karma, leki, miski",
+       "fi": "Ruoka, lääkkeet, kupit"
+      }
+     },
+     {
+      "id": "pet_carrier",
+      "label": {
+       "cs": "Přepravka, náhubek, vodítko",
+       "en": "Carrier, muzzle, lead",
+       "sk": "Prepravka, náhubok, vôdzka",
+       "pl": "Transporter, kaganiec, smycz",
+       "fi": "Kuljetuslaatikko, kuonokoppa, talutushihna"
+      }
+     }
+    ]
+   },
+   {
+    "id": "fun",
+    "label": {
+     "cs": "Zábava",
+     "en": "Entertainment",
+     "sk": "Zábava",
+     "pl": "Rozrywka",
+     "fi": "Ajanviete"
+    },
+    "items": [
+     {
+      "id": "pencil",
+      "label": {
+       "cs": "Tužka a papír",
+       "en": "Pencil and paper",
+       "sk": "Ceruzka a papier",
+       "pl": "Ołówek i papier",
+       "fi": "Kynä ja paperia"
+      }
+     },
+     {
+      "id": "book",
+      "label": {
+       "cs": "Kniha, časopis, společenská hra",
+       "en": "Book, magazine, board game",
+       "sk": "Kniha, časopis, spoločenská hra",
+       "pl": "Książka, czasopismo, gra planszowa",
+       "fi": "Kirja, lehti, lautapeli"
+      }
+     },
+     {
+      "id": "toys",
+      "label": {
+       "cs": "Hračky pro děti",
+       "en": "Toys for children",
+       "sk": "Hračky pre deti",
+       "pl": "Zabawki dla dzieci",
+       "fi": "Lasten leluja"
+      }
+     }
+    ]
+   }
+  ],
+  "tips": [
+   {
+    "cs": "Dětem dejte do kapsy kartičku se jménem, adresou a kontaktem na příbuzné.",
+    "en": "Put a card with name, address and a relative's contact in children's pockets.",
+    "sk": "Deťom dajte do vrecka kartičku s menom, adresou a kontaktom na príbuzných.",
+    "pl": "Dzieciom włóż do kieszeni kartkę z imieniem, adresem i kontaktem do bliskich.",
+    "fi": "Laita lasten taskuun kortti, jossa nimi, osoite ja läheisen yhteystiedot."
+   },
+   {
+    "cs": "Při odchodu nechte na dveřích lístek, kdy a kam jste odešli, se jmény a kontakty.",
+    "en": "When leaving, put a note on the door saying when and where you went, with names and contacts.",
+    "sk": "Pri odchode nechajte na dverách lístok, kedy a kam ste odišli, s menami a kontaktmi.",
+    "pl": "Wychodząc, zostaw na drzwiach kartkę, kiedy i dokąd poszliście, z imionami i kontaktami.",
+    "fi": "Jätä lähtiessäsi oveen lappu: milloin ja minne lähditte, nimet ja yhteystiedot."
+   }
+  ]
+ }
+}

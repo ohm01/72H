@@ -234,5 +234,15 @@
     "searching": "Hľadám adresu…",
     "found": "Nájdené: {{label}}",
     "notFound": "Adresu sme nenašli. Skontrolujte ju alebo zadajte aj obec."
+  },
+  "guides": {
+    "food": "Jedlo – čo mať doma",
+    "gobag": "Krízová batožina",
+    "tips": "Tipy",
+    "progress": "Máte {{done}} z {{total}}",
+    "foodMore": "Čo konkrétne? →",
+    "whatToPack": "Čo zbaliť",
+    "addGobag": "Pridať krízovú batožinu",
+    "gobagOffer": "Batoh na rýchly odchod z domu. Vnútri nájdete, čo doň zbaliť, a strážime aj expiráciu."
   }
 }

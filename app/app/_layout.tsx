@@ -88,6 +88,7 @@ function RootLayoutNav() {
         <Stack.Screen name="meeting-point/[id]" options={{ title: t('meetingPoint.editTitle') }} />
         <Stack.Screen name="navigate/[id]" options={{ title: t('navigate.title') }} />
         <Stack.Screen name="kids/[id]" options={{ title: t('kids.title') }} />
+        <Stack.Screen name="guide/[id]" options={{ title: '' }} />
       </Stack>
     </ThemeProvider>
   );

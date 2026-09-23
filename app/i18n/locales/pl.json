@@ -234,5 +234,15 @@
     "searching": "Szukam adresu…",
     "found": "Znaleziono: {{label}}",
     "notFound": "Nie znaleźliśmy tego adresu. Sprawdź go lub dodaj miejscowość."
+  },
+  "guides": {
+    "food": "Jedzenie – co mieć w domu",
+    "gobag": "Torba ewakuacyjna",
+    "tips": "Wskazówki",
+    "progress": "Masz {{done}} z {{total}}",
+    "foodMore": "Co konkretnie? →",
+    "whatToPack": "Co spakować",
+    "addGobag": "Dodaj torbę ewakuacyjną",
+    "gobagOffer": "Torba na szybkie wyjście z domu. W środku znajdziesz, co spakować, i pilnujemy też terminów."
   }
 }

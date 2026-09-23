@@ -1,11 +1,10 @@
 import { useSQLiteContext } from 'expo-sqlite';
 import * as WebBrowser from 'expo-web-browser';
 import { useTranslation } from 'react-i18next';
-import { Pressable, StyleSheet } from 'react-native';
 
-import { Text, View } from '@/components/Themed';
+import CheckRow from '@/components/CheckRow';
+import { View } from '@/components/Themed';
 import { Button, Card, Label, Muted, Screen } from '@/components/ui';
-import { ExpiryColors } from '@/constants/Colors';
 import { type ChecklistEntry, loc, scaleChecklist } from '@/lib/checklist';
 import { daysText, formatNumber } from '@/lib/format';
 import { getChecks, getHousehold, setCheck } from '@/lib/repo';
@@ -45,21 +44,18 @@ export default function ChecklistScreen() {
     entries
       .filter((e) => e.priority === priority)
       .map((e) => {
-        const checked = data.checks.has(e.id);
+        const notes = [e.note ? loc(e.note, lang) : '', e.uncertain ? t('compare.uncertain') : ''].filter(Boolean);
         return (
-          <Pressable key={e.id} onPress={() => toggle(e.id)} accessibilityRole="checkbox" accessibilityState={{ checked }}>
-            <View style={styles.row}>
-              <View style={[styles.box, checked && { backgroundColor: ExpiryColors.green, borderColor: ExpiryColors.green }]}>
-                {checked && <Text style={styles.tick}>✓</Text>}
-              </View>
-              <View style={{ flex: 1 }}>
-                <Text style={[styles.label, checked && styles.done]}>{loc(e.label, lang)}</Text>
-                {e.note && <Muted>{loc(e.note, lang)}</Muted>}
-                {e.uncertain && <Muted>{t('compare.uncertain')}</Muted>}
-              </View>
-              <Text style={styles.amount}>{amount(e)}</Text>
-            </View>
-          </Pressable>
+          <CheckRow
+            key={e.id}
+            label={loc(e.label, lang)}
+            notes={notes}
+            amount={amount(e)}
+            checked={data.checks.has(e.id)}
+            onToggle={() => toggle(e.id)}
+            // Food: concrete list from the official guide.
+            link={e.type === 'food' ? { label: t('guides.foodMore'), onPress: () => router.push('/guide/food') } : undefined}
+          />
         );
       });
 
@@ -95,12 +91,3 @@ export default function ChecklistScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  row: { flexDirection: 'row', alignItems: 'center', gap: 12, paddingVertical: 8 },
-  box: { width: 24, height: 24, borderRadius: 6, borderWidth: 2, borderColor: '#9e9e9e', alignItems: 'center', justifyContent: 'center' },
-  tick: { color: '#fff', fontWeight: '700' },
-  label: { fontSize: 16 },
-  done: { opacity: 0.5 },
-  amount: { fontWeight: '600' },
-});

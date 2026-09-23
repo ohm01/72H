@@ -153,6 +153,9 @@ export async function deleteItem(db: SQLiteDatabase, id: string): Promise<void> 
   await db.runAsync('UPDATE items SET deleted_at = ?, updated_at = ? WHERE id = ?', ts, ts, id);
 }
 
+/** Id of the stock location the user added as their emergency bag (settings key). */
+export const GOBAG_KEY = 'gobagLocationId';
+
 /** Parent's own help message on the kids screen (settings key; empty = default text). */
 export const KIDS_HELP_KEY = 'kidsHelp';
 
