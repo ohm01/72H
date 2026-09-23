@@ -90,7 +90,7 @@
     "deleteWarning": "Usunięte zostaną też pozycje w tym miejscu (liczba: {{count}})."
   },
   "checklist": {
-    "title": "Lista",
+    "title": "Co mieć w domu",
     "intro": "Zalecenia dla gospodarstwa domowego (osoby: {{persons}}, zwierzęta: {{pets}}) na {{days}}.",
     "essential": "Najważniejsze",
     "recommended": "Warto mieć",
@@ -248,7 +248,8 @@
     "whatToPack": "Co spakować",
     "addGobag": "Dodaj torbę ewakuacyjną",
     "gobagOffer": "Torba na szybkie wyjście z domu. W środku znajdziesz, co spakować, i pilnujemy też terminów.",
-    "kidsTalk": "Jak rozmawiać z dziećmi w kryzysie"
+    "kidsTalk": "Jak rozmawiać z dziećmi w kryzysie",
+    "waterMore": "Co, gdy nie ma wody? →"
   },
   "contacts": {
     "hint": "Telefony i adresy bliskich – działają bez internetu, a dzieci zobaczą je na ekranie dla dzieci.",

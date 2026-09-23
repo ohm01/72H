@@ -88,7 +88,7 @@
     "deleteWarning": "Myös tämän paikan tuotteet poistetaan (määrä: {{count}})."
   },
   "checklist": {
-    "title": "Tarkistuslista",
+    "title": "Mitä pitää kotona",
     "intro": "Suositus kotitaloudellesi (henkilöt: {{persons}}, lemmikit: {{pets}}) ajalle {{days}}.",
     "essential": "Tärkeimmät",
     "recommended": "Hyödyllisiä lisäksi",
@@ -244,7 +244,8 @@
     "whatToPack": "Mitä pakata",
     "addGobag": "Lisää hätälaukku",
     "gobagOffer": "Laukku nopeaa lähtöä varten. Sisältä löydät pakkauslistan, ja seuraamme myös päiväyksiä.",
-    "kidsTalk": "Miten puhua lapsille kriisissä"
+    "kidsTalk": "Miten puhua lapsille kriisissä",
+    "waterMore": "Entä jos vesi katkeaa? →"
   },
   "contacts": {
     "hint": "Läheisten puhelinnumerot ja osoitteet – toimivat ilman internetiä, ja lapset näkevät ne lasten näkymässä.",

@@ -245,6 +245,8 @@ describe('Emergency bag and food guide', () => {
     await render(<ChecklistScreen />);
     await fireEvent.press(await screen.findByText('Co konkrétně? →'));
     expect(router.push).toHaveBeenCalledWith('/guide/food');
+    await fireEvent.press(screen.getByText('Co když neteče voda? →'));
+    expect(router.push).toHaveBeenCalledWith('/guide/water');
   });
 });
 

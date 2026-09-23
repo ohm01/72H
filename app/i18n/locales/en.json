@@ -88,7 +88,7 @@
     "deleteWarning": "Items in this location will be deleted too (count: {{count}})."
   },
   "checklist": {
-    "title": "Checklist",
+    "title": "What to keep at home",
     "intro": "Recommendation for your household (people: {{persons}}, pets: {{pets}}) for {{days}}.",
     "essential": "Most important",
     "recommended": "Also useful",
@@ -244,7 +244,8 @@
     "whatToPack": "What to pack",
     "addGobag": "Add emergency bag",
     "gobagOffer": "A bag for leaving home quickly. Inside you'll find what to pack, and we track expiry too.",
-    "kidsTalk": "How to talk to children in a crisis"
+    "kidsTalk": "How to talk to children in a crisis",
+    "waterMore": "What if the water stops? →"
   },
   "contacts": {
     "hint": "Phone numbers and addresses of your people – they work offline and kids can see them on the kids screen.",

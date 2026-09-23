@@ -596,5 +596,78 @@
     "fi": "Anna evakuoinnissa lapselle lappu, jossa osoite ja läheisen yhteystiedot, ja pakkaa pieni lelu."
    }
   ]
+ },
+ "water": {
+  "source": {
+   "publisher": "Ministerstvo vnitra ČR / HZS ČR",
+   "url": "https://72h.gov.cz/cs/voda",
+   "verifiedAt": "2026-09-23"
+  },
+  "intro": {
+   "cs": "Voda nemusí téct několik hodin i dní. Na pití počítejte 2 l na osobu a den, s hygienou a vařením 10–15 l.",
+   "en": "Water may be off for hours or even days. Plan 2 l per person a day for drinking, 10–15 l with hygiene and cooking.",
+   "sk": "Voda nemusí tiecť niekoľko hodín aj dní. Na pitie počítajte 2 l na osobu a deň, s hygienou a varením 10–15 l.",
+   "pl": "Woda może nie płynąć przez godziny, a nawet dni. Do picia licz 2 l na osobę dziennie, z higieną i gotowaniem 10–15 l.",
+   "fi": "Vesi voi olla poikki tunteja tai päiviä. Juomavettä 2 l henkeä kohden päivässä, hygienian ja ruoanlaiton kanssa 10–15 l."
+  },
+  "groups": [],
+  "tips": [
+   {
+    "cs": "Připravte si uzavíratelné nádoby nebo kanystry – na vodu z cisteren a výdejních míst.",
+    "en": "Keep closable containers or canisters ready – for water from tankers and distribution points.",
+    "sk": "Pripravte si uzatvárateľné nádoby alebo kanistre – na vodu z cisterien a výdajných miest.",
+    "pl": "Przygotuj zamykane pojemniki lub kanistry – na wodę z beczkowozów i punktów wydawania.",
+    "fi": "Pidä valmiina suljettavia astioita tai kanistereita – vesiautoja ja jakopisteitä varten."
+   },
+   {
+    "cs": "Když o výpadku víte předem, napusťte si vodu do nádob.",
+    "en": "If you know about an outage in advance, fill containers with water.",
+    "sk": "Keď o výpadku viete vopred, napustite si vodu do nádob.",
+    "pl": "Jeśli wiesz o przerwie wcześniej, napełnij pojemniki wodą.",
+    "fi": "Jos tiedät katkosta etukäteen, täytä astiat vedellä."
+   },
+   {
+    "cs": "Pijte jen balenou vodu nebo vodu z cisteren.",
+    "en": "Drink only bottled water or water from tankers.",
+    "sk": "Pite len balenú vodu alebo vodu z cisterien.",
+    "pl": "Pij tylko wodę butelkowaną lub z beczkowozów.",
+    "fi": "Juo vain pullovettä tai vesiauton vettä."
+   },
+   {
+    "cs": "Část vody můžete mít zmraženou v plastových lahvích (neplňte až po okraj) – chladí ledničku a pak se dá pít.",
+    "en": "Keep some water frozen in plastic bottles (not filled to the top) – it cools the fridge and can be drunk later.",
+    "sk": "Časť vody môžete mať zmrazenú v plastových fľašiach (neplňte po okraj) – chladí chladničku a potom sa dá piť.",
+    "pl": "Część wody możesz zamrozić w plastikowych butelkach (nie do pełna) – chłodzi lodówkę, a potem można ją pić.",
+    "fi": "Pidä osa vedestä pakastettuna muovipulloissa (ei aivan täyteen) – ne viilentävät jääkaappia ja ovat myöhemmin juotavaa."
+   },
+   {
+    "cs": "Toaleta se spláchne jen jednou. Nouzově dejte do mísy pytel s papírem, novinami nebo kočkolitem, po použití ho zavažte do dalších dvou pytlů.",
+    "en": "The toilet flushes only once. As a backup, put a bag with paper, newspaper or cat litter in the bowl; after use tie it into two more bags.",
+    "sk": "Toaleta sa spláchne len raz. Núdzovo dajte do misy vrece s papierom, novinami alebo mačacím stelivom, po použití ho zaviažte do ďalších dvoch vriec.",
+    "pl": "Toaleta spłucze się tylko raz. Awaryjnie włóż do muszli worek z papierem, gazetami lub żwirkiem, po użyciu zawiąż go w dwa kolejne worki.",
+    "fi": "Wc huuhtoutuu vain kerran. Hätäratkaisuna laita pönttöön pussi, jossa paperia, sanomalehteä tai kissanhiekkaa, ja solmi se käytön jälkeen kahteen muuhun pussiin."
+   },
+   {
+    "cs": "Ruce si myjte dezinfekcí.",
+    "en": "Clean your hands with sanitiser.",
+    "sk": "Ruky si umývajte dezinfekciou.",
+    "pl": "Myj ręce płynem dezynfekującym.",
+    "fi": "Puhdista kädet käsidesillä."
+   },
+   {
+    "cs": "Pozor: v domech s dálkovým topením může být teplá voda při výpadku proudu vařící.",
+    "en": "Careful: in buildings with district heating, hot water can be boiling during a power cut.",
+    "sk": "Pozor: v domoch s diaľkovým kúrením môže byť teplá voda pri výpadku prúdu vriaca.",
+    "pl": "Uwaga: w budynkach z ciepłem sieciowym ciepła woda może być wrząca podczas awarii prądu.",
+    "fi": "Varo: kaukolämpötaloissa lämmin vesi voi sähkökatkon aikana olla kiehuvaa."
+   },
+   {
+    "cs": "Informace o přerušení dá dodavatel vody nebo správce domu; u některých dodavatelů lze nastavit upozornění SMS nebo e-mailem.",
+    "en": "Your water supplier or building manager has information about outages; some suppliers offer SMS or e-mail alerts.",
+    "sk": "Informácie o prerušení poskytne dodávateľ vody alebo správca domu; u niektorých dodávateľov sa dá nastaviť upozornenie SMS alebo e-mailom.",
+    "pl": "Informacji o przerwach udziela dostawca wody lub zarządca budynku; niektórzy dostawcy oferują powiadomienia SMS lub e-mail.",
+    "fi": "Tietoa katkoista saa vesilaitokselta tai isännöitsijältä; osa vesilaitoksista lähettää ilmoituksia tekstiviestillä tai sähköpostilla."
+   }
+  ]
  }
 }

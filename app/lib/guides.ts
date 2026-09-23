@@ -13,7 +13,7 @@ export type Guide = {
   tips: Localized[];
 };
 
-export const GUIDES = guides as Record<'food' | 'gobag' | 'kidsTalk', Guide>;
+export const GUIDES = guides as Record<'food' | 'gobag' | 'kidsTalk' | 'water', Guide>;
 export type GuideId = keyof typeof GUIDES;
 
 /** Pet groups only for households with pets. */

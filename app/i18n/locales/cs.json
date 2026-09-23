@@ -90,7 +90,7 @@
     "deleteWarning": "Smažou se i položky v této lokalitě (počet: {{count}})."
   },
   "checklist": {
-    "title": "Checklist",
+    "title": "Co mít doma",
     "intro": "Doporučení pro domácnost (osoby: {{persons}}, zvířata: {{pets}}) na {{days}}.",
     "essential": "Nejdůležitější",
     "recommended": "Dále se hodí",
@@ -248,7 +248,8 @@
     "whatToPack": "Co zabalit",
     "addGobag": "Přidat krizové zavazadlo",
     "gobagOffer": "Batoh pro rychlý odchod z domu. Uvnitř najdete, co do něj zabalit, a hlídáme i expiraci.",
-    "kidsTalk": "Jak s dětmi mluvit v krizi"
+    "kidsTalk": "Jak s dětmi mluvit v krizi",
+    "waterMore": "Co když neteče voda? →"
   },
   "contacts": {
     "hint": "Telefony a adresy blízkých – fungují i bez internetu a děti je uvidí na dětské obrazovce.",

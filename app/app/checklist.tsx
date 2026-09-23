@@ -10,7 +10,13 @@ import { daysText, formatNumber } from '@/lib/format';
 import { getChecks, getHousehold, setCheck } from '@/lib/repo';
 import { useDbQuery } from '@/lib/useDbQuery';
 import { loadStandard } from '@/lib/useStandard';
-import { router } from 'expo-router';
+import { type Href, router } from 'expo-router';
+
+// Checklist rows that open an official guide with the details.
+const GUIDE_LINKS: Record<string, { label: string; href: Href }> = {
+  food: { label: 'guides.foodMore', href: '/guide/food' },
+  water: { label: 'guides.waterMore', href: '/guide/water' },
+};
 
 export default function ChecklistScreen() {
   const db = useSQLiteContext();
@@ -53,8 +59,7 @@ export default function ChecklistScreen() {
             amount={amount(e)}
             checked={data.checks.has(e.id)}
             onToggle={() => toggle(e.id)}
-            // Food: concrete list from the official guide.
-            link={e.type === 'food' ? { label: t('guides.foodMore'), onPress: () => router.push('/guide/food') } : undefined}
+            link={GUIDE_LINKS[e.id] && { label: t(GUIDE_LINKS[e.id].label), onPress: () => router.push(GUIDE_LINKS[e.id].href) }}
           />
         );
       });
