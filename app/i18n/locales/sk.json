@@ -254,7 +254,9 @@
     "powerMore": "Čo robiť bez prúdu? →",
     "water": "Keď netečie voda",
     "firstAid": "Prvá pomoc",
-    "power": "Keď vypadne prúd"
+    "power": "Keď vypadne prúd",
+    "info": "Informácie v kríze",
+    "infoMore": "Kde hľadať správy? →"
   },
   "contacts": {
     "hint": "Telefóny a adresy blízkych – fungujú aj bez internetu a deti ich uvidia na detskej obrazovke.",

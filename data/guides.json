@@ -1170,5 +1170,125 @@
   ],
   "groups": [],
   "tips": []
+ },
+ "info": {
+  "source": {
+   "publisher": "Ministerstvo vnitra ČR / HZS ČR",
+   "url": "https://72h.gov.cz/cs/informace-komunikace",
+   "verifiedAt": "2026-09-23"
+  },
+  "intro": {
+   "cs": "Při velkém výpadku proudu přestanou fungovat mobily i internet. Rádio na baterie pak bývá jediný zdroj zpráv.",
+   "en": "In a large power outage mobile phones and the internet stop working. A battery radio may then be the only source of news.",
+   "sk": "Pri veľkom výpadku prúdu prestanú fungovať mobily aj internet. Rádio na batérie je potom často jediný zdroj správ.",
+   "pl": "Przy dużej awarii prądu przestają działać telefony i internet. Radio na baterie bywa wtedy jedynym źródłem wiadomości.",
+   "fi": "Laajassa sähkökatkossa matkapuhelimet ja internet lakkaavat toimimasta. Paristoradio voi silloin olla ainoa uutislähde."
+  },
+  "sections": [
+   {
+    "id": "sources",
+    "label": {
+     "cs": "Oficiální zdroje",
+     "en": "Official sources",
+     "sk": "Oficiálne zdroje",
+     "pl": "Oficjalne źródła",
+     "fi": "Viralliset lähteet"
+    },
+    "lines": [
+     {
+      "cs": "Veřejnoprávní média (Český rozhlas, Česká televize) a regionální média",
+      "en": "Public broadcasters (Czech Radio, Czech Television) and regional media",
+      "sk": "Verejnoprávne médiá (Český rozhlas, Česká televízia) a regionálne médiá",
+      "pl": "Media publiczne (Czeskie Radio, Czeska Telewizja) i media regionalne",
+      "fi": "Julkiset mediat (Tšekin radio ja televisio) ja alueelliset mediat"
+     },
+     {
+      "cs": "Obecní rozhlas a elektronické sirény",
+      "en": "Municipal loudspeakers and electronic sirens",
+      "sk": "Obecný rozhlas a elektronické sirény",
+      "pl": "Gminne nagłośnienie i syreny elektroniczne",
+      "fi": "Kunnan kuulutukset ja sähköiset sireenit"
+     },
+     {
+      "cs": "Zprávy od záchranných složek a úřadů",
+      "en": "Messages from emergency services and authorities",
+      "sk": "Správy od záchranných zložiek a úradov",
+      "pl": "Komunikaty służb ratunkowych i urzędów",
+      "fi": "Pelastusviranomaisten ja muiden viranomaisten tiedotteet"
+     },
+     {
+      "cs": "Úřední desky a aplikace vaší obce (např. Munipolis)",
+      "en": "Official notice boards and your municipality's app (e.g. Munipolis)",
+      "sk": "Úradné tabule a aplikácie vašej obce",
+      "pl": "Tablice ogłoszeń i aplikacja twojej gminy",
+      "fi": "Kunnan ilmoitustaulut ja sovellus"
+     }
+    ]
+   },
+   {
+    "id": "check",
+    "label": {
+     "cs": "Jak poznat fámu",
+     "en": "How to spot a rumour",
+     "sk": "Ako spoznať fámu",
+     "pl": "Jak rozpoznać plotkę",
+     "fi": "Miten tunnistaa huhu"
+    },
+    "lines": [
+     {
+      "cs": "KDO to říká? Oficiální zdroj, novinář, nebo někdo neznámý?",
+      "en": "WHO says it? An official source, a journalist or someone unknown?",
+      "sk": "KTO to hovorí? Oficiálny zdroj, novinár, alebo niekto neznámy?",
+      "pl": "KTO to mówi? Oficjalne źródło, dziennikarz czy ktoś nieznany?",
+      "fi": "KUKA sen sanoo? Virallinen lähde, toimittaja vai tuntematon?"
+     },
+     {
+      "cs": "CO říká? Ověřitelná fakta se zdrojem, nebo domněnky?",
+      "en": "WHAT does it say? Verifiable facts with a source, or guesses?",
+      "sk": "ČO hovorí? Overiteľné fakty so zdrojom, alebo domnienky?",
+      "pl": "CO mówi? Sprawdzalne fakty ze źródłem czy domysły?",
+      "fi": "MITÄ se sanoo? Tarkistettavia faktoja lähteineen vai arvailua?"
+     },
+     {
+      "cs": "JAK je to podané? Klidně a věcně, nebo tak, aby to vyvolalo strach a vztek?",
+      "en": "HOW is it told? Calmly and factually, or to provoke fear and anger?",
+      "sk": "AKO je to podané? Pokojne a vecne, alebo tak, aby to vyvolalo strach a hnev?",
+      "pl": "JAK jest podane? Spokojnie i rzeczowo czy tak, by wywołać strach i złość?",
+      "fi": "MITEN se kerrotaan? Rauhallisesti ja asiallisesti vai pelkoa ja vihaa lietsoen?"
+     },
+     {
+      "cs": "PROČ to autor sdílí? Chce informovat, nebo získat pozornost?",
+      "en": "WHY is it shared? To inform, or to get attention?",
+      "sk": "PREČO to autor zdieľa? Chce informovať, alebo získať pozornosť?",
+      "pl": "DLACZEGO autor to udostępnia? By informować czy zdobyć uwagę?",
+      "fi": "MIKSI sitä jaetaan? Tiedottaakseen vai saadakseen huomiota?"
+     },
+     {
+      "cs": "Ověřujte ve více zdrojích a sdílejte jen to, co víte jistě.",
+      "en": "Check several sources and share only what you know is true.",
+      "sk": "Overujte vo viacerých zdrojoch a zdieľajte len to, čo viete isto.",
+      "pl": "Sprawdzaj w kilku źródłach i udostępniaj tylko to, czego jesteś pewien.",
+      "fi": "Tarkista useasta lähteestä ja jaa vain varmaa tietoa."
+     }
+    ]
+   }
+  ],
+  "groups": [],
+  "tips": [
+   {
+    "cs": "Telefonujte jen v nutných případech – přetížená síť ztěžuje práci záchranářů.",
+    "en": "Call only when necessary – an overloaded network hampers rescuers.",
+    "sk": "Telefonujte len v nutných prípadoch – preťažená sieť sťažuje prácu záchranárov.",
+    "pl": "Dzwoń tylko w razie potrzeby – przeciążona sieć utrudnia pracę ratowników.",
+    "fi": "Soita vain tarvittaessa – ruuhkautunut verkko haittaa pelastajia."
+   },
+   {
+    "cs": "Čísla blízkých mějte napsaná i na papíře.",
+    "en": "Keep your family's numbers on paper too.",
+    "sk": "Čísla blízkych majte napísané aj na papieri.",
+    "pl": "Miej numery bliskich także na papierze.",
+    "fi": "Pidä läheisten numerot myös paperilla."
+   }
+  ]
  }
 }

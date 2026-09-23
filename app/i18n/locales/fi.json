@@ -250,7 +250,9 @@
     "powerMore": "Mitä tehdä sähkökatkossa? →",
     "water": "Kun vesi katkeaa",
     "firstAid": "Ensiapu",
-    "power": "Sähkökatko"
+    "power": "Sähkökatko",
+    "info": "Tieto kriisissä",
+    "infoMore": "Mistä saa tietoa? →"
   },
   "contacts": {
     "hint": "Läheisten puhelinnumerot ja osoitteet – toimivat ilman internetiä, ja lapset näkevät ne lasten näkymässä.",

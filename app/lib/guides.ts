@@ -16,7 +16,7 @@ export type Guide = {
   tips: Localized[];
 };
 
-export const GUIDES = guides as Record<'food' | 'gobag' | 'kidsTalk' | 'water' | 'firstAid' | 'power', Guide>;
+export const GUIDES = guides as Record<'food' | 'gobag' | 'kidsTalk' | 'water' | 'firstAid' | 'power' | 'info', Guide>;
 export type GuideId = keyof typeof GUIDES;
 
 /** Pet groups only for households with pets. */

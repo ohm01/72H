@@ -254,7 +254,9 @@
     "powerMore": "Co robić bez prądu? →",
     "water": "Gdy nie ma wody",
     "firstAid": "Pierwsza pomoc",
-    "power": "Awaria prądu"
+    "power": "Awaria prądu",
+    "info": "Informacje w kryzysie",
+    "infoMore": "Gdzie szukać wiadomości? →"
   },
   "contacts": {
     "hint": "Telefony i adresy bliskich – działają bez internetu, a dzieci zobaczą je na ekranie dla dzieci.",

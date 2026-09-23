@@ -250,7 +250,9 @@
     "powerMore": "What to do without power? →",
     "water": "When the water stops",
     "firstAid": "First aid",
-    "power": "Power outage"
+    "power": "Power outage",
+    "info": "Information in a crisis",
+    "infoMore": "Where to find news? →"
   },
   "contacts": {
     "hint": "Phone numbers and addresses of your people – they work offline and kids can see them on the kids screen.",

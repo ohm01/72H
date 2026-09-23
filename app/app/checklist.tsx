@@ -18,6 +18,7 @@ const GUIDE_LINKS: Record<string, { label: string; href: Href }> = {
   water: { label: 'guides.waterMore', href: '/guide/water' },
   first_aid: { label: 'guides.firstAidMore', href: '/guide/firstAid' },
   flashlight: { label: 'guides.powerMore', href: '/guide/power' },
+  radio: { label: 'guides.infoMore', href: '/guide/info' },
 };
 
 export default function ChecklistScreen() {
