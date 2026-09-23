@@ -1,0 +1,105 @@
+{
+ "_comment": "Emergency numbers per home country. Only countries with a verified source list national numbers; others fall back to 112.",
+ "CZ": {
+  "source": {
+   "publisher": "Ministerstvo vnitra ČR / HZS ČR",
+   "url": "https://72h.gov.cz/cs/dulezite-kontakty",
+   "verifiedAt": "2026-09-23"
+  },
+  "numbers": [
+   {
+    "number": "112",
+    "label": {
+     "cs": "Tísňové volání (EU)",
+     "en": "Emergency (EU)",
+     "sk": "Tiesňové volanie (EÚ)",
+     "pl": "Numer alarmowy (UE)",
+     "fi": "Hätänumero (EU)"
+    }
+   },
+   {
+    "number": "150",
+    "label": {
+     "cs": "Hasiči",
+     "en": "Fire brigade",
+     "sk": "Hasiči",
+     "pl": "Straż pożarna",
+     "fi": "Palokunta"
+    }
+   },
+   {
+    "number": "155",
+    "label": {
+     "cs": "Záchranka",
+     "en": "Ambulance",
+     "sk": "Záchranka",
+     "pl": "Pogotowie",
+     "fi": "Ambulanssi"
+    }
+   },
+   {
+    "number": "158",
+    "label": {
+     "cs": "Policie",
+     "en": "Police",
+     "sk": "Polícia",
+     "pl": "Policja",
+     "fi": "Poliisi"
+    }
+   }
+  ],
+  "helplines": [
+   {
+    "number": "116 123",
+    "label": {
+     "cs": "Linka první psychické pomoci",
+     "en": "Psychological first aid line",
+     "sk": "Linka prvej psychickej pomoci",
+     "pl": "Telefon pierwszej pomocy psychologicznej",
+     "fi": "Psyykkisen ensiavun linja"
+    },
+    "note": {
+     "cs": "nonstop, zdarma",
+     "en": "24/7, free",
+     "sk": "nonstop, zadarmo",
+     "pl": "całodobowo, bezpłatnie",
+     "fi": "ympäri vuorokauden, maksuton"
+    }
+   },
+   {
+    "number": "116 111",
+    "label": {
+     "cs": "Linka bezpečí pro děti a studenty do 26 let",
+     "en": "Safety line for children and students up to 26",
+     "sk": "Linka bezpečia pre deti a študentov do 26 rokov",
+     "pl": "Telefon zaufania dla dzieci i studentów do 26 lat",
+     "fi": "Lasten ja alle 26-vuotiaiden opiskelijoiden turvalinja"
+    },
+    "note": {
+     "cs": "nonstop, zdarma",
+     "en": "24/7, free",
+     "sk": "nonstop, zadarmo",
+     "pl": "całodobowo, bezpłatnie",
+     "fi": "ympäri vuorokauden, maksuton"
+    }
+   },
+   {
+    "number": "800 157 157",
+    "label": {
+     "cs": "Linka důvěry Senior telefon",
+     "en": "Senior helpline",
+     "sk": "Linka dôvery pre seniorov",
+     "pl": "Telefon zaufania dla seniorów",
+     "fi": "Seniorien auttava puhelin"
+    },
+    "note": {
+     "cs": "nonstop, zdarma",
+     "en": "24/7, free",
+     "sk": "nonstop, zadarmo",
+     "pl": "całodobowo, bezpłatnie",
+     "fi": "ympäri vuorokauden, maksuton"
+    }
+   }
+  ]
+ }
+}

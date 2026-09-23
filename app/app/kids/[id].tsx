@@ -56,6 +56,7 @@ export default function KidsScreen() {
         />
       ))}
       <Button title={t('kids.call112')} variant="danger" onPress={() => Linking.openURL('tel:112')} />
+      <Text style={styles.text}>{t('kids.howToCall')}</Text>
     </ScrollView>
   );
 }

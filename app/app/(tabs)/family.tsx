@@ -3,20 +3,25 @@ import { useTranslation } from 'react-i18next';
 import { Linking, StyleSheet } from 'react-native';
 
 import { View } from '@/components/Themed';
+import EmergencyNumbers from '@/components/EmergencyNumbers';
 import { Button, Card, Muted, Screen, Title } from '@/components/ui';
+import { emergencyFor } from '@/lib/emergency';
 import { listContacts } from '@/lib/repo';
 import { telHref } from '@/lib/targets';
 import { useDbQuery } from '@/lib/useDbQuery';
+import { loadStandard } from '@/lib/useStandard';
 
 /** Family contacts, readable offline. Members, invites and sharing arrive with accounts (M3). */
 export default function FamilyScreen() {
   const { t } = useTranslation();
-  const { data: contacts } = useDbQuery(listContacts);
+  const { data } = useDbQuery(async (db) => ({ contacts: await listContacts(db), home: (await loadStandard(db)).home }));
 
-  if (!contacts) return null;
+  if (!data) return null;
+  const { contacts, home } = data;
 
   return (
     <Screen>
+      <EmergencyNumbers emergency={emergencyFor(home)} />
       <Muted>{t('contacts.hint')}</Muted>
       {contacts.map((c) => (
         <Card key={c.id}>

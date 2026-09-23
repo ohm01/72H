@@ -231,7 +231,8 @@
     "call112": "Volat 112",
     "help": "Když se ztratíš, zůstaň na místě a požádej o pomoc dospělého, třeba prodavače nebo policistu.",
     "whoToCall": "Komu zavolat:",
-    "callName": "Zavolat: {{name}}"
+    "callName": "Zavolat: {{name}}",
+    "howToCall": "Když voláš 112, řekni: kde jsi, co se stalo a jak se jmenuješ. Nezavěšuj první. Když nevíš, kde jsi, popiš, co vidíš kolem."
   },
   "geocode": {
     "searching": "Hledám adresu…",
@@ -246,7 +247,8 @@
     "foodMore": "Co konkrétně? →",
     "whatToPack": "Co zabalit",
     "addGobag": "Přidat krizové zavazadlo",
-    "gobagOffer": "Batoh pro rychlý odchod z domu. Uvnitř najdete, co do něj zabalit, a hlídáme i expiraci."
+    "gobagOffer": "Batoh pro rychlý odchod z domu. Uvnitř najdete, co do něj zabalit, a hlídáme i expiraci.",
+    "kidsTalk": "Jak s dětmi mluvit v krizi"
   },
   "contacts": {
     "hint": "Telefony a adresy blízkých – fungují i bez internetu a děti je uvidí na dětské obrazovce.",
@@ -259,5 +261,9 @@
     "relation": "Kdo to je",
     "relationPlaceholder": "např. babička, soused",
     "phone": "Telefon"
+  },
+  "emergency": {
+    "title": "Tísňová čísla",
+    "helplines": "Když potřebujete s někým mluvit"
   }
 }

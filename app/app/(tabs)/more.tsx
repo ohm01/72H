@@ -80,6 +80,7 @@ export default function MoreScreen() {
           onChangeText={setKidsHelp}
           onEndEditing={saveKidsHelp}
         />
+        <Button title={t('guides.kidsTalk')} variant="secondary" onPress={() => router.push('/guide/kidsTalk')} />
       </Card>
 
       <Button title={t('more.compare')} variant="secondary" onPress={() => router.push('/compare')} />

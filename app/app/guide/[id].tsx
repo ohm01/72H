@@ -3,7 +3,10 @@ import { useSQLiteContext } from 'expo-sqlite';
 import * as WebBrowser from 'expo-web-browser';
 import { useTranslation } from 'react-i18next';
 
+import { StyleSheet } from 'react-native';
+
 import CheckRow from '@/components/CheckRow';
+import { Text } from '@/components/Themed';
 import { Button, Card, Label, Muted, Screen } from '@/components/ui';
 import { loc } from '@/lib/checklist';
 import { GUIDES, type GuideId, guideCheckKey, visibleGroups } from '@/lib/guides';
@@ -34,7 +37,7 @@ export default function GuideScreen() {
     <Screen>
       <Stack.Screen options={{ title: t(`guides.${id}`) }} />
       <Muted>{loc(guide.intro, lang)}</Muted>
-      <Muted>{t('guides.progress', { done, total })}</Muted>
+      {total > 0 && <Muted>{t('guides.progress', { done, total })}</Muted>}
       {groups.map((g) => (
         <Card key={g.id}>
           <Label>{loc(g.label, lang)}</Label>
@@ -50,9 +53,9 @@ export default function GuideScreen() {
         </Card>
       ))}
       <Card>
-        <Label>{t('guides.tips')}</Label>
+        {total > 0 && <Label>{t('guides.tips')}</Label>}
         {guide.tips.map((tip) => (
-          <Muted key={tip.cs}>{`• ${loc(tip, lang)}`}</Muted>
+          <Text key={tip.cs} style={total > 0 ? undefined : styles.tip}>{`• ${loc(tip, lang)}`}</Text>
         ))}
       </Card>
       <Card>
@@ -63,3 +66,7 @@ export default function GuideScreen() {
     </Screen>
   );
 }
+
+const styles = StyleSheet.create({
+  tip: { fontSize: 16, lineHeight: 23 },
+});

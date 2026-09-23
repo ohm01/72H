@@ -227,7 +227,8 @@
     "call112": "Call 112",
     "help": "If you get lost, stay where you are and ask an adult for help, like a shop assistant or a police officer.",
     "whoToCall": "Who to call:",
-    "callName": "Call: {{name}}"
+    "callName": "Call: {{name}}",
+    "howToCall": "When you call 112, say where you are, what happened and your name. Don't hang up first. If you don't know where you are, describe what you see."
   },
   "geocode": {
     "searching": "Looking up the address…",
@@ -242,7 +243,8 @@
     "foodMore": "What exactly? →",
     "whatToPack": "What to pack",
     "addGobag": "Add emergency bag",
-    "gobagOffer": "A bag for leaving home quickly. Inside you'll find what to pack, and we track expiry too."
+    "gobagOffer": "A bag for leaving home quickly. Inside you'll find what to pack, and we track expiry too.",
+    "kidsTalk": "How to talk to children in a crisis"
   },
   "contacts": {
     "hint": "Phone numbers and addresses of your people – they work offline and kids can see them on the kids screen.",
@@ -255,5 +257,9 @@
     "relation": "Who is it",
     "relationPlaceholder": "e.g. grandma, neighbour",
     "phone": "Phone"
+  },
+  "emergency": {
+    "title": "Emergency numbers",
+    "helplines": "When you need someone to talk to"
   }
 }

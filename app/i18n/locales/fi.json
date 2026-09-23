@@ -227,7 +227,8 @@
     "call112": "Soita 112",
     "help": "Jos eksyt, pysy paikallasi ja pyydä apua aikuiselta, esimerkiksi myyjältä tai poliisilta.",
     "whoToCall": "Kenelle soittaa:",
-    "callName": "Soita: {{name}}"
+    "callName": "Soita: {{name}}",
+    "howToCall": "Kun soitat 112:een, kerro missä olet, mitä tapahtui ja mikä nimesi on. Älä lopeta puhelua ensin. Jos et tiedä missä olet, kerro mitä näet ympärilläsi."
   },
   "geocode": {
     "searching": "Haetaan osoitetta…",
@@ -242,7 +243,8 @@
     "foodMore": "Mitä tarkalleen? →",
     "whatToPack": "Mitä pakata",
     "addGobag": "Lisää hätälaukku",
-    "gobagOffer": "Laukku nopeaa lähtöä varten. Sisältä löydät pakkauslistan, ja seuraamme myös päiväyksiä."
+    "gobagOffer": "Laukku nopeaa lähtöä varten. Sisältä löydät pakkauslistan, ja seuraamme myös päiväyksiä.",
+    "kidsTalk": "Miten puhua lapsille kriisissä"
   },
   "contacts": {
     "hint": "Läheisten puhelinnumerot ja osoitteet – toimivat ilman internetiä, ja lapset näkevät ne lasten näkymässä.",
@@ -255,5 +257,9 @@
     "relation": "Kuka hän on",
     "relationPlaceholder": "esim. mummo, naapuri",
     "phone": "Puhelin"
+  },
+  "emergency": {
+    "title": "Hätänumerot",
+    "helplines": "Kun tarvitset jonkun, jolle puhua"
   }
 }

@@ -231,7 +231,8 @@
     "call112": "Zadzwoń pod 112",
     "help": "Jeśli się zgubisz, zostań na miejscu i poproś o pomoc dorosłego, na przykład sprzedawcę albo policjanta.",
     "whoToCall": "Do kogo zadzwonić:",
-    "callName": "Zadzwoń: {{name}}"
+    "callName": "Zadzwoń: {{name}}",
+    "howToCall": "Gdy dzwonisz pod 112, powiedz: gdzie jesteś, co się stało i jak się nazywasz. Nie rozłączaj się pierwszy. Jeśli nie wiesz, gdzie jesteś, opisz, co widzisz."
   },
   "geocode": {
     "searching": "Szukam adresu…",
@@ -246,7 +247,8 @@
     "foodMore": "Co konkretnie? →",
     "whatToPack": "Co spakować",
     "addGobag": "Dodaj torbę ewakuacyjną",
-    "gobagOffer": "Torba na szybkie wyjście z domu. W środku znajdziesz, co spakować, i pilnujemy też terminów."
+    "gobagOffer": "Torba na szybkie wyjście z domu. W środku znajdziesz, co spakować, i pilnujemy też terminów.",
+    "kidsTalk": "Jak rozmawiać z dziećmi w kryzysie"
   },
   "contacts": {
     "hint": "Telefony i adresy bliskich – działają bez internetu, a dzieci zobaczą je na ekranie dla dzieci.",
@@ -259,5 +261,9 @@
     "relation": "Kto to jest",
     "relationPlaceholder": "np. babcia, sąsiad",
     "phone": "Telefon"
+  },
+  "emergency": {
+    "title": "Numery alarmowe",
+    "helplines": "Gdy potrzebujesz z kimś porozmawiać"
   }
 }

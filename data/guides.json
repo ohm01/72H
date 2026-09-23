@@ -537,5 +537,64 @@
     "fi": "Jätä lähtiessäsi oveen lappu: milloin ja minne lähditte, nimet ja yhteystiedot."
    }
   ]
+ },
+ "kidsTalk": {
+  "source": {
+   "publisher": "Ministerstvo vnitra ČR / HZS ČR",
+   "url": "https://72h.gov.cz/cs/deti",
+   "verifiedAt": "2026-09-23"
+  },
+  "intro": {
+   "cs": "Děti potřebují chápat, co se děje, cítit naši podporu a vědět, co je čeká.",
+   "en": "Children need to understand what is happening, feel our support and know what to expect.",
+   "sk": "Deti potrebujú chápať, čo sa deje, cítiť našu podporu a vedieť, čo ich čaká.",
+   "pl": "Dzieci potrzebują rozumieć, co się dzieje, czuć nasze wsparcie i wiedzieć, czego się spodziewać.",
+   "fi": "Lasten täytyy ymmärtää, mitä tapahtuu, tuntea tukemme ja tietää, mitä on edessä."
+  },
+  "groups": [],
+  "tips": [
+   {
+    "cs": "Mluvte otevřeně a upřímně, přiměřeně věku.",
+    "en": "Talk openly and honestly, in a way that suits their age.",
+    "sk": "Hovorte otvorene a úprimne, primerane veku.",
+    "pl": "Rozmawiaj otwarcie i szczerze, stosownie do wieku.",
+    "fi": "Puhu avoimesti ja rehellisesti, iän mukaan."
+   },
+   {
+    "cs": "Dejte jim prostor říct, z čeho mají obavy, a naslouchejte jejich otázkám.",
+    "en": "Give them room to say what worries them and listen to their questions.",
+    "sk": "Dajte im priestor povedať, z čoho majú obavy, a počúvajte ich otázky.",
+    "pl": "Daj im przestrzeń, by powiedziały, czego się boją, i słuchaj ich pytań.",
+    "fi": "Anna heidän kertoa huolistaan ja kuuntele heidän kysymyksiään."
+   },
+   {
+    "cs": "Zůstaňte v klidu – děti zrcadlí naše emoce.",
+    "en": "Stay calm – children mirror our emotions.",
+    "sk": "Zostaňte pokojní – deti zrkadlia naše emócie.",
+    "pl": "Zachowaj spokój – dzieci odzwierciedlają nasze emocje.",
+    "fi": "Pysy rauhallisena – lapset peilaavat tunteitamme."
+   },
+   {
+    "cs": "Vysvětlete, že situaci řeší odborníci a že budete pořád s nimi.",
+    "en": "Explain that experts are handling it and that you will stay with them.",
+    "sk": "Vysvetlite, že situáciu riešia odborníci a že budete stále s nimi.",
+    "pl": "Wyjaśnij, że sytuacją zajmują się specjaliści i że będziesz z nimi.",
+    "fi": "Kerro, että asiantuntijat hoitavat tilannetta ja että pysyt heidän kanssaan."
+   },
+   {
+    "cs": "Když to jde, držte obvyklý režim a zapojte je do běžných činností.",
+    "en": "If possible, keep the usual routine and involve them in everyday tasks.",
+    "sk": "Ak sa dá, držte obvyklý režim a zapojte ich do bežných činností.",
+    "pl": "Jeśli to możliwe, utrzymuj zwykły rytm dnia i angażuj je w codzienne czynności.",
+    "fi": "Pidä mahdollisuuksien mukaan tavallinen rytmi ja ota heidät mukaan arkeen."
+   },
+   {
+    "cs": "Při evakuaci dejte dítěti cedulku s adresou a kontaktem na blízkou osobu a přibalte malou hračku.",
+    "en": "When evacuating, give your child a tag with an address and a contact person, and pack a small toy.",
+    "sk": "Pri evakuácii dajte dieťaťu menovku s adresou a kontaktom na blízku osobu a pribaľte malú hračku.",
+    "pl": "Podczas ewakuacji daj dziecku kartkę z adresem i kontaktem do bliskiej osoby i spakuj małą zabawkę.",
+    "fi": "Anna evakuoinnissa lapselle lappu, jossa osoite ja läheisen yhteystiedot, ja pakkaa pieni lelu."
+   }
+  ]
  }
 }

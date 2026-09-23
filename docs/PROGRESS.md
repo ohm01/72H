@@ -236,3 +236,5 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Návrhy s prioritou: kontakty rodiny (M3), domácnost dospělí/děti/miminka (M5), role rodič/dítě (M3), kalorie a pestrost jídla (M5).
   - Jídlo doma (konkrétní seznam) a krizové zavazadlo podle 72h.gov.cz (`data/guides.json`, sk/pl/fi strojově). Zavazadlo = volitelné místo zásob s návodem. **M4:** zavazadlo nepočítat do limitu míst zásob ve Free.
   - Kontakty rodiny: záložka Rodina (jméno, kdo to je, telefon, adresa s dohledáním), volání, navigace k adrese, na dětské obrazovce „Komu zavolat“. Tabulka `contacts` má sloupce pro synchronizaci v M3.
+  - Tísňová čísla a linky pomoci v záložce Rodina (CZ podle 72h.gov.cz/cs/dulezite-kontakty; SK/PL/FI zatím jen 112 – doplnit ze zdroje), rada „co říct na 112“ na dětské obrazovce, „Jak s dětmi mluvit v krizi“ (72h.gov.cz/cs/deti) ve Více u zprávy pro děti.
+  - Potřeby miminek: 72h.gov.cz je neuvádí → čeká na spolehlivý zdroj (návrh priorita 4).

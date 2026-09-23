@@ -8,6 +8,7 @@ import { createTestDb } from './helpers/sqlite';
 import FamilyScreen from '@/app/(tabs)/family';
 import MapScreen from '@/app/(tabs)/map';
 import ContactScreen from '@/app/contact/[id]';
+import GuideScreen from '@/app/guide/[id]';
 import KidsScreen from '@/app/kids/[id]';
 import MapAreasScreen from '@/app/map-areas';
 import MeetingPointScreen from '@/app/meeting-point/[id]';
@@ -319,6 +320,42 @@ describe('Family contacts', () => {
     expect(await screen.findByText('1 km')).toBeTruthy();
     await fireEvent.press(screen.getByText('Zobrazení pro děti'));
     expect(router.push).toHaveBeenCalledWith(`/kids/${id}?kind=contact`);
+  });
+});
+
+describe('Emergency numbers and kids tips', () => {
+  it('Rodina shows Czech emergency numbers and helplines, tap to call', async () => {
+    const openURL = jest.spyOn(Linking, 'openURL').mockResolvedValue(true);
+    await render(<FamilyScreen />);
+    expect(await screen.findByText('Tísňová čísla')).toBeTruthy();
+    expect(screen.getByText('Záchranka')).toBeTruthy();
+    expect(screen.getByText('Linka bezpečí pro děti a studenty do 26 let')).toBeTruthy();
+    await fireEvent.press(screen.getByText('155'));
+    expect(openURL).toHaveBeenCalledWith('tel:155');
+    await fireEvent.press(screen.getByText('116 111'));
+    expect(openURL).toHaveBeenCalledWith('tel:116111');
+  });
+
+  it('other home countries get only 112 until a source is added', async () => {
+    await setSetting(mockDb, 'homeCountry', 'FI');
+    await render(<FamilyScreen />);
+    expect(await screen.findByText('112')).toBeTruthy();
+    expect(screen.queryByText('155')).toBeNull();
+    expect(screen.queryByText('Když potřebujete s někým mluvit')).toBeNull();
+  });
+
+  it('kids screen explains what to say when calling 112', async () => {
+    const id = await point(50.0965, 14.4213);
+    jest.mocked(useLocalSearchParams).mockReturnValue({ id });
+    await render(<KidsScreen />);
+    expect(await screen.findByText(/^Když voláš 112, řekni: kde jsi/)).toBeTruthy();
+  });
+
+  it('talking-to-children guide shows tips without a checklist', async () => {
+    jest.mocked(useLocalSearchParams).mockReturnValue({ id: 'kidsTalk' });
+    await render(<GuideScreen />);
+    expect(await screen.findByText('• Zůstaňte v klidu – děti zrcadlí naše emoce.')).toBeTruthy();
+    expect(screen.queryByText(/^Máte \d/)).toBeNull();
   });
 });
 
