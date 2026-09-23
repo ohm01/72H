@@ -160,8 +160,8 @@
   "map": {
     "emptyTitle": "Nie masz jeszcze pobranej mapy",
     "emptyText": "Pobierz okolicę domu. Mapa będzie działać także bez zasięgu i bez internetu.",
-    "download": "Pobierz obszar mapy",
-    "areas": "Obszary mapy",
+    "download": "Pobierz mapę offline",
+    "areas": "Pobierz mapę offline",
     "meetingPoints": "Miejsca spotkań",
     "addMeetingPoint": "Dodaj miejsce spotkania",
     "longPressHint": "Przytrzymaj palec na mapie, aby dodać miejsce spotkania.",
@@ -174,8 +174,8 @@
     "meetingPlus": "Więcej miejsc spotkań jest w ramach Plus."
   },
   "mapAreas": {
-    "title": "Obszary mapy",
-    "hint": "Pobierany jest kwadrat wokół wybranego miejsca. Na razie tylko Czechy.",
+    "title": "Mapy offline",
+    "hint": "Pobierz mapę okolicy do telefonu. Będzie działać bez zasięgu i internetu. Pobierany jest kwadrat wokół wybranego miejsca, na razie tylko w Czechach.",
     "usage": "Obszary: {{used}} z {{max}} · Pobrania w tym miesiącu: {{downloads}} z {{maxDownloads}} (odnowienie {{reset}})",
     "center": "Środek obszaru",
     "myLocation": "Moja lokalizacja",
@@ -209,7 +209,7 @@
     "positionNone": "Położenie nie jest jeszcze ustawione.",
     "useMyLocation": "Użyj mojej lokalizacji",
     "tapMapHint": "Dotknij mapy, aby doprecyzować położenie.",
-    "noMapHint": "Aby wybrać położenie na mapie, najpierw pobierz obszar mapy.",
+    "noMapHint": "Aby wybrać położenie na mapie, najpierw pobierz mapę offline.",
     "addressPlaceholder": "np. Hlavní 10, Brno"
   },
   "navigate": {

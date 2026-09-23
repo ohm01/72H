@@ -156,8 +156,8 @@
   "map": {
     "emptyTitle": "Karttaa ei ole vielä ladattu",
     "emptyText": "Lataa kotisi ympäristö. Kartta toimii sen jälkeen myös ilman kenttää ja internetiä.",
-    "download": "Lataa kartta-alue",
-    "areas": "Kartta-alueet",
+    "download": "Lataa offline-kartta",
+    "areas": "Lataa offline-kartta",
     "meetingPoints": "Kokoontumispaikat",
     "addMeetingPoint": "Lisää kokoontumispaikka",
     "longPressHint": "Lisää kokoontumispaikka painamalla karttaa pitkään.",
@@ -170,8 +170,8 @@
     "meetingPlus": "Useampi kokoontumispaikka kuuluu Plus-tilaukseen."
   },
   "mapAreas": {
-    "title": "Kartta-alueet",
-    "hint": "Ladataan neliö valitun paikan ympäriltä. Toistaiseksi vain Tšekki.",
+    "title": "Offline-kartat",
+    "hint": "Lataa lähialueen kartta puhelimeen. Se toimii sen jälkeen ilman kenttää ja internetiä. Ladataan neliö valitun paikan ympäriltä, toistaiseksi vain Tšekissä.",
     "usage": "Alueet: {{used}}/{{max}} · Lataukset tässä kuussa: {{downloads}}/{{maxDownloads}} (nollautuu {{reset}})",
     "center": "Alueen keskipiste",
     "myLocation": "Oma sijainti",
@@ -205,7 +205,7 @@
     "positionNone": "Sijaintia ei ole vielä asetettu.",
     "useMyLocation": "Käytä omaa sijaintia",
     "tapMapHint": "Tarkenna sijaintia napauttamalla karttaa.",
-    "noMapHint": "Lataa ensin kartta-alue, jotta voit valita sijainnin kartalta.",
+    "noMapHint": "Lataa ensin offline-kartta, jotta voit valita sijainnin kartalta.",
     "addressPlaceholder": "esim. Hlavní 10, Brno"
   },
   "navigate": {

@@ -58,7 +58,7 @@ export default function MapScreen() {
         );
       })}
       <Button title={t('map.addMeetingPoint')} variant="secondary" onPress={() => addMeetingPoint()} />
-      <Button title={t('map.areas')} variant="secondary" onPress={() => router.push('/map-areas')} />
+      {areas.length > 0 && <Button title={t('map.areas')} variant="secondary" onPress={() => router.push('/map-areas')} />}
       {denied && <Muted>{t('map.locationDenied')}</Muted>}
     </>
   );

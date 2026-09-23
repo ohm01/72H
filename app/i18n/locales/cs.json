@@ -160,8 +160,8 @@
   "map": {
     "emptyTitle": "Zatím nemáte staženou mapu",
     "emptyText": "Stáhněte si okolí domova. Mapa pak funguje i bez signálu a bez internetu.",
-    "download": "Stáhnout oblast mapy",
-    "areas": "Oblasti mapy",
+    "download": "Stáhnout offline mapu",
+    "areas": "Stáhnout offline mapu",
     "meetingPoints": "Místa srazu",
     "addMeetingPoint": "Přidat místo srazu",
     "longPressHint": "Dlouhým podržením na mapě přidáte místo srazu.",
@@ -174,8 +174,8 @@
     "meetingPlus": "Více míst srazu je součástí Plus."
   },
   "mapAreas": {
-    "title": "Oblasti mapy",
-    "hint": "Stahuje se čtverec kolem zvoleného místa. Zatím jen Česká republika.",
+    "title": "Offline mapy",
+    "hint": "Stáhněte si mapu okolí do telefonu. Pak funguje i bez signálu a internetu. Stahuje se čtverec kolem zvoleného místa, zatím jen v Česku.",
     "usage": "Oblasti: {{used}} z {{max}} · Stažení tento měsíc: {{downloads}} z {{maxDownloads}} (obnoví se {{reset}})",
     "center": "Střed oblasti",
     "myLocation": "Moje poloha",
@@ -209,7 +209,7 @@
     "positionNone": "Poloha zatím není nastavená.",
     "useMyLocation": "Použít moji polohu",
     "tapMapHint": "Klepnutím do mapy polohu upřesníte.",
-    "noMapHint": "Pro výběr na mapě si nejdřív stáhněte oblast mapy.",
+    "noMapHint": "Pro výběr na mapě si nejdřív stáhněte offline mapu.",
     "addressPlaceholder": "např. Za Střelnicí 950, Sezemice"
   },
   "navigate": {

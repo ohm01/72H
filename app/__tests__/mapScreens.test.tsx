@@ -95,7 +95,7 @@ describe('MapScreen', () => {
 
     await fireEvent.press(screen.getAllByText('Navigovat')[0]);
     expect(router.push).toHaveBeenCalledWith(`/navigate/${id}`);
-    await fireEvent.press(screen.getByText('Stáhnout oblast mapy'));
+    await fireEvent.press(screen.getByText('Stáhnout offline mapu'));
     expect(router.push).toHaveBeenCalledWith('/map-areas');
   });
 

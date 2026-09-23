@@ -156,8 +156,8 @@
   "map": {
     "emptyTitle": "No map downloaded yet",
     "emptyText": "Download the area around your home. The map then works without signal or internet.",
-    "download": "Download map area",
-    "areas": "Map areas",
+    "download": "Download offline map",
+    "areas": "Download offline map",
     "meetingPoints": "Meeting points",
     "addMeetingPoint": "Add meeting point",
     "longPressHint": "Long-press the map to add a meeting point.",
@@ -170,8 +170,8 @@
     "meetingPlus": "More meeting points are part of Plus."
   },
   "mapAreas": {
-    "title": "Map areas",
-    "hint": "You download a square around the chosen place. Czech Republic only for now.",
+    "title": "Offline maps",
+    "hint": "Download a map of your area to the phone. It then works without signal or internet. You download a square around the chosen place, Czech Republic only for now.",
     "usage": "Areas: {{used}} of {{max}} · Downloads this month: {{downloads}} of {{maxDownloads}} (resets {{reset}})",
     "center": "Area centre",
     "myLocation": "My location",
@@ -205,7 +205,7 @@
     "positionNone": "Position not set yet.",
     "useMyLocation": "Use my location",
     "tapMapHint": "Tap the map to adjust the position.",
-    "noMapHint": "Download a map area first to pick the position on the map.",
+    "noMapHint": "Download an offline map first to pick the position on the map.",
     "addressPlaceholder": "e.g. 10 Main Street, Brno"
   },
   "navigate": {

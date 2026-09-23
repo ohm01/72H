@@ -4,21 +4,24 @@ Aktualizuje Claude po každém kroku. Legenda: ✅ hotovo · 🔄 rozpracováno 
 
 **Poslední aktualizace:** 2026-09-23
 
-## Kde jsme
-- **M0:** skoro hotovo. Chybí EAS buildy (čekají na tvůj `eas login` a bundle ID) a ověření aplikace na telefonu nebo simulátoru.
-- **M1:** kód je hotový a testuje se. Na zařízení zatím neověřeno (potřebuje development build).
-- **M5:** data 4 zemí jsou připravená ke schválení (`docs/country-comparison.md`), obrazovka srovnání zatím chybí.
-- Přidány jazyky SK, PL a FI (strojový překlad, před vydáním potřebuje kontrolu).
+## Kde jsme (2026-09-23 večer)
+- **Vývoj běží na Macu** (`~/projects/72h`): Docker (OrbStack) se serverem na `localhost:8000`, Metro, iOS simulátor (Xcode 27 → Device Hub). RPi je vypnuté, `api.jennase.org` proto neodpovídá.
+- **M2:** hotové a v simulátoru ověřené: offline mapa, stažení oblasti, dohledání adresy, místa srazu, navigace se šipkou, dětská obrazovka (zprávu upravuje rodič ve Více). Chybí ověření na skutečném telefonu v režimu letadlo (kompas).
+- **Onboarding:** lze přidat víc míst se zásobami (podle tarifu).
+- **Návrhy s prioritou** viz „Návrhy do dalších milníků“ níže.
 
 ## ⏳ Co čeká na tebe
-1. `cd /srv/72h/app && npx eas-cli login` (účet expo.dev) a pak mi dej vědět.
-2. Potvrdit bundle ID / package name `org.jennase.family72h` (doporučeno, po vydání nejde změnit).
-3. Schválit zdroje a nejistoty v `docs/country-comparison.md`.
-3b. Projít `docs/threat-model.md` a rozhodnout R1–R5 (potřebné pro M3 a M6).
-4. Volitelně (restart RPi): zapnout memory cgroup, aby platily limity paměti v Dockeru:
-   `sudo sed -i '1 s/$/ cgroup_enable=memory cgroup_memory=1/' /boot/firmware/cmdline.txt && sudo reboot`
-5. Volitelně: token cloudflared přesunout z příkazové řádky do souboru s právy 600.
-6. Před M3: připojit SSD (postup přesunu je v `README.md`).
+1. Rozhodnout bundle ID: v buildu je `org.jennase.app72h`, dřív doporučené bylo `org.jennase.family72h` (změna = nový dev build).
+2. Otestovat M2 na telefonu (dev build pro zařízení: `npx eas-cli@latest build --profile development --platform ios`, vyžaduje Apple účet).
+3. Schválit zdroje v `docs/country-comparison.md` a rozhodnutí R1–R5 v `docs/threat-model.md` (potřebné pro M3, M5, M6).
+4. Rozhodnout, kde poběží server pro M3 (RPi + SSD podle plánu, nebo jinak) – teď běží jen lokálně na Macu.
+
+## Jak spustit vývoj na Macu
+```bash
+cd ~/projects/72h && docker compose up -d          # server
+cd app && npx expo start --dev-client               # Metro (NE s CI=1 – pak nesleduje změny)
+```
+Simulátor: Xcode → Open Developer Tool → Device Hub → iPhone 18 Pro. Aplikace 72h se připojí na `localhost:8081`.
 
 ## Milníky
 
@@ -182,3 +185,5 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Rozpracované M2 (stahování mapy v aplikaci) commitnuto jako WIP. Vývoj se přesouvá z RPi na Mac; server na RPi zastaven.
   - Vývoj přesunut na Mac (`~/projects/72h`): Docker (OrbStack), Node, server běží lokálně (`localhost:8000`).
   - M2 aplikace: záložka Mapa, oblasti mapy, místa srazu, navigace se šipkou, dětská obrazovka. Texty v 5 jazycích (sk/pl/fi strojově).
+  - Opravy mapy (písma, střed mapy, Metro v CI režimu nesledoval změny), dohledání adres, víc míst v onboardingu, „Offline mapy“ místo „Oblasti mapy“.
+  - Návrhy s prioritou: kontakty rodiny (M3), domácnost dospělí/děti/miminka (M5), role rodič/dítě (M3), kalorie a pestrost jídla (M5).

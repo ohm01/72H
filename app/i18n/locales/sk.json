@@ -160,8 +160,8 @@
   "map": {
     "emptyTitle": "Zatiaľ nemáte stiahnutú mapu",
     "emptyText": "Stiahnite si okolie domova. Mapa potom funguje aj bez signálu a bez internetu.",
-    "download": "Stiahnuť oblasť mapy",
-    "areas": "Oblasti mapy",
+    "download": "Stiahnuť offline mapu",
+    "areas": "Stiahnuť offline mapu",
     "meetingPoints": "Miesta stretnutia",
     "addMeetingPoint": "Pridať miesto stretnutia",
     "longPressHint": "Dlhým podržaním na mape pridáte miesto stretnutia.",
@@ -174,8 +174,8 @@
     "meetingPlus": "Viac miest stretnutia je súčasťou Plus."
   },
   "mapAreas": {
-    "title": "Oblasti mapy",
-    "hint": "Sťahuje sa štvorec okolo zvoleného miesta. Zatiaľ len Česká republika.",
+    "title": "Offline mapy",
+    "hint": "Stiahnite si mapu okolia do telefónu. Potom funguje aj bez signálu a internetu. Sťahuje sa štvorec okolo zvoleného miesta, zatiaľ len v Česku.",
     "usage": "Oblasti: {{used}} z {{max}} · Stiahnutia tento mesiac: {{downloads}} z {{maxDownloads}} (obnoví sa {{reset}})",
     "center": "Stred oblasti",
     "myLocation": "Moja poloha",
@@ -209,7 +209,7 @@
     "positionNone": "Poloha zatiaľ nie je nastavená.",
     "useMyLocation": "Použiť moju polohu",
     "tapMapHint": "Ťuknutím do mapy polohu spresníte.",
-    "noMapHint": "Na výber na mape si najprv stiahnite oblasť mapy.",
+    "noMapHint": "Na výber na mape si najprv stiahnite offline mapu.",
     "addressPlaceholder": "napr. Hlavná 10, Brno"
   },
   "navigate": {
