@@ -103,14 +103,16 @@
     "persons": "Henkilöitä",
     "pets": "Lemmikkejä",
     "locationTitle": "Missä pidät varoja?",
-    "locationText": "Nimeä ensimmäinen paikka. Voit lisätä muita myöhemmin.",
+    "locationText": "Missä säilytätte varastoja? Nimeä paikat, esim. Koti tai Mökki.",
     "locationDefault": "Koti",
     "meetingTitle": "Missä tapaatte?",
     "meetingText": "Jos puhelimet eivät toimi, perheen pitää tietää, missä tavata. Voit merkitä paikan kartalle myöhemmin.",
     "meetingName": "Tapaamispaikan nimi",
     "meetingPlaceholder": "esim. Koulun luona",
     "meetingNote": "Muistiinpano",
-    "finish": "Aloita"
+    "finish": "Aloita",
+    "addLocation": "Lisää paikka",
+    "locationsPlus": "Useampi varastopaikka kuuluu Plus-tilaukseen. Voit lisätä niitä myöhemmin."
   },
   "more": {
     "household": "Kotitalous",

@@ -6,24 +6,29 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { View } from '@/components/Themed';
 import { Button, Card, Label, Muted, Screen, Stepper, TextField, Title } from '@/components/ui';
+import { useLimits } from '@/lib/entitlement';
 import { saveLocation, saveMeetingPoint, setHousehold, setSetting } from '@/lib/repo';
 
-const STEPS = 4; // welcome, household, first location, meeting point
+const STEPS = 4; // welcome, household, stock locations, meeting point
 
 export default function Onboarding() {
   const db = useSQLiteContext();
   const { t } = useTranslation();
+  const limits = useLimits();
   const [step, setStep] = useState(0);
   const [persons, setPersons] = useState(2);
   const [pets, setPets] = useState(0);
-  const [locationName, setLocationName] = useState(t('onboarding.locationDefault'));
+  const [locationNames, setLocationNames] = useState([t('onboarding.locationDefault')]);
   const [meetingName, setMeetingName] = useState('');
   const [meetingNote, setMeetingNote] = useState('');
 
   async function finish(withMeetingPoint: boolean) {
     await db.withTransactionAsync(async () => {
       await setHousehold(db, { persons, pets });
-      await saveLocation(db, { name: locationName.trim() || t('onboarding.locationDefault'), lat: null, lon: null });
+      const names = locationNames.map((n) => n.trim()).filter(Boolean);
+      for (const name of names.length ? names : [t('onboarding.locationDefault')]) {
+        await saveLocation(db, { name, lat: null, lon: null });
+      }
       if (withMeetingPoint && meetingName.trim()) {
         await saveMeetingPoint(db, {
           name: meetingName.trim(),
@@ -68,7 +73,19 @@ export default function Onboarding() {
           <Card>
             <Title>{t('onboarding.locationTitle')}</Title>
             <Muted>{t('onboarding.locationText')}</Muted>
-            <TextField value={locationName} onChangeText={setLocationName} placeholder={t('locations.namePlaceholder')} />
+            {locationNames.map((name, i) => (
+              <TextField
+                key={i}
+                value={name}
+                onChangeText={(v) => setLocationNames((all) => all.map((n, j) => (j === i ? v : n)))}
+                placeholder={t('locations.namePlaceholder')}
+              />
+            ))}
+            {locationNames.length < limits.stockLocations ? (
+              <Button title={t('onboarding.addLocation')} variant="secondary" onPress={() => setLocationNames((all) => [...all, ''])} />
+            ) : (
+              <Muted>{t('onboarding.locationsPlus')}</Muted>
+            )}
           </Card>
         )}
 
@@ -85,7 +102,7 @@ export default function Onboarding() {
 
         <View style={{ gap: 8 }}>
           {step < STEPS - 1 ? (
-            <Button title={t('common.next')} onPress={next} disabled={step === 2 && !locationName.trim()} />
+            <Button title={t('common.next')} onPress={next} disabled={step === 2 && !locationNames[0]?.trim()} />
           ) : (
             <>
               <Button title={t('onboarding.finish')} onPress={() => finish(true)} disabled={!meetingName.trim()} />

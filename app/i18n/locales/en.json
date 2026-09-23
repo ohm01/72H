@@ -103,14 +103,16 @@
     "persons": "People",
     "pets": "Pets",
     "locationTitle": "Where do you keep supplies?",
-    "locationText": "Name the first place. You can add more later.",
+    "locationText": "Where do you keep supplies? Name the places, e.g. Home or Cottage.",
     "locationDefault": "Home",
     "meetingTitle": "Where will you meet?",
     "meetingText": "If phones stop working, your family should know where to meet. You can pin it on the map later.",
     "meetingName": "Meeting point name",
     "meetingPlaceholder": "e.g. At the school",
     "meetingNote": "Note",
-    "finish": "Start"
+    "finish": "Start",
+    "addLocation": "Add another place",
+    "locationsPlus": "More supply places are part of Plus. You can add them later."
   },
   "more": {
     "household": "Household",

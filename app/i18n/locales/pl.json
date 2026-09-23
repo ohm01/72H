@@ -105,14 +105,16 @@
     "persons": "Liczba osób",
     "pets": "Liczba zwierząt",
     "locationTitle": "Gdzie trzymasz zapasy?",
-    "locationText": "Nazwij pierwsze miejsce. Kolejne możesz dodać później.",
+    "locationText": "Gdzie trzymasz zapasy? Nazwij miejsca, np. Dom albo Działka.",
     "locationDefault": "Dom",
     "meetingTitle": "Gdzie się spotkacie?",
     "meetingText": "Gdy telefony przestaną działać, rodzina powinna wiedzieć, gdzie się spotkać. Na mapie wskażesz je później.",
     "meetingName": "Nazwa miejsca spotkania",
     "meetingPlaceholder": "np. Przy szkole",
     "meetingNote": "Notatka",
-    "finish": "Zaczynamy"
+    "finish": "Zaczynamy",
+    "addLocation": "Dodaj kolejne miejsce",
+    "locationsPlus": "Więcej miejsc z zapasami jest w ramach Plus. Możesz je dodać później."
   },
   "more": {
     "household": "Gospodarstwo domowe",

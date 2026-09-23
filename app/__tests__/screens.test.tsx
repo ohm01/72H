@@ -146,6 +146,8 @@ describe('Onboarding', () => {
 
     expect(screen.getByText('Kde máte zásoby?')).toBeTruthy();
     expect(screen.getByDisplayValue('Doma')).toBeTruthy();
+    await fireEvent.press(screen.getByText('Přidat další místo')); // dev builds are Plus
+    await fireEvent.changeText(screen.getAllByPlaceholderText(/./)[1], 'Chata');
     await fireEvent.press(screen.getByText('Další'));
 
     expect(screen.getByText('Kde se sejdete?')).toBeTruthy();
@@ -155,7 +157,7 @@ describe('Onboarding', () => {
     await waitFor(() => expect(router.replace).toHaveBeenCalledWith('/'));
     expect(await isOnboarded(mockDb)).toBe(true);
     expect(await getHousehold(mockDb)).toEqual({ persons: 3, pets: 1 });
-    expect((await listLocations(mockDb)).map((l) => l.name)).toEqual(['Doma']);
+    expect((await listLocations(mockDb)).map((l) => l.name).sort()).toEqual(['Chata', 'Doma']);
     expect((await listMeetingPoints(mockDb)).map((m) => m.name)).toEqual(['U školy']);
   });
 

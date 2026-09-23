@@ -105,14 +105,16 @@
     "persons": "Počet osob",
     "pets": "Počet zvířat",
     "locationTitle": "Kde máte zásoby?",
-    "locationText": "Pojmenujte první místo. Další můžete přidat později.",
+    "locationText": "Kde máte zásoby? Pojmenujte místa, třeba Doma nebo Chata.",
     "locationDefault": "Doma",
     "meetingTitle": "Kde se sejdete?",
     "meetingText": "Když nebude fungovat telefon, rodina by měla vědět, kde se sejít. Na mapě ho upřesníte později.",
     "meetingName": "Název místa srazu",
     "meetingPlaceholder": "např. U školy",
     "meetingNote": "Poznámka",
-    "finish": "Začít"
+    "finish": "Začít",
+    "addLocation": "Přidat další místo",
+    "locationsPlus": "Více míst se zásobami je součástí Plus. Další můžete přidat později."
   },
   "more": {
     "household": "Domácnost",
