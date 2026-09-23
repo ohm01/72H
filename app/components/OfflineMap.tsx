@@ -7,7 +7,7 @@ import { View, useThemeColor } from '@/components/Themed';
 import { useColorScheme } from '@/components/useColorScheme';
 import type { LatLon } from '@/lib/geo';
 import { assetsDir } from '@/lib/mapDownload';
-import { buildOfflineStyle, unionBBox } from '@/lib/mapStyle';
+import { buildOfflineStyle } from '@/lib/mapStyle';
 import type { MapArea, MeetingPoint } from '@/lib/repo';
 
 type Props = {
@@ -15,6 +15,8 @@ type Props = {
   meetingPoints?: MeetingPoint[];
   /** Extra highlighted point, e.g. the position being picked for a meeting point. */
   picked?: LatLon | null;
+  /** Where to centre the map; defaults to the newest downloaded area. */
+  focus?: LatLon | null;
   showUser?: boolean;
   onPress?: (p: LatLon) => void;
   onLongPress?: (p: LatLon) => void;
@@ -22,7 +24,7 @@ type Props = {
 };
 
 /** Map rendered only from downloaded files: works in airplane mode. */
-export default function OfflineMap({ areas, meetingPoints = [], picked, showUser = true, onPress, onLongPress, style }: Props) {
+export default function OfflineMap({ areas, meetingPoints = [], picked, focus, showUser = true, onPress, onLongPress, style }: Props) {
   const { i18n } = useTranslation();
   const dark = useColorScheme() === 'dark';
   const tint = useThemeColor({}, 'tint');
@@ -32,11 +34,14 @@ export default function OfflineMap({ areas, meetingPoints = [], picked, showUser
     () => buildOfflineStyle(areas, assetsDir().uri, { dark, lang: i18n.language }),
     [areas, dark, i18n.language]
   );
-  const bounds = unionBBox(areas);
+  const newest = areas.at(-1);
+  const center = picked ?? focus;
   const located = meetingPoints.filter((m) => m.lat != null && m.lon != null);
 
   return (
     <Map
+      // Remount when areas or the focus change, so the camera moves to the new place.
+      key={`${areas.map((a) => a.id).join()}|${focus?.lat},${focus?.lon}`}
       style={[styles.map, style]}
       mapStyle={mapStyle}
       logo={false}
@@ -46,10 +51,10 @@ export default function OfflineMap({ areas, meetingPoints = [], picked, showUser
       onLongPress={onLongPress && ((e) => onLongPress({ lon: e.nativeEvent.lngLat[0], lat: e.nativeEvent.lngLat[1] }))}>
       <Camera
         initialViewState={
-          picked
-            ? { center: [picked.lon, picked.lat], zoom: 15 }
-            : bounds
-              ? { bounds: [bounds.west, bounds.south, bounds.east, bounds.north] }
+          center
+            ? { center: [center.lon, center.lat], zoom: 14 }
+            : newest
+              ? { bounds: [newest.west, newest.south, newest.east, newest.north] }
               : undefined
         }
         minZoom={6}

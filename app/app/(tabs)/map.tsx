@@ -28,6 +28,7 @@ export default function MapScreen() {
 
   if (!data) return null;
   const { areas, points } = data;
+  const located = points.filter((m) => m.lat != null && m.lon != null);
 
   function addMeetingPoint(at?: LatLon) {
     // Specific Plus hint, only when the user actually tries (paywall arrives in M4).
@@ -77,7 +78,13 @@ export default function MapScreen() {
 
   return (
     <View style={styles.fill}>
-      <OfflineMap areas={areas} meetingPoints={points} onLongPress={addMeetingPoint} style={styles.map} />
+      <OfflineMap
+        areas={areas}
+        meetingPoints={points}
+        focus={located[0] ? { lat: located[0].lat!, lon: located[0].lon! } : null}
+        onLongPress={addMeetingPoint}
+        style={styles.map}
+      />
       <ScrollView style={[styles.sheet, { backgroundColor: background }]} contentContainerStyle={styles.panel}>
         <Muted>{t('map.longPressHint')}</Muted>
         {list}
