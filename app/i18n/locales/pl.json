@@ -249,7 +249,12 @@
     "addGobag": "Dodaj torbę ewakuacyjną",
     "gobagOffer": "Torba na szybkie wyjście z domu. W środku znajdziesz, co spakować, i pilnujemy też terminów.",
     "kidsTalk": "Jak rozmawiać z dziećmi w kryzysie",
-    "waterMore": "Co, gdy nie ma wody? →"
+    "waterMore": "Co, gdy nie ma wody? →",
+    "firstAidMore": "Zasady pierwszej pomocy →",
+    "powerMore": "Co robić bez prądu? →",
+    "water": "Gdy nie ma wody",
+    "firstAid": "Pierwsza pomoc",
+    "power": "Awaria prądu"
   },
   "contacts": {
     "hint": "Telefony i adresy bliskich – działają bez internetu, a dzieci zobaczą je na ekranie dla dzieci.",

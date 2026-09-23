@@ -669,5 +669,506 @@
     "fi": "Tietoa katkoista saa vesilaitokselta tai isännöitsijältä; osa vesilaitoksista lähettää ilmoituksia tekstiviestillä tai sähköpostilla."
    }
   ]
+ },
+ "firstAid": {
+  "source": {
+   "publisher": "Ministerstvo vnitra ČR / HZS ČR",
+   "url": "https://72h.gov.cz/cs/prvni-pomoc",
+   "verifiedAt": "2026-09-23"
+  },
+  "intro": {
+   "cs": "Při ohrožení života vždy nejdřív volejte 155. Cílem je udržet člověka naživu do příjezdu záchranky.",
+   "en": "In a life-threatening situation always call 155 first. The goal is to keep the person alive until the ambulance arrives.",
+   "sk": "Pri ohrození života vždy najprv volajte 155. Cieľom je udržať človeka nažive do príchodu záchranky.",
+   "pl": "W zagrożeniu życia zawsze najpierw dzwoń na 999 lub 112. Celem jest utrzymanie człowieka przy życiu do przyjazdu karetki.",
+   "fi": "Hengenvaarassa soita aina ensin 112. Tavoitteena on pitää ihminen hengissä, kunnes ambulanssi saapuu."
+  },
+  "sections": [
+   {
+    "id": "check",
+    "numbered": true,
+    "label": {
+     "cs": "Je to vážné?",
+     "en": "Is it serious?",
+     "sk": "Je to vážne?",
+     "pl": "Czy to poważne?",
+     "fi": "Onko tilanne vakava?"
+    },
+    "lines": [
+     {
+      "cs": "Zatřeste mu rameny a oslovte ho: „Slyšíte mě?“",
+      "en": "Shake their shoulders and ask: “Can you hear me?”",
+      "sk": "Zatraste mu plecami a oslovte ho: „Počujete ma?“",
+      "pl": "Potrząśnij za ramiona i zapytaj: „Czy mnie słyszysz?”",
+      "fi": "Ravista olkapäistä ja kysy: ”Kuuletko minua?”"
+     },
+     {
+      "cs": "Když nereaguje, zakloňte mu hlavu a přizvedněte bradu.",
+      "en": "If there is no response, tilt the head back and lift the chin.",
+      "sk": "Keď nereaguje, zakloňte mu hlavu a nadvihnite bradu.",
+      "pl": "Jeśli nie reaguje, odchyl głowę do tyłu i unieś podbródek.",
+      "fi": "Jos hän ei reagoi, taivuta päätä taaksepäin ja nosta leukaa."
+     },
+     {
+      "cs": "Poslouchejte a cíťte dech, sledujte, jestli se zvedá hrudník nebo břicho.",
+      "en": "Listen and feel for breathing, watch whether the chest or belly rises.",
+      "sk": "Počúvajte a cíťte dych, sledujte, či sa dvíha hrudník alebo brucho.",
+      "pl": "Słuchaj i wyczuwaj oddech, obserwuj, czy unosi się klatka piersiowa lub brzuch.",
+      "fi": "Kuuntele ja tunnustele hengitystä, katso nouseeko rintakehä tai vatsa."
+     },
+     {
+      "cs": "Volejte 155.",
+      "en": "Call 155.",
+      "sk": "Volajte 155.",
+      "pl": "Zadzwoń na 999 lub 112.",
+      "fi": "Soita 112."
+     },
+     {
+      "cs": "Když nedýchá, začněte stlačovat hrudník.",
+      "en": "If they are not breathing, start chest compressions.",
+      "sk": "Keď nedýcha, začnite stláčať hrudník.",
+      "pl": "Jeśli nie oddycha, zacznij uciskać klatkę piersiową.",
+      "fi": "Jos hän ei hengitä, aloita painelu."
+     }
+    ]
+   },
+   {
+    "id": "cpr",
+    "numbered": true,
+    "label": {
+     "cs": "Stlačování hrudníku",
+     "en": "Chest compressions",
+     "sk": "Stláčanie hrudníka",
+     "pl": "Uciskanie klatki piersiowej",
+     "fi": "Painelu"
+    },
+    "lines": [
+     {
+      "cs": "Dlaně položte na střed hrudníku mezi bradavky.",
+      "en": "Place your hands in the middle of the chest between the nipples.",
+      "sk": "Dlane položte na stred hrudníka medzi bradavky.",
+      "pl": "Połóż dłonie na środku klatki piersiowej między brodawkami.",
+      "fi": "Aseta kämmenet rintakehän keskelle nännien väliin."
+     },
+     {
+      "cs": "Stlačujte 100–120krát za minutu do hloubky 5–6 cm.",
+      "en": "Press 100–120 times a minute, 5–6 cm deep.",
+      "sk": "Stláčajte 100–120-krát za minútu do hĺbky 5–6 cm.",
+      "pl": "Uciskaj 100–120 razy na minutę na głębokość 5–6 cm.",
+      "fi": "Paina 100–120 kertaa minuutissa 5–6 cm syvyyteen."
+     },
+     {
+      "cs": "Pokračujte, dokud nepřijede záchranka nebo dokud nezačne reagovat.",
+      "en": "Keep going until the ambulance arrives or the person responds.",
+      "sk": "Pokračujte, kým nepríde záchranka alebo kým nezačne reagovať.",
+      "pl": "Kontynuuj do przyjazdu karetki lub aż osoba zacznie reagować.",
+      "fi": "Jatka, kunnes ambulanssi saapuu tai henkilö alkaa reagoida."
+     }
+    ]
+   },
+   {
+    "id": "bleeding",
+    "numbered": true,
+    "label": {
+     "cs": "Silné krvácení",
+     "en": "Severe bleeding",
+     "sk": "Silné krvácanie",
+     "pl": "Silne krwawienie",
+     "fi": "Runsas verenvuoto"
+    },
+    "lines": [
+     {
+      "cs": "Když to jde, použijte gumové rukavice.",
+      "en": "If possible, wear rubber gloves.",
+      "sk": "Ak sa dá, použite gumené rukavice.",
+      "pl": "Jeśli to możliwe, użyj gumowych rękawiczek.",
+      "fi": "Käytä mahdollisuuksien mukaan kumikäsineitä."
+     },
+     {
+      "cs": "Pevně přitiskněte obvaz nebo čistou látku přímo do rány.",
+      "en": "Press a bandage or clean cloth firmly into the wound.",
+      "sk": "Pevne pritlačte obväz alebo čistú látku priamo do rany.",
+      "pl": "Mocno dociśnij opatrunek lub czystą tkaninę bezpośrednio do rany.",
+      "fi": "Paina side tai puhdas kangas tiukasti suoraan haavaan."
+     },
+     {
+      "cs": "Když tlak nestačí, použijte škrtidlo – jen na paži nebo stehno, nad ránu směrem k srdci, nikdy na kloub.",
+      "en": "If pressure is not enough, use a tourniquet – only on the arm or thigh, above the wound towards the heart, never on a joint.",
+      "sk": "Keď tlak nestačí, použite škrtidlo – len na rameno alebo stehno, nad ranu smerom k srdcu, nikdy nie na kĺb.",
+      "pl": "Jeśli ucisk nie wystarcza, użyj stazy – tylko na ramię lub udo, powyżej rany w stronę serca, nigdy na staw.",
+      "fi": "Jos paine ei riitä, käytä kiristyssidettä – vain käsivarteen tai reiteen, haavan yläpuolelle sydämen puolelle, ei koskaan niveleen."
+     },
+     {
+      "cs": "Poznamenejte si čas, kdy jste škrtidlo utáhli.",
+      "en": "Note the time you applied the tourniquet.",
+      "sk": "Poznačte si čas, kedy ste škrtidlo utiahli.",
+      "pl": "Zapisz godzinę założenia stazy.",
+      "fi": "Kirjaa ylös aika, jolloin kiristysside laitettiin."
+     }
+    ]
+   }
+  ],
+  "groups": [
+   {
+    "id": "kit",
+    "label": {
+     "cs": "Domácí lékárnička",
+     "en": "Home first-aid kit",
+     "sk": "Domáca lekárnička",
+     "pl": "Domowa apteczka",
+     "fi": "Kotiapteekki"
+    },
+    "items": [
+     {
+      "id": "meds",
+      "label": {
+       "cs": "Pravidelně užívané léky na týden",
+       "en": "Regular medicines for a week",
+       "sk": "Pravidelne užívané lieky na týždeň",
+       "pl": "Stałe leki na tydzień",
+       "fi": "Säännölliset lääkkeet viikoksi"
+      },
+      "note": {
+       "cs": "S popisem, jak je užíváte.",
+       "en": "With a note on how you take them.",
+       "sk": "S popisom, ako ich užívate.",
+       "pl": "Z opisem, jak je przyjmujesz.",
+       "fi": "Ohjeineen, miten niitä otetaan."
+      }
+     },
+     {
+      "id": "painkillers",
+      "label": {
+       "cs": "Léky proti bolesti, horečce a průjmu",
+       "en": "Medicines for pain, fever and diarrhoea",
+       "sk": "Lieky proti bolesti, horúčke a hnačke",
+       "pl": "Leki przeciwbólowe, przeciwgorączkowe i przeciwbiegunkowe",
+       "fi": "Kipu-, kuume- ja ripulilääkkeet"
+      }
+     },
+     {
+      "id": "bandages",
+      "label": {
+       "cs": "Obvazy a náplasti",
+       "en": "Bandages and plasters",
+       "sk": "Obväzy a náplasti",
+       "pl": "Bandaże i plastry",
+       "fi": "Siteet ja laastarit"
+      }
+     },
+     {
+      "id": "disinfection",
+      "label": {
+       "cs": "Dezinfekce na rány a ruce",
+       "en": "Wound and hand disinfectant",
+       "sk": "Dezinfekcia na rany a ruky",
+       "pl": "Środek do dezynfekcji ran i rąk",
+       "fi": "Haava- ja käsidesi"
+      }
+     },
+     {
+      "id": "gloves",
+      "label": {
+       "cs": "Jednorázové rukavice",
+       "en": "Disposable gloves",
+       "sk": "Jednorazové rukavice",
+       "pl": "Rękawiczki jednorazowe",
+       "fi": "Kertakäyttökäsineet"
+      }
+     },
+     {
+      "id": "tourniquet",
+      "label": {
+       "cs": "Škrtidlo",
+       "en": "Tourniquet",
+       "sk": "Škrtidlo",
+       "pl": "Staza taktyczna",
+       "fi": "Kiristysside"
+      }
+     },
+     {
+      "id": "foil",
+      "label": {
+       "cs": "Záchranářská deka (fólie)",
+       "en": "Emergency blanket (foil)",
+       "sk": "Záchranárska deka (fólia)",
+       "pl": "Koc ratunkowy (folia NRC)",
+       "fi": "Avaruuspeite"
+      }
+     },
+     {
+      "id": "respirators",
+      "label": {
+       "cs": "Respirátory",
+       "en": "Respirators",
+       "sk": "Respirátory",
+       "pl": "Maseczki FFP",
+       "fi": "Hengityssuojaimet"
+      }
+     },
+     {
+      "id": "thermometer",
+      "label": {
+       "cs": "Teploměr",
+       "en": "Thermometer",
+       "sk": "Teplomer",
+       "pl": "Termometr",
+       "fi": "Kuumemittari"
+      }
+     },
+     {
+      "id": "tweezers",
+      "label": {
+       "cs": "Pinzeta a nůžky",
+       "en": "Tweezers and scissors",
+       "sk": "Pinzeta a nožnice",
+       "pl": "Pęseta i nożyczki",
+       "fi": "Pinsetit ja sakset"
+      }
+     },
+     {
+      "id": "pencil",
+      "label": {
+       "cs": "Tužka a papír",
+       "en": "Pencil and paper",
+       "sk": "Ceruzka a papier",
+       "pl": "Ołówek i papier",
+       "fi": "Kynä ja paperia"
+      }
+     }
+    ]
+   }
+  ],
+  "tips": []
+ },
+ "power": {
+  "source": {
+   "publisher": "Ministerstvo vnitra ČR / HZS ČR",
+   "url": "https://72h.gov.cz/cs/bez-elektriny",
+   "verifiedAt": "2026-09-23"
+  },
+  "intro": {
+   "cs": "Bez proudu do několika hodin přestanou fungovat telefonní sítě, karty a bankomaty. Tady je, co dělat.",
+   "en": "Without power, phone networks, cards and cash machines stop working within hours. Here's what to do.",
+   "sk": "Bez prúdu do niekoľkých hodín prestanú fungovať telefónne siete, karty a bankomaty. Tu je, čo robiť.",
+   "pl": "Bez prądu w ciągu kilku godzin przestają działać sieci telefoniczne, karty i bankomaty. Oto co robić.",
+   "fi": "Ilman sähköä puhelinverkot, kortit ja pankkiautomaatit lakkaavat toimimasta tunneissa. Näin toimit."
+  },
+  "sections": [
+   {
+    "id": "first",
+    "label": {
+     "cs": "Hned po výpadku",
+     "en": "Right after the outage",
+     "sk": "Hneď po výpadku",
+     "pl": "Zaraz po awarii",
+     "fi": "Heti katkon jälkeen"
+    },
+    "lines": [
+     {
+      "cs": "Zkontrolujte pojistky a jestli svítí u sousedů.",
+      "en": "Check the fuses and whether the neighbours have power.",
+      "sk": "Skontrolujte poistky a či svieti u susedov.",
+      "pl": "Sprawdź bezpieczniki i czy sąsiedzi mają prąd.",
+      "fi": "Tarkista sulakkeet ja onko naapureilla sähköt."
+     },
+     {
+      "cs": "Odpojte spotřebiče – nejjednodušší je vypnout hlavní jistič.",
+      "en": "Unplug appliances – easiest is to switch off the main breaker.",
+      "sk": "Odpojte spotrebiče – najjednoduchšie je vypnúť hlavný istič.",
+      "pl": "Odłącz urządzenia – najprościej wyłączyć główny bezpiecznik.",
+      "fi": "Irrota laitteet – helpointa on kääntää pääkytkin pois."
+     },
+     {
+      "cs": "Voda z vodovodu je dál pitná.",
+      "en": "Tap water is still safe to drink.",
+      "sk": "Voda z vodovodu je naďalej pitná.",
+      "pl": "Woda z kranu nadal nadaje się do picia.",
+      "fi": "Hanavesi on edelleen juomakelpoista."
+     },
+     {
+      "cs": "K poškozenému vedení se nepřibližujte a nahlaste ho obci nebo dodavateli.",
+      "en": "Stay away from damaged power lines and report them to the municipality or supplier.",
+      "sk": "K poškodenému vedeniu sa nepribližujte a nahláste ho obci alebo dodávateľovi.",
+      "pl": "Nie zbliżaj się do uszkodzonej linii i zgłoś to gminie lub dostawcy.",
+      "fi": "Pysy kaukana vaurioituneista johdoista ja ilmoita kunnalle tai sähköyhtiölle."
+     }
+    ]
+   },
+   {
+    "id": "food",
+    "label": {
+     "cs": "Lednice a jídlo",
+     "en": "Fridge and food",
+     "sk": "Chladnička a jedlo",
+     "pl": "Lodówka i jedzenie",
+     "fi": "Jääkaappi ja ruoka"
+    },
+    "lines": [
+     {
+      "cs": "Lednici a mrazák otevírejte co nejméně.",
+      "en": "Open the fridge and freezer as little as possible.",
+      "sk": "Chladničku a mrazničku otvárajte čo najmenej.",
+      "pl": "Otwieraj lodówkę i zamrażarkę jak najrzadziej.",
+      "fi": "Avaa jääkaappia ja pakastinta mahdollisimman vähän."
+     },
+     {
+      "cs": "Rozmražené jídlo snězte co nejdřív, znovu zmrazit jen po uvaření.",
+      "en": "Eat thawed food soon; refreeze only after cooking.",
+      "sk": "Rozmrazené jedlo zjedzte čo najskôr, znovu zmraziť len po uvarení.",
+      "pl": "Rozmrożone jedzenie zjedz szybko, ponownie zamrażaj tylko po ugotowaniu.",
+      "fi": "Syö sulanut ruoka pian; pakasta uudelleen vain kypsennettynä."
+     },
+     {
+      "cs": "Kuskus, instantní kaše a vločky stačí zalít studenou vodou.",
+      "en": "Couscous, instant porridge and oats just need cold water.",
+      "sk": "Kuskus, instantnú kašu a vločky stačí zaliať studenou vodou.",
+      "pl": "Kuskus, owsiankę instant i płatki wystarczy zalać zimną wodą.",
+      "fi": "Kuskus, pikapuuro ja hiutaleet riittää liottaa kylmässä vedessä."
+     },
+     {
+      "cs": "Vařit se dá venku na vařiči nebo grilu – opatrně s ohněm.",
+      "en": "You can cook outside on a camping stove or grill – careful with fire.",
+      "sk": "Variť sa dá vonku na variči alebo grile – opatrne s ohňom.",
+      "pl": "Gotować można na zewnątrz na kuchence lub grillu – ostrożnie z ogniem.",
+      "fi": "Ruokaa voi laittaa ulkona retkikeittimellä tai grillillä – varo tulta."
+     }
+    ]
+   },
+   {
+    "id": "warm",
+    "label": {
+     "cs": "Zima",
+     "en": "Cold",
+     "sk": "Zima",
+     "pl": "Zimno",
+     "fi": "Kylmä"
+    },
+    "lines": [
+     {
+      "cs": "Topte a zdržujte se jen v jedné místnosti, i spěte v ní.",
+      "en": "Heat and stay in one room only, sleep there too.",
+      "sk": "Kúrte a zdržiavajte sa len v jednej miestnosti, aj spite v nej.",
+      "pl": "Ogrzewaj i przebywaj w jednym pomieszczeniu, śpij tam też.",
+      "fi": "Lämmitä ja oleskele vain yhdessä huoneessa, nuku myös siellä."
+     },
+     {
+      "cs": "Zavřete dveře, okna zakryjte závěsy nebo dekami, na podlahu dejte deky nebo koberce.",
+      "en": "Close doors, cover windows with curtains or blankets, put blankets or rugs on the floor.",
+      "sk": "Zatvorte dvere, okná zakryte závesmi alebo dekami, na podlahu dajte deky alebo koberce.",
+      "pl": "Zamknij drzwi, zasłoń okna zasłonami lub kocami, połóż koce lub dywany na podłodze.",
+      "fi": "Sulje ovet, peitä ikkunat verhoilla tai huovilla ja laita huopia tai mattoja lattialle."
+     },
+     {
+      "cs": "Oblečte se do více vrstev, jezte pravidelně a odpočívejte.",
+      "en": "Dress in layers, eat regularly and rest.",
+      "sk": "Oblečte sa do viacerých vrstiev, jedzte pravidelne a odpočívajte.",
+      "pl": "Ubierz się warstwowo, jedz regularnie i odpoczywaj.",
+      "fi": "Pukeudu kerroksittain, syö säännöllisesti ja lepää."
+     },
+     {
+      "cs": "Alkohol zahřeje jen krátce a zhoršuje úsudek – vyhněte se mu.",
+      "en": "Alcohol warms only briefly and impairs judgement – avoid it.",
+      "sk": "Alkohol zahreje len krátko a zhoršuje úsudok – vyhnite sa mu.",
+      "pl": "Alkohol grzeje tylko chwilę i osłabia osąd – unikaj go.",
+      "fi": "Alkoholi lämmittää vain hetken ja heikentää harkintaa – vältä sitä."
+     }
+    ]
+   },
+   {
+    "id": "heat",
+    "label": {
+     "cs": "Horko",
+     "en": "Heat",
+     "sk": "Horúčava",
+     "pl": "Upał",
+     "fi": "Helle"
+    },
+    "lines": [
+     {
+      "cs": "Mezi 11. a 18. hodinou omezte pobyt venku.",
+      "en": "Limit time outdoors between 11:00 and 18:00.",
+      "sk": "Medzi 11. a 18. hodinou obmedzte pobyt vonku.",
+      "pl": "Ogranicz przebywanie na zewnątrz między 11:00 a 18:00.",
+      "fi": "Vältä ulkona oloa klo 11–18."
+     },
+     {
+      "cs": "Větrejte jen brzy ráno a v noci, přes den zatáhněte závěsy.",
+      "en": "Air the rooms only early in the morning and at night, draw curtains during the day.",
+      "sk": "Vetrajte len skoro ráno a v noci, cez deň zatiahnite závesy.",
+      "pl": "Wietrz tylko wcześnie rano i w nocy, w dzień zasłoń okna.",
+      "fi": "Tuuleta vain aikaisin aamulla ja yöllä, pidä verhot päivällä kiinni."
+     },
+     {
+      "cs": "Jezte menší porce častěji, chlaďte krk a zápěstí vlhkým ručníkem.",
+      "en": "Eat smaller portions more often, cool neck and wrists with a damp towel.",
+      "sk": "Jedzte menšie porcie častejšie, chlaďte krk a zápästia vlhkým uterákom.",
+      "pl": "Jedz mniejsze porcje częściej, chłodź szyję i nadgarstki wilgotnym ręcznikiem.",
+      "fi": "Syö pienempiä annoksia useammin, viilennä kaulaa ja ranteita kostealla pyyhkeellä."
+     }
+    ]
+   },
+   {
+    "id": "phone",
+    "label": {
+     "cs": "Telefon",
+     "en": "Phone",
+     "sk": "Telefón",
+     "pl": "Telefon",
+     "fi": "Puhelin"
+    },
+    "lines": [
+     {
+      "cs": "Volejte jen v nutných případech – síť může být přetížená.",
+      "en": "Call only when necessary – the network may be overloaded.",
+      "sk": "Volajte len v nutných prípadoch – sieť môže byť preťažená.",
+      "pl": "Dzwoń tylko w razie potrzeby – sieć może być przeciążona.",
+      "fi": "Soita vain tarvittaessa – verkko voi olla ruuhkautunut."
+     },
+     {
+      "cs": "Šetřete baterii: omezte data a zbytečnou komunikaci.",
+      "en": "Save battery: limit data and unnecessary messaging.",
+      "sk": "Šetrite batériu: obmedzte dáta a zbytočnú komunikáciu.",
+      "pl": "Oszczędzaj baterię: ogranicz dane i zbędną komunikację.",
+      "fi": "Säästä akkua: rajoita datan käyttöä ja turhaa viestittelyä."
+     },
+     {
+      "cs": "Sledujte, kde obec zajistí náhradní zdroje – tam lze dobít telefon a powerbanku.",
+      "en": "Watch where the municipality provides backup generators – you can charge phones and power banks there.",
+      "sk": "Sledujte, kde obec zabezpečí náhradné zdroje – tam sa dá dobiť telefón a powerbanka.",
+      "pl": "Sprawdzaj, gdzie gmina zapewni agregaty – można tam naładować telefon i powerbank.",
+      "fi": "Seuraa, minne kunta tuo varavoimalähteitä – siellä voi ladata puhelimen ja varavirtalähteen."
+     }
+    ]
+   },
+   {
+    "id": "back",
+    "label": {
+     "cs": "Když se proud vrátí",
+     "en": "When power comes back",
+     "sk": "Keď sa prúd vráti",
+     "pl": "Gdy prąd wróci",
+     "fi": "Kun sähköt palaavat"
+    },
+    "lines": [
+     {
+      "cs": "Zkontrolujte spotřebiče, hlavně sporák.",
+      "en": "Check appliances, especially the cooker.",
+      "sk": "Skontrolujte spotrebiče, hlavne sporák.",
+      "pl": "Sprawdź urządzenia, zwłaszcza kuchenkę.",
+      "fi": "Tarkista laitteet, erityisesti liesi."
+     },
+     {
+      "cs": "Zkontrolujte jídlo v lednici a mrazáku.",
+      "en": "Check the food in the fridge and freezer.",
+      "sk": "Skontrolujte jedlo v chladničke a mrazničke.",
+      "pl": "Sprawdź jedzenie w lodówce i zamrażarce.",
+      "fi": "Tarkista jääkaapin ja pakastimen ruoat."
+     }
+    ]
+   }
+  ],
+  "groups": [],
+  "tips": []
  }
 }

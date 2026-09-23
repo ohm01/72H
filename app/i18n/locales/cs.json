@@ -249,7 +249,12 @@
     "addGobag": "Přidat krizové zavazadlo",
     "gobagOffer": "Batoh pro rychlý odchod z domu. Uvnitř najdete, co do něj zabalit, a hlídáme i expiraci.",
     "kidsTalk": "Jak s dětmi mluvit v krizi",
-    "waterMore": "Co když neteče voda? →"
+    "waterMore": "Co když neteče voda? →",
+    "firstAidMore": "Zásady první pomoci →",
+    "powerMore": "Co dělat bez proudu? →",
+    "water": "Když neteče voda",
+    "firstAid": "První pomoc",
+    "power": "Když vypadne proud"
   },
   "contacts": {
     "hint": "Telefony a adresy blízkých – fungují i bez internetu a děti je uvidí na dětské obrazovce.",

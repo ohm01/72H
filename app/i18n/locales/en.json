@@ -245,7 +245,12 @@
     "addGobag": "Add emergency bag",
     "gobagOffer": "A bag for leaving home quickly. Inside you'll find what to pack, and we track expiry too.",
     "kidsTalk": "How to talk to children in a crisis",
-    "waterMore": "What if the water stops? →"
+    "waterMore": "What if the water stops? →",
+    "firstAidMore": "First-aid basics →",
+    "powerMore": "What to do without power? →",
+    "water": "When the water stops",
+    "firstAid": "First aid",
+    "power": "Power outage"
   },
   "contacts": {
     "hint": "Phone numbers and addresses of your people – they work offline and kids can see them on the kids screen.",

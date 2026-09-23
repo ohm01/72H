@@ -245,7 +245,12 @@
     "addGobag": "Lisää hätälaukku",
     "gobagOffer": "Laukku nopeaa lähtöä varten. Sisältä löydät pakkauslistan, ja seuraamme myös päiväyksiä.",
     "kidsTalk": "Miten puhua lapsille kriisissä",
-    "waterMore": "Entä jos vesi katkeaa? →"
+    "waterMore": "Entä jos vesi katkeaa? →",
+    "firstAidMore": "Ensiavun perusteet →",
+    "powerMore": "Mitä tehdä sähkökatkossa? →",
+    "water": "Kun vesi katkeaa",
+    "firstAid": "Ensiapu",
+    "power": "Sähkökatko"
   },
   "contacts": {
     "hint": "Läheisten puhelinnumerot ja osoitteet – toimivat ilman internetiä, ja lapset näkevät ne lasten näkymässä.",

@@ -247,6 +247,18 @@ describe('Emergency bag and food guide', () => {
     expect(router.push).toHaveBeenCalledWith('/guide/food');
     await fireEvent.press(screen.getByText('Co když neteče voda? →'));
     expect(router.push).toHaveBeenCalledWith('/guide/water');
+    await fireEvent.press(screen.getByText('Zásady první pomoci →'));
+    expect(router.push).toHaveBeenCalledWith('/guide/firstAid');
+    await fireEvent.press(screen.getByText('Co dělat bez proudu? →'));
+    expect(router.push).toHaveBeenCalledWith('/guide/power');
+  });
+
+  it('first-aid guide shows numbered steps and a kit checklist', async () => {
+    (useLocalSearchParams as jest.Mock).mockReturnValue({ id: 'firstAid' });
+    await render(<GuideScreen />);
+    expect(await screen.findByText('2. Stlačujte 100–120krát za minutu do hloubky 5–6 cm.')).toBeTruthy();
+    expect(screen.getByText('Domácí lékárnička')).toBeTruthy();
+    expect(screen.getByText('Máte 0 z 11')).toBeTruthy();
   });
 });
 

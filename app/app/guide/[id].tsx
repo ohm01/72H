@@ -37,6 +37,14 @@ export default function GuideScreen() {
     <Screen>
       <Stack.Screen options={{ title: t(`guides.${id}`) }} />
       <Muted>{loc(guide.intro, lang)}</Muted>
+      {guide.sections?.map((sec) => (
+        <Card key={sec.id}>
+          <Label>{loc(sec.label, lang)}</Label>
+          {sec.lines.map((line, i) => (
+            <Text key={line.cs} style={styles.tip}>{`${sec.numbered ? `${i + 1}.` : '•'} ${loc(line, lang)}`}</Text>
+          ))}
+        </Card>
+      ))}
       {total > 0 && <Muted>{t('guides.progress', { done, total })}</Muted>}
       {groups.map((g) => (
         <Card key={g.id}>
@@ -52,12 +60,14 @@ export default function GuideScreen() {
           ))}
         </Card>
       ))}
-      <Card>
-        {total > 0 && <Label>{t('guides.tips')}</Label>}
-        {guide.tips.map((tip) => (
-          <Text key={tip.cs} style={total > 0 ? undefined : styles.tip}>{`• ${loc(tip, lang)}`}</Text>
-        ))}
-      </Card>
+      {guide.tips.length > 0 && (
+        <Card>
+          {total > 0 && <Label>{t('guides.tips')}</Label>}
+          {guide.tips.map((tip) => (
+            <Text key={tip.cs} style={total > 0 ? undefined : styles.tip}>{`• ${loc(tip, lang)}`}</Text>
+          ))}
+        </Card>
+      )}
       <Card>
         <Muted>{t('checklist.source', { publisher: guide.source.publisher, date: guide.source.verifiedAt })}</Muted>
         <Button title={t('checklist.openSource')} variant="secondary" onPress={() => WebBrowser.openBrowserAsync(guide.source.url)} />

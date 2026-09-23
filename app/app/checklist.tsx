@@ -16,6 +16,8 @@ import { type Href, router } from 'expo-router';
 const GUIDE_LINKS: Record<string, { label: string; href: Href }> = {
   food: { label: 'guides.foodMore', href: '/guide/food' },
   water: { label: 'guides.waterMore', href: '/guide/water' },
+  first_aid: { label: 'guides.firstAidMore', href: '/guide/firstAid' },
+  flashlight: { label: 'guides.powerMore', href: '/guide/power' },
 };
 
 export default function ChecklistScreen() {
