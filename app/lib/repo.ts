@@ -187,6 +187,10 @@ export async function saveMeetingPoint(
   return id;
 }
 
+export async function getMeetingPoint(db: SQLiteDatabase, id: string): Promise<MeetingPoint | null> {
+  return db.getFirstAsync<MeetingPoint>(`SELECT ${MP_COLUMNS} FROM meeting_points WHERE id = ? AND deleted_at IS NULL`, id);
+}
+
 export async function deleteMeetingPoint(db: SQLiteDatabase, id: string): Promise<void> {
   const ts = now();
   await db.runAsync('UPDATE meeting_points SET deleted_at = ?, updated_at = ? WHERE id = ?', ts, ts, id);
@@ -210,4 +214,56 @@ export async function setCheck(db: SQLiteDatabase, country: string, itemId: stri
   } else {
     await db.runAsync('DELETE FROM checklist_checks WHERE country = ? AND item_id = ?', country, itemId);
   }
+}
+
+// ---------- Offline map areas ----------
+
+export type MapArea = {
+  id: string;
+  name: string;
+  west: number;
+  south: number;
+  east: number;
+  north: number;
+  areaKm2: number;
+  sizeBytes: number;
+  fileUri: string;
+};
+
+const AREA_COLUMNS = 'id, name, west, south, east, north, area_km2 AS areaKm2, size_bytes AS sizeBytes, file_uri AS fileUri';
+
+export async function listMapAreas(db: SQLiteDatabase): Promise<MapArea[]> {
+  return db.getAllAsync<MapArea>(`SELECT ${AREA_COLUMNS} FROM map_areas ORDER BY created_at`);
+}
+
+export async function saveMapArea(db: SQLiteDatabase, a: MapArea): Promise<void> {
+  await db.runAsync(
+    `INSERT OR REPLACE INTO map_areas (id, name, west, south, east, north, area_km2, size_bytes, file_uri, created_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    a.id,
+    a.name,
+    a.west,
+    a.south,
+    a.east,
+    a.north,
+    a.areaKm2,
+    a.sizeBytes,
+    a.fileUri,
+    now()
+  );
+}
+
+export async function deleteMapArea(db: SQLiteDatabase, id: string): Promise<void> {
+  await db.runAsync('DELETE FROM map_areas WHERE id = ?', id);
+}
+
+// Monthly map download counter (the server will enforce it too once accounts exist, M3/M4).
+const monthKey = (d: Date) => `mapDownloads:${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+
+export async function getMapDownloadsThisMonth(db: SQLiteDatabase, today = new Date()): Promise<number> {
+  return Number((await getSetting(db, monthKey(today))) ?? 0);
+}
+
+export async function countMapDownload(db: SQLiteDatabase, today = new Date()): Promise<void> {
+  await setSetting(db, monthKey(today), String((await getMapDownloadsThisMonth(db, today)) + 1));
 }

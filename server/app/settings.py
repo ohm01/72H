@@ -9,6 +9,8 @@ EXTRACTS_DIR = Path(os.environ.get("EXTRACTS_DIR", "/data/extracts"))
 EXTRACT_MAXZOOM = int(os.environ.get("EXTRACT_MAXZOOM", "15"))
 EXTRACT_TIMEOUT_S = int(os.environ.get("EXTRACT_TIMEOUT_S", "600"))
 EXTRACT_CACHE_HOURS = int(os.environ.get("EXTRACT_CACHE_HOURS", "24"))
+# Fonts + sprites for offline maps (scripts/fetch-map-assets.sh), served to the app.
+MAP_ASSETS_DIR = Path(os.environ.get("MAP_ASSETS_DIR", "/maps/assets"))
 
 # Temporary guard until user auth exists (M3): map endpoints need X-Dev-Key.
 DEV_API_KEY = os.environ.get("DEV_API_KEY", "")

@@ -108,3 +108,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Dokumenty: model hrozeb, zásady ochrany soukromí, texty pro obchody (koncepty).
 - **2026-09-23**
   - Commit skriptu `scripts/fetch-map-assets.sh` (písma a ikony mapy pro offline).
+  - Rozpracované M2 (stahování mapy v aplikaci) commitnuto jako WIP. Vývoj se přesouvá z RPi na Mac; server na RPi zastaven.

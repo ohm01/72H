@@ -78,3 +78,17 @@ def test_requires_dev_key():
     anon = TestClient(app)
     assert anon.post("/v1/maps/extracts", json=PRAGUE).status_code == 401
     assert TestClient(app, headers={"X-Dev-Key": "wrong"}).post("/v1/maps/extracts", json=PRAGUE).status_code == 401
+
+
+def test_map_assets(tmp_path, monkeypatch):
+    (tmp_path / "fonts" / "Noto Sans Regular").mkdir(parents=True)
+    (tmp_path / "fonts" / "Noto Sans Regular" / "0-255.pbf").write_bytes(b"glyphs")
+    (tmp_path / "manifest.json").write_text("{}")
+    monkeypatch.setattr(settings, "MAP_ASSETS_DIR", tmp_path)
+    assert client.get("/v1/maps/assets/manifest.json").status_code == 200
+    r = client.get("/v1/maps/assets/fonts/Noto%20Sans%20Regular/0-255.pbf")
+    assert r.status_code == 200 and r.content == b"glyphs"
+    assert client.get("/v1/maps/assets/../settings.py").status_code == 404
+    assert client.get("/v1/maps/assets/%2E%2E/%2E%2E/etc/passwd").status_code == 404
+    assert client.get("/v1/maps/assets/fonts").status_code == 404
+    assert TestClient(app).get("/v1/maps/assets/manifest.json").status_code == 401

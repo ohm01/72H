@@ -52,6 +52,21 @@ const MIGRATIONS: string[] = [
     PRIMARY KEY (country, item_id)
   );
   `,
+  // Offline map areas: device-only (files live on this phone), so no sync columns.
+  `
+  CREATE TABLE map_areas (
+    id TEXT PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL,
+    west REAL NOT NULL,
+    south REAL NOT NULL,
+    east REAL NOT NULL,
+    north REAL NOT NULL,
+    area_km2 REAL NOT NULL,
+    size_bytes INTEGER NOT NULL,
+    file_uri TEXT NOT NULL,
+    created_at TEXT NOT NULL
+  );
+  `,
 ];
 
 export async function migrate(db: SQLiteDatabase): Promise<void> {

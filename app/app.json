@@ -37,7 +37,8 @@
       "expo-localization",
       "expo-sqlite",
       "expo-notifications",
-      "@react-native-community/datetimepicker"
+      "@react-native-community/datetimepicker",
+      "@maplibre/maplibre-react-native"
     ],
     "experiments": {
       "typedRoutes": true

@@ -123,3 +123,13 @@ def download_extract(eid: str) -> FileResponse:
         raise HTTPException(404)
     # FileResponse supports HTTP Range, so the app can resume and show progress.
     return FileResponse(path, media_type="application/vnd.pmtiles", filename=f"72h-{eid[:8]}.pmtiles")
+
+
+@router.get("/assets/{path:path}")
+def map_asset(path: str) -> FileResponse:
+    """Fonts and sprites listed in manifest.json; the app caches them for offline use."""
+    root = settings.MAP_ASSETS_DIR.resolve()
+    target = (root / path).resolve()
+    if not target.is_relative_to(root) or not target.is_file():
+        raise HTTPException(404)
+    return FileResponse(target)
