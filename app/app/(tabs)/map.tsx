@@ -1,4 +1,5 @@
-import { router } from 'expo-router';
+import { router, useFocusEffect } from 'expo-router';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, ScrollView, StyleSheet } from 'react-native';
 
@@ -8,6 +9,7 @@ import { Button, Card, Muted, Title } from '@/components/ui';
 import { useLimits } from '@/lib/entitlement';
 import { distanceText } from '@/lib/format';
 import { distanceM, type LatLon } from '@/lib/geo';
+import { ensureMapAssets } from '@/lib/mapDownload';
 import { listMapAreas, listMeetingPoints } from '@/lib/repo';
 import { useDbQuery } from '@/lib/useDbQuery';
 import { usePosition } from '@/lib/useLocation';
@@ -21,6 +23,8 @@ export default function MapScreen() {
     points: await listMeetingPoints(db),
   }));
   const { position, denied } = usePosition();
+  // Top up fonts/icons whenever online, so assets added on the server reach existing installs.
+  useFocusEffect(useCallback(() => void ensureMapAssets().catch(() => {}), []));
 
   if (!data) return null;
   const { areas, points } = data;

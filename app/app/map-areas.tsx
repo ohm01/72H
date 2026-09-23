@@ -1,4 +1,3 @@
-import * as Location from 'expo-location';
 import { useSQLiteContext } from 'expo-sqlite';
 import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -9,11 +8,11 @@ import { Button, Card, Chip, ChipRow, Label, Muted, Screen, TextField, Title } f
 import { ApiError } from '@/lib/api';
 import { useLimits } from '@/lib/entitlement';
 import { formatNumber } from '@/lib/format';
-import type { LatLon } from '@/lib/geo';
 import { downloadBlock, downloadsResetDate, radiusOptions } from '@/lib/mapAreas';
 import { deleteAreaFile, downloadArea } from '@/lib/mapDownload';
-import { countMapDownload, deleteMapArea, getMapDownloadsThisMonth, listMapAreas, saveMapArea } from '@/lib/repo';
+import { countMapDownload, deleteMapArea, getMapDownloadsThisMonth, listMapAreas, listMeetingPoints, saveMapArea } from '@/lib/repo';
 import { useDbQuery } from '@/lib/useDbQuery';
+import { useGeocode } from '@/lib/useGeocode';
 import { usePosition } from '@/lib/useLocation';
 
 type Status = { kind: 'idle' } | { kind: 'preparing' } | { kind: 'downloading'; fraction: number } | { kind: 'done' } | { kind: 'error'; message: string };
@@ -29,37 +28,29 @@ export default function MapAreasScreen() {
   const { data, reload } = useDbQuery(async (d) => ({
     areas: await listMapAreas(d),
     downloads: await getMapDownloadsThisMonth(d),
+    points: (await listMeetingPoints(d)).filter((m) => m.lat != null && m.lon != null),
   }));
 
-  const [source, setSource] = useState<'gps' | 'search'>('gps');
+  // Centre: a meeting point id, 'gps' or 'search'. Default: the first meeting point with a position.
+  const [picked, setPicked] = useState<string | null>(null);
+  const source = picked ?? data?.points[0]?.id ?? 'gps';
   const { position, denied } = usePosition(source === 'gps');
   const [query, setQuery] = useState('');
-  const [found, setFound] = useState<LatLon | null>(null);
-  const [notFound, setNotFound] = useState(false);
+  const geo = useGeocode(source === 'search' ? query : '');
   const [radiusKm, setRadiusKm] = useState(5);
   const [name, setName] = useState('');
   const [status, setStatus] = useState<Status>({ kind: 'idle' });
   const abort = useRef<AbortController | null>(null);
 
   if (!data) return null;
-  const { areas, downloads } = data;
+  const { areas, downloads, points } = data;
   const reset = downloadsResetDate().toLocaleDateString(i18n.language);
   const block = downloadBlock(limits, areas.length, downloads);
-  const center = source === 'gps' ? position : found;
+  const mp = points.find((m) => m.id === source);
+  const center = mp ? { lat: mp.lat!, lon: mp.lon! } : source === 'gps' ? position : geo.status === 'found' ? geo.point : null;
   const options = center ? radiusOptions(center.lat, center.lon, limits.mapAreaMaxKm2) : [];
   const chosen = options.find((o) => o.radiusKm === radiusKm && o.allowed) ?? options.filter((o) => o.allowed).at(-1);
   const busy = status.kind === 'preparing' || status.kind === 'downloading';
-
-  async function search() {
-    setNotFound(false);
-    try {
-      const [hit] = await Location.geocodeAsync(query.trim());
-      if (hit) setFound({ lat: hit.latitude, lon: hit.longitude });
-      else setNotFound(true);
-    } catch {
-      setNotFound(true);
-    }
-  }
 
   async function download() {
     if (!chosen) return;
@@ -69,7 +60,7 @@ export default function MapAreasScreen() {
     try {
       const area = await downloadArea(
         chosen.bbox,
-        name.trim() || t('mapAreas.defaultName', { n: areas.length + 1 }),
+        name.trim() || mp?.name || t('mapAreas.defaultName', { n: areas.length + 1 }),
         (fraction) => setStatus({ kind: 'downloading', fraction }),
         controller.signal
       );
@@ -149,17 +140,21 @@ export default function MapAreasScreen() {
         <Card>
           <Label>{t('mapAreas.center')}</Label>
           <ChipRow>
-            <Chip label={t('mapAreas.myLocation')} selected={source === 'gps'} onPress={() => setSource('gps')} />
-            <Chip label={t('mapAreas.search')} selected={source === 'search'} onPress={() => setSource('search')} />
+            {points.map((m) => (
+              <Chip key={m.id} label={m.name} selected={source === m.id} onPress={() => setPicked(m.id)} />
+            ))}
+            <Chip label={t('mapAreas.myLocation')} selected={source === 'gps'} onPress={() => setPicked('gps')} />
+            <Chip label={t('mapAreas.search')} selected={source === 'search'} onPress={() => setPicked('search')} />
           </ChipRow>
           {source === 'gps' && denied && <Muted>{t('map.locationDenied')}</Muted>}
           {source === 'search' && (
-            <View style={styles.row}>
-              <TextField style={styles.grow} value={query} onChangeText={setQuery} placeholder={t('mapAreas.search')} onSubmitEditing={search} returnKeyType="search" />
-              <Button title={t('mapAreas.searchButton')} variant="secondary" onPress={search} disabled={!query.trim()} />
-            </View>
+            <>
+              <TextField value={query} onChangeText={setQuery} placeholder={t('meetingPoint.addressPlaceholder')} />
+              {geo.status === 'searching' && <Muted>{t('geocode.searching')}</Muted>}
+              {geo.status === 'found' && geo.label ? <Muted>{t('geocode.found', { label: geo.label })}</Muted> : null}
+              {geo.status === 'notFound' && <Muted>{t('geocode.notFound')}</Muted>}
+            </>
           )}
-          {notFound && source === 'search' && <Muted>{t('mapAreas.notFound')}</Muted>}
           {center && <Muted>{`${center.lat.toFixed(4)}, ${center.lon.toFixed(4)}`}</Muted>}
 
           {options.length > 0 && (
@@ -208,8 +203,6 @@ export default function MapAreasScreen() {
 }
 
 const styles = StyleSheet.create({
-  row: { flexDirection: 'row', gap: 8, alignItems: 'center' },
-  grow: { flex: 1 },
   bar: { height: 10, borderWidth: 1, borderRadius: 5, overflow: 'hidden' },
   fill: { height: '100%' },
 });

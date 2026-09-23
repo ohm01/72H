@@ -172,8 +172,6 @@
     "center": "Area centre",
     "myLocation": "My location",
     "search": "Town or address",
-    "searchButton": "Find",
-    "notFound": "We couldn't find that place. Try another name.",
     "size": "Size",
     "side": "{{side}} × {{side}} km",
     "areaKm2": "{{km2}} km²",
@@ -203,7 +201,8 @@
     "positionNone": "Position not set yet.",
     "useMyLocation": "Use my location",
     "tapMapHint": "Tap the map to adjust the position.",
-    "noMapHint": "Download a map area first to pick the position on the map."
+    "noMapHint": "Download a map area first to pick the position on the map.",
+    "addressPlaceholder": "e.g. 10 Main Street, Brno"
   },
   "navigate": {
     "title": "Way to meeting point",
@@ -222,5 +221,10 @@
     "arrived": "You are there. Wait here for your family.",
     "call112": "Call 112",
     "help": "If you get lost, stay where you are and ask an adult for help, like a shop assistant or a police officer."
+  },
+  "geocode": {
+    "searching": "Looking up the address…",
+    "found": "Found: {{label}}",
+    "notFound": "We couldn't find that address. Check it or add the town."
   }
 }

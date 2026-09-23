@@ -176,8 +176,6 @@
     "center": "Środek obszaru",
     "myLocation": "Moja lokalizacja",
     "search": "Miejscowość lub adres",
-    "searchButton": "Znajdź",
-    "notFound": "Nie znaleźliśmy tego miejsca. Spróbuj innej nazwy.",
     "size": "Rozmiar",
     "side": "{{side}} × {{side}} km",
     "areaKm2": "{{km2}} km²",
@@ -207,7 +205,8 @@
     "positionNone": "Położenie nie jest jeszcze ustawione.",
     "useMyLocation": "Użyj mojej lokalizacji",
     "tapMapHint": "Dotknij mapy, aby doprecyzować położenie.",
-    "noMapHint": "Aby wybrać położenie na mapie, najpierw pobierz obszar mapy."
+    "noMapHint": "Aby wybrać położenie na mapie, najpierw pobierz obszar mapy.",
+    "addressPlaceholder": "np. Hlavní 10, Brno"
   },
   "navigate": {
     "title": "Droga do miejsca spotkania",
@@ -226,5 +225,10 @@
     "arrived": "Jesteś na miejscu. Poczekaj tu na rodzinę.",
     "call112": "Zadzwoń pod 112",
     "help": "Jeśli się zgubisz, zostań na miejscu i poproś o pomoc dorosłego, na przykład sprzedawcę albo policjanta."
+  },
+  "geocode": {
+    "searching": "Szukam adresu…",
+    "found": "Znaleziono: {{label}}",
+    "notFound": "Nie znaleźliśmy tego adresu. Sprawdź go lub dodaj miejscowość."
   }
 }

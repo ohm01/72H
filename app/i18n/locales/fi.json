@@ -172,8 +172,6 @@
     "center": "Alueen keskipiste",
     "myLocation": "Oma sijainti",
     "search": "Paikkakunta tai osoite",
-    "searchButton": "Hae",
-    "notFound": "Paikkaa ei löytynyt. Kokeile toista nimeä.",
     "size": "Koko",
     "side": "{{side}} × {{side}} km",
     "areaKm2": "{{km2}} km²",
@@ -203,7 +201,8 @@
     "positionNone": "Sijaintia ei ole vielä asetettu.",
     "useMyLocation": "Käytä omaa sijaintia",
     "tapMapHint": "Tarkenna sijaintia napauttamalla karttaa.",
-    "noMapHint": "Lataa ensin kartta-alue, jotta voit valita sijainnin kartalta."
+    "noMapHint": "Lataa ensin kartta-alue, jotta voit valita sijainnin kartalta.",
+    "addressPlaceholder": "esim. Hlavní 10, Brno"
   },
   "navigate": {
     "title": "Reitti kokoontumispaikalle",
@@ -222,5 +221,10 @@
     "arrived": "Olet perillä. Odota perhettäsi tässä.",
     "call112": "Soita 112",
     "help": "Jos eksyt, pysy paikallasi ja pyydä apua aikuiselta, esimerkiksi myyjältä tai poliisilta."
+  },
+  "geocode": {
+    "searching": "Haetaan osoitetta…",
+    "found": "Löytyi: {{label}}",
+    "notFound": "Osoitetta ei löytynyt. Tarkista se tai lisää paikkakunta."
   }
 }

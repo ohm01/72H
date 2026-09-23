@@ -176,8 +176,6 @@
     "center": "Střed oblasti",
     "myLocation": "Moje poloha",
     "search": "Obec nebo adresa",
-    "searchButton": "Najít",
-    "notFound": "Místo jsme nenašli. Zkuste jiný název.",
     "size": "Velikost",
     "side": "{{side}} × {{side}} km",
     "areaKm2": "{{km2}} km²",
@@ -207,7 +205,8 @@
     "positionNone": "Poloha zatím není nastavená.",
     "useMyLocation": "Použít moji polohu",
     "tapMapHint": "Klepnutím do mapy polohu upřesníte.",
-    "noMapHint": "Pro výběr na mapě si nejdřív stáhněte oblast mapy."
+    "noMapHint": "Pro výběr na mapě si nejdřív stáhněte oblast mapy.",
+    "addressPlaceholder": "např. Za Střelnicí 950, Sezemice"
   },
   "navigate": {
     "title": "Cesta k místu srazu",
@@ -226,5 +225,10 @@
     "arrived": "Jsi na místě. Počkej tu na rodinu.",
     "call112": "Volat 112",
     "help": "Když se ztratíš, zůstaň na místě a požádej o pomoc dospělého, třeba prodavače nebo policistu."
+  },
+  "geocode": {
+    "searching": "Hledám adresu…",
+    "found": "Nalezeno: {{label}}",
+    "notFound": "Adresu jsme nenašli. Zkontrolujte ji, nebo zadejte i obec."
   }
 }

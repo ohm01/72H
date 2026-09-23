@@ -176,8 +176,6 @@
     "center": "Stred oblasti",
     "myLocation": "Moja poloha",
     "search": "Obec alebo adresa",
-    "searchButton": "Nájsť",
-    "notFound": "Miesto sme nenašli. Skúste iný názov.",
     "size": "Veľkosť",
     "side": "{{side}} × {{side}} km",
     "areaKm2": "{{km2}} km²",
@@ -207,7 +205,8 @@
     "positionNone": "Poloha zatiaľ nie je nastavená.",
     "useMyLocation": "Použiť moju polohu",
     "tapMapHint": "Ťuknutím do mapy polohu spresníte.",
-    "noMapHint": "Na výber na mape si najprv stiahnite oblasť mapy."
+    "noMapHint": "Na výber na mape si najprv stiahnite oblasť mapy.",
+    "addressPlaceholder": "napr. Hlavná 10, Brno"
   },
   "navigate": {
     "title": "Cesta k miestu stretnutia",
@@ -226,5 +225,10 @@
     "arrived": "Si na mieste. Počkaj tu na rodinu.",
     "call112": "Volať 112",
     "help": "Keď sa stratíš, zostaň na mieste a požiadaj o pomoc dospelého, napríklad predavača alebo policajta."
+  },
+  "geocode": {
+    "searching": "Hľadám adresu…",
+    "found": "Nájdené: {{label}}",
+    "notFound": "Adresu sme nenašli. Skontrolujte ju alebo zadajte aj obec."
   }
 }

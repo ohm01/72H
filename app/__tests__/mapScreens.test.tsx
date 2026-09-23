@@ -38,7 +38,8 @@ jest.mock('expo-location', () => ({
     cb({ trueHeading: mockHeading, magHeading: mockHeading, accuracy: 3 });
     return { remove: jest.fn() };
   }),
-  geocodeAsync: jest.fn(async () => [{ latitude: 49.1951, longitude: 16.6068 }]),
+  geocodeAsync: jest.fn(async (q: string) => (q.includes('Neexistuje') ? [] : [{ latitude: 50.0443, longitude: 15.8456 }])),
+  reverseGeocodeAsync: jest.fn(async () => [{ street: 'Za Střelnicí', streetNumber: '950', city: 'Sezemice', region: 'Pardubický kraj' }]),
 }));
 jest.mock('@maplibre/maplibre-react-native', () => {
   const { View } = require('react-native');
@@ -51,6 +52,7 @@ jest.mock('@maplibre/maplibre-react-native', () => {
 });
 jest.mock('@/lib/mapDownload', () => ({
   assetsDir: () => ({ uri: 'file:///maps/assets' }),
+  ensureMapAssets: jest.fn(async () => {}),
   downloadArea: jest.fn(),
   deleteAreaFile: jest.fn(),
 }));
@@ -135,6 +137,28 @@ describe('MeetingPointScreen', () => {
   });
 });
 
+describe('MeetingPointScreen address', () => {
+  it('looks the address up and uses its position', async () => {
+    const id = await point(null, null);
+    jest.mocked(useLocalSearchParams).mockReturnValue({ id });
+    await render(<MeetingPointScreen />);
+
+    await fireEvent.changeText(await screen.findByPlaceholderText('např. Za Střelnicí 950, Sezemice'), 'Za střelnici 950 sezemice');
+    expect(await screen.findByText('Nalezeno: Za Střelnicí 950, Sezemice, Pardubický kraj', {}, { timeout: 3000 })).toBeTruthy();
+    expect(screen.getByText('50.04430, 15.84560')).toBeTruthy();
+    await fireEvent.press(screen.getByText('Uložit'));
+    await waitFor(async () => expect((await listMeetingPoints(mockDb))[0]).toMatchObject({ lat: 50.0443, lon: 15.8456 }));
+  });
+
+  it('says when the address does not exist', async () => {
+    jest.mocked(useLocalSearchParams).mockReturnValue({ id: 'new' });
+    await render(<MeetingPointScreen />);
+    await fireEvent.changeText(screen.getByPlaceholderText('např. Za Střelnicí 950, Sezemice'), 'Neexistuje 1');
+    expect(await screen.findByText(/^Adresu jsme nenašli/, {}, { timeout: 3000 })).toBeTruthy();
+    expect(screen.getByText('Poloha zatím není nastavená.')).toBeTruthy();
+  });
+});
+
 describe('NavigateScreen', () => {
   it('points the arrow relative to the compass and shows distance', async () => {
     const id = await point(50.0965, 14.4213); // due north
@@ -192,15 +216,28 @@ describe('MapAreasScreen', () => {
     expect(screen.getByText('Oblast 1')).toBeTruthy();
   });
 
+  it('centres on the meeting point by default', async () => {
+    await saveMeetingPoint(mockDb, { name: 'U kristy', note: null, address: 'Za Střelnicí 950, Sezemice', lat: 50.0443, lon: 15.8456, photoUri: null });
+    jest.mocked(downloadArea).mockImplementation(async (bbox, name) => ({ id: 'e2', name, ...bbox, areaKm2: 100, sizeBytes: 1, fileUri: 'file:///x' }));
+    await render(<MapAreasScreen />);
+
+    expect(await screen.findByText('50.0443, 15.8456')).toBeTruthy();
+    await fireEvent.press(screen.getByText('Stáhnout'));
+    await screen.findByText('Mapa je stažená a funguje offline.');
+    const [bbox, name] = jest.mocked(downloadArea).mock.calls[0];
+    expect(name).toBe('U kristy');
+    expect(bbox.west).toBeLessThan(15.8456);
+    expect(bbox.east).toBeGreaterThan(15.8456);
+  });
+
   it('explains when the server rejects an area outside the Czech Republic', async () => {
     const { ApiError } = jest.requireActual('@/lib/api');
     jest.mocked(downloadArea).mockRejectedValue(new ApiError(422, { detail: 'area outside supported region (CZ)' }));
     await render(<MapAreasScreen />);
 
     await fireEvent.press(screen.getByText('Obec nebo adresa'));
-    await fireEvent.changeText(screen.getByPlaceholderText('Obec nebo adresa'), 'Brno');
-    await fireEvent.press(screen.getByText('Najít'));
-    expect(await screen.findByText('49.1951, 16.6068')).toBeTruthy();
+    await fireEvent.changeText(screen.getByPlaceholderText('např. Za Střelnicí 950, Sezemice'), 'Sezemice');
+    expect(await screen.findByText('50.0443, 15.8456', {}, { timeout: 3000 })).toBeTruthy();
     await fireEvent.press(screen.getByText('Stáhnout'));
     expect(await screen.findByText('Oblast musí ležet celá v České republice.')).toBeTruthy();
     expect(await listMapAreas(mockDb)).toHaveLength(0);
