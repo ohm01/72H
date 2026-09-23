@@ -71,6 +71,23 @@ Aktualizuje Claude po každém kroku. Legenda: ✅ hotovo · 🔄 rozpracováno 
 | Ověření na telefonu v režimu letadlo (potřebuje nový dev build – MapLibre je nativní modul) | ⏳ |
 Připraveno: tabulka `meeting_points`, místo srazu z onboardingu se ukládá.
 
+### M2b – Kontakty rodiny ⏳ čeká na schválení
+Nápad (2026-09-23): aplikace má obsahovat adresy a telefonní čísla rodiny, aby je v nouzi viděly i děti.
+
+**Návrh (co nejjednodušší):**
+| Část | Jak |
+|---|---|
+| Data | Nová tabulka `contacts` v telefonu: jméno, vztah (máma, babička…), telefon, adresa, poloha (dohledá se z adresy stejně jako u míst srazu), poznámka. Funguje offline. |
+| Obrazovka | Více → **Kontakty**: seznam, přidat, upravit, smazat. Zadání ručně, bez přístupu ke kontaktům v telefonu (méně oprávnění, jednodušší). |
+| Děti | Dětská obrazovka ukáže kontakty velkým písmem s tlačítky **Zavolat** a **Jak se tam dostat** (stejná šipka jako u míst srazu). |
+| Tísňová čísla | 112 + národní čísla (CZ 150/155/158) z dat zemí, vždy nahoře. |
+| Tarif | Zdarma (bezpečnostní funkce jako dětská obrazovka), bez limitu. |
+| Rodina (M3) | Kontakty se sdílí v rodinné skupině, šifrované rodinným klíčem jako ostatní osobní data. Do M3 jen v telefonu. |
+
+**Co zatím ne:** import z kontaktů telefonu, tisk kartičky (PDF export je mimo 1.0), zobrazení na zamčené obrazovce.
+**Odhad:** malý krok (1 tabulka, 2 obrazovky, úprava dětské obrazovky, testy).
+**Otázky:** Mají se kontakty ukazovat i na hlavní obrazovce Mapa, nebo stačí Více + dětská obrazovka? Stačí tísňová čísla CZ, nebo podle zvoleného standardu země?
+
 ### M3 – Účty a rodina ⬜
 **Změna zadání:** přihlášení e-mailem s kódem + Google + Apple (Apple je povinný, pokud je nabízený Google). Další poskytovatelé upřesníme.
 Připraveno: všechny tabulky mají UUID, `updated_at` a `deleted_at` pro synchronizaci.
@@ -100,6 +117,7 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
 | 2026-09-22 | Jazykové verze pro cílové země: sk, pl, fi | UI i data zemí; strojový překlad → kontrola rodilým mluvčím |
 | 2026-09-22 | Grafický styl pro celou aplikaci | poslední krok dnešní práce |
 | 2026-09-22 | Agenti: `tester` (průběžné testování), `committer` (commity) | `.claude/agents/` |
+| 2026-09-23 | Kontakty rodiny (adresy, telefony) viditelné i pro děti | nový krok M2b, čeká na schválení |
 
 ## Deník
 - **2026-09-22**
