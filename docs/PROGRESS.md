@@ -2,7 +2,7 @@
 
 Aktualizuje Claude po každém kroku. Legenda: ✅ hotovo · 🔄 rozpracováno · ⏳ čeká na tebe · ⬜ nezačato · ❌ zrušeno
 
-**Poslední aktualizace:** 2026-09-22
+**Poslední aktualizace:** 2026-09-23
 
 ## Kde jsme
 - **M0:** skoro hotovo. Chybí EAS buildy (čekají na tvůj `eas login` a bundle ID) a ověření aplikace na telefonu nebo simulátoru.
@@ -12,7 +12,7 @@ Aktualizuje Claude po každém kroku. Legenda: ✅ hotovo · 🔄 rozpracováno 
 
 ## ⏳ Co čeká na tebe
 1. `cd /srv/72h/app && npx eas-cli login` (účet expo.dev) a pak mi dej vědět.
-2. Rozhodnout bundle ID / package name (návrh `org.jennase.family72h`), po vydání nejde změnit.
+2. Potvrdit bundle ID / package name `org.jennase.family72h` (doporučeno, po vydání nejde změnit).
 3. Schválit zdroje a nejistoty v `docs/country-comparison.md`.
 3b. Projít `docs/threat-model.md` a rozhodnout R1–R5 (potřebné pro M3 a M6).
 4. Volitelně (restart RPi): zapnout memory cgroup, aby platily limity paměti v Dockeru:
@@ -62,6 +62,7 @@ Aktualizuje Claude po každém kroku. Legenda: ✅ hotovo · 🔄 rozpracováno 
 | Server: počítání stažení za měsíc | ⬜ potřebuje přihlášení (M3) |
 | Dočasná ochrana endpointu klíčem `X-Dev-Key` (do M3) | ✅ (klíč je v `.env`) |
 | Zdroj mapy: zatím vzdálené sestavení Protomaps, po SSD lokální `maps/cz.pmtiles` | 🔄 |
+| Písma a ikony mapy pro offline (`scripts/fetch-map-assets.sh` → `maps/assets`, mimo git) | ✅ skript |
 | Aplikace: MapLibre, výběr oblasti, stažení, offline mapa, GPS, místa srazu, šipka, dětská obrazovka | ⬜ |
 Připraveno: tabulka `meeting_points`, místo srazu z onboardingu se ukládá.
 
@@ -105,3 +106,5 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - M2 server: výřez mapy, limity, testy, dočasný klíč.
   - M5: obrazovka srovnání a volba standardu.
   - Dokumenty: model hrozeb, zásady ochrany soukromí, texty pro obchody (koncepty).
+- **2026-09-23**
+  - Commit skriptu `scripts/fetch-map-assets.sh` (písma a ikony mapy pro offline).
