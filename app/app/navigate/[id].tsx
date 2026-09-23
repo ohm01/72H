@@ -6,15 +6,15 @@ import Arrow from '@/components/Arrow';
 import { Text, View } from '@/components/Themed';
 import { Button, Muted, Screen, Title } from '@/components/ui';
 import { distanceText } from '@/lib/format';
-import { getMeetingPoint } from '@/lib/repo';
+import { editHref, kindQuery, loadTarget, type TargetKind } from '@/lib/targets';
 import { useDbQuery } from '@/lib/useDbQuery';
 import { useGuidance } from '@/lib/useLocation';
 
-/** Arrow + distance to a meeting point. Works fully offline (GPS + compass only). */
+/** Arrow + distance to a meeting point or a family contact. Works fully offline (GPS + compass only). */
 export default function NavigateScreen() {
   const { t } = useTranslation();
-  const { id } = useLocalSearchParams<{ id: string }>();
-  const { data: mp } = useDbQuery((db) => getMeetingPoint(db, id), [id]);
+  const { id, kind = 'meeting' } = useLocalSearchParams<{ id: string; kind?: TargetKind }>();
+  const { data: mp } = useDbQuery((db) => loadTarget(db, id, kind), [id, kind]);
   const target = mp?.lat != null && mp?.lon != null ? { lat: mp.lat, lon: mp.lon } : null;
   const g = useGuidance(target);
 
@@ -22,7 +22,7 @@ export default function NavigateScreen() {
 
   return (
     <Screen>
-      <Stack.Screen options={{ title: t('navigate.title') }} />
+      <Stack.Screen options={{ title: t(kind === 'contact' ? 'navigate.titleContact' : 'navigate.title') }} />
       <Title>{mp?.name ?? ''}</Title>
       {mp?.note ? <Muted>{mp.note}</Muted> : null}
       {mp?.address ? <Muted>{mp.address}</Muted> : null}
@@ -30,7 +30,7 @@ export default function NavigateScreen() {
       {!target ? (
         <>
           <Muted>{t('navigate.noTarget')}</Muted>
-          {mp && <Button title={t('common.edit')} variant="secondary" onPress={() => router.push(`/meeting-point/${mp.id}`)} />}
+          {mp && <Button title={t('common.edit')} variant="secondary" onPress={() => router.push(editHref(mp))} />}
         </>
       ) : g.denied ? (
         <Muted>{t('map.locationDenied')}</Muted>
@@ -45,7 +45,7 @@ export default function NavigateScreen() {
         </View>
       )}
 
-      {target && mp && <Button title={t('navigate.kidsMode')} variant="secondary" onPress={() => router.push(`/kids/${mp.id}`)} />}
+      {target && mp && <Button title={t('navigate.kidsMode')} variant="secondary" onPress={() => router.push(`/kids/${mp.id}${kindQuery(mp.kind)}`)} />}
     </Screen>
   );
 }

@@ -5,7 +5,9 @@ import { Linking } from 'react-native';
 
 import { createTestDb } from './helpers/sqlite';
 
+import FamilyScreen from '@/app/(tabs)/family';
 import MapScreen from '@/app/(tabs)/map';
+import ContactScreen from '@/app/contact/[id]';
 import KidsScreen from '@/app/kids/[id]';
 import MapAreasScreen from '@/app/map-areas';
 import MeetingPointScreen from '@/app/meeting-point/[id]';
@@ -13,7 +15,7 @@ import NavigateScreen from '@/app/navigate/[id]';
 import i18n from '@/i18n';
 import { migrate } from '@/lib/db';
 import { downloadArea } from '@/lib/mapDownload';
-import { getMapDownloadsThisMonth, listMapAreas, listMeetingPoints, saveMeetingPoint, setSetting } from '@/lib/repo';
+import { getMapDownloadsThisMonth, listContacts, listMapAreas, listMeetingPoints, saveContact, saveMeetingPoint, setSetting } from '@/lib/repo';
 
 jest.setTimeout(120_000);
 
@@ -252,3 +254,61 @@ describe('MapAreasScreen', () => {
     expect(await listMapAreas(mockDb)).toHaveLength(0);
   });
 });
+
+const grandma = (lat: number | null = 50.0965, lon: number | null = 14.4213) =>
+  saveContact(mockDb, { name: 'Jana', relation: 'babička', phone: '+420 777 123 456', address: 'Za Střelnicí 950, Sezemice', lat, lon, note: null });
+
+describe('Family contacts', () => {
+  it('creates a contact and looks its address up', async () => {
+    jest.mocked(useLocalSearchParams).mockReturnValue({ id: 'new' });
+    await render(<ContactScreen />);
+    expect(screen.getByText('Uložit')).toBeDisabled();
+
+    await fireEvent.changeText(screen.getByPlaceholderText('např. Jana Nováková'), 'Jana');
+    await fireEvent.changeText(screen.getByPlaceholderText('např. babička, soused'), 'babička');
+    await fireEvent.changeText(screen.getByPlaceholderText('+420 …'), '+420 777 123 456');
+    await fireEvent.changeText(screen.getByPlaceholderText('např. Za Střelnicí 950, Sezemice'), 'Za střelnici 950 sezemice');
+    expect(await screen.findByText(/^Nalezeno:/, {}, { timeout: 3000 })).toBeTruthy();
+    await fireEvent.press(screen.getByText('Uložit'));
+
+    await waitFor(() => expect(router.back).toHaveBeenCalled());
+    expect((await listContacts(mockDb))[0]).toMatchObject({ name: 'Jana', relation: 'babička', phone: '+420 777 123 456', lat: 50.0443, lon: 15.8456 });
+  });
+
+  it('lists contacts with call and navigate', async () => {
+    const id = await grandma();
+    const openURL = jest.spyOn(Linking, 'openURL').mockResolvedValue(true);
+    await render(<FamilyScreen />);
+
+    expect(await screen.findByText('Jana')).toBeTruthy();
+    expect(screen.getByText('babička · +420 777 123 456')).toBeTruthy();
+    await fireEvent.press(screen.getByText('Zavolat'));
+    expect(openURL).toHaveBeenCalledWith('tel:+420777123456');
+    await fireEvent.press(screen.getByText('Navigovat'));
+    expect(router.push).toHaveBeenCalledWith(`/navigate/${id}?kind=contact`);
+  });
+
+  it('kids screen offers to call family contacts', async () => {
+    const mp = await point(50.0965, 14.4213);
+    await grandma();
+    jest.mocked(useLocalSearchParams).mockReturnValue({ id: mp });
+    const openURL = jest.spyOn(Linking, 'openURL').mockResolvedValue(true);
+    await render(<KidsScreen />);
+
+    expect(await screen.findByText('Komu zavolat:')).toBeTruthy();
+    await fireEvent.press(screen.getByText('Zavolat: Jana (babička)'));
+    expect(openURL).toHaveBeenCalledWith('tel:+420777123456');
+  });
+
+  it('navigates to a contact address', async () => {
+    const id = await grandma();
+    jest.mocked(useLocalSearchParams).mockReturnValue({ id, kind: 'contact' });
+    await render(<NavigateScreen />);
+    expect(await screen.findByText('Jana')).toBeTruthy();
+    expect(screen.getByText('babička')).toBeTruthy();
+    expect(await screen.findByText('1 km')).toBeTruthy();
+    await fireEvent.press(screen.getByText('Zobrazení pro děti'));
+    expect(router.push).toHaveBeenCalledWith(`/kids/${id}?kind=contact`);
+  });
+});
+

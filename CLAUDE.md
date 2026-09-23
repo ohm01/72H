@@ -8,7 +8,7 @@ Store name: "72h – Rodinná připravenost" / "72h – Family Preparedness". Mu
 
 Tabs: **Zásoby** (locations, items with expiry, readiness in days, CZ checklist) · **Mapa** (offline OSM map, meeting points, arrow + distance, last family location – Plus) · **Rodina** (members, QR/link invite, optional location sharing – Plus) · **Více** (country comparison, go-bag, contacts, subscription, settings, language).
 Onboarding: people + pets → first stock location → meeting point (skippable).
-**Proposals 2026-09-23 (user, not critical → later milestones, details in `docs/PROGRESS.md`):** done: home food list + emergency bag (opt-in location with packing guide, `data/guides.json`; must not count toward Free location limit in M4); next: 3 family contacts (M3), 4 household adults/children/babies + baby items shown only if babies > 0 (M5), 5 parent/child roles (M3), 6 food by kcal + variety (M5).
+**Proposals 2026-09-23 (user, not critical → later milestones, details in `docs/PROGRESS.md`):** done: home food list + emergency bag (opt-in location with packing guide, `data/guides.json`; must not count toward Free location limit in M4); family contacts (local, Rodina tab + kids screen; sync in M3); next:, 4 household adults/children/babies + baby items shown only if babies > 0 (M5), 5 parent/child roles (M3), 6 food by kcal + variety (M5).
 **Simplicity rule (user):** add new features as opt-in options with guidance inside, not extra links on main screens.
 Languages: cs + en via i18next, no hardcoded UI strings. **CHANGE 2026-09-22 (user):** also sk, pl, fi (target countries) – machine-translated, need native review before release.
 

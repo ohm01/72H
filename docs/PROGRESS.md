@@ -82,7 +82,7 @@ Připraveno: tabulka `meeting_points`, místo srazu z onboardingu se ukládá.
 |---|---|---|---|
 | ✅ | Doporučené jídlo doma (konkrétní seznam) | hotovo 2026-09-23 | Checklist → Trvanlivé jídlo → „Co konkrétně?“ |
 | ✅ | Krizové (evakuační) zavazadlo | hotovo 2026-09-23 | Lokality → „Přidat krizové zavazadlo“ → „Co zabalit“ |
-| 3 | Kontakty rodiny | začátek M3 | Největší přínos v nouzi, malá práce, navazuje na dětskou obrazovku. |
+| ✅ | Kontakty rodiny (v telefonu) | hotovo 2026-09-23 | Záložka Rodina; sdílení v rodině přijde s M3. |
 | 4 | Složení domácnosti: dospělí / děti / miminka + potřeby miminek | M5 | Mění onboarding a checklist – lepší před vydáním. Malá změna dat. |
 | 5 | Role rodič / dítě | M3 (s rodinnou skupinou) | Dává smysl, až bude mít aplikaci víc členů rodiny. |
 | 6 | Jídlo podle kalorií a pestrosti | M5 (po bodu 4) | Vylepšení výpočtu, větší změna. Stávající denní dávky zatím stačí. |
@@ -117,7 +117,7 @@ Nápad (2026-09-23): v onboardingu a ve Více zvolit počet **dospělých, dět�
 | Voda a jídlo | Děti a miminka počítat vlastní potřebou (zdroj doplnit při schvalování dat M5). Kojenecké mléko = voda navíc na přípravu. |
 | Zdroje | Doplnit do `docs/country-comparison.md` ke schválení. |
 
-### Kontakty rodiny → M3
+### Kontakty rodiny ✅ (v telefonu; sdílení → M3)
 Nápad (2026-09-23): aplikace má obsahovat adresy a telefonní čísla rodiny, aby je v nouzi viděly i děti.
 
 **Návrh (co nejjednodušší):**
@@ -213,3 +213,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Opravy mapy (písma, střed mapy, Metro v CI režimu nesledoval změny), dohledání adres, víc míst v onboardingu, „Offline mapy“ místo „Oblasti mapy“.
   - Návrhy s prioritou: kontakty rodiny (M3), domácnost dospělí/děti/miminka (M5), role rodič/dítě (M3), kalorie a pestrost jídla (M5).
   - Jídlo doma (konkrétní seznam) a krizové zavazadlo podle 72h.gov.cz (`data/guides.json`, sk/pl/fi strojově). Zavazadlo = volitelné místo zásob s návodem. **M4:** zavazadlo nepočítat do limitu míst zásob ve Free.
+  - Kontakty rodiny: záložka Rodina (jméno, kdo to je, telefon, adresa s dohledáním), volání, navigace k adrese, na dětské obrazovce „Komu zavolat“. Tabulka `contacts` má sloupce pro synchronizaci v M3.

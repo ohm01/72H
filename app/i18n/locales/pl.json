@@ -219,7 +219,8 @@
     "accuracy": "dokładność ± {{m}} m",
     "arrived": "Jesteś na miejscu.",
     "noTarget": "To miejsce spotkania nie ma położenia. Ustaw je w edycji miejsca.",
-    "kidsMode": "Widok dla dzieci"
+    "kidsMode": "Widok dla dzieci",
+    "titleContact": "Jak tam dojść"
   },
   "kids": {
     "title": "Dla dzieci",
@@ -228,7 +229,9 @@
     "followArrow": "Idź tam, gdzie wskazuje strzałka.",
     "arrived": "Jesteś na miejscu. Poczekaj tu na rodzinę.",
     "call112": "Zadzwoń pod 112",
-    "help": "Jeśli się zgubisz, zostań na miejscu i poproś o pomoc dorosłego, na przykład sprzedawcę albo policjanta."
+    "help": "Jeśli się zgubisz, zostań na miejscu i poproś o pomoc dorosłego, na przykład sprzedawcę albo policjanta.",
+    "whoToCall": "Do kogo zadzwonić:",
+    "callName": "Zadzwoń: {{name}}"
   },
   "geocode": {
     "searching": "Szukam adresu…",
@@ -244,5 +247,17 @@
     "whatToPack": "Co spakować",
     "addGobag": "Dodaj torbę ewakuacyjną",
     "gobagOffer": "Torba na szybkie wyjście z domu. W środku znajdziesz, co spakować, i pilnujemy też terminów."
+  },
+  "contacts": {
+    "hint": "Telefony i adresy bliskich – działają bez internetu, a dzieci zobaczą je na ekranie dla dzieci.",
+    "call": "Zadzwoń",
+    "add": "Dodaj kontakt",
+    "newTitle": "Nowy kontakt",
+    "editTitle": "Kontakt",
+    "name": "Imię i nazwisko",
+    "namePlaceholder": "np. Anna Kowalska",
+    "relation": "Kto to jest",
+    "relationPlaceholder": "np. babcia, sąsiad",
+    "phone": "Telefon"
   }
 }

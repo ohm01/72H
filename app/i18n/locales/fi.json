@@ -215,7 +215,8 @@
     "accuracy": "tarkkuus ± {{m}} m",
     "arrived": "Olet perillä.",
     "noTarget": "Kokoontumispaikalla ei ole sijaintia. Aseta se paikan muokkauksessa.",
-    "kidsMode": "Lasten näkymä"
+    "kidsMode": "Lasten näkymä",
+    "titleContact": "Miten sinne pääsee"
   },
   "kids": {
     "title": "Lapsille",
@@ -224,7 +225,9 @@
     "followArrow": "Kulje sinne, minne nuoli osoittaa.",
     "arrived": "Olet perillä. Odota perhettäsi tässä.",
     "call112": "Soita 112",
-    "help": "Jos eksyt, pysy paikallasi ja pyydä apua aikuiselta, esimerkiksi myyjältä tai poliisilta."
+    "help": "Jos eksyt, pysy paikallasi ja pyydä apua aikuiselta, esimerkiksi myyjältä tai poliisilta.",
+    "whoToCall": "Kenelle soittaa:",
+    "callName": "Soita: {{name}}"
   },
   "geocode": {
     "searching": "Haetaan osoitetta…",
@@ -240,5 +243,17 @@
     "whatToPack": "Mitä pakata",
     "addGobag": "Lisää hätälaukku",
     "gobagOffer": "Laukku nopeaa lähtöä varten. Sisältä löydät pakkauslistan, ja seuraamme myös päiväyksiä."
+  },
+  "contacts": {
+    "hint": "Läheisten puhelinnumerot ja osoitteet – toimivat ilman internetiä, ja lapset näkevät ne lasten näkymässä.",
+    "call": "Soita",
+    "add": "Lisää yhteystieto",
+    "newTitle": "Uusi yhteystieto",
+    "editTitle": "Yhteystieto",
+    "name": "Nimi",
+    "namePlaceholder": "esim. Anna Virtanen",
+    "relation": "Kuka hän on",
+    "relationPlaceholder": "esim. mummo, naapuri",
+    "phone": "Puhelin"
   }
 }

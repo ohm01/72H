@@ -222,6 +222,56 @@ export async function setCheck(db: SQLiteDatabase, country: string, itemId: stri
   }
 }
 
+// ---------- Family contacts ----------
+
+export type Contact = {
+  id: string;
+  name: string;
+  relation: string | null;
+  phone: string | null;
+  address: string | null;
+  lat: number | null;
+  lon: number | null;
+  note: string | null;
+};
+
+const CONTACT_COLUMNS = 'id, name, relation, phone, address, lat, lon, note';
+
+export async function listContacts(db: SQLiteDatabase): Promise<Contact[]> {
+  return db.getAllAsync<Contact>(`SELECT ${CONTACT_COLUMNS} FROM contacts WHERE deleted_at IS NULL ORDER BY created_at`);
+}
+
+export async function getContact(db: SQLiteDatabase, id: string): Promise<Contact | null> {
+  return db.getFirstAsync<Contact>(`SELECT ${CONTACT_COLUMNS} FROM contacts WHERE id = ? AND deleted_at IS NULL`, id);
+}
+
+export async function saveContact(db: SQLiteDatabase, c: Omit<Contact, 'id'> & { id?: string }): Promise<string> {
+  const id = c.id ?? randomUUID();
+  const ts = now();
+  await db.runAsync(
+    `INSERT INTO contacts (id, name, relation, phone, address, lat, lon, note, created_at, updated_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+     ON CONFLICT(id) DO UPDATE SET name = excluded.name, relation = excluded.relation, phone = excluded.phone,
+       address = excluded.address, lat = excluded.lat, lon = excluded.lon, note = excluded.note, updated_at = excluded.updated_at`,
+    id,
+    c.name,
+    c.relation,
+    c.phone,
+    c.address,
+    c.lat,
+    c.lon,
+    c.note,
+    ts,
+    ts
+  );
+  return id;
+}
+
+export async function deleteContact(db: SQLiteDatabase, id: string): Promise<void> {
+  const ts = now();
+  await db.runAsync('UPDATE contacts SET deleted_at = ?, updated_at = ? WHERE id = ?', ts, ts, id);
+}
+
 // ---------- Offline map areas ----------
 
 export type MapArea = {

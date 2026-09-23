@@ -67,6 +67,22 @@ const MIGRATIONS: string[] = [
     created_at TEXT NOT NULL
   );
   `,
+  // Family contacts: readable offline (also on the kids screen); synced within the family in M3.
+  `
+  CREATE TABLE contacts (
+    id TEXT PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL,
+    relation TEXT,
+    phone TEXT,
+    address TEXT,
+    lat REAL,
+    lon REAL,
+    note TEXT,
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL,
+    deleted_at TEXT
+  );
+  `,
 ];
 
 export async function migrate(db: SQLiteDatabase): Promise<void> {

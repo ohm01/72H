@@ -219,7 +219,8 @@
     "accuracy": "přesnost ± {{m}} m",
     "arrived": "Jste na místě.",
     "noTarget": "Místo srazu nemá polohu. Nastavte ji v úpravě místa.",
-    "kidsMode": "Zobrazení pro děti"
+    "kidsMode": "Zobrazení pro děti",
+    "titleContact": "Jak se tam dostat"
   },
   "kids": {
     "title": "Pro děti",
@@ -228,7 +229,9 @@
     "followArrow": "Jdi tam, kam ukazuje šipka.",
     "arrived": "Jsi na místě. Počkej tu na rodinu.",
     "call112": "Volat 112",
-    "help": "Když se ztratíš, zůstaň na místě a požádej o pomoc dospělého, třeba prodavače nebo policistu."
+    "help": "Když se ztratíš, zůstaň na místě a požádej o pomoc dospělého, třeba prodavače nebo policistu.",
+    "whoToCall": "Komu zavolat:",
+    "callName": "Zavolat: {{name}}"
   },
   "geocode": {
     "searching": "Hledám adresu…",
@@ -244,5 +247,17 @@
     "whatToPack": "Co zabalit",
     "addGobag": "Přidat krizové zavazadlo",
     "gobagOffer": "Batoh pro rychlý odchod z domu. Uvnitř najdete, co do něj zabalit, a hlídáme i expiraci."
+  },
+  "contacts": {
+    "hint": "Telefony a adresy blízkých – fungují i bez internetu a děti je uvidí na dětské obrazovce.",
+    "call": "Zavolat",
+    "add": "Přidat kontakt",
+    "newTitle": "Nový kontakt",
+    "editTitle": "Kontakt",
+    "name": "Jméno",
+    "namePlaceholder": "např. Jana Nováková",
+    "relation": "Kdo to je",
+    "relationPlaceholder": "např. babička, soused",
+    "phone": "Telefon"
   }
 }

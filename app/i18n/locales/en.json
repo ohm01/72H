@@ -215,7 +215,8 @@
     "accuracy": "accuracy ± {{m}} m",
     "arrived": "You have arrived.",
     "noTarget": "This meeting point has no position. Set it when editing the place.",
-    "kidsMode": "Kids view"
+    "kidsMode": "Kids view",
+    "titleContact": "How to get there"
   },
   "kids": {
     "title": "For kids",
@@ -224,7 +225,9 @@
     "followArrow": "Walk where the arrow points.",
     "arrived": "You are there. Wait here for your family.",
     "call112": "Call 112",
-    "help": "If you get lost, stay where you are and ask an adult for help, like a shop assistant or a police officer."
+    "help": "If you get lost, stay where you are and ask an adult for help, like a shop assistant or a police officer.",
+    "whoToCall": "Who to call:",
+    "callName": "Call: {{name}}"
   },
   "geocode": {
     "searching": "Looking up the address…",
@@ -240,5 +243,17 @@
     "whatToPack": "What to pack",
     "addGobag": "Add emergency bag",
     "gobagOffer": "A bag for leaving home quickly. Inside you'll find what to pack, and we track expiry too."
+  },
+  "contacts": {
+    "hint": "Phone numbers and addresses of your people – they work offline and kids can see them on the kids screen.",
+    "call": "Call",
+    "add": "Add contact",
+    "newTitle": "New contact",
+    "editTitle": "Contact",
+    "name": "Name",
+    "namePlaceholder": "e.g. Jane Smith",
+    "relation": "Who is it",
+    "relationPlaceholder": "e.g. grandma, neighbour",
+    "phone": "Phone"
   }
 }
