@@ -3,6 +3,7 @@ import type { TFunction } from 'i18next';
 import i18n from '@/i18n';
 
 import { daysUntil, expiryStatus } from './expiry';
+import { distanceParts } from './geo';
 
 /** "1", "1.5" / "1,5" depending on the current language. */
 export function formatNumber(n: number): string {
@@ -26,4 +27,10 @@ export function expiryText(t: TFunction, expiresOn: string | null, today: Date =
 
 export function quantityText(t: TFunction, quantity: number, unit: string): string {
   return `${formatNumber(quantity)} ${t(`units.${unit}`)}`;
+}
+
+/** "850 m" / "2,4 km" in the current language. */
+export function distanceText(t: TFunction, metres: number): string {
+  const { value, unit } = distanceParts(metres);
+  return t(`map.${unit}`, { n: formatNumber(value) });
 }

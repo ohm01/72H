@@ -84,6 +84,10 @@ function RootLayoutNav() {
         <Stack.Screen name="locations" options={{ title: t('locations.title') }} />
         <Stack.Screen name="checklist" options={{ title: t('checklist.title') }} />
         <Stack.Screen name="compare" options={{ title: t('compare.title') }} />
+        <Stack.Screen name="map-areas" options={{ title: t('mapAreas.title') }} />
+        <Stack.Screen name="meeting-point/[id]" options={{ title: t('meetingPoint.editTitle') }} />
+        <Stack.Screen name="navigate/[id]" options={{ title: t('navigate.title') }} />
+        <Stack.Screen name="kids/[id]" options={{ title: t('kids.title') }} />
       </Stack>
     </ThemeProvider>
   );

@@ -59,16 +59,16 @@ const food = (locationId: string, quantity: number, expiresOn: string | null = '
 describe('migrate', () => {
   it('sets user_version and is idempotent', async () => {
     const v1 = await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version');
-    expect(v1?.user_version).toBe(1);
+    expect(v1?.user_version).toBe(2);
     await setSetting(db, 'x', 'y');
     await migrate(db); // second run must be a no-op, not re-create tables
     const v2 = await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version');
-    expect(v2?.user_version).toBe(1);
+    expect(v2?.user_version).toBe(2);
     expect(await getSetting(db, 'x')).toBe('y');
     const tables = await db.getAllAsync<{ name: string }>(
       "SELECT name FROM sqlite_master WHERE type = 'table' ORDER BY name"
     );
-    expect(tables.map((t) => t.name)).toEqual(['checklist_checks', 'items', 'locations', 'meeting_points', 'settings']);
+    expect(tables.map((t) => t.name)).toEqual(['checklist_checks', 'items', 'locations', 'map_areas', 'meeting_points', 'settings']);
   });
 
   it('enables foreign keys', async () => {

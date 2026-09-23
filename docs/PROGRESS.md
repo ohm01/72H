@@ -63,7 +63,12 @@ Aktualizuje Claude po každém kroku. Legenda: ✅ hotovo · 🔄 rozpracováno 
 | Dočasná ochrana endpointu klíčem `X-Dev-Key` (do M3) | ✅ (klíč je v `.env`) |
 | Zdroj mapy: zatím vzdálené sestavení Protomaps, po SSD lokální `maps/cz.pmtiles` | 🔄 |
 | Písma a ikony mapy pro offline (`scripts/fetch-map-assets.sh` → `maps/assets`, mimo git) | ✅ skript |
-| Aplikace: MapLibre, výběr oblasti, stažení, offline mapa, GPS, místa srazu, šipka, dětská obrazovka | ⬜ |
+| Server: písma a ikony pro aplikaci (`/v1/maps/assets`) | ✅ + testy |
+| Aplikace: výběr oblasti (moje poloha / hledání adresy, velikost podle tarifu), stažení s průběhem a zrušením, počítadlo stažení | ✅ kód + testy |
+| Aplikace: offline mapa (MapLibre + PMTiles, písma a ikony z telefonu), GPS, místa srazu na mapě | ✅ kód + testy |
+| Aplikace: úprava místa srazu (GPS nebo klepnutí do mapy), limit Free = 1 místo | ✅ kód + testy |
+| Aplikace: šipka + vzdálenost (kompas), dětská obrazovka s tlačítkem 112 | ✅ kód + testy |
+| Ověření na telefonu v režimu letadlo (potřebuje nový dev build – MapLibre je nativní modul) | ⏳ |
 Připraveno: tabulka `meeting_points`, místo srazu z onboardingu se ukládá.
 
 ### M3 – Účty a rodina ⬜
@@ -109,3 +114,5 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
 - **2026-09-23**
   - Commit skriptu `scripts/fetch-map-assets.sh` (písma a ikony mapy pro offline).
   - Rozpracované M2 (stahování mapy v aplikaci) commitnuto jako WIP. Vývoj se přesouvá z RPi na Mac; server na RPi zastaven.
+  - Vývoj přesunut na Mac (`~/projects/72h`): Docker (OrbStack), Node, server běží lokálně (`localhost:8000`).
+  - M2 aplikace: záložka Mapa, oblasti mapy, místa srazu, navigace se šipkou, dětská obrazovka. Texty v 5 jazycích (sk/pl/fi strojově).

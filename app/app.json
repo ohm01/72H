@@ -38,6 +38,12 @@
       "expo-sqlite",
       "expo-notifications",
       "@react-native-community/datetimepicker",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "72h uses your location to show where you are on the offline map and the way to your meeting point. It stays on your phone."
+        }
+      ],
       "@maplibre/maplibre-react-native"
     ],
     "experiments": {

@@ -44,7 +44,7 @@ export async function downloadArea(
   signal?: AbortSignal
 ): Promise<MapArea> {
   await ensureMapAssets();
-  const extract = await apiPost<ExtractResponse>('/v1/maps/extracts', bbox);
+  const extract = await apiPost<ExtractResponse>('/v1/maps/extracts', bbox, signal);
   const dir = mapsDir();
   dir.create({ intermediates: true, idempotent: true });
   const file = new File(dir, `${extract.id}.pmtiles`);
