@@ -76,8 +76,19 @@ Připraveno: tabulka `meeting_points`, místo srazu z onboardingu se ukládá.
 | Priorita | Návrh | Milník | Proč |
 |---|---|---|---|
 | 1 | Kontakty rodiny | začátek M3 | Největší přínos v nouzi, malá práce, navazuje na dětskou obrazovku. |
-| 2 | Role rodič / dítě | M3 (s rodinnou skupinou) | Dává smysl, až bude mít aplikaci víc členů rodiny. |
-| 3 | Jídlo podle kalorií a pestrosti | M5 | Vylepšení výpočtu, větší změna dat a onboardingu. Stávající denní dávky zatím stačí. |
+| 2 | Složení domácnosti: dospělí / děti / miminka + potřeby miminek | M5 | Mění onboarding a checklist – lepší před vydáním. Malá změna dat. |
+| 3 | Role rodič / dítě | M3 (s rodinnou skupinou) | Dává smysl, až bude mít aplikaci víc členů rodiny. |
+| 4 | Jídlo podle kalorií a pestrosti | M5 (po bodu 2) | Vylepšení výpočtu, větší změna. Stávající denní dávky zatím stačí. |
+
+### Složení domácnosti a potřeby miminek → M5
+Nápad (2026-09-23): v onboardingu a ve Více zvolit počet **dospělých, dětí a miminek** (místo jen „osob“).
+
+| Část | Jak |
+|---|---|
+| Domácnost | Tři počitadla: dospělí, děti (3–14 let), miminka (0–2 roky) + zvířata. Stávající „osoby“ = dospělí. |
+| Checklist | Položky v datech zemí dostanou základ `baby` / `child` vedle `person`. Položky pro miminka (pleny, vlhčené ubrousky, kojenecké mléko nebo příkrmy, láhev, teploměr, léky pro děti) se ukážou **jen když je miminko > 0**. |
+| Voda a jídlo | Děti a miminka počítat vlastní potřebou (zdroj doplnit při schvalování dat M5). Kojenecké mléko = voda navíc na přípravu. |
+| Zdroje | Doplnit do `docs/country-comparison.md` ke schválení. |
 
 ### Kontakty rodiny → M3
 Nápad (2026-09-23): aplikace má obsahovat adresy a telefonní čísla rodiny, aby je v nouzi viděly i děti.
@@ -154,6 +165,7 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
 | 2026-09-23 | Zpráva pro děti upravitelná rodičem (Více) | ✅ hotovo |
 | 2026-09-23 | Jídlo podle kalorií a pestrosti, domácnost dospělí + děti | návrh → M5 |
 | 2026-09-23 | Role rodič / dítě | návrh → M3 |
+| 2026-09-23 | Domácnost dospělí / děti / miminka, potřeby miminek (pleny…) jen když je miminko | návrh → M5 |
 
 ## Deník
 - **2026-09-22**
