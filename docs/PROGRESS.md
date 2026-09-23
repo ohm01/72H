@@ -11,6 +11,7 @@ Aktualizuje Claude po každém kroku. Legenda: ✅ hotovo · 🔄 rozpracováno 
 - **Návrhy s prioritou** viz „Návrhy do dalších milníků“ níže.
 
 ## ⏳ Co čeká na tebe
+0. **Projít dnešní večerní práci** (krizové zavazadlo, jídlo doma, kontakty v záložce Rodina) a **schválit plán M3** níže.
 1. Rozhodnout bundle ID: v buildu je `org.jennase.app72h`, dřív doporučené bylo `org.jennase.family72h` (změna = nový dev build).
 2. Otestovat M2 na telefonu (dev build pro zařízení: `npx eas-cli@latest build --profile development --platform ios`, vyžaduje Apple účet).
 3. Schválit zdroje v `docs/country-comparison.md` a rozhodnutí R1–R5 v `docs/threat-model.md` (potřebné pro M3, M5, M6).
@@ -159,9 +160,30 @@ Nápad (2026-09-23): odlišit, kdo aplikaci používá.
 | Rodič | Vše jako dnes. |
 | Do M3 | Nic – jeden telefon = jedna osoba, zbytečná složitost. |
 
-### M3 – Účty a rodina ⬜
+### M3 – Účty a rodina ⬜ – PLÁN ⏳ čeká na schválení
 **Změna zadání:** přihlášení e-mailem s kódem + Google + Apple (Apple je povinný, pokud je nabízený Google). Další poskytovatelé upřesníme.
-Připraveno: všechny tabulky mají UUID, `updated_at` a `deleted_at` pro synchronizaci.
+Připraveno: všechny tabulky (i `contacts`) mají UUID, `updated_at` a `deleted_at` pro synchronizaci.
+
+**Zásada jednoduchosti:** aplikace dál funguje celá **bez účtu** a offline. Účet je potřeba jen pro sdílení s rodinou. Na hlavních obrazovkách nepřibude nic – vše je v záložce Rodina („Sdílet s rodinou“).
+
+| Krok | Co | Poznámka |
+|---|---|---|
+| 1 | Server: účty a přihlášení e-mailem s kódem (6 číslic, 10 min, limit pokusů), relace (token v Secure Store) | nahradí dočasný `X-Dev-Key` |
+| 2 | Server: ověření Google a Apple tokenů (JWKS), propojení s účtem podle e-mailu | potřebuje OAuth klienty od tebe |
+| 3 | Aplikace: Rodina → „Sdílet s rodinou“ → přihlášení (e-mail / Google / Apple) | jediný nový vstup |
+| 4 | Rodinná skupina + pozvánka QR/odkaz s klíčem ve fragmentu (podle modelu hrozeb) | libsodium, Secure Store |
+| 5 | Synchronizace: šifrované záznamy (R2), push/pull, poslední změna vyhrává; lokality, zásoby, místa srazu, kontakty | server vidí jen ciphertext |
+| 6 | Smazání účtu a export dat (JSON) v aplikaci | GDPR |
+| 7 | Limity stahování map podle účtu (dnes jen pro Free natvrdo) | anonymní uživatel = limit na zařízení |
+| 8 | První Android build do uzavřeného testu Google Play | potřebuje vývojářský účet Google Play (25 USD) |
+| – | Role rodič / dítě (návrh, priorita 5) | až po kroku 4, jen pokud potvrdíš |
+
+**Co potřebuju od tebe před začátkem:**
+1. **Kde poběží server** (už ne na Macu): RPi + SSD podle původního plánu, nebo malý VPS v EU (např. Hetzner, ~5 €/měsíc – jednodušší, spolehlivější). `api.jennase.org` teď nefunguje.
+2. **R1–R5** v `docs/threat-model.md` (doporučuji R2 = šifrovat vše, R3 sealed box, R5 volitelný obnovovací QR).
+3. **E-mailová služba** pro kódy: Brevo nebo Resend – založit účet a dát API klíč do `.env`.
+4. **Apple Developer** (99 USD/rok – nutné i pro testování na iPhonu) a **Google Cloud OAuth** klient.
+5. Potvrdit: stahování map bez účtu povolit (limit na zařízení), nebo jen s účtem?
 
 ### M4 – Platby a limity ⬜
 Připraveno: ceny, produkty a limity na jednom místě v `config/tiers.json` (čte aplikace i server).
