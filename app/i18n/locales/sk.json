@@ -125,7 +125,9 @@
     "remindersEnable": "Povoliť notifikácie",
     "about": "O aplikácii",
     "disclaimer": "72h je pomôcka na prípravu, nie oficiálny varovný systém. V núdzi volajte 112.",
-    "compare": "Porovnanie krajín a štandard"
+    "compare": "Porovnanie krajín a štandard",
+    "kidsHelp": "Správa pre deti",
+    "kidsHelpText": "Zobrazí sa na detskej obrazovke. Napíšte, čo má dieťa urobiť, keď sa stratí. Zmazaním textu vrátite predvolenú správu."
   },
   "reminders": {
     "channelName": "Expirácia zásob",

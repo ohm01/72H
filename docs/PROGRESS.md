@@ -88,6 +88,31 @@ Nápad (2026-09-23): aplikace má obsahovat adresy a telefonní čísla rodiny, 
 **Odhad:** malý krok (1 tabulka, 2 obrazovky, úprava dětské obrazovky, testy).
 **Otázky:** Mají se kontakty ukazovat i na hlavní obrazovce Mapa, nebo stačí Více + dětská obrazovka? Stačí tísňová čísla CZ, nebo podle zvoleného standardu země?
 
+### Návrh: jídlo podle kalorií a pestrosti ⏳ čeká na schválení
+Nápad (2026-09-23): nepočítat jen „denní dávky“, ale i kalorie a pestrost, aby zásoby nebyly jen rýže.
+
+| Část | Jak (co nejjednodušeji) |
+|---|---|
+| Domácnost | Místo „počet osob“: dospělí + děti (věk 1–3 / 4–8 / 9–13 / 14+). |
+| Potřeba na den | Dospělý 2 000 kcal, děti podle věku ~1 000 / 1 400 / 1 800 kcal (orientační hodnoty EFSA, v krizi stačí). Zdroj uvést v aplikaci. |
+| Položky jídla | Výběr druhu z krátkého seznamu (rýže, těstoviny, luštěniny, masová konzerva, rybí konzerva, zeleninová konzerva, ořechy, olej, trvanlivé pečivo, sušené ovoce, tyčinky…) + množství v kg/ks. Kalorie a bílkoviny se dopočítají z tabulky (`data/foods.json`, zdroj NutriDatabáze). Vlastní položka = ruční kcal, nebo dál „denní dávky“. |
+| Dny zásob | Jídlo = kalorie celkem ÷ potřeba domácnosti za den. |
+| Pestrost | Místo přesných maker jednoduchá kontrola skupin: sacharidy · bílkoviny · tuky · ovoce/zelenina. Chybějící skupina = konkrétní tip („Přidejte luštěniny nebo konzervy – máte málo bílkovin“). |
+
+**Proč ne přesná makra:** vyžadují zadávat nutriční hodnoty ke každé položce, to lidi nebudou dělat. Skupiny + kalorie řeší „jen rýže“ a zůstávají jednoduché.
+**Dopad:** migrace položek, výpočet připravenosti, onboarding, checklist. Střední krok, navrhuju po M2b a před M3.
+
+### Návrh: role v rodině (rodič / dítě) ⏳ čeká na schválení
+Nápad (2026-09-23): odlišit, kdo aplikaci používá.
+
+| Část | Jak |
+|---|---|
+| Kde | V M3 (rodinná skupina): rodič zve člena a volí roli rodič/dítě. |
+| Dítě vidí | Dětskou obrazovku jako úvod, místa srazu se šipkou, kontakty (M2b), tísňová čísla, zásoby jen ke čtení. |
+| Dítě nemění | Zásoby, místa srazu, kontakty, zprávu pro děti, nastavení. Nechtěné změny by se sdílely celé rodině. |
+| Rodič | Vše jako dnes. |
+| Do M3 | Nic – jeden telefon = jedna osoba, zbytečná složitost. |
+
 ### M3 – Účty a rodina ⬜
 **Změna zadání:** přihlášení e-mailem s kódem + Google + Apple (Apple je povinný, pokud je nabízený Google). Další poskytovatelé upřesníme.
 Připraveno: všechny tabulky mají UUID, `updated_at` a `deleted_at` pro synchronizaci.
@@ -118,6 +143,9 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
 | 2026-09-22 | Grafický styl pro celou aplikaci | poslední krok dnešní práce |
 | 2026-09-22 | Agenti: `tester` (průběžné testování), `committer` (commity) | `.claude/agents/` |
 | 2026-09-23 | Kontakty rodiny (adresy, telefony) viditelné i pro děti | nový krok M2b, čeká na schválení |
+| 2026-09-23 | Zpráva pro děti upravitelná rodičem (Více) | ✅ hotovo |
+| 2026-09-23 | Jídlo podle kalorií a pestrosti, domácnost dospělí + děti | návrh, čeká na schválení |
+| 2026-09-23 | Role rodič / dítě | návrh do M3, čeká na schválení |
 
 ## Deník
 - **2026-09-22**

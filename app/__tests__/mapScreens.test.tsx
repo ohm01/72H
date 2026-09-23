@@ -13,7 +13,7 @@ import NavigateScreen from '@/app/navigate/[id]';
 import i18n from '@/i18n';
 import { migrate } from '@/lib/db';
 import { downloadArea } from '@/lib/mapDownload';
-import { getMapDownloadsThisMonth, listMapAreas, listMeetingPoints, saveMeetingPoint } from '@/lib/repo';
+import { getMapDownloadsThisMonth, listMapAreas, listMeetingPoints, saveMeetingPoint, setSetting } from '@/lib/repo';
 
 jest.setTimeout(120_000);
 
@@ -190,6 +190,15 @@ describe('KidsScreen', () => {
     expect(await screen.findByText('Je to 1 km daleko.')).toBeTruthy();
     await fireEvent.press(screen.getByText('Volat 112'));
     expect(openURL).toHaveBeenCalledWith('tel:112');
+  });
+
+  it("shows the parent's own help message", async () => {
+    const id = await point(50.0965, 14.4213);
+    await setSetting(mockDb, 'kidsHelp', 'Zavolej babičce, číslo máš v aplikaci.');
+    jest.mocked(useLocalSearchParams).mockReturnValue({ id });
+    await render(<KidsScreen />);
+    expect(await screen.findByText('Zavolej babičce, číslo máš v aplikaci.')).toBeTruthy();
+    expect(screen.queryByText(/požádej o pomoc dospělého/)).toBeNull();
   });
 });
 

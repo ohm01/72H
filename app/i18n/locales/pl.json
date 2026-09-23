@@ -125,7 +125,9 @@
     "remindersEnable": "Zezwól na powiadomienia",
     "about": "O aplikacji",
     "disclaimer": "72h to pomoc w przygotowaniach, nie oficjalny system ostrzegania. W nagłych wypadkach dzwoń pod 112.",
-    "compare": "Porównanie krajów i standard"
+    "compare": "Porównanie krajów i standard",
+    "kidsHelp": "Wiadomość dla dzieci",
+    "kidsHelpText": "Wyświetla się na ekranie dla dzieci. Napisz, co dziecko ma zrobić, gdy się zgubi. Usuń tekst, aby przywrócić domyślną wiadomość."
   },
   "reminders": {
     "channelName": "Ważność zapasów",

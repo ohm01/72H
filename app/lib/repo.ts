@@ -153,6 +153,9 @@ export async function deleteItem(db: SQLiteDatabase, id: string): Promise<void> 
   await db.runAsync('UPDATE items SET deleted_at = ?, updated_at = ? WHERE id = ?', ts, ts, id);
 }
 
+/** Parent's own help message on the kids screen (settings key; empty = default text). */
+export const KIDS_HELP_KEY = 'kidsHelp';
+
 // ---------- Meeting points ----------
 
 const MP_COLUMNS = 'id, name, note, address, lat, lon, photo_uri AS photoUri';

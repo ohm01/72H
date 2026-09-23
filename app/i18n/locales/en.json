@@ -123,7 +123,9 @@
     "remindersEnable": "Allow notifications",
     "about": "About",
     "disclaimer": "72h is a preparedness aid, not an official warning system. In an emergency call 112.",
-    "compare": "Country comparison and standard"
+    "compare": "Country comparison and standard",
+    "kidsHelp": "Message for kids",
+    "kidsHelpText": "Shown on the kids screen. Write what your child should do if they get lost. Clear the text to restore the default."
   },
   "reminders": {
     "channelName": "Supply expiry",

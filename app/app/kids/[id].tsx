@@ -6,7 +6,7 @@ import Arrow from '@/components/Arrow';
 import { Text, View, useThemeColor } from '@/components/Themed';
 import { Button } from '@/components/ui';
 import { distanceText } from '@/lib/format';
-import { getMeetingPoint } from '@/lib/repo';
+import { KIDS_HELP_KEY, getMeetingPoint, getSetting } from '@/lib/repo';
 import { useDbQuery } from '@/lib/useDbQuery';
 import { useGuidance } from '@/lib/useLocation';
 
@@ -16,6 +16,7 @@ export default function KidsScreen() {
   const background = useThemeColor({}, 'background');
   const { id } = useLocalSearchParams<{ id: string }>();
   const { data: mp } = useDbQuery((db) => getMeetingPoint(db, id), [id]);
+  const { data: customHelp } = useDbQuery((db) => getSetting(db, KIDS_HELP_KEY));
   const target = mp?.lat != null && mp?.lon != null ? { lat: mp.lat, lon: mp.lon } : null;
   const g = useGuidance(target);
 
@@ -42,7 +43,7 @@ export default function KidsScreen() {
         </View>
       )}
 
-      <Text style={styles.text}>{t('kids.help')}</Text>
+      <Text style={styles.text}>{customHelp || t('kids.help')}</Text>
       <Button title={t('kids.call112')} variant="danger" onPress={() => Linking.openURL('tel:112')} />
     </ScrollView>
   );
