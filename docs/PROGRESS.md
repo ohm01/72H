@@ -71,7 +71,9 @@ Aktualizuje Claude po každém kroku. Legenda: ✅ hotovo · 🔄 rozpracováno 
 | Ověření na telefonu v režimu letadlo (potřebuje nový dev build – MapLibre je nativní modul) | ⏳ |
 Připraveno: tabulka `meeting_points`, místo srazu z onboardingu se ukládá.
 
-### M2b – Kontakty rodiny ⏳ čeká na schválení
+## Návrhy do dalších milníků (nejsou kritické)
+
+### Kontakty rodiny → M3
 Nápad (2026-09-23): aplikace má obsahovat adresy a telefonní čísla rodiny, aby je v nouzi viděly i děti.
 
 **Návrh (co nejjednodušší):**
@@ -88,7 +90,7 @@ Nápad (2026-09-23): aplikace má obsahovat adresy a telefonní čísla rodiny, 
 **Odhad:** malý krok (1 tabulka, 2 obrazovky, úprava dětské obrazovky, testy).
 **Otázky:** Mají se kontakty ukazovat i na hlavní obrazovce Mapa, nebo stačí Více + dětská obrazovka? Stačí tísňová čísla CZ, nebo podle zvoleného standardu země?
 
-### Návrh: jídlo podle kalorií a pestrosti ⏳ čeká na schválení
+### Jídlo podle kalorií a pestrosti → M5
 Nápad (2026-09-23): nepočítat jen „denní dávky“, ale i kalorie a pestrost, aby zásoby nebyly jen rýže.
 
 | Část | Jak (co nejjednodušeji) |
@@ -100,9 +102,9 @@ Nápad (2026-09-23): nepočítat jen „denní dávky“, ale i kalorie a pestro
 | Pestrost | Místo přesných maker jednoduchá kontrola skupin: sacharidy · bílkoviny · tuky · ovoce/zelenina. Chybějící skupina = konkrétní tip („Přidejte luštěniny nebo konzervy – máte málo bílkovin“). |
 
 **Proč ne přesná makra:** vyžadují zadávat nutriční hodnoty ke každé položce, to lidi nebudou dělat. Skupiny + kalorie řeší „jen rýže“ a zůstávají jednoduché.
-**Dopad:** migrace položek, výpočet připravenosti, onboarding, checklist. Střední krok, navrhuju po M2b a před M3.
+**Dopad:** migrace položek, výpočet připravenosti, onboarding, checklist. Střední krok, spolu se standardy zemí v M5.
 
-### Návrh: role v rodině (rodič / dítě) ⏳ čeká na schválení
+### Role v rodině (rodič / dítě) → M3
 Nápad (2026-09-23): odlišit, kdo aplikaci používá.
 
 | Část | Jak |
@@ -142,10 +144,10 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
 | 2026-09-22 | Jazykové verze pro cílové země: sk, pl, fi | UI i data zemí; strojový překlad → kontrola rodilým mluvčím |
 | 2026-09-22 | Grafický styl pro celou aplikaci | poslední krok dnešní práce |
 | 2026-09-22 | Agenti: `tester` (průběžné testování), `committer` (commity) | `.claude/agents/` |
-| 2026-09-23 | Kontakty rodiny (adresy, telefony) viditelné i pro děti | nový krok M2b, čeká na schválení |
+| 2026-09-23 | Kontakty rodiny (adresy, telefony) viditelné i pro děti | návrh → M3 |
 | 2026-09-23 | Zpráva pro děti upravitelná rodičem (Více) | ✅ hotovo |
-| 2026-09-23 | Jídlo podle kalorií a pestrosti, domácnost dospělí + děti | návrh, čeká na schválení |
-| 2026-09-23 | Role rodič / dítě | návrh do M3, čeká na schválení |
+| 2026-09-23 | Jídlo podle kalorií a pestrosti, domácnost dospělí + děti | návrh → M5 |
+| 2026-09-23 | Role rodič / dítě | návrh → M3 |
 
 ## Deník
 - **2026-09-22**

@@ -8,7 +8,7 @@ Store name: "72h – Rodinná připravenost" / "72h – Family Preparedness". Mu
 
 Tabs: **Zásoby** (locations, items with expiry, readiness in days, CZ checklist) · **Mapa** (offline OSM map, meeting points, arrow + distance, last family location – Plus) · **Rodina** (members, QR/link invite, optional location sharing – Plus) · **Více** (country comparison, go-bag, contacts, subscription, settings, language).
 Onboarding: people + pets → first stock location → meeting point (skippable).
-**CHANGE 2026-09-23 (user):** family contacts – name, relation, phone, address – readable offline incl. on the kids screen (tap to call, navigate to address). Plan in `docs/PROGRESS.md` (step M2b), waits for OK.
+**Proposals 2026-09-23 (user, not critical → later milestones, details in `docs/PROGRESS.md`):** family contacts (M3), parent/child roles (M3), food by kcal + variety with adults/children (M5).
 Languages: cs + en via i18next, no hardcoded UI strings. **CHANGE 2026-09-22 (user):** also sk, pl, fi (target countries) – machine-translated, need native review before release.
 
 ## Tiers (config constants in one place)
@@ -61,7 +61,6 @@ Show usage + reset date. Paywall only on attempt to use a Plus feature, always s
 - [ ] **M0 Setup** – env check, skeleton, git/GitHub, Docker Compose (/health), Expo 4 tabs + i18n, EAS dev builds, Cloudflare Tunnel, backup check. *Done:* app with 4 tabs runs on phone/simulator, `https://api.<domain>/health` OK, code on GitHub.
 - [ ] **M1 Stock offline** – locations, items, expiry colors, readiness, CZ checklist, onboarding, reminders. *Done:* stock at home + cottage, reminder arrives.
 - [ ] **M2 Map & meeting points** – CZ PMTiles, cut endpoint w/ limits, area select, download w/ progress, offline map, GPS, meeting points, arrow, kids screen. *Done:* airplane mode, map visible, arrow leads to meeting point.
-- [ ] **M2b Family contacts** – local contacts (name, relation, phone, address→geocoded position), Více → Kontakty, kids screen shows them with call + navigate. Free. Synced (encrypted with family key) in M3. *Done:* in airplane mode a child can call or walk to grandma from the kids screen.
 - [ ] **M3 Accounts & family** (SSD first) – email OTP, family group, invite w/ key, sync, delete account, export. First Google Play closed-test build. *Done:* second phone sees my changes.
 - [ ] **M4 Payments & limits** – RevenueCat, 3 products, webhook, limits app+server, paywalls, usage display. *Done:* sandbox purchase, survives reinstall.
 - [ ] **M5 Country comparison** – CZ/SK/PL/FI official sources, JSON, Markdown table for review, screen, standard choice. *Done:* checklist recalculates, sources approved.
