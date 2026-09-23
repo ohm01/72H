@@ -73,6 +73,12 @@ Připraveno: tabulka `meeting_points`, místo srazu z onboardingu se ukládá.
 
 ## Návrhy do dalších milníků (nejsou kritické)
 
+| Priorita | Návrh | Milník | Proč |
+|---|---|---|---|
+| 1 | Kontakty rodiny | začátek M3 | Největší přínos v nouzi, malá práce, navazuje na dětskou obrazovku. |
+| 2 | Role rodič / dítě | M3 (s rodinnou skupinou) | Dává smysl, až bude mít aplikaci víc členů rodiny. |
+| 3 | Jídlo podle kalorií a pestrosti | M5 | Vylepšení výpočtu, větší změna dat a onboardingu. Stávající denní dávky zatím stačí. |
+
 ### Kontakty rodiny → M3
 Nápad (2026-09-23): aplikace má obsahovat adresy a telefonní čísla rodiny, aby je v nouzi viděly i děti.
 
@@ -110,7 +116,7 @@ Nápad (2026-09-23): odlišit, kdo aplikaci používá.
 | Část | Jak |
 |---|---|
 | Kde | V M3 (rodinná skupina): rodič zve člena a volí roli rodič/dítě. |
-| Dítě vidí | Dětskou obrazovku jako úvod, místa srazu se šipkou, kontakty (M2b), tísňová čísla, zásoby jen ke čtení. |
+| Dítě vidí | Dětskou obrazovku jako úvod, místa srazu se šipkou, kontakty rodiny, tísňová čísla, zásoby jen ke čtení. |
 | Dítě nemění | Zásoby, místa srazu, kontakty, zprávu pro děti, nastavení. Nechtěné změny by se sdílely celé rodině. |
 | Rodič | Vše jako dnes. |
 | Do M3 | Nic – jeden telefon = jedna osoba, zbytečná složitost. |
