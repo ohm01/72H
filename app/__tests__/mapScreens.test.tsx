@@ -336,8 +336,15 @@ describe('Emergency numbers and kids tips', () => {
     expect(openURL).toHaveBeenCalledWith('tel:116111');
   });
 
-  it('other home countries get only 112 until a source is added', async () => {
-    await setSetting(mockDb, 'homeCountry', 'FI');
+  it('Poland lists its national numbers', async () => {
+    await setSetting(mockDb, 'homeCountry', 'PL');
+    await render(<FamilyScreen />);
+    expect(await screen.findByText('997')).toBeTruthy();
+    expect(screen.getByText('999')).toBeTruthy();
+  });
+
+  it('countries without a verified source get only 112', async () => {
+    await setSetting(mockDb, 'homeCountry', 'SK');
     await render(<FamilyScreen />);
     expect(await screen.findByText('112')).toBeTruthy();
     expect(screen.queryByText('155')).toBeNull();

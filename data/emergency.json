@@ -1,5 +1,5 @@
 {
- "_comment": "Emergency numbers per home country. Only countries with a verified source list national numbers; others fall back to 112.",
+ "_comment": "Emergency numbers per home country from official sources. SK: official page not found yet -> falls back to 112.",
  "CZ": {
   "source": {
    "publisher": "Ministerstvo vnitra ČR / HZS ČR",
@@ -101,5 +101,86 @@
     }
    }
   ]
+ },
+ "PL": {
+  "source": {
+   "publisher": "Ministerstwo Spraw Wewnętrznych i Administracji (gov.pl)",
+   "url": "https://www.gov.pl/web/numer-alarmowy-112/inne-numery-alarmowe",
+   "verifiedAt": "2026-09-23"
+  },
+  "numbers": [
+   {
+    "number": "112",
+    "label": {
+     "cs": "Tísňové volání (EU)",
+     "en": "Emergency (EU)",
+     "sk": "Tiesňové volanie (EÚ)",
+     "pl": "Numer alarmowy (UE)",
+     "fi": "Hätänumero (EU)"
+    }
+   },
+   {
+    "number": "997",
+    "label": {
+     "cs": "Policie",
+     "en": "Police",
+     "sk": "Polícia",
+     "pl": "Policja",
+     "fi": "Poliisi"
+    }
+   },
+   {
+    "number": "998",
+    "label": {
+     "cs": "Hasiči",
+     "en": "Fire brigade",
+     "sk": "Hasiči",
+     "pl": "Państwowa Straż Pożarna",
+     "fi": "Palokunta"
+    }
+   },
+   {
+    "number": "999",
+    "label": {
+     "cs": "Záchranka",
+     "en": "Ambulance",
+     "sk": "Záchranka",
+     "pl": "Ratownictwo Medyczne",
+     "fi": "Ambulanssi"
+    }
+   }
+  ],
+  "helplines": [
+   {
+    "number": "116 111",
+    "label": {
+     "cs": "Linka důvěry pro děti a mládež",
+     "en": "Helpline for children and young people",
+     "sk": "Linka dôvery pre deti a mládež",
+     "pl": "Telefon zaufania dla dzieci i młodzieży",
+     "fi": "Lasten ja nuorten auttava puhelin"
+    }
+   }
+  ]
+ },
+ "FI": {
+  "source": {
+   "publisher": "Hätäkeskuslaitos (112.fi)",
+   "url": "https://112.fi/en/",
+   "verifiedAt": "2026-09-23"
+  },
+  "numbers": [
+   {
+    "number": "112",
+    "label": {
+     "cs": "Jediné tísňové číslo ve Finsku",
+     "en": "The only emergency number in Finland",
+     "sk": "Jediné tiesňové číslo vo Fínsku",
+     "pl": "Jedyny numer alarmowy w Finlandii",
+     "fi": "Suomen ainoa hätänumero"
+    }
+   }
+  ],
+  "helplines": []
  }
 }
