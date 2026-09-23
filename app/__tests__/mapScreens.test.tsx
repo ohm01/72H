@@ -45,6 +45,7 @@ jest.mock('@maplibre/maplibre-react-native', () => {
   return {
     Map: ({ children }: { children: React.ReactNode }) => <View testID="map">{children}</View>,
     Camera: () => null,
+    LogManager: { onLog: jest.fn() },
     NativeUserLocation: () => null,
     Marker: ({ children }: { children: React.ReactNode }) => children,
   };

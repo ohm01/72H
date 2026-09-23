@@ -11,11 +11,13 @@ type Manifest = { version: number; files: { path: string; size: number }[] };
 export const mapsDir = () => new Directory(Paths.document, 'maps');
 export const assetsDir = () => new Directory(Paths.document, 'maps', 'assets');
 
-/** Fetches fonts + sprites listed in the server manifest; skips files already present. */
+/**
+ * Fetches fonts + sprites listed in the server manifest; skips files already present.
+ * Runs before every area download (we are online then), so assets added later also arrive.
+ */
 export async function ensureMapAssets(): Promise<void> {
   const root = assetsDir();
   const marker = new File(root, 'manifest.json');
-  if (marker.exists) return;
   const res = await fetch(`${API_URL}/v1/maps/assets/manifest.json`, { headers: apiHeaders() });
   if (!res.ok) throw new Error(`assets manifest ${res.status}`);
   const manifest = (await res.json()) as Manifest;

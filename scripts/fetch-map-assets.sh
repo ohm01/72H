@@ -6,8 +6,10 @@ cd "$(dirname "$0")/.."
 BASE=https://raw.githubusercontent.com/protomaps/basemaps-assets/main
 OUT=maps/assets
 FONTS=("Noto Sans Regular" "Noto Sans Medium" "Noto Sans Italic")
-# Basic Latin, Latin-1, Latin Extended-A/B (Czech/Slovak/Polish/Finnish), General Punctuation.
-RANGES=("0-255" "256-511" "512-767" "8192-8447")
+# Basic Latin, Latin-1, Latin Extended-A/B (Czech/Slovak/Polish/Finnish), Greek + combining marks,
+# Cyrillic (+ supplement), General Punctuation, Letterlike Symbols. These cover labels in the CZ data;
+# other scripts are rare and the app just skips those characters (see components/OfflineMap.tsx).
+RANGES=("0-255" "256-511" "512-767" "768-1023" "1024-1279" "1280-1535" "8192-8447" "8448-8703")
 SPRITES=(light light@2x dark dark@2x)
 
 mkdir -p "$OUT/sprites"
