@@ -78,10 +78,31 @@ Připraveno: tabulka `meeting_points`, místo srazu z onboardingu se ukládá.
 
 | Priorita | Návrh | Milník | Proč |
 |---|---|---|---|
-| 1 | Kontakty rodiny | začátek M3 | Největší přínos v nouzi, malá práce, navazuje na dětskou obrazovku. |
-| 2 | Složení domácnosti: dospělí / děti / miminka + potřeby miminek | M5 | Mění onboarding a checklist – lepší před vydáním. Malá změna dat. |
-| 3 | Role rodič / dítě | M3 (s rodinnou skupinou) | Dává smysl, až bude mít aplikaci víc členů rodiny. |
-| 4 | Jídlo podle kalorií a pestrosti | M5 (po bodu 2) | Vylepšení výpočtu, větší změna. Stávající denní dávky zatím stačí. |
+| 1 | Doporučené jídlo doma (konkrétní seznam) | M5 – další krok | Základní obsah aplikace, dnes jen „Trvanlivé jídlo“. Jen data + stávající checklist. |
+| 2 | Krizové (evakuační) zavazadlo | M5 – další krok | Základní obsah (Zuzka), v plánu už jako „go-bag“. Data + checklist. |
+| 3 | Kontakty rodiny | začátek M3 | Největší přínos v nouzi, malá práce, navazuje na dětskou obrazovku. |
+| 4 | Složení domácnosti: dospělí / děti / miminka + potřeby miminek | M5 | Mění onboarding a checklist – lepší před vydáním. Malá změna dat. |
+| 5 | Role rodič / dítě | M3 (s rodinnou skupinou) | Dává smysl, až bude mít aplikaci víc členů rodiny. |
+| 6 | Jídlo podle kalorií a pestrosti | M5 (po bodu 4) | Vylepšení výpočtu, větší změna. Stávající denní dávky zatím stačí. |
+
+### Doporučené jídlo doma → M5 (priorita 1)
+Nápad (2026-09-23): chybí doporučení, **co za jídlo** mít doma.
+
+| Část | Jak |
+|---|---|
+| Data | Položku „Trvanlivé jídlo“ rozdělit na konkrétní druhy podle 72h.gov.cz/cs/jidlo: masové a rybí konzervy, luštěniny, rýže/těstoviny, trvanlivé pečivo, ořechy a sušené ovoce, trvanlivé mléko, med/cukr, sůl, olej, čokoláda/tyčinky, jídlo, které nepotřebuje vaření. U každého orientační množství na osobu a den a poznámka (např. „vyberte, co jíte i normálně“). |
+| Aplikace | Stávající checklist (Zásoby → Co mít doma) – nová skupina „Jídlo“ s těmito položkami. Kód skoro beze změny. |
+| Ostatní země | SK/PL/FI doplnit ze stejných oficiálních zdrojů, ke schválení v `docs/country-comparison.md`. |
+
+### Krizové zavazadlo → M5 (priorita 2)
+Nápad (2026-09-23, Zuzka): evakuační zavazadlo pro rychlý odchod z domu.
+
+| Část | Jak |
+|---|---|
+| Data | Nový seznam podle 72h.gov.cz/cs/evakuace: doklady, léky, hotovost, voda a jídlo na 2–3 dny, oblečení, spacák/deka, lékárnička, svítilna, powerbanka, hygiena, kontakty na papíře… Množství **na osobu**, dětská varianta menší. |
+| Aplikace | Více → **Krizové zavazadlo** (odkaz i ze Zásob): checklist se zaškrtáváním, stejný jako „Co mít doma“. |
+| Volitelně | Zavazadlo jako vlastní místo zásob („Batoh“), aby se hlídala i expirace jídla a léků v něm – využije existující místa a připomínky. |
+
 
 ### Složení domácnosti a potřeby miminek → M5
 Nápad (2026-09-23): v onboardingu a ve Více zvolit počet **dospělých, dětí a miminek** (místo jen „osob“).
@@ -169,6 +190,7 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
 | 2026-09-23 | Jídlo podle kalorií a pestrosti, domácnost dospělí + děti | návrh → M5 |
 | 2026-09-23 | Role rodič / dítě | návrh → M3 |
 | 2026-09-23 | Domácnost dospělí / děti / miminka, potřeby miminek (pleny…) jen když je miminko | návrh → M5 |
+| 2026-09-23 | Doporučené jídlo doma + krizové zavazadlo (Zuzka) | návrh → M5, priorita 1 a 2 |
 
 ## Deník
 - **2026-09-22**
