@@ -34,6 +34,8 @@ export default function MeetingPointScreen() {
 
   useEffect(() => {
     if (geo.status === 'found') setPoint(geo.point);
+    // A new address that cannot be found must not keep the old position.
+    if (geo.status === 'notFound') setPoint(null);
   }, [geo]);
 
   useEffect(() => {

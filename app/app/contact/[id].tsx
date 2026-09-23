@@ -54,8 +54,9 @@ export default function ContactScreen() {
       relation: relation.trim() || null,
       phone: phone.trim() || null,
       address: address.trim() || null,
-      lat: point?.lat ?? null,
-      lon: point?.lon ?? null,
+      // A contact's position comes only from its address.
+      lat: address.trim() ? (point?.lat ?? null) : null,
+      lon: address.trim() ? (point?.lon ?? null) : null,
       note: note.trim() || null,
     });
     router.back();

@@ -152,6 +152,16 @@ describe('MeetingPointScreen address', () => {
     await waitFor(async () => expect((await listMeetingPoints(mockDb))[0]).toMatchObject({ lat: 50.0443, lon: 15.8456 }));
   });
 
+  it('drops the old position when the new address does not exist', async () => {
+    const id = await point(50.0965, 14.4213);
+    jest.mocked(useLocalSearchParams).mockReturnValue({ id });
+    await render(<MeetingPointScreen />);
+    expect(await screen.findByText('50.09650, 14.42130')).toBeTruthy();
+    await fireEvent.changeText(screen.getByPlaceholderText('např. Za Střelnicí 950, Sezemice'), 'Neexistuje 1');
+    expect(await screen.findByText(/^Adresu jsme nenašli/, {}, { timeout: 3000 })).toBeTruthy();
+    expect(screen.getByText('Poloha zatím není nastavená.')).toBeTruthy();
+  });
+
   it('says when the address does not exist', async () => {
     jest.mocked(useLocalSearchParams).mockReturnValue({ id: 'new' });
     await render(<MeetingPointScreen />);

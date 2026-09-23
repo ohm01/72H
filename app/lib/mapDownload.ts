@@ -15,7 +15,17 @@ export const assetsDir = () => new Directory(Paths.document, 'maps', 'assets');
  * Fetches fonts + sprites listed in the server manifest; skips files already present.
  * Runs before every area download (we are online then), so assets added later also arrive.
  */
-export async function ensureMapAssets(): Promise<void> {
+let assetsInFlight: Promise<void> | null = null;
+
+export function ensureMapAssets(): Promise<void> {
+  // Map tab and area download may ask at the same time: share one run.
+  assetsInFlight ??= fetchMapAssets().finally(() => {
+    assetsInFlight = null;
+  });
+  return assetsInFlight;
+}
+
+async function fetchMapAssets(): Promise<void> {
   const root = assetsDir();
   const marker = new File(root, 'manifest.json');
   const res = await fetch(`${API_URL}/v1/maps/assets/manifest.json`, { headers: apiHeaders() });
