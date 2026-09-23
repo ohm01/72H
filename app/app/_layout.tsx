@@ -77,7 +77,7 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={theme}>
-      <Stack>
+      <Stack screenOptions={{ headerBackButtonDisplayMode: 'minimal' }}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="onboarding" options={{ headerShown: false, gestureEnabled: false }} />
         <Stack.Screen name="item/[id]" options={{ presentation: 'modal', title: t('item.editTitle') }} />
