@@ -2,7 +2,7 @@
 
 Aktualizuje Claude po každém kroku. Legenda: ✅ hotovo · 🔄 rozpracováno · ⏳ čeká na tebe · ⬜ nezačato · ❌ zrušeno
 
-**Poslední aktualizace:** 2026-09-23
+**Poslední aktualizace:** 2026-09-24
 
 ## Kde jsme (2026-09-23 večer)
 - **Vývoj běží na Macu** (`~/projects/72h`): Docker (OrbStack) se serverem na `localhost:8000`, Metro, iOS simulátor (Xcode 27 → Device Hub). RPi je vypnuté, `api.jennase.org` proto neodpovídá.
@@ -240,3 +240,5 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Potřeby miminek: 72h.gov.cz je neuvádí → čeká na spolehlivý zdroj (návrh priorita 4).
   - Průvodci u položek checklistu (oficiální 72h.gov.cz): Voda → „Co když neteče voda?“, Lékárnička → „Zásady první pomoci“ (postup + lékárnička k odškrtání), Svítilna → „Co dělat bez proudu?“. V PL/FI verzi první pomoci jsou čísla 999/112 místo 155. Název obrazovky „Checklist“ → „Co mít doma“.
   - Rádio → „Kde hledat zprávy?“ (oficiální zdroje, jak poznat fámu; 72h.gov.cz/cs/informace-komunikace). Test, že všechny jazyky mají stejné klíče. Tmavý režim nových obrazovek zkontrolován; modré odkazy mají v tmavém režimu nižší kontrast → řešit v grafickém stylu.
+- **2026-09-24**
+  - Tísňová čísla SK: 112, 150, 155, 158 podle slovensko.sk (Ústredný portál verejnej správy). Země bez ověřeného zdroje dál ukazují jen 112.
