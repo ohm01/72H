@@ -197,6 +197,7 @@
     "errorOutside": "Oblast musí ležet celá v České republice.",
     "errorTooLarge": "Oblast je příliš velká ({{area}} km², nejvýš {{max}} km²).",
     "errorNetwork": "Stažení se nepovedlo. Zkontrolujte připojení a zkuste to znovu.",
+    "errorBusy": "Server je teď vytížený. Zkuste to prosím za chvíli.",
     "sizeMb": "{{mb}} MB"
   },
   "meetingPoint": {

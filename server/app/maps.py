@@ -4,29 +4,34 @@ import asyncio
 import hashlib
 import logging
 import time
+import uuid
 from pathlib import Path
 
-import hmac
-
 from fastapi import APIRouter, Depends, Header, HTTPException
+from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
-from . import settings
+from . import db, settings
+from .auth import current_user
 from .geo import CZ_BBOX, BBox
 
 log = logging.getLogger(__name__)
 
 
-def require_dev_key(x_dev_key: str = Header(default="")) -> None:
-    # TODO(M3): replace with user authentication.
-    if not settings.DEV_API_KEY or not hmac.compare_digest(x_dev_key, settings.DEV_API_KEY):
+def map_client(authorization: str = Header(default=""), x_device_id: str = Header(default="")) -> str:
+    """Who is downloading: a signed-in account, or an anonymous device id (maps work without an account)."""
+    if authorization:
+        return f"user:{current_user(authorization).id}"
+    try:
+        return f"device:{uuid.UUID(x_device_id)}"
+    except ValueError:
         raise HTTPException(401)
 
 
-router = APIRouter(prefix="/v1/maps", tags=["maps"], dependencies=[Depends(require_dev_key)])
+router = APIRouter(prefix="/v1/maps", tags=["maps"], dependencies=[Depends(map_client)])
 
-# The RPi is small: cut one extract at a time.
+# A small server: cut one extract at a time.
 _extract_lock = asyncio.Semaphore(1)
 
 
@@ -86,15 +91,37 @@ def cleanup_old_extracts() -> None:
             f.unlink(missing_ok=True)
 
 
+def check_download(subject: str, eid: str, limits: dict) -> None:
+    """Monthly limit per account/device. Re-downloading the same area this month is free (e.g. after a failure)."""
+    with db.pool().connection() as conn:
+        rows = conn.execute(
+            "SELECT DISTINCT extract_id FROM map_downloads WHERE subject = %s AND created_at >= date_trunc('month', now())",
+            (subject,),
+        ).fetchall()
+        done = {r["extract_id"] for r in rows}
+        if eid in done:
+            return
+        if len(done) >= limits["mapDownloadsPerMonth"]:
+            raise HTTPException(403, {"code": "download_limit", "max": limits["mapDownloadsPerMonth"]})
+        recent = conn.execute("SELECT count(*) AS n FROM map_downloads WHERE created_at > now() - interval '1 hour'").fetchone()["n"]
+        if recent >= settings.MAP_DOWNLOADS_TOTAL_HOUR:
+            raise HTTPException(429, {"code": "busy"})
+
+
+def record_download(subject: str, eid: str) -> None:
+    with db.pool().connection() as conn:
+        conn.execute("INSERT INTO map_downloads (subject, extract_id) VALUES (%s, %s)", (subject, eid))
+
+
 @router.post("/extracts", response_model=ExtractResponse)
-async def create_extract(req: ExtractRequest) -> ExtractResponse:
+async def create_extract(req: ExtractRequest, subject: str = Depends(map_client)) -> ExtractResponse:
     bbox = BBox(req.west, req.south, req.east, req.north)
     if not bbox.is_valid():
         raise HTTPException(422, "invalid bbox")
     if not bbox.within(CZ_BBOX):
         raise HTTPException(422, "area outside supported region (CZ)")
 
-    # TODO(M3/M4): take tier + monthly download count from the authenticated user.
+    # TODO(M4): Plus accounts get limits.plus.
     limits = settings.TIERS["limits"]["free"]
     area = bbox.area_km2()
     if area > limits["mapAreaMaxKm2"]:
@@ -104,11 +131,13 @@ async def create_extract(req: ExtractRequest) -> ExtractResponse:
 
     settings.EXTRACTS_DIR.mkdir(parents=True, exist_ok=True)
     eid = extract_id(bbox)
+    await run_in_threadpool(check_download, subject, eid, limits)
     out = extract_path(eid)
     async with _extract_lock:
         cleanup_old_extracts()
         if not out.exists():
             await run_extract(bbox, out)
+    await run_in_threadpool(record_download, subject, eid)
 
     return ExtractResponse(id=eid, areaKm2=round(area, 1), sizeBytes=out.stat().st_size, url=f"/v1/maps/extracts/{eid}")
 

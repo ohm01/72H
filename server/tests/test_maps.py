@@ -1,20 +1,22 @@
+import uuid
+
 import pytest
 from fastapi.testclient import TestClient
 
-from app import maps, settings
+from app import mailer, maps, settings
 from app.geo import BBox
 from app.main import app
 
-client = TestClient(app, headers={"X-Dev-Key": "test-key"})
+DEVICE = str(uuid.uuid4())
+client = TestClient(app, headers={"X-Device-Id": DEVICE})
 
 # ~2.9 x 3.3 km in Prague
 PRAGUE = {"west": 14.40, "south": 50.07, "east": 14.44, "north": 50.10}
 
 
 @pytest.fixture(autouse=True)
-def tmp_extracts(tmp_path, monkeypatch):
+def tmp_extracts(clean_db, tmp_path, monkeypatch):
     monkeypatch.setattr(settings, "EXTRACTS_DIR", tmp_path)
-    monkeypatch.setattr(settings, "DEV_API_KEY", "test-key")
     calls = []
 
     async def fake_extract(bbox, out):
@@ -74,10 +76,49 @@ def test_download_rejects_bad_ids():
     assert client.get("/v1/maps/extracts/" + "0" * 32).status_code == 404
 
 
-def test_requires_dev_key():
+def test_requires_device_id_or_account():
     anon = TestClient(app)
     assert anon.post("/v1/maps/extracts", json=PRAGUE).status_code == 401
-    assert TestClient(app, headers={"X-Dev-Key": "wrong"}).post("/v1/maps/extracts", json=PRAGUE).status_code == 401
+    assert TestClient(app, headers={"X-Device-Id": "not-a-uuid"}).post("/v1/maps/extracts", json=PRAGUE).status_code == 401
+    assert TestClient(app, headers={"Authorization": "Bearer nope"}).post("/v1/maps/extracts", json=PRAGUE).status_code == 401
+
+
+def area(i: int) -> dict:
+    """Distinct small areas in Prague."""
+    return {**PRAGUE, "west": PRAGUE["west"] + i * 0.001, "east": PRAGUE["east"] + i * 0.001}
+
+
+def test_monthly_download_limit_per_device():
+    limit = settings.TIERS["limits"]["free"]["mapDownloadsPerMonth"]
+    for i in range(limit):
+        assert client.post("/v1/maps/extracts", json=area(i)).status_code == 200
+    # Retrying an area already downloaded this month is free (e.g. after a failed download).
+    assert client.post("/v1/maps/extracts", json=area(0)).status_code == 200
+    r = client.post("/v1/maps/extracts", json=area(limit))
+    assert r.status_code == 403 and r.json()["detail"] == {"code": "download_limit", "max": limit}
+    # Another device has its own limit.
+    other = TestClient(app, headers={"X-Device-Id": str(uuid.uuid4())})
+    assert other.post("/v1/maps/extracts", json=area(limit)).status_code == 200
+
+
+def test_signed_in_account_counts_per_account(monkeypatch):
+    sent = []
+    monkeypatch.setattr(mailer, "send", lambda to, subject, text: sent.append(subject))
+    client.post("/v1/auth/email/start", json={"email": "a@b.cz"})
+    token = client.post("/v1/auth/email/verify", json={"email": "a@b.cz", "code": sent[-1].split(": ")[-1]}).json()["token"]
+    user = TestClient(app, headers={"Authorization": f"Bearer {token}"})
+    limit = settings.TIERS["limits"]["free"]["mapDownloadsPerMonth"]
+    for i in range(limit):
+        assert user.post("/v1/maps/extracts", json=area(i)).status_code == 200
+    assert user.post("/v1/maps/extracts", json=area(limit)).status_code == 403
+
+
+def test_global_hourly_cap(monkeypatch):
+    monkeypatch.setattr(settings, "MAP_DOWNLOADS_TOTAL_HOUR", 1)
+    assert client.post("/v1/maps/extracts", json=area(0)).status_code == 200
+    other = TestClient(app, headers={"X-Device-Id": str(uuid.uuid4())})
+    r = other.post("/v1/maps/extracts", json=area(1))
+    assert r.status_code == 429 and r.json()["detail"]["code"] == "busy"
 
 
 def test_map_assets(tmp_path, monkeypatch):

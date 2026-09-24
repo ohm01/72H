@@ -12,8 +12,8 @@ EXTRACT_CACHE_HOURS = int(os.environ.get("EXTRACT_CACHE_HOURS", "24"))
 # Fonts + sprites for offline maps (scripts/fetch-map-assets.sh), served to the app.
 MAP_ASSETS_DIR = Path(os.environ.get("MAP_ASSETS_DIR", "/maps/assets"))
 
-# Temporary guard until user auth exists (M3): map endpoints need X-Dev-Key.
-DEV_API_KEY = os.environ.get("DEV_API_KEY", "")
+# Caps server load: new map downloads per hour across all users.
+MAP_DOWNLOADS_TOTAL_HOUR = int(os.environ.get("MAP_DOWNLOADS_TOTAL_HOUR", "200"))
 
 # Database (compose sets it for the api container).
 DATABASE_URL = os.environ.get("DATABASE_URL", "")

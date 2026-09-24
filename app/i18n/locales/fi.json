@@ -193,6 +193,7 @@
     "errorOutside": "Alueen on oltava kokonaan Tšekin alueella.",
     "errorTooLarge": "Alue on liian suuri ({{area}} km², enintään {{max}} km²).",
     "errorNetwork": "Lataus epäonnistui. Tarkista yhteys ja yritä uudelleen.",
+    "errorBusy": "Palvelin on nyt kuormitettu. Yritä hetken kuluttua uudelleen.",
     "sizeMb": "{{mb}} Mt"
   },
   "meetingPoint": {

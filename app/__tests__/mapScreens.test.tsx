@@ -267,6 +267,18 @@ describe('MapAreasScreen', () => {
     expect(await screen.findByText('Oblast musí ležet celá v České republice.')).toBeTruthy();
     expect(await listMapAreas(mockDb)).toHaveLength(0);
   });
+
+  it('explains when the server says the monthly download limit is used up on this device', async () => {
+    const { ApiError } = jest.requireActual('@/lib/api');
+    jest.mocked(downloadArea).mockRejectedValue(new ApiError(403, { detail: { code: 'download_limit', max: 2 } }));
+    await render(<MapAreasScreen />);
+
+    await fireEvent.press(screen.getByText('Obec nebo adresa'));
+    await fireEvent.changeText(screen.getByPlaceholderText('např. Za Střelnicí 950, Sezemice'), 'Sezemice');
+    expect(await screen.findByText('50.0443, 15.8456', {}, { timeout: 3000 })).toBeTruthy();
+    await fireEvent.press(screen.getByText('Stáhnout'));
+    expect(await screen.findByText(/^Tento měsíc jste stáhli maximum \(2\)/)).toBeTruthy();
+  });
 });
 
 const grandma = (lat: number | null = 50.0965, lon: number | null = 14.4213) =>

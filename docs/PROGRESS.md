@@ -64,7 +64,7 @@ Simulátor: Xcode → Open Developer Tool → Device Hub → iPhone 18 Pro. Apli
 | Server: kontrola, že je oblast v ČR, a limit plochy (zdarma 500 km²) | ✅ + testy |
 | Server: stažení s podporou pokračování (HTTP Range) | ✅ + testy |
 | Server: počítání stažení za měsíc | ⬜ potřebuje přihlášení (M3) |
-| Dočasná ochrana endpointu klíčem `X-Dev-Key` (do M3) | ✅ (klíč je v `.env`) |
+| Dočasná ochrana endpointu klíčem `X-Dev-Key` (do M3) | ✅ → v M3 nahrazeno limitem na zařízení/účet |
 | Zdroj mapy: zatím vzdálené sestavení Protomaps, na VPS lokální `maps/cz.pmtiles` | 🔄 |
 | Písma a ikony mapy pro offline (`scripts/fetch-map-assets.sh` → `maps/assets`, mimo git) | ✅ skript |
 | Server: písma a ikony pro aplikaci (`/v1/maps/assets`) | ✅ + testy |
@@ -174,7 +174,7 @@ Připraveno: všechny tabulky (i `contacts`) mají UUID, `updated_at` a `deleted
 | 4 | Rodinná skupina + pozvánka QR/odkaz s klíčem ve fragmentu (podle modelu hrozeb) | ✅ server + testy: 1 rodina na účet, pozvánka jednorázová 24 h, admin schvaluje nové členy, limit členů, stránka `/join` předá odkaz aplikaci; aplikace ⬜ |
 | 5 | Synchronizace: šifrované záznamy (R1+R2), push/pull, poslední změna vyhrává; lokality, zásoby, místa srazu, kontakty | ✅ server + testy (`/v1/sync/push`, `/v1/sync/pull` s kurzorem, jen aktivní členové); aplikace ⬜ |
 | 6 | Smazání účtu a export dat (JSON) v aplikaci | ✅ server + testy (`GET /v1/me/export`, `DELETE /v1/me`, předání role správce); aplikace ⬜ |
-| 7 | Limity stahování map: bez účtu na zařízení (anonymní ID zařízení v Secure Store), s účtem na účet | stahování funguje i bez účtu (rozhodnuto 2026-09-24) |
+| 7 | Limity stahování map: bez účtu na zařízení (anonymní ID zařízení), s účtem na účet | ✅ server + aplikace + testy (2026-09-24): `X-Dev-Key` zrušen, stejná oblast znovu v měsíci se nepočítá, strop 200 nových stažení/h pro celý server |
 | 8 | První Android build do uzavřeného testu Google Play | potřebuje vývojářský účet Google Play (25 USD) |
 | – | Role rodič / dítě (návrh, priorita 5) | až po kroku 4, jen pokud potvrdíš |
 
@@ -271,3 +271,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - M3 krok 1 (server): Postgres s migracemi, tabulky users/sessions/login_codes, `POST /v1/auth/email/start|verify`, `GET /v1/me`, `POST /v1/auth/logout`. Kód 6 číslic, 10 min, max 5 pokusů, max 5 kódů/h na e-mail + celkový strop, uložený jen jako HMAC. E-mail přes Brevo nebo Resend podle `.env`. 22 testů serveru OK.
   - Pozn. pro nasazení: Dockerfile stahuje `pmtiles` pro arm64 (RPi) – na Hetzner CX23 (x86) upravit.
   - M3 kroky 4–6 (server): rodina, pozvánky se schválením, šifrovaná synchronizace (poslední změna vyhrává), export a smazání účtu, stránka `/join`. 34 testů serveru OK. Aplikace čeká na instalaci `expo-secure-store`, `react-native-svg`, `react-native-qrcode-svg`, `@noble/ciphers` a nový dev build.
+  - M3 krok 7: mapy bez vývojářského klíče – aplikace posílá anonymní ID zařízení, server hlídá měsíční limit na zařízení nebo účet a celkový strop za hodinu. Ověřeno v simulátoru (manifest map 200). 37 testů serveru, 91 testů aplikace.

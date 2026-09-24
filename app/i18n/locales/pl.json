@@ -197,6 +197,7 @@
     "errorOutside": "Obszar musi leżeć w całości w Czechach.",
     "errorTooLarge": "Obszar jest za duży ({{area}} km², maksymalnie {{max}} km²).",
     "errorNetwork": "Pobieranie nie powiodło się. Sprawdź połączenie i spróbuj ponownie.",
+    "errorBusy": "Serwer jest teraz przeciążony. Spróbuj ponownie za chwilę.",
     "sizeMb": "{{mb}} MB"
   },
   "meetingPoint": {

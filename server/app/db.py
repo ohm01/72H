@@ -70,6 +70,16 @@ MIGRATIONS: list[str] = [
     );
     CREATE INDEX records_seq_idx ON records(family_id, seq);
     """,
+    # 3: map downloads per account or anonymous device (monthly limit)
+    """
+    CREATE TABLE map_downloads (
+        subject text NOT NULL,
+        extract_id text NOT NULL,
+        created_at timestamptz NOT NULL DEFAULT now()
+    );
+    CREATE INDEX map_downloads_subject_idx ON map_downloads(subject, created_at);
+    CREATE INDEX map_downloads_created_idx ON map_downloads(created_at);
+    """,
 ]
 
 _pool: ConnectionPool | None = None

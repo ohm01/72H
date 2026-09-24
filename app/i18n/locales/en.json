@@ -193,6 +193,7 @@
     "errorOutside": "The area must lie entirely within the Czech Republic.",
     "errorTooLarge": "The area is too large ({{area}} km², at most {{max}} km²).",
     "errorNetwork": "The download failed. Check your connection and try again.",
+    "errorBusy": "The server is busy right now. Please try again in a while.",
     "sizeMb": "{{mb}} MB"
   },
   "meetingPoint": {

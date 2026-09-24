@@ -79,6 +79,11 @@ export default function MapAreasScreen() {
     if (e instanceof ApiError) {
       const detail = (e.body as { detail?: unknown } | null)?.detail;
       if (e.status === 422 && typeof detail === 'string' && detail.includes('outside')) return t('mapAreas.errorOutside');
+      // The server counts downloads per device too (e.g. after reinstalling the app).
+      if (e.status === 403 && detail && typeof detail === 'object' && (detail as { code?: string }).code === 'download_limit') {
+        return t('mapAreas.blockDownloads', { max: (detail as { max: number }).max, reset });
+      }
+      if (e.status === 429) return t('mapAreas.errorBusy');
       if (e.status === 403 && detail && typeof detail === 'object' && 'maxKm2' in detail) {
         const d = detail as { areaKm2: number; maxKm2: number };
         return t('mapAreas.errorTooLarge', { area: formatNumber(d.areaKm2), max: formatNumber(d.maxKm2) });
