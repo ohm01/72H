@@ -36,7 +36,7 @@ Show usage + reset date. Paywall only on attempt to use a Plus feature, always s
 - NOT in 1.0: non-CZ maps, barcodes, continuous tracking, history, geofence, SOS, route navigation, PDF export, widget, B2B, Redis.
 
 ## Architecture
-- `app/` Expo (RN, TypeScript), Expo Router, expo-sqlite (offline-first), expo-notifications, expo-location + task-manager, MapLibre RN, i18next, react-native-libsodium, RevenueCat. Dev builds via EAS (profiles `development`, `development-simulator`).
+- `app/` Expo (RN, TypeScript), Expo Router, expo-sqlite (offline-first), expo-notifications, expo-location + task-manager, MapLibre RN, i18next, `@noble/ciphers` (pure JS XSalsa20-Poly1305 = libsodium secretbox; **CHANGE 2026-09-24** instead of react-native-libsodium: no native module), expo-secure-store, RevenueCat. Invite QR is scanned by the system camera (deep link), no in-app scanner. Dev builds via EAS (profiles `development`, `development-simulator`).
 - `server/` Python FastAPI + PostgreSQL, Docker Compose. API port 8000, DB local only. Emails via Brevo/Resend.
 - `data/countries/` recommendation JSON per country (CZ, SK, PL, FI).
 - `maps/` map files (not in git). `docs/` plan, threat model, store texts.

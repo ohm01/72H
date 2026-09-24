@@ -25,13 +25,13 @@ Stav: **rozhodnuto 2026-09-24** (uživatel nechal R1–R5 na Claude s ohledem na
 | T9 | Dítě pod 15 let | zpracování polohy bez souhlasu | účet dítěte zakládá rodič (souhlas), dítě vidí indikátor a o sdílení ví; žádné skryté režimy |
 
 ## 3. Návrh šifrování
-- Knihovna: **libsodium** (`react-native-libsodium`), jen vysokoúrovňové API.
-- **Klíč rodiny** `K_family`: 32 B náhodný (`crypto_secretbox_keygen`), vytvoří ho zakladatel na zařízení.
+- Knihovna: **`@noble/ciphers`** (čistý JavaScript, auditovaná), `xsalsa20poly1305` = stejný formát jako libsodium `crypto_secretbox`; náhodná čísla z `expo-crypto`. (Změna 2026-09-24: bez nativního modulu libsodium.)
+- **Klíč rodiny** `K_family`: 32 B náhodný (`expo-crypto` getRandomBytes), vytvoří ho zakladatel na zařízení.
 - Uložení: `expo-secure-store` (iOS Keychain / Android Keystore), nikdy v SQLite ani v záloze na server.
-- **Pozvánka:** `https://72h.app/join#<familyId>.<inviteToken>.<base64url(K_family)>` (QR obsahuje totéž).
+- **Pozvánka:** `https://api.jennase.org/join#<familyId>.<inviteToken>.<base64url(K_family)>` (QR obsahuje totéž). Stránka `/join` jen předá fragment aplikaci (`app72h://join#…`); fragment se na server neposílá. Jakýkoli fotoaparát umí otevřít https odkaz.
   - `inviteToken` = jednorázový token pro server (připojení ke skupině), serveru se posílá jen ten.
   - Klíč je ve fragmentu → prohlížeč ani server ho nedostanou.
-- **Šifrování dat:** `crypto_secretbox_easy(plaintext, nonce24, K_family)`, nonce náhodný pro každou zprávu, uložen s ciphertextem.
+- **Šifrování dat:** `xsalsa20poly1305(K_family, nonce24).encrypt(plaintext)` (= `crypto_secretbox_easy`), nonce náhodný pro každou zprávu, uložen s ciphertextem.
   - Poloha: plaintext JSON `{lat, lon, accuracy, ts}` zaokrouhlený na ~10 m.
   - Server ukládá `(member_id, nonce, ciphertext, updated_at)` – **jediný řádek na člena**, UPSERT, žádná historie.
 - **Verze klíče:** `key_version` u každého ciphertextu; při rotaci (T3) nová verze, staré záznamy se přepíšou při další aktualizaci, zbytek se smaže.

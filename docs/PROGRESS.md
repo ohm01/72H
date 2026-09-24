@@ -171,9 +171,9 @@ Připraveno: všechny tabulky (i `contacts`) mají UUID, `updated_at` a `deleted
 | 1 | Server: účty a přihlášení e-mailem s kódem (6 číslic, 10 min, limit pokusů), relace (token v Secure Store) | ✅ server + testy (2026-09-24); e-mail zatím jen do logu (`EMAIL_PROVIDER=log`), aplikace ⬜; `X-Dev-Key` u map nahradí krok 7 |
 | 2 | Server: ověření Google a Apple tokenů (JWKS), propojení s účtem podle e-mailu | potřebuje OAuth klienty od tebe |
 | 3 | Aplikace: Rodina → „Sdílet s rodinou“ → přihlášení (e-mail / Google / Apple) | jediný nový vstup |
-| 4 | Rodinná skupina + pozvánka QR/odkaz s klíčem ve fragmentu (podle modelu hrozeb) | libsodium, Secure Store |
-| 5 | Synchronizace: šifrované záznamy (R1+R2), push/pull, poslední změna vyhrává; lokality, zásoby, místa srazu, kontakty | server vidí jen ciphertext; po odebrání člena server zruší přístup (R3) |
-| 6 | Smazání účtu a export dat (JSON) v aplikaci | GDPR |
+| 4 | Rodinná skupina + pozvánka QR/odkaz s klíčem ve fragmentu (podle modelu hrozeb) | ✅ server + testy: 1 rodina na účet, pozvánka jednorázová 24 h, admin schvaluje nové členy, limit členů, stránka `/join` předá odkaz aplikaci; aplikace ⬜ |
+| 5 | Synchronizace: šifrované záznamy (R1+R2), push/pull, poslední změna vyhrává; lokality, zásoby, místa srazu, kontakty | ✅ server + testy (`/v1/sync/push`, `/v1/sync/pull` s kurzorem, jen aktivní členové); aplikace ⬜ |
+| 6 | Smazání účtu a export dat (JSON) v aplikaci | ✅ server + testy (`GET /v1/me/export`, `DELETE /v1/me`, předání role správce); aplikace ⬜ |
 | 7 | Limity stahování map: bez účtu na zařízení (anonymní ID zařízení v Secure Store), s účtem na účet | stahování funguje i bez účtu (rozhodnuto 2026-09-24) |
 | 8 | První Android build do uzavřeného testu Google Play | potřebuje vývojářský účet Google Play (25 USD) |
 | – | Role rodič / dítě (návrh, priorita 5) | až po kroku 4, jen pokud potvrdíš |
@@ -231,6 +231,7 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
 | 2026-09-23 | Role rodič / dítě | návrh → M3 |
 | 2026-09-23 | Domácnost dospělí / děti / miminka, potřeby miminek (pleny…) jen když je miminko | návrh → M5 |
 | 2026-09-23 | Doporučené jídlo doma + krizové zavazadlo (Zuzka) | návrh → M5, priorita 1 a 2 |
+| 2026-09-24 | Šifrování přes `@noble/ciphers` (čistý JS) místo nativní libsodium; QR pozvánku čte systémový fotoaparát | méně nativních modulů, jednodušší build |
 | 2026-09-24 | Server na malém VPS v EU místo RPi + SSD | M3 začne založením VPS; RPi omezení (RAM, SD karta) odpadají |
 | 2026-09-24 | Název „72h – Rodinná připravenost“ jen pro český obchod; SK/PL/FI/EN vlastní názvy (nerozhodnuto) | M7 texty obchodů; FI: „72 tuntia“ je národní doporučení → název bez „72h“ |
 
@@ -269,3 +270,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Mapy lze stahovat i bez účtu (limit na zařízení).
   - M3 krok 1 (server): Postgres s migracemi, tabulky users/sessions/login_codes, `POST /v1/auth/email/start|verify`, `GET /v1/me`, `POST /v1/auth/logout`. Kód 6 číslic, 10 min, max 5 pokusů, max 5 kódů/h na e-mail + celkový strop, uložený jen jako HMAC. E-mail přes Brevo nebo Resend podle `.env`. 22 testů serveru OK.
   - Pozn. pro nasazení: Dockerfile stahuje `pmtiles` pro arm64 (RPi) – na Hetzner CX23 (x86) upravit.
+  - M3 kroky 4–6 (server): rodina, pozvánky se schválením, šifrovaná synchronizace (poslední změna vyhrává), export a smazání účtu, stránka `/join`. 34 testů serveru OK. Aplikace čeká na instalaci `expo-secure-store`, `react-native-svg`, `react-native-qrcode-svg`, `@noble/ciphers` a nový dev build.

@@ -35,6 +35,41 @@ MIGRATIONS: list[str] = [
     );
     CREATE INDEX login_codes_email_idx ON login_codes(email, created_at);
     """,
+    # 2: family group, invites, end-to-end encrypted records (server never sees plaintext)
+    """
+    CREATE TABLE families (
+        id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+        created_at timestamptz NOT NULL DEFAULT now()
+    );
+    CREATE TABLE family_members (
+        family_id uuid NOT NULL REFERENCES families(id) ON DELETE CASCADE,
+        user_id uuid NOT NULL UNIQUE REFERENCES users(id) ON DELETE CASCADE,
+        role text NOT NULL CHECK (role IN ('admin', 'member')),
+        status text NOT NULL CHECK (status IN ('pending', 'active')),
+        joined_at timestamptz NOT NULL DEFAULT now(),
+        PRIMARY KEY (family_id, user_id)
+    );
+    CREATE TABLE invites (
+        token_hash bytea PRIMARY KEY,
+        family_id uuid NOT NULL REFERENCES families(id) ON DELETE CASCADE,
+        created_by uuid REFERENCES users(id) ON DELETE SET NULL,
+        expires_at timestamptz NOT NULL,
+        used_at timestamptz
+    );
+    CREATE TABLE records (
+        family_id uuid NOT NULL REFERENCES families(id) ON DELETE CASCADE,
+        id uuid NOT NULL,
+        type text NOT NULL,
+        updated_at bigint NOT NULL,
+        deleted boolean NOT NULL DEFAULT false,
+        key_version int NOT NULL DEFAULT 1,
+        nonce bytea NOT NULL,
+        ciphertext bytea NOT NULL,
+        seq bigserial NOT NULL,
+        PRIMARY KEY (family_id, id)
+    );
+    CREATE INDEX records_seq_idx ON records(family_id, seq);
+    """,
 ]
 
 _pool: ConnectionPool | None = None

@@ -28,5 +28,5 @@ def test_database():
 @pytest.fixture
 def clean_db(test_database):
     with db.pool().connection() as conn:
-        conn.execute("TRUNCATE users, sessions, login_codes RESTART IDENTITY CASCADE")
+        conn.execute("TRUNCATE users, sessions, login_codes, families, family_members, invites, records RESTART IDENTITY CASCADE")
     yield
