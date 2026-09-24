@@ -8,6 +8,7 @@ import { createTestDb } from './helpers/sqlite';
 import { emergencyFor } from '@/lib/emergency';
 import FamilyScreen from '@/app/(tabs)/family';
 import MapScreen from '@/app/(tabs)/map';
+import MoreScreen from '@/app/(tabs)/more';
 import ContactScreen from '@/app/contact/[id]';
 import GuideScreen from '@/app/guide/[id]';
 import KidsScreen from '@/app/kids/[id]';
@@ -28,6 +29,7 @@ const mockPosition = { coords: { ...HERE, accuracy: 8 } };
 let mockHeading = 90;
 
 jest.mock('expo-sqlite', () => ({ useSQLiteContext: () => mockDb }));
+jest.mock('@/lib/notifications', () => ({ syncReminders: jest.fn(), ensurePermission: jest.fn() }));
 jest.mock('expo-crypto', () => ({ randomUUID: () => require('crypto').randomUUID() }));
 jest.mock('expo-location', () => ({
   Accuracy: { High: 4 },
@@ -356,6 +358,22 @@ describe('Emergency numbers and kids tips', () => {
     const e = emergencyFor('XX');
     expect(e.numbers.map((n) => n.number)).toEqual(['112']);
     expect(e.helplines).toEqual([]);
+  });
+
+  it('Czech UI links the official 72 hours handbook and says we are not affiliated', async () => {
+    const openURL = jest.spyOn(Linking, 'openURL').mockResolvedValue(true);
+    await render(<MoreScreen />);
+    await fireEvent.press(await screen.findByText('Oficiální příručka 72 hodin (72h.gov.cz)'));
+    expect(openURL).toHaveBeenCalledWith('https://www.72h.gov.cz/cs');
+    expect(screen.getByText(/^Aplikace není spojená s Ministerstvem vnitra/)).toBeTruthy();
+  });
+
+  it('other languages do not show the Czech handbook link', async () => {
+    await i18n.changeLanguage('en');
+    await render(<MoreScreen />);
+    expect(await screen.findByText('About')).toBeTruthy();
+    expect(screen.queryByText('Official 72 hours guide (72h.gov.cz)')).toBeNull();
+    await i18n.changeLanguage('cs');
   });
 
   it('kids screen explains what to say when calling 112', async () => {

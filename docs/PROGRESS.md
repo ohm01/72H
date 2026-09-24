@@ -242,3 +242,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Rádio → „Kde hledat zprávy?“ (oficiální zdroje, jak poznat fámu; 72h.gov.cz/cs/informace-komunikace). Test, že všechny jazyky mají stejné klíče. Tmavý režim nových obrazovek zkontrolován; modré odkazy mají v tmavém režimu nižší kontrast → řešit v grafickém stylu.
 - **2026-09-24**
   - Tísňová čísla SK: 112, 150, 155, 158 podle slovensko.sk (Ústredný portál verejnej správy). Země bez ověřeného zdroje dál ukazují jen 112.
+  - Více → O aplikaci (jen česky): odkaz na oficiální příručku 72h.gov.cz a věta, že aplikace není spojená s MV ani s projektem 72 hodin. Právní otázky k převzatému obsahu a názvu → `Co potřebuju od tebe` (artefakt).

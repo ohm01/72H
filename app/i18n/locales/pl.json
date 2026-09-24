@@ -127,6 +127,8 @@
     "remindersEnable": "Zezwól na powiadomienia",
     "about": "O aplikacji",
     "disclaimer": "72h to pomoc w przygotowaniach, nie oficjalny system ostrzegania. W nagłych wypadkach dzwoń pod 112.",
+    "officialGuide": "Oficjalny poradnik 72 godziny (72h.gov.cz)",
+    "notAffiliated": "Aplikacja nie jest powiązana z czeskim Ministerstwem Spraw Wewnętrznych ani z projektem 72 godziny. Poradniki opierają się na jego podręczniku, opowiedzianym własnymi słowami.",
     "compare": "Porównanie krajów i standard",
     "kidsHelp": "Wiadomość dla dzieci",
     "kidsHelpText": "Wyświetla się na ekranie dla dzieci. Napisz, co dziecko ma zrobić, gdy się zgubi. Usuń tekst, aby przywrócić domyślną wiadomość."

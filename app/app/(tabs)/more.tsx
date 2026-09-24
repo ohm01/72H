@@ -2,6 +2,7 @@ import { router } from 'expo-router';
 import { useSQLiteContext } from 'expo-sqlite';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Linking } from 'react-native';
 
 import { Button, Card, Chip, ChipRow, Label, Muted, Screen, Stepper, TextField } from '@/components/ui';
 import { LANGUAGES, type LanguagePreference, applyLanguage } from '@/i18n';
@@ -10,11 +11,12 @@ import { ensurePermission, syncReminders } from '@/lib/notifications';
 import { KIDS_HELP_KEY, type Household, getHousehold, getSetting, listItems, setHousehold, setSetting } from '@/lib/repo';
 import { useDbQuery } from '@/lib/useDbQuery';
 
+const OFFICIAL_GUIDE_URL = 'https://www.72h.gov.cz/cs';
 const LANGUAGE_NAMES: Record<string, string> = { cs: 'Čeština', en: 'English', sk: 'Slovenčina', pl: 'Polski', fi: 'Suomi' };
 
 export default function MoreScreen() {
   const db = useSQLiteContext();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const limits = useLimits();
   const { data, reload } = useDbQuery(async (d) => ({
     household: await getHousehold(d),
@@ -99,6 +101,13 @@ export default function MoreScreen() {
       <Card>
         <Label>{t('more.about')}</Label>
         <Muted>{t('more.disclaimer')}</Muted>
+        {/* The official handbook is the Czech state's; link it from the Czech UI only. */}
+        {i18n.language === 'cs' && (
+          <>
+            <Muted>{t('more.notAffiliated')}</Muted>
+            <Button title={t('more.officialGuide')} variant="secondary" onPress={() => Linking.openURL(OFFICIAL_GUIDE_URL)} />
+          </>
+        )}
       </Card>
     </Screen>
   );

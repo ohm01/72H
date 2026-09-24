@@ -125,6 +125,8 @@
     "remindersEnable": "Allow notifications",
     "about": "About",
     "disclaimer": "72h is a preparedness aid, not an official warning system. In an emergency call 112.",
+    "officialGuide": "Official 72 hours guide (72h.gov.cz)",
+    "notAffiliated": "This app is not affiliated with the Czech Ministry of the Interior or the 72 hours project. Guides follow its handbook, retold in our own words.",
     "compare": "Country comparison and standard",
     "kidsHelp": "Message for kids",
     "kidsHelpText": "Shown on the kids screen. Write what your child should do if they get lost. Clear the text to restore the default."

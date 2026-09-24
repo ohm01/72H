@@ -127,6 +127,8 @@
     "remindersEnable": "Povolit notifikace",
     "about": "O aplikaci",
     "disclaimer": "72h je pomůcka pro přípravu, ne oficiální varovný systém. V nouzi volejte 112.",
+    "officialGuide": "Oficiální příručka 72 hodin (72h.gov.cz)",
+    "notAffiliated": "Aplikace není spojená s Ministerstvem vnitra ani s projektem 72 hodin. Návody jsou podle jeho příručky, převyprávěné vlastními slovy.",
     "compare": "Srovnání zemí a standard",
     "kidsHelp": "Zpráva pro děti",
     "kidsHelpText": "Zobrazí se na dětské obrazovce. Napište, co má dítě udělat, když se ztratí. Smazáním textu vrátíte výchozí zprávu."

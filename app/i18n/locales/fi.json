@@ -125,6 +125,8 @@
     "remindersEnable": "Salli ilmoitukset",
     "about": "Tietoa sovelluksesta",
     "disclaimer": "72h on varautumisen apuväline, ei virallinen varoitusjärjestelmä. Hätätilanteessa soita 112.",
+    "officialGuide": "Virallinen 72 tuntia -opas (72h.gov.cz)",
+    "notAffiliated": "Sovellus ei liity Tšekin sisäministeriöön eikä 72 tuntia -hankkeeseen. Oppaat perustuvat sen käsikirjaan omin sanoin kerrottuna.",
     "compare": "Maavertailu ja standardi",
     "kidsHelp": "Viesti lapsille",
     "kidsHelpText": "Näkyy lasten näkymässä. Kirjoita, mitä lapsen pitää tehdä, jos hän eksyy. Tyhjennä teksti palauttaaksesi oletusviestin."
