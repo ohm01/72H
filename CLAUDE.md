@@ -4,7 +4,7 @@ Project memory for Claude Code. Keep short and current.
 
 ## Product
 Freemium app for family crisis preparedness (blackout, floods, network outage). Calm, practical tone, no fear-mongering.
-Store name: "72h – Rodinná připravenost" / "72h – Family Preparedness". Must NOT look like an official state app (72h.gov.cz), no state logos.
+Store name: "72h – Rodinná připravenost" – **CZ store listing only (user 2026-09-24)**; other markets (SK/PL/FI, EN) get their own localized names, TBD. FI: "72 tuntia" is the national preparedness recommendation (SPEK, funded by Huoltovarmuuskeskus) → avoid a "72h" name that looks official there too. Must NOT look like an official state app (72h.gov.cz), no state logos.
 
 Tabs: **Zásoby** (locations, items with expiry, readiness in days, CZ checklist) · **Mapa** (offline OSM map, meeting points, arrow + distance, last family location – Plus) · **Rodina** (members, QR/link invite, optional location sharing – Plus) · **Více** (country comparison, go-bag, contacts, subscription, settings, language).
 Onboarding: people + pets → first stock location → meeting point (skippable).

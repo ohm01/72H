@@ -1,5 +1,7 @@
 # Texty pro obchody (KONCEPT)
 
+> **Název „72h – Rodinná připravenost“ platí jen pro český obchod** (rozhodnutí 2026-09-24). Pro SK, PL, FI a angličtinu bude vlastní název – zatím nerozhodnuto. Ve Finsku je „72 tuntia“ národní doporučení (SPEK, financuje Huoltovarmuuskeskus), název s „72h“ by tam působil oficiálně.
+
 ## Čeština
 **Název:** 72h – Rodinná připravenost
 **Podtitul (iOS, max 30 znaků):** Zásoby, místa srazu, rodina
@@ -21,7 +23,7 @@ Když vypadne proud, neteče voda nebo nejde signál, pomůže, když máte věc
 **Klíčová slova (iOS, max 100 znaků):** zásoby,krize,blackout,povodně,nouzové,rodina,připravenost,checklist,offline mapa,72 hodin
 
 ## English
-**Name:** 72h – Family Preparedness
+**Name:** TBD (not „72h – …“, see note at the top)
 **Subtitle:** Supplies, meeting points, family
 **Short description:** Track your supplies and plan with your family for power or network outages.
 

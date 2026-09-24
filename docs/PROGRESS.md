@@ -216,6 +216,7 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
 | 2026-09-23 | Role rodič / dítě | návrh → M3 |
 | 2026-09-23 | Domácnost dospělí / děti / miminka, potřeby miminek (pleny…) jen když je miminko | návrh → M5 |
 | 2026-09-23 | Doporučené jídlo doma + krizové zavazadlo (Zuzka) | návrh → M5, priorita 1 a 2 |
+| 2026-09-24 | Název „72h – Rodinná připravenost“ jen pro český obchod; SK/PL/FI/EN vlastní názvy (nerozhodnuto) | M7 texty obchodů; FI: „72 tuntia“ je národní doporučení → název bez „72h“ |
 
 ## Deník
 - **2026-09-22**
@@ -243,3 +244,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
 - **2026-09-24**
   - Tísňová čísla SK: 112, 150, 155, 158 podle slovensko.sk (Ústredný portál verejnej správy). Země bez ověřeného zdroje dál ukazují jen 112.
   - Více → O aplikaci (jen česky): odkaz na oficiální příručku 72h.gov.cz a věta, že aplikace není spojená s MV ani s projektem 72 hodin. Právní otázky k převzatému obsahu a názvu → `Co potřebuju od tebe` (artefakt).
+  - Dotaz na MV (posta@mv.gov.cz) k užití obsahu 72h.gov.cz a k názvu odeslán z Gmailu. Název „72h – Rodinná připravenost“ jen pro CZ.
