@@ -15,7 +15,7 @@ Aktualizuje Claude po každém kroku. Legenda: ✅ hotovo · 🔄 rozpracováno 
 1. Rozhodnout bundle ID: v buildu je `org.jennase.app72h`, dřív doporučené bylo `org.jennase.family72h` (změna = nový dev build).
 2. Otestovat M2 na telefonu (dev build pro zařízení: `npx eas-cli@latest build --profile development --platform ios`, vyžaduje Apple účet).
 3. Schválit zdroje v `docs/country-comparison.md` a rozhodnutí R1–R5 v `docs/threat-model.md` (potřebné pro M3, M5, M6).
-4. ~~Rozhodnout, kde poběží server~~ → **malý VPS v EU** (rozhodnuto 2026-09-24). Další krok: vybrat poskytovatele a založit účet, přidat SSH klíč.
+4. ~~Rozhodnout, kde poběží server~~ → **malý VPS v EU** (rozhodnuto 2026-09-24). Návrh viz „Server (VPS)“ níže – založit účet a server.
 
 ## Jak spustit vývoj na Macu
 ```bash
@@ -185,6 +185,21 @@ Připraveno: všechny tabulky (i `contacts`) mají UUID, `updated_at` a `deleted
 4. **Apple Developer** (99 USD/rok – nutné i pro testování na iPhonu) a **Google Cloud OAuth** klient.
 5. Potvrdit: stahování map bez účtu povolit (limit na zařízení), nebo jen s účtem?
 
+### Server (VPS) – návrh 2026-09-24 ⏳ založit
+**Doporučení: Hetzner Cloud CX23**, lokalita Norimberk nebo Falkenstein (Německo, nejblíž ČR), Ubuntu 24.04 LTS.
+
+| Položka | Cena bez DPH / měsíc | Zdroj |
+|---|---|---|
+| CX23 (2 vCPU, 4 GB RAM, 40 GB SSD, 20 TB přenos) | 5,49 € | Hetzner docs – Price Adjustment 15 June 2026 (ceny DE/FI) |
+| Veřejná IPv4 | ~0,50 € | ověřit v objednávce |
+| Zálohy celého serveru (7 denních) | +20 % ceny serveru ≈ 1,10 € | ověřit v objednávce |
+| **Celkem** | **≈ 7,10 € bez DPH, ≈ 8,60 € s 21% DPH (~215 Kč)** | |
+
+Proč stačí: API + Postgres dnes berou ~50 MB RAM. Disk: mapa ČR odhadem 1–3 GB, Docker ~3 GB, databáze a dočasné výřezy map malé. Přenos: výřez 9,5 km² Prahy = 5,1 MB, 20 TB pokryje statisíce stažení.
+Když nebude stačit: přechod na CX33 (4 vCPU, 8 GB, 80 GB; 8,49 €) během pár minut.
+Proč Hetzner: nejlevnější ověřená cena v EU, datacentra v DE/FI (GDPR), jednoduchá správa, zálohy jedním klepnutím. OVH a netcup: ceny se v dostupných zdrojích rozcházejí, netcup ARM vyprodáno.
+Přístup: `api.jennase.org` dál přes Cloudflare Tunnel (na serveru otevřený jen SSH). Vlastní SSH klíč `~/.ssh/id_ed25519_72h_vps` (na Macu, veřejná část v artefaktu). Navíc noční záloha databáze (`pg_dump`).
+
 ### M4 – Platby a limity ⬜
 Připraveno: ceny, produkty a limity na jednom místě v `config/tiers.json` (čte aplikace i server).
 
@@ -248,3 +263,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Dotaz na MV (posta@mv.gov.cz) k užití obsahu 72h.gov.cz a k názvu odeslán z Gmailu. Název „72h – Rodinná připravenost“ jen pro CZ.
   - Ochranné známky (TMview, úřady CZ/EM/WO, stav Registered/Filed, třídy 9/41/42): „72 hodin“ nic; „72h“ 28 výsledků, žádná známka „72h“/„72 hodin“ ve třídě 9 nebo 42, nic od MV. Nejbližší: „72horas M2M TECHNOLOGIES“ (EM 013580361; 9/38/42; jiné slovo a obor) a „FIRST 72HR“ (EM 019206352; 35/41) → nízké riziko. TMview není oficiální rejstřík, obrazové známky bez textu nezachytí. Zbývá riziko podobnosti se státním projektem → čeká na odpověď MV.
   - Rozhodnuto: produkční server poběží na malém VPS v EU (ne RPi + SSD).
+  - Návrh VPS: Hetzner CX23 (5,49 € bez DPH, ceny od 15. 6. 2026), zálohy, IPv4 ≈ 8,60 €/měsíc s DPH. SSH klíč pro server vytvořen na Macu.
