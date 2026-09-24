@@ -87,6 +87,9 @@ Připraveno: tabulka `meeting_points`, místo srazu z onboardingu se ukládá.
 | 4 | Složení domácnosti: dospělí / děti / miminka + potřeby miminek | M5 | Mění onboarding a checklist – lepší před vydáním. Malá změna dat. |
 | 5 | Role rodič / dítě | M3 (s rodinnou skupinou) | Dává smysl, až bude mít aplikaci víc členů rodiny. |
 | 6 | Jídlo podle kalorií a pestrosti | M5 (po bodu 4) | Vylepšení výpočtu, větší změna. Stávající denní dávky zatím stačí. |
+| ⏳ | Web aplikace (proč ji stavíme, jak funguje, návod, plán, ochrana soukromí) + komunitní nástěnka nápadů Fider; v aplikaci jen řádek ve Více | návrh 2026-09-24, po založení serveru | Komunita, důvěra; web a zásady soukromí stejně potřebuje M7. |
+| ⏳ | Domácnost: dospělí + děti (dítě = osoba podle 72h.gov.cz), věci pro děti (hračky, kartička do kapsy) jen když děti > 0; miminka až s ověřeným zdrojem | návrh 2026-09-24 (dříve bod 4) | Přání uživatele. |
+| ⏳ | Karta „Krizové zavazadlo“ na záložce Zásoby (sbaleno X z Y, expirace v zavazadle) | návrh 2026-09-24 | Přání uživatele; výjimka z pravidla „nic navíc na hlavních obrazovkách“. |
 
 ### Doporučené jídlo doma ✅
 Nápad (2026-09-23): chybí doporučení, **co za jídlo** mít doma.
@@ -275,3 +278,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - M3 aplikace: přihlášení kódem, rodina, pozvánka s QR (klíč jen ve fragmentu odkazu), schvalování, šifrovaná synchronizace (`@noble/ciphers`), export a smazání účtu. Nový dev build pro simulátor; odkaz z pozvánky v simulátoru otevře aplikaci a uloží pozvánku. Testovací kontakt od „mámy“ uložen na serveru jen šifrovaně. 107 testů aplikace, 37 serveru.
   - **M3 ověřeno v simulátoru (2026-09-24):** pozvánka přes odkaz → přihlášení kódem → připojení → schválení správcem → synchronizace: kontakt, který „máma“ poslala zašifrovaný z jiného zařízení, se objevil v záložce Rodina. „Hotovo, když“ M3 splněno v simulátoru; zbývá Google/Apple přihlášení (krok 2), nasazení na Hetzner, e-mailová služba a Android build (krok 8).
   - Oprava: mapa po přeinstalaci hlásila chybu, protože v databázi byla uložená plná cesta k souboru a iOS při každé instalaci/aktualizaci přesune složku aplikace. Cesta se teď skládá za běhu z ID oblasti. Ověřeno v simulátoru po přeinstalaci, regresní test.
+  - Návrhy k revizi (artefakt „Úkoly pro 72h“, sekce Návrhy): web aplikace + nástěnka nápadů, domácnost dospělí/děti, karta krizového zavazadla na Zásobách.
