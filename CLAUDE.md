@@ -43,6 +43,7 @@ Show usage + reset date. Paywall only on attempt to use a Plus feature, always s
 - Public access: Cloudflare Tunnel, hostname `api.jennase.org` → localhost:8000.
 
 ## Environment & constraints
+- **CHANGE 2026-09-24 (user): production server = small EU VPS** (provider TBD by user, e.g. Hetzner ~5 €/month), not RPi. Dev runs on the Mac (`~/projects/72h`). RPi notes below are historical.
 - Raspberry Pi (aarch64), **905 MB RAM + 904 MB swap**, shared with Rodinná E-knihovna.
 - **Do not touch the library:** Flask on port 80, files/git/CLAUDE.md in `/home/ohm`. Don't use port 80, don't install/configure anything in `/home/ohm`.
 - Project in `/srv/72h`. Until M2 on SD card (minimize writes). Before M3: move to SSD, `/srv/72h` → symlink to `/mnt/ssd/72h`, Docker data too.
@@ -62,7 +63,7 @@ Show usage + reset date. Paywall only on attempt to use a Plus feature, always s
 - [ ] **M0 Setup** – env check, skeleton, git/GitHub, Docker Compose (/health), Expo 4 tabs + i18n, EAS dev builds, Cloudflare Tunnel, backup check. *Done:* app with 4 tabs runs on phone/simulator, `https://api.<domain>/health` OK, code on GitHub.
 - [ ] **M1 Stock offline** – locations, items, expiry colors, readiness, CZ checklist, onboarding, reminders. *Done:* stock at home + cottage, reminder arrives.
 - [ ] **M2 Map & meeting points** – CZ PMTiles, cut endpoint w/ limits, area select, download w/ progress, offline map, GPS, meeting points, arrow, kids screen. *Done:* airplane mode, map visible, arrow leads to meeting point.
-- [ ] **M3 Accounts & family** (SSD first) – email OTP, family group, invite w/ key, sync, delete account, export. First Google Play closed-test build. *Done:* second phone sees my changes.
+- [ ] **M3 Accounts & family** (EU VPS first) – email OTP, family group, invite w/ key, sync, delete account, export. First Google Play closed-test build. *Done:* second phone sees my changes.
 - [ ] **M4 Payments & limits** – RevenueCat, 3 products, webhook, limits app+server, paywalls, usage display. *Done:* sandbox purchase, survives reinstall.
 - [ ] **M5 Country comparison** – CZ/SK/PL/FI official sources, JSON, Markdown table for review, screen, standard choice. *Done:* checklist recalculates, sources approved.
 - [ ] **M6 Last known location** – threat model + crypto design first. *Done:* in airplane mode I see member's last location with time. Fallback: ship 1.0 without it.

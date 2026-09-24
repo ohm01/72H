@@ -15,7 +15,7 @@ Aktualizuje Claude po každém kroku. Legenda: ✅ hotovo · 🔄 rozpracováno 
 1. Rozhodnout bundle ID: v buildu je `org.jennase.app72h`, dřív doporučené bylo `org.jennase.family72h` (změna = nový dev build).
 2. Otestovat M2 na telefonu (dev build pro zařízení: `npx eas-cli@latest build --profile development --platform ios`, vyžaduje Apple účet).
 3. Schválit zdroje v `docs/country-comparison.md` a rozhodnutí R1–R5 v `docs/threat-model.md` (potřebné pro M3, M5, M6).
-4. Rozhodnout, kde poběží server pro M3 (RPi + SSD podle plánu, nebo jinak) – teď běží jen lokálně na Macu.
+4. ~~Rozhodnout, kde poběží server~~ → **malý VPS v EU** (rozhodnuto 2026-09-24). Další krok: vybrat poskytovatele a založit účet, přidat SSH klíč.
 
 ## Jak spustit vývoj na Macu
 ```bash
@@ -65,7 +65,7 @@ Simulátor: Xcode → Open Developer Tool → Device Hub → iPhone 18 Pro. Apli
 | Server: stažení s podporou pokračování (HTTP Range) | ✅ + testy |
 | Server: počítání stažení za měsíc | ⬜ potřebuje přihlášení (M3) |
 | Dočasná ochrana endpointu klíčem `X-Dev-Key` (do M3) | ✅ (klíč je v `.env`) |
-| Zdroj mapy: zatím vzdálené sestavení Protomaps, po SSD lokální `maps/cz.pmtiles` | 🔄 |
+| Zdroj mapy: zatím vzdálené sestavení Protomaps, na VPS lokální `maps/cz.pmtiles` | 🔄 |
 | Písma a ikony mapy pro offline (`scripts/fetch-map-assets.sh` → `maps/assets`, mimo git) | ✅ skript |
 | Server: písma a ikony pro aplikaci (`/v1/maps/assets`) | ✅ + testy |
 | Aplikace: výběr oblasti (moje poloha / hledání adresy, velikost podle tarifu), stažení s průběhem a zrušením, počítadlo stažení | ✅ kód + testy |
@@ -179,7 +179,7 @@ Připraveno: všechny tabulky (i `contacts`) mají UUID, `updated_at` a `deleted
 | – | Role rodič / dítě (návrh, priorita 5) | až po kroku 4, jen pokud potvrdíš |
 
 **Co potřebuju od tebe před začátkem:**
-1. **Kde poběží server** (už ne na Macu): RPi + SSD podle původního plánu, nebo malý VPS v EU (např. Hetzner, ~5 €/měsíc – jednodušší, spolehlivější). `api.jennase.org` teď nefunguje.
+1. ✅ **Kde poběží server:** malý VPS v EU (rozhodnuto 2026-09-24). Potřebuju: účet u poskytovatele (např. Hetzner), server s Ubuntu LTS v EU, můj přístup přes SSH klíč. `api.jennase.org` pak přesměruju na VPS.
 2. **R1–R5** v `docs/threat-model.md` (doporučuji R2 = šifrovat vše, R3 sealed box, R5 volitelný obnovovací QR).
 3. **E-mailová služba** pro kódy: Brevo nebo Resend – založit účet a dát API klíč do `.env`.
 4. **Apple Developer** (99 USD/rok – nutné i pro testování na iPhonu) a **Google Cloud OAuth** klient.
@@ -216,6 +216,7 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
 | 2026-09-23 | Role rodič / dítě | návrh → M3 |
 | 2026-09-23 | Domácnost dospělí / děti / miminka, potřeby miminek (pleny…) jen když je miminko | návrh → M5 |
 | 2026-09-23 | Doporučené jídlo doma + krizové zavazadlo (Zuzka) | návrh → M5, priorita 1 a 2 |
+| 2026-09-24 | Server na malém VPS v EU místo RPi + SSD | M3 začne založením VPS; RPi omezení (RAM, SD karta) odpadají |
 | 2026-09-24 | Název „72h – Rodinná připravenost“ jen pro český obchod; SK/PL/FI/EN vlastní názvy (nerozhodnuto) | M7 texty obchodů; FI: „72 tuntia“ je národní doporučení → název bez „72h“ |
 
 ## Deník
@@ -246,3 +247,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Více → O aplikaci (jen česky): odkaz na oficiální příručku 72h.gov.cz a věta, že aplikace není spojená s MV ani s projektem 72 hodin. Právní otázky k převzatému obsahu a názvu → `Co potřebuju od tebe` (artefakt).
   - Dotaz na MV (posta@mv.gov.cz) k užití obsahu 72h.gov.cz a k názvu odeslán z Gmailu. Název „72h – Rodinná připravenost“ jen pro CZ.
   - Ochranné známky (TMview, úřady CZ/EM/WO, stav Registered/Filed, třídy 9/41/42): „72 hodin“ nic; „72h“ 28 výsledků, žádná známka „72h“/„72 hodin“ ve třídě 9 nebo 42, nic od MV. Nejbližší: „72horas M2M TECHNOLOGIES“ (EM 013580361; 9/38/42; jiné slovo a obor) a „FIRST 72HR“ (EM 019206352; 35/41) → nízké riziko. TMview není oficiální rejstřík, obrazové známky bez textu nezachytí. Zbývá riziko podobnosti se státním projektem → čeká na odpověď MV.
+  - Rozhodnuto: produkční server poběží na malém VPS v EU (ne RPi + SSD).
