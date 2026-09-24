@@ -90,6 +90,8 @@ function RootLayoutNav() {
         <Stack.Screen name="kids/[id]" options={{ title: t('kids.title') }} />
         <Stack.Screen name="guide/[id]" options={{ title: '' }} />
         <Stack.Screen name="contact/[id]" options={{ title: t('contacts.editTitle') }} />
+        <Stack.Screen name="share" options={{ title: t('share.title') }} />
+        <Stack.Screen name="join" options={{ title: t('share.joinTitle') }} />
       </Stack>
     </ThemeProvider>
   );

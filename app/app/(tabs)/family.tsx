@@ -4,14 +4,14 @@ import { Linking, StyleSheet } from 'react-native';
 
 import { View } from '@/components/Themed';
 import EmergencyNumbers from '@/components/EmergencyNumbers';
-import { Button, Card, Muted, Screen, Title } from '@/components/ui';
+import { Button, Card, Label, Muted, Screen, Title } from '@/components/ui';
 import { emergencyFor } from '@/lib/emergency';
 import { listContacts } from '@/lib/repo';
 import { telHref } from '@/lib/targets';
 import { useDbQuery } from '@/lib/useDbQuery';
 import { loadStandard } from '@/lib/useStandard';
 
-/** Family contacts, readable offline. Members, invites and sharing arrive with accounts (M3). */
+/** Family contacts, readable offline; optional sharing with the family (account) behind one card. */
 export default function FamilyScreen() {
   const { t } = useTranslation();
   const { data } = useDbQuery(async (db) => ({ contacts: await listContacts(db), home: (await loadStandard(db)).home }));
@@ -46,6 +46,13 @@ export default function FamilyScreen() {
         </Card>
       ))}
       <Button title={t('contacts.add')} variant={contacts.length ? 'secondary' : 'primary'} onPress={() => router.push('/contact/new')} />
+
+      {/* Opt-in: accounts and sync live behind this one card. */}
+      <Card>
+        <Label>{t('share.title')}</Label>
+        <Muted>{t('share.cardText')}</Muted>
+        <Button title={t('share.open')} variant="secondary" onPress={() => router.push('/share')} />
+      </Card>
     </Screen>
   );
 }
