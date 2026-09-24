@@ -185,18 +185,18 @@ Připraveno: všechny tabulky (i `contacts`) mají UUID, `updated_at` a `deleted
 4. **Apple Developer** (99 USD/rok – nutné i pro testování na iPhonu) a **Google Cloud OAuth** klient.
 5. Potvrdit: stahování map bez účtu povolit (limit na zařízení), nebo jen s účtem?
 
-### Server (VPS) – návrh 2026-09-24 ⏳ vybrat a založit
+### Server (VPS) – **rozhodnuto 2026-09-24: Hetzner CX23 + zálohy Hetzneru (varianta C)** ⏳ založit
 Požadavek: levný, ale spolehlivý. Aplikace funguje offline, server je jen pro synchronizaci a stažení map – krátký výpadek nic nerozbije. Všechny ceny s 21% DPH (CZ spotřebitel), ověřeno na stránkách poskytovatelů 2026-09-24.
 
 | Varianta | Parametry | Cena/měsíc s DPH | Plusy | Minusy |
 |---|---|---|---|---|
-| **A: netcup VPS nano G11.5s** (doporučuji) | 2 vCPU, 2 GB RAM, 60 GB SSD, přenos v ceně, IPv4+IPv6, Norimberk | **≈ 3,75 € (~95 Kč)** | nejlevnější ze spolehlivých německých | závazek 6 měsíců; přechod na větší tarif = přesun serveru (~1 h); zálohy si děláme sami |
+| A: netcup VPS nano G11.5s | 2 vCPU, 2 GB RAM, 60 GB SSD, přenos v ceně, IPv4+IPv6, Norimberk | **≈ 3,75 € (~95 Kč)** | nejlevnější ze spolehlivých německých | závazek 6 měsíců; přechod na větší tarif = přesun serveru (~1 h); zálohy si děláme sami |
 | B: Hetzner CX23, zálohy sami | 2 vCPU, 4 GB, 40 GB, 20 TB přenosu | ≈ 7,25 € (~180 Kč) | platba po hodinách, zvětšení během minut, nejlepší správa | 2× dražší |
-| C: Hetzner CX23 + zálohy Hetzneru | totéž + 7 denních záloh celého serveru | ≈ 8,60 € (~215 Kč) | nejpohodlnější | nejdražší |
+| **C: Hetzner CX23 + zálohy Hetzneru (vybráno)** | totéž + 7 denních záloh celého serveru | ≈ 8,60 € (~215 Kč) | nejpohodlnější | nejdražší |
 | Forpsi (CZ) | 2 vCPU, 4 GB, 40 GB NVMe, 25 TB | 193,60 Kč | česká firma | cena jako B, menší 1GB tarif dočasně nedostupný |
 | AWS / Azure / Google Cloud | – | obvykle násobně víc | – | platí se hlavně přenos dat (desítky USD za každý TB stažených map), složité účtování |
 
-Zálohy pro A i B: noční `pg_dump`, zašifrovaný, do Cloudflare R2 (do 10 GB zdarma; Cloudflare účet už máme). Databáze je malá a obsahuje jen šifrované záznamy rodin.
+Zálohy: denní zálohy celého serveru u Hetzneru (7 dní) + noční `pg_dump` na serveru (je pak i v záloze). Kopie mimo Hetzner (Cloudflare R2) až bude víc uživatelů. Databáze je malá a obsahuje jen šifrované záznamy rodin.
 Velikost: API + Postgres dnes ~50 MB RAM → 2 GB stačí. Mapa ČR odhadem 1–3 GB.
 Přístup: `api.jennase.org` přes Cloudflare Tunnel (na serveru otevřené jen SSH), SSH klíč `~/.ssh/id_ed25519_72h_vps` na Macu.
 
@@ -265,3 +265,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Rozhodnuto: produkční server poběží na malém VPS v EU (ne RPi + SSD).
   - Návrh VPS: Hetzner CX23 (5,49 € bez DPH, ceny od 15. 6. 2026), zálohy, IPv4 ≈ 8,60 €/měsíc s DPH. SSH klíč pro server vytvořen na Macu.
   - Levnější servery: netcup VPS nano ≈ 3,75 €/měsíc s DPH (doporučení), Hetzner CX23 ≈ 7,25–8,60 €, AWS a spol. dražší kvůli poplatkům za přenos. Šifrování R1–R5 rozhodnuto (jednoduchá varianta).
+  - Server: vybrán Hetzner CX23 se zálohami Hetzneru (≈ 8,60 €/měsíc s DPH).

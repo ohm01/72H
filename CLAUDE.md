@@ -43,7 +43,7 @@ Show usage + reset date. Paywall only on attempt to use a Plus feature, always s
 - Public access: Cloudflare Tunnel, hostname `api.jennase.org` → localhost:8000.
 
 ## Environment & constraints
-- **CHANGE 2026-09-24 (user): production server = small EU VPS** (provider TBD by user, e.g. Hetzner ~5 €/month), not RPi. Dev runs on the Mac (`~/projects/72h`). RPi notes below are historical.
+- **CHANGE 2026-09-24 (user): production server = Hetzner Cloud CX23 (DE, Ubuntu 24.04, Hetzner backups on)**; SSH key `~/.ssh/id_ed25519_72h_vps`, not RPi. Dev runs on the Mac (`~/projects/72h`). RPi notes below are historical.
 - Raspberry Pi (aarch64), **905 MB RAM + 904 MB swap**, shared with Rodinná E-knihovna.
 - **Do not touch the library:** Flask on port 80, files/git/CLAUDE.md in `/home/ohm`. Don't use port 80, don't install/configure anything in `/home/ohm`.
 - Project in `/srv/72h`. Until M2 on SD card (minimize writes). Before M3: move to SSD, `/srv/72h` → symlink to `/mnt/ssd/72h`, Docker data too.
