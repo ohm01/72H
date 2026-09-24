@@ -3,6 +3,7 @@ import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { SQLiteProvider, useSQLiteContext } from 'expo-sqlite';
 import { useEffect } from 'react';
+import { AppState } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import 'react-native-reanimated';
 
@@ -13,6 +14,7 @@ import { DB_NAME, migrate } from '@/lib/db';
 import { useLimits } from '@/lib/entitlement';
 import { syncReminders } from '@/lib/notifications';
 import { getSetting, listItems } from '@/lib/repo';
+import { syncNow } from '@/lib/sync';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -50,7 +52,7 @@ export default function RootLayout() {
   );
 }
 
-/** One-off tasks after the DB is ready: language preference and reminder re-sync. */
+/** Tasks after the DB is ready: language preference, reminder re-sync, family sync. */
 function Startup() {
   const db = useSQLiteContext();
   const limits = useLimits();
@@ -61,6 +63,14 @@ function Startup() {
       await syncReminders(await listItems(db), limits.expiryReminders);
     })().catch((e) => console.warn('startup failed', e));
   }, [db, limits.expiryReminders]);
+
+  // Family sync (only when signed in and in a family): at start and whenever the app comes back to the foreground.
+  useEffect(() => {
+    const sync = () => void syncNow(db).catch((e) => console.warn('sync failed', e));
+    sync();
+    const sub = AppState.addEventListener('change', (state) => state === 'active' && sync());
+    return () => sub.remove();
+  }, [db]);
 
   return null;
 }

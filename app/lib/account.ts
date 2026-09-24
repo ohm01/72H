@@ -6,6 +6,7 @@ import { fromBase64, KEY_BYTES, newFamilyKey, toBase64Url } from './crypto';
 
 const SESSION = 'session';
 const FAMILY_KEY = 'familyKey';
+const FAMILY_ID = 'familyId';
 const PENDING_INVITE = 'pendingInvite';
 
 export type Session = { token: string; userId: string; email: string };
@@ -48,7 +49,7 @@ export async function loadFamily(session: Session): Promise<Family | null> {
 
 export async function createFamily(session: Session): Promise<Family> {
   const family = await apiRequest<Family>('POST', '/v1/families', { token: session.token });
-  await setFamilyKey(newFamilyKey());
+  await setFamilyKey(family.id, newFamilyKey());
   return family;
 }
 
@@ -57,8 +58,19 @@ export async function getFamilyKey(): Promise<Uint8Array | null> {
   return raw ? fromBase64(raw) : null;
 }
 
-async function setFamilyKey(key: Uint8Array): Promise<void> {
+/** Which family the stored key belongs to (sync starts over when it changes). */
+export async function getFamilyId(): Promise<string | null> {
+  return SecureStore.getItemAsync(FAMILY_ID);
+}
+
+async function setFamilyKey(familyId: string, key: Uint8Array): Promise<void> {
   await SecureStore.setItemAsync(FAMILY_KEY, toBase64Url(key));
+  await SecureStore.setItemAsync(FAMILY_ID, familyId);
+}
+
+export async function forgetFamily(): Promise<void> {
+  await SecureStore.deleteItemAsync(FAMILY_KEY);
+  await SecureStore.deleteItemAsync(FAMILY_ID);
 }
 
 /** Invite link: the key rides in the #fragment, which is never sent to the server. */
@@ -98,7 +110,7 @@ export async function joinFamily(session: Session, invite: Invite): Promise<Fami
     token: session.token,
     body: { familyId: invite.familyId, token: invite.token },
   });
-  await setFamilyKey(fromBase64(invite.key));
+  await setFamilyKey(invite.familyId, fromBase64(invite.key));
   await savePendingInvite(null);
   return family;
 }
@@ -110,7 +122,7 @@ export async function approveMember(session: Session, userId: string): Promise<v
 /** userId 'me' = leave the family. */
 export async function removeMember(session: Session, userId: string): Promise<void> {
   await apiRequest('DELETE', `/v1/family/members/${userId}`, { token: session.token });
-  if (userId === 'me') await SecureStore.deleteItemAsync(FAMILY_KEY);
+  if (userId === 'me') await forgetFamily();
 }
 
 export async function exportAccount(session: Session): Promise<unknown> {
@@ -119,6 +131,6 @@ export async function exportAccount(session: Session): Promise<unknown> {
 
 export async function deleteAccount(session: Session): Promise<void> {
   await apiRequest('DELETE', '/v1/me', { token: session.token });
-  await SecureStore.deleteItemAsync(FAMILY_KEY);
+  await forgetFamily();
   await SecureStore.deleteItemAsync(SESSION);
 }

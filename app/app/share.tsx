@@ -1,4 +1,5 @@
 import { useFocusEffect } from 'expo-router';
+import { useSQLiteContext } from 'expo-sqlite';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, Platform, Share, StyleSheet } from 'react-native';
@@ -13,6 +14,8 @@ import {
   deleteAccount,
   exportAccount,
   finishLogin,
+  forgetFamily,
+  getFamilyId,
   getPendingInvite,
   getSession,
   joinFamily,
@@ -25,11 +28,14 @@ import {
   type Session,
 } from '@/lib/account';
 import { ApiError, errorCode } from '@/lib/api';
+import { getSetting } from '@/lib/repo';
+import { syncNow } from '@/lib/sync';
 
-type State = { session: Session | null; family: Family | null; invite: Invite | null };
+type State = { session: Session | null; family: Family | null; invite: Invite | null; lastSync: string | null };
 
 /** Opt-in family sharing: sign in with an emailed code, create or join a family, invite members. */
 export default function ShareScreen() {
+  const db = useSQLiteContext();
   const { t, i18n } = useTranslation();
   const danger = useThemeColor({}, 'danger');
   const [state, setState] = useState<State | null>(null);
@@ -58,10 +64,13 @@ export default function ShareScreen() {
         family = await joinFamily(session, invite);
         invite = null;
       }
-      setState({ session, family, invite });
+      // Removed from the family by the admin: drop the old key.
+      if (session && !family && (await getFamilyId())) await forgetFamily();
+      if (family?.myStatus === 'active') await syncNow(db);
+      setState({ session, family, invite, lastSync: await getSetting(db, 'lastSyncAt') });
     } catch (e) {
       setError(message(e));
-      setState((s) => s ?? { session: null, family: null, invite: null });
+      setState((s) => s ?? { session: null, family: null, invite: null, lastSync: null });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -148,6 +157,16 @@ export default function ShareScreen() {
             <Card>
               <Muted>{t('share.pendingApproval')}</Muted>
               <Button title={t('share.refresh')} variant="secondary" onPress={() => run(load)} />
+            </Card>
+          ) : null}
+          {family.myStatus === 'active' ? (
+            <Card>
+              <Muted>
+                {state.lastSync
+                  ? t('share.lastSync', { time: new Date(state.lastSync).toLocaleString(i18n.language) })
+                  : t('share.neverSynced')}
+              </Muted>
+              <Button title={t('share.syncNow')} variant="secondary" disabled={busy} onPress={() => run(load)} />
             </Card>
           ) : null}
           <Card>

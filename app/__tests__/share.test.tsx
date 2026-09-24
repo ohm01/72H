@@ -1,7 +1,10 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
 
+import { createTestDb } from './helpers/sqlite';
+
 import ShareScreen from '@/app/share';
 import i18n from '@/i18n';
+import { migrate } from '@/lib/db';
 import { getFamilyKey, getPendingInvite, parseInvite, savePendingInvite } from '@/lib/account';
 import { toBase64Url } from '@/lib/crypto';
 
@@ -15,6 +18,9 @@ jest.mock('expo-crypto', () => ({
   getRandomBytes: (n: number) => new Uint8Array(require('crypto').randomBytes(n)),
   randomUUID: () => require('crypto').randomUUID(),
 }));
+const mockDb = createTestDb();
+jest.mock('expo-sqlite', () => ({ useSQLiteContext: () => mockDb }));
+jest.mock('@/lib/sync', () => ({ syncNow: jest.fn(async () => null) }));
 jest.mock('@/lib/deviceId', () => ({ deviceId: () => '00000000-0000-4000-8000-000000000001' }));
 jest.mock('react-native-qrcode-svg', () => {
   const { Text } = require('react-native');
@@ -40,6 +46,7 @@ let calls: { key: string; body: unknown; auth: string | undefined }[];
 
 beforeAll(async () => {
   await i18n.changeLanguage('cs');
+  await migrate(mockDb);
 });
 
 beforeEach(() => {

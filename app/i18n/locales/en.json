@@ -320,6 +320,9 @@
       "invite_invalid": "This invite is no longer valid. Ask for a new one.",
       "member_limit": "The family is full.",
       "already_in_family": "You are already in another family. Leave it first."
-    }
+    },
+    "lastSync": "Synced: {{time}}",
+    "neverSynced": "Not synced yet.",
+    "syncNow": "Sync now"
   }
 }

@@ -324,6 +324,9 @@
       "invite_invalid": "Pozvánka už neplatí. Požiadajte o novú.",
       "member_limit": "Rodina je plná.",
       "already_in_family": "Už ste v inej rodine. Najprv ju opustite."
-    }
+    },
+    "lastSync": "Synchronizované: {{time}}",
+    "neverSynced": "Zatiaľ nesynchronizované.",
+    "syncNow": "Synchronizovať teraz"
   }
 }

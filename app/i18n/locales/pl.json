@@ -324,6 +324,9 @@
       "invite_invalid": "Zaproszenie jest już nieważne. Poproś o nowe.",
       "member_limit": "Rodzina jest pełna.",
       "already_in_family": "Jesteś już w innej rodzinie. Najpierw ją opuść."
-    }
+    },
+    "lastSync": "Zsynchronizowano: {{time}}",
+    "neverSynced": "Jeszcze nie zsynchronizowano.",
+    "syncNow": "Synchronizuj teraz"
   }
 }

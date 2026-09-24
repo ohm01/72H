@@ -320,6 +320,9 @@
       "invite_invalid": "Kutsu ei ole enää voimassa. Pyydä uusi.",
       "member_limit": "Perhe on täynnä.",
       "already_in_family": "Olet jo toisessa perheessä. Poistu siitä ensin."
-    }
+    },
+    "lastSync": "Synkronoitu: {{time}}",
+    "neverSynced": "Ei vielä synkronoitu.",
+    "syncNow": "Synkronoi nyt"
   }
 }
