@@ -1,5 +1,5 @@
 {
- "_comment": "Emergency numbers per home country from official sources. SK: official page not found yet -> falls back to 112.",
+ "_comment": "Emergency numbers per home country from official sources. Unknown country -> falls back to 112.",
  "CZ": {
   "source": {
    "publisher": "Ministerstvo vnitra ČR / HZS ČR",
@@ -178,6 +178,56 @@
      "sk": "Jediné tiesňové číslo vo Fínsku",
      "pl": "Jedyny numer alarmowy w Finlandii",
      "fi": "Suomen ainoa hätänumero"
+    }
+   }
+  ],
+  "helplines": []
+ },
+ "SK": {
+  "source": {
+   "publisher": "slovensko.sk (Ústredný portál verejnej správy)",
+   "url": "https://www.slovensko.sk/sk/zivotne-situacie/zivotna-situacia/_sluzby-poskytovane-prostrednic",
+   "verifiedAt": "2026-09-24"
+  },
+  "numbers": [
+   {
+    "number": "112",
+    "label": {
+     "cs": "Tísňové volání (EU)",
+     "en": "Emergency (EU)",
+     "sk": "Tiesňové volanie (EÚ)",
+     "pl": "Numer alarmowy (UE)",
+     "fi": "Hätänumero (EU)"
+    }
+   },
+   {
+    "number": "150",
+    "label": {
+     "cs": "Hasiči a záchranáři",
+     "en": "Fire and rescue",
+     "sk": "Hasiči a záchranári",
+     "pl": "Straż pożarna",
+     "fi": "Palokunta"
+    }
+   },
+   {
+    "number": "155",
+    "label": {
+     "cs": "Záchranka",
+     "en": "Ambulance",
+     "sk": "Záchranka",
+     "pl": "Pogotowie",
+     "fi": "Ambulanssi"
+    }
+   },
+   {
+    "number": "158",
+    "label": {
+     "cs": "Policie",
+     "en": "Police",
+     "sk": "Polícia",
+     "pl": "Policja",
+     "fi": "Poliisi"
     }
    }
   ],

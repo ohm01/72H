@@ -5,6 +5,7 @@ import { Linking } from 'react-native';
 
 import { createTestDb } from './helpers/sqlite';
 
+import { emergencyFor } from '@/lib/emergency';
 import FamilyScreen from '@/app/(tabs)/family';
 import MapScreen from '@/app/(tabs)/map';
 import ContactScreen from '@/app/contact/[id]';
@@ -343,12 +344,18 @@ describe('Emergency numbers and kids tips', () => {
     expect(screen.getByText('999')).toBeTruthy();
   });
 
-  it('countries without a verified source get only 112', async () => {
+  it('Slovakia lists its national numbers without helplines', async () => {
     await setSetting(mockDb, 'homeCountry', 'SK');
     await render(<FamilyScreen />);
-    expect(await screen.findByText('112')).toBeTruthy();
-    expect(screen.queryByText('155')).toBeNull();
+    expect(await screen.findByText('158')).toBeTruthy();
+    expect(screen.getByText('150')).toBeTruthy();
     expect(screen.queryByText('Když potřebujete s někým mluvit')).toBeNull();
+  });
+
+  it('countries without a verified source get only 112', () => {
+    const e = emergencyFor('XX');
+    expect(e.numbers.map((n) => n.number)).toEqual(['112']);
+    expect(e.helplines).toEqual([]);
   });
 
   it('kids screen explains what to say when calling 112', async () => {
