@@ -170,10 +170,10 @@ Připraveno: všechny tabulky (i `contacts`) mají UUID, `updated_at` a `deleted
 |---|---|---|
 | 1 | Server: účty a přihlášení e-mailem s kódem (6 číslic, 10 min, limit pokusů), relace (token v Secure Store) | ✅ server + testy (2026-09-24); e-mail zatím jen do logu (`EMAIL_PROVIDER=log`), aplikace ⬜; `X-Dev-Key` u map nahradí krok 7 |
 | 2 | Server: ověření Google a Apple tokenů (JWKS), propojení s účtem podle e-mailu | potřebuje OAuth klienty od tebe |
-| 3 | Aplikace: Rodina → „Sdílet s rodinou“ → přihlášení (e-mail / Google / Apple) | jediný nový vstup |
-| 4 | Rodinná skupina + pozvánka QR/odkaz s klíčem ve fragmentu (podle modelu hrozeb) | ✅ server + testy: 1 rodina na účet, pozvánka jednorázová 24 h, admin schvaluje nové členy, limit členů, stránka `/join` předá odkaz aplikaci; aplikace ⬜ |
-| 5 | Synchronizace: šifrované záznamy (R1+R2), push/pull, poslední změna vyhrává; lokality, zásoby, místa srazu, kontakty | ✅ server + testy (`/v1/sync/push`, `/v1/sync/pull` s kurzorem, jen aktivní členové); aplikace ⬜ |
-| 6 | Smazání účtu a export dat (JSON) v aplikaci | ✅ server + testy (`GET /v1/me/export`, `DELETE /v1/me`, předání role správce); aplikace ⬜ |
+| 3 | Aplikace: Rodina → „Sdílet s rodinou“ → přihlášení (e-mail / Google / Apple) | ✅ e-mail + kód, účet, export, smazání (2026-09-24); Google/Apple s krokem 2 |
+| 4 | Rodinná skupina + pozvánka QR/odkaz s klíčem ve fragmentu (podle modelu hrozeb) | ✅ server + aplikace + testy: 1 rodina na účet, pozvánka jednorázová 24 h (QR + odkaz), admin schvaluje nové členy, limit členů, stránka `/join` předá odkaz aplikaci |
+| 5 | Synchronizace: šifrované záznamy (R1+R2), push/pull, poslední změna vyhrává; lokality, zásoby, místa srazu, kontakty | ✅ server + aplikace + testy: kontakty, zásoby, místa zásob, místa srazu; při spuštění, návratu do aplikace a tlačítkem; fotky míst srazu a checklist zůstávají v telefonu |
+| 6 | Smazání účtu a export dat (JSON) v aplikaci | ✅ server + aplikace + testy (`GET /v1/me/export`, `DELETE /v1/me`, předání role správce) |
 | 7 | Limity stahování map: bez účtu na zařízení (anonymní ID zařízení), s účtem na účet | ✅ server + aplikace + testy (2026-09-24): `X-Dev-Key` zrušen, stejná oblast znovu v měsíci se nepočítá, strop 200 nových stažení/h pro celý server |
 | 8 | První Android build do uzavřeného testu Google Play | potřebuje vývojářský účet Google Play (25 USD) |
 | – | Role rodič / dítě (návrh, priorita 5) | až po kroku 4, jen pokud potvrdíš |
@@ -272,3 +272,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Pozn. pro nasazení: Dockerfile stahuje `pmtiles` pro arm64 (RPi) – na Hetzner CX23 (x86) upravit.
   - M3 kroky 4–6 (server): rodina, pozvánky se schválením, šifrovaná synchronizace (poslední změna vyhrává), export a smazání účtu, stránka `/join`. 34 testů serveru OK. Aplikace čeká na instalaci `expo-secure-store`, `react-native-svg`, `react-native-qrcode-svg`, `@noble/ciphers` a nový dev build.
   - M3 krok 7: mapy bez vývojářského klíče – aplikace posílá anonymní ID zařízení, server hlídá měsíční limit na zařízení nebo účet a celkový strop za hodinu. Ověřeno v simulátoru (manifest map 200). 37 testů serveru, 91 testů aplikace.
+  - M3 aplikace: přihlášení kódem, rodina, pozvánka s QR (klíč jen ve fragmentu odkazu), schvalování, šifrovaná synchronizace (`@noble/ciphers`), export a smazání účtu. Nový dev build pro simulátor; odkaz z pozvánky v simulátoru otevře aplikaci a uloží pozvánku. Testovací kontakt od „mámy“ uložen na serveru jen šifrovaně. 107 testů aplikace, 37 serveru.
