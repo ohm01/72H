@@ -174,7 +174,7 @@ Připraveno: všechny tabulky (i `contacts`) mají UUID, `updated_at` a `deleted
 | 4 | Rodinná skupina + pozvánka QR/odkaz s klíčem ve fragmentu (podle modelu hrozeb) | libsodium, Secure Store |
 | 5 | Synchronizace: šifrované záznamy (R1+R2), push/pull, poslední změna vyhrává; lokality, zásoby, místa srazu, kontakty | server vidí jen ciphertext; po odebrání člena server zruší přístup (R3) |
 | 6 | Smazání účtu a export dat (JSON) v aplikaci | GDPR |
-| 7 | Limity stahování map podle účtu (dnes jen pro Free natvrdo) | anonymní uživatel = limit na zařízení |
+| 7 | Limity stahování map: bez účtu na zařízení (anonymní ID zařízení v Secure Store), s účtem na účet | stahování funguje i bez účtu (rozhodnuto 2026-09-24) |
 | 8 | První Android build do uzavřeného testu Google Play | potřebuje vývojářský účet Google Play (25 USD) |
 | – | Role rodič / dítě (návrh, priorita 5) | až po kroku 4, jen pokud potvrdíš |
 
@@ -183,7 +183,7 @@ Připraveno: všechny tabulky (i `contacts`) mají UUID, `updated_at` a `deleted
 2. ✅ **R1–R5** rozhodnuto 2026-09-24 (na přání uživatele vybral Claude podle jednoduchosti): šifrovat vše synchronizované; v 1.0 bez sealed boxu a bez obnovovacího QR – viz `docs/threat-model.md`.
 3. **E-mailová služba** pro kódy: Brevo nebo Resend – založit účet a dát API klíč do `.env`.
 4. **Apple Developer** (99 USD/rok – nutné i pro testování na iPhonu) a **Google Cloud OAuth** klient.
-5. Potvrdit: stahování map bez účtu povolit (limit na zařízení), nebo jen s účtem?
+5. ✅ Stahování map **i bez účtu** (rozhodnuto 2026-09-24) – limit Free se počítá na zařízení, s účtem na účet.
 
 ### Server (VPS) – **rozhodnuto 2026-09-24: Hetzner CX23 + zálohy Hetzneru (varianta C)** ⏳ založit
 Požadavek: levný, ale spolehlivý. Aplikace funguje offline, server je jen pro synchronizaci a stažení map – krátký výpadek nic nerozbije. Všechny ceny s 21% DPH (CZ spotřebitel), ověřeno na stránkách poskytovatelů 2026-09-24.
@@ -266,3 +266,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Návrh VPS: Hetzner CX23 (5,49 € bez DPH, ceny od 15. 6. 2026), zálohy, IPv4 ≈ 8,60 €/měsíc s DPH. SSH klíč pro server vytvořen na Macu.
   - Levnější servery: netcup VPS nano ≈ 3,75 €/měsíc s DPH (doporučení), Hetzner CX23 ≈ 7,25–8,60 €, AWS a spol. dražší kvůli poplatkům za přenos. Šifrování R1–R5 rozhodnuto (jednoduchá varianta).
   - Server: vybrán Hetzner CX23 se zálohami Hetzneru (≈ 8,60 €/měsíc s DPH).
+  - Mapy lze stahovat i bez účtu (limit na zařízení).
