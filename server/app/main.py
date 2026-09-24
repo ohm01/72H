@@ -1,11 +1,21 @@
 import logging
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
-from . import account, auth, family, maps, settings, sync
+from . import account, auth, db, family, maps, settings, sync
 
-app = FastAPI(title="72h API", docs_url=None, redoc_url=None, openapi_url=None)
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    # Open the pool and apply migrations at startup, so a broken database shows up immediately.
+    db.pool()
+    yield
+    db.reset()
+
+
+app = FastAPI(title="72h API", docs_url=None, redoc_url=None, openapi_url=None, lifespan=lifespan)
 app.include_router(maps.router)
 app.include_router(auth.router)
 app.include_router(family.router)
