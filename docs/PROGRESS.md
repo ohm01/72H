@@ -89,7 +89,7 @@ Připraveno: tabulka `meeting_points`, místo srazu z onboardingu se ukládá.
 | 6 | Jídlo podle kalorií a pestrosti | M5 (po bodu 4) | Vylepšení výpočtu, větší změna. Stávající denní dávky zatím stačí. |
 | ⏳ | Web aplikace (proč ji stavíme, jak funguje, návod, plán, ochrana soukromí) + komunitní nástěnka nápadů Fider; v aplikaci jen řádek ve Více | návrh 2026-09-24, po založení serveru | Komunita, důvěra; web a zásady soukromí stejně potřebuje M7. |
 | ⏳ | Domácnost: dospělí + děti (dítě = osoba podle 72h.gov.cz), věci pro děti (hračky, kartička do kapsy) jen když děti > 0; miminka až s ověřeným zdrojem | návrh 2026-09-24 (dříve bod 4) | Přání uživatele. |
-| ⏳ | Karta „Krizové zavazadlo“ na záložce Zásoby (sbaleno X z Y, expirace v zavazadle) | návrh 2026-09-24 | Přání uživatele; výjimka z pravidla „nic navíc na hlavních obrazovkách“. |
+| ⏳ | Karta „Krizové zavazadlo“ na záložce Zásoby (sbaleno X z Y, expirace v zavazadle). **Rozhodnuto:** výchozí jedno zavazadlo na osobu (jména), volitelně jedno pro celou domácnost (množství × osoby); vlastní odškrtávání pro každé; dětské + hračka a kartička | návrh 2026-09-24 | Přání uživatele; výjimka z pravidla „nic navíc na hlavních obrazovkách“. |
 
 ### Doporučené jídlo doma ✅
 Nápad (2026-09-23): chybí doporučení, **co za jídlo** mít doma.
