@@ -78,7 +78,7 @@ describe('migrate', () => {
 
 describe('settings & household', () => {
   it('has defaults on a fresh DB', async () => {
-    expect(await getHousehold(db)).toEqual({ persons: 1, pets: 0 });
+    expect(await getHousehold(db)).toEqual({ persons: 1, children: 0, pets: 0 });
     expect(await isOnboarded(db)).toBe(false);
     expect(await getSetting(db, 'language')).toBeNull();
   });
@@ -86,7 +86,12 @@ describe('settings & household', () => {
   it('upserts settings', async () => {
     await setHousehold(db, { persons: 4, pets: 1 });
     await setHousehold(db, { persons: 3, pets: 2 });
-    expect(await getHousehold(db)).toEqual({ persons: 3, pets: 2 });
+    expect(await getHousehold(db)).toEqual({ persons: 3, children: 0, pets: 2 });
+    await setHousehold(db, { persons: 3, children: 1, pets: 2 });
+    expect(await getHousehold(db)).toEqual({ persons: 3, children: 1, pets: 2 });
+    // At least one adult: children never exceed persons - 1.
+    await setHousehold(db, { persons: 1, pets: 0 });
+    expect((await getHousehold(db)).children).toBe(0);
     await setSetting(db, 'onboarded', '1');
     expect(await isOnboarded(db)).toBe(true);
   });

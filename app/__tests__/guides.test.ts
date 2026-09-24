@@ -17,8 +17,14 @@ describe('guides data', () => {
   }
 
   it('shows the pets group only with pets', () => {
-    const ids = (pets: number) => visibleGroups(GUIDES.gobag, { persons: 2, pets }).map((g) => g.id);
+    const ids = (pets: number) => visibleGroups(GUIDES.gobag, { pets }).map((g) => g.id);
     expect(ids(0)).not.toContain('pets');
     expect(ids(1)).toContain('pets');
+  });
+
+  it("shows children's items (pocket card, toys) only with children", () => {
+    const ids = (children: number) => visibleGroups(GUIDES.gobag, { pets: 0, children }).map((g) => g.id);
+    expect(ids(0)).not.toContain('kids');
+    expect(ids(1)).toContain('kids');
   });
 });

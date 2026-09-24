@@ -10,10 +10,12 @@ import ChecklistScreen from '@/app/checklist';
 import GuideScreen from '@/app/guide/[id]';
 import ItemScreen from '@/app/item/[id]';
 import LocationsScreen from '@/app/locations';
+import GobagSetupScreen from '@/app/gobag-setup';
 import Onboarding from '@/app/onboarding';
 import StockScreen from '@/app/(tabs)/index';
 import i18n from '@/i18n';
 import { migrate } from '@/lib/db';
+import { addBags, bagCheckKey, listBags } from '@/lib/gobags';
 import { syncReminders } from '@/lib/notifications';
 import {
   getChecks,
@@ -24,7 +26,9 @@ import {
   listMeetingPoints,
   saveItem,
   saveLocation,
+  setCheck,
   setHousehold,
+  setSetting,
 } from '@/lib/repo';
 import { getChecks as getGuideChecks } from '@/lib/repo';
 
@@ -142,8 +146,10 @@ describe('Onboarding', () => {
 
     await fireEvent.press(screen.getByText('Další'));
     expect(screen.getByText('Kolik vás je?')).toBeTruthy();
-    await fireEvent.press(screen.getAllByText('+')[0]); // persons 2 -> 3
-    await fireEvent.press(screen.getAllByText('+')[1]); // pets 0 -> 1
+    await fireEvent.press(screen.getAllByText('+')[0]); // adults 2 -> 3
+    await fireEvent.press(screen.getAllByText('+')[1]); // children 0 -> 1
+    await fireEvent.press(screen.getAllByText('+')[2]); // pets 0 -> 1
+    expect(screen.getByText('Vodu a jídlo počítáme na každou osobu, i na děti (podle 72h.gov.cz).')).toBeTruthy();
     await fireEvent.press(screen.getByText('Další'));
 
     expect(screen.getByText('Kde máte zásoby?')).toBeTruthy();
@@ -158,7 +164,7 @@ describe('Onboarding', () => {
 
     await waitFor(() => expect(router.replace).toHaveBeenCalledWith('/'));
     expect(await isOnboarded(mockDb)).toBe(true);
-    expect(await getHousehold(mockDb)).toEqual({ persons: 3, pets: 1 });
+    expect(await getHousehold(mockDb)).toEqual({ persons: 4, children: 1, pets: 1 });
     expect((await listLocations(mockDb)).map((l) => l.name).sort()).toEqual(['Chata', 'Doma']);
     expect((await listMeetingPoints(mockDb)).map((m) => m.name)).toEqual(['U školy']);
   });
@@ -221,24 +227,89 @@ describe('LocationsScreen', () => {
 });
 
 describe('Emergency bag and food guide', () => {
-  it('adds the emergency bag as a location with a packing guide', async () => {
+  it('locations offer to prepare emergency bags', async () => {
     await saveLocation(mockDb, { name: 'Doma', lat: null, lon: null });
     await render(<LocationsScreen />);
-    await fireEvent.press(await screen.findByText('Přidat krizové zavazadlo'));
-    await waitFor(async () => expect((await listLocations(mockDb)).map((l) => l.name)).toContain('Krizové zavazadlo'));
-    await fireEvent.press(await screen.findByText('Co zabalit'));
-    expect(router.push).toHaveBeenCalledWith('/guide/gobag');
-    expect(screen.queryByText('Přidat krizové zavazadlo')).toBeNull();
+    await fireEvent.press(await screen.findByText('Připravit zavazadlo'));
+    expect(router.push).toHaveBeenCalledWith('/gobag-setup');
   });
 
-  it('packing guide: checks persist, pets group only with pets', async () => {
-    (useLocalSearchParams as jest.Mock).mockReturnValue({ id: 'gobag' });
-    await render(<GuideScreen />);
-    expect(await screen.findByText('Osobní věci')).toBeTruthy();
+  it('prepares one bag per person by default, children get their own', async () => {
+    await setHousehold(mockDb, { persons: 3, children: 1, pets: 0 });
+    await render(<GobagSetupScreen />);
+    expect(await screen.findByDisplayValue('Dospělý 1')).toBeTruthy();
+    expect(screen.getByDisplayValue('Dospělý 2')).toBeTruthy();
+    await fireEvent.changeText(screen.getByDisplayValue('Dítě 1'), 'Anička');
+    await fireEvent.press(screen.getByText('Vytvořit'));
+    await waitFor(() => expect(router.back).toHaveBeenCalled());
+    const bags = await listBags(mockDb);
+    const names = Object.fromEntries((await listLocations(mockDb)).map((l) => [l.id, l.name]));
+    expect(bags.map((b) => [names[b.id], b.kind])).toEqual([
+      ['Dospělý 1', 'adult'],
+      ['Dospělý 2', 'adult'],
+      ['Anička', 'child'],
+    ]);
+  });
+
+  it('can prepare one shared bag for the whole household instead', async () => {
+    await setHousehold(mockDb, { persons: 4, children: 2, pets: 0 });
+    await render(<GobagSetupScreen />);
+    await fireEvent.press(await screen.findByText('Jedno pro celou domácnost'));
+    expect(screen.getByText('Společné zavazadlo: vodu a jídlo počítejte pro 4 os.')).toBeTruthy();
+    await fireEvent.press(screen.getByText('Vytvořit'));
+    await waitFor(() => expect(router.back).toHaveBeenCalled());
+    expect((await listBags(mockDb)).map((b) => b.kind)).toEqual(['household']);
+  });
+
+  it("each bag has its own packing list: a child's bag has the pocket card, no pets", async () => {
+    await setHousehold(mockDb, { persons: 2, children: 1, pets: 1 });
+    await addBags(mockDb, [
+      { name: 'Máma', kind: 'adult' },
+      { name: 'Anička', kind: 'child' },
+    ]);
+    const [mom, kid] = await listBags(mockDb);
+
+    (useLocalSearchParams as jest.Mock).mockReturnValue({ id: 'gobag', bag: kid.id });
+    const kidView = await render(<GuideScreen />);
+    expect(await screen.findByText('Pro děti')).toBeTruthy();
+    expect(screen.getByText('Kartička do kapsy se jménem, adresou a kontaktem na příbuzné')).toBeTruthy();
     expect(screen.queryByText('Domácí mazlíčci')).toBeNull();
     await fireEvent.press(screen.getByText('Klíče'));
-    await waitFor(async () => expect((await getGuideChecks(mockDb, 'GUIDE:gobag')).has('keys')).toBe(true));
-    expect(await screen.findByText('Máte 1 z 23')).toBeTruthy();
+    await waitFor(async () => expect((await getGuideChecks(mockDb, bagCheckKey(kid.id))).has('keys')).toBe(true));
+    expect((await getGuideChecks(mockDb, bagCheckKey(mom.id))).has('keys')).toBe(false);
+    await kidView.unmount();
+
+    (useLocalSearchParams as jest.Mock).mockReturnValue({ id: 'gobag', bag: mom.id });
+    await render(<GuideScreen />);
+    expect(await screen.findByText('Domácí mazlíčci')).toBeTruthy();
+    expect(screen.queryByText('Pro děti')).toBeNull();
+  });
+
+  it('stock tab: offers a bag, then shows packing progress and what expires soon in a bag', async () => {
+    await saveLocation(mockDb, { name: 'Doma', lat: null, lon: null });
+    const empty = await render(<StockScreen />);
+    expect(await screen.findByText('Připravit zavazadlo')).toBeTruthy();
+    await empty.unmount();
+
+    await addBags(mockDb, [{ name: 'Máma', kind: 'adult' }]);
+    const [bag] = await listBags(mockDb);
+    await setCheck(mockDb, bagCheckKey(bag.id), 'keys', true);
+    const soon = new Date(Date.now() + 5 * 86400000).toISOString().slice(0, 10);
+    await saveItem(mockDb, { ...item(bag.id, 'food', 2, soon), name: 'Tyčinky' });
+    await render(<StockScreen />);
+    const progress = await screen.findByText(/^1 z \d+$/);
+    expect(screen.getByText(/^V zavazadle brzy vyprší: Tyčinky/)).toBeTruthy();
+    await fireEvent.press(progress);
+    expect(router.push).toHaveBeenCalledWith(`/guide/gobag?bag=${bag.id}`);
+  });
+
+  it('moves the old single bag and its checks over', async () => {
+    const id = await saveLocation(mockDb, { name: 'Batoh', lat: null, lon: null });
+    await setSetting(mockDb, 'gobagLocationId', id);
+    await setCheck(mockDb, 'GUIDE:gobag', 'keys', true);
+    expect(await listBags(mockDb)).toEqual([{ id, kind: 'household' }]);
+    expect((await getGuideChecks(mockDb, bagCheckKey(id))).has('keys')).toBe(true);
+    expect(await listBags(mockDb)).toEqual([{ id, kind: 'household' }]);
   });
 
   it('checklist links food to the concrete food list', async () => {

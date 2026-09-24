@@ -101,6 +101,7 @@ function RootLayoutNav() {
         <Stack.Screen name="guide/[id]" options={{ title: '' }} />
         <Stack.Screen name="contact/[id]" options={{ title: t('contacts.editTitle') }} />
         <Stack.Screen name="share" options={{ title: t('share.title') }} />
+        <Stack.Screen name="gobag-setup" options={{ title: t('guides.gobags') }} />
         <Stack.Screen name="join" options={{ title: t('share.joinTitle') }} />
       </Stack>
     </ThemeProvider>

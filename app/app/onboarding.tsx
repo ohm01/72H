@@ -16,7 +16,8 @@ export default function Onboarding() {
   const { t } = useTranslation();
   const limits = useLimits();
   const [step, setStep] = useState(0);
-  const [persons, setPersons] = useState(2);
+  const [adults, setAdults] = useState(2);
+  const [children, setChildren] = useState(0);
   const [pets, setPets] = useState(0);
   const [locationNames, setLocationNames] = useState([t('onboarding.locationDefault')]);
   const [meetingName, setMeetingName] = useState('');
@@ -24,7 +25,7 @@ export default function Onboarding() {
 
   async function finish(withMeetingPoint: boolean) {
     await db.withTransactionAsync(async () => {
-      await setHousehold(db, { persons, pets });
+      await setHousehold(db, { persons: adults + children, children, pets });
       const names = locationNames.map((n) => n.trim()).filter(Boolean);
       for (const name of names.length ? names : [t('onboarding.locationDefault')]) {
         await saveLocation(db, { name, lat: null, lon: null });
@@ -62,10 +63,13 @@ export default function Onboarding() {
         {step === 1 && (
           <Card>
             <Title>{t('onboarding.householdTitle')}</Title>
-            <Label>{t('onboarding.persons')}</Label>
-            <Stepper value={persons} onChange={setPersons} min={1} max={20} />
+            <Label>{t('onboarding.adults')}</Label>
+            <Stepper value={adults} onChange={setAdults} min={1} max={20} />
+            <Label>{t('onboarding.children')}</Label>
+            <Stepper value={children} onChange={setChildren} min={0} max={20} />
             <Label>{t('onboarding.pets')}</Label>
             <Stepper value={pets} onChange={setPets} min={0} max={20} />
+            <Muted>{t('onboarding.childrenHint')}</Muted>
           </Card>
         )}
 

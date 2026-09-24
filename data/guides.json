@@ -507,6 +507,36 @@
        "pl": "Książka, czasopismo, gra planszowa",
        "fi": "Kirja, lehti, lautapeli"
       }
+     }
+    ]
+   },
+   {
+    "id": "kids",
+    "children": true,
+    "label": {
+     "cs": "Pro děti",
+     "en": "For children",
+     "sk": "Pre deti",
+     "pl": "Dla dzieci",
+     "fi": "Lapsille"
+    },
+    "items": [
+     {
+      "id": "kid_card",
+      "label": {
+       "cs": "Kartička do kapsy se jménem, adresou a kontaktem na příbuzné",
+       "en": "A card in the pocket with name, address and a relative's contact",
+       "sk": "Kartička do vrecka s menom, adresou a kontaktom na príbuzných",
+       "pl": "Karteczka w kieszeni z imieniem, adresem i kontaktem do bliskich",
+       "fi": "Taskuun kortti, jossa nimi, osoite ja omaisen yhteystiedot"
+      },
+      "note": {
+       "cs": "Záchranáři tak budou vědět, kam dítě patří.",
+       "en": "So rescuers know where the child belongs.",
+       "sk": "Záchranári tak budú vedieť, kam dieťa patrí.",
+       "pl": "Dzięki temu ratownicy będą wiedzieć, skąd jest dziecko.",
+       "fi": "Näin pelastajat tietävät, mihin lapsi kuuluu."
+      }
      },
      {
       "id": "toys",

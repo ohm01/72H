@@ -3,11 +3,13 @@ import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet } from 'react-native';
 
+import GobagCard from '@/components/GobagCard';
 import { Text, View } from '@/components/Themed';
 import { Button, Card, Chip, ChipRow, Label, Muted, Screen, Title } from '@/components/ui';
 import { ExpiryColors } from '@/constants/Colors';
 import { compareByExpiry, expiryStatus } from '@/lib/expiry';
 import { daysText, expiryText, quantityText } from '@/lib/format';
+import { loadBags } from '@/lib/gobags';
 import { computeReadiness, readinessByLocation } from '@/lib/readiness';
 import { getHousehold, listItems, listLocations } from '@/lib/repo';
 import { useDbQuery } from '@/lib/useDbQuery';
@@ -20,7 +22,7 @@ async function loadStock(db: Parameters<typeof listItems>[0]) {
     getHousehold(db),
     loadStandard(db),
   ]);
-  return { items, locations, household, standard };
+  return { items, locations, household, standard, bags: await loadBags(db, household) };
 }
 
 export default function StockScreen() {
@@ -68,6 +70,8 @@ export default function StockScreen() {
           </>
         )}
       </Card>
+
+      <GobagCard bags={data!.bags} />
 
       <Button title={t('stock.addItem')} onPress={() => router.push('/item/new')} />
       <View style={styles.links}>

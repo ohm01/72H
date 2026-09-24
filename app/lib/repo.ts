@@ -45,7 +45,8 @@ export const DEFAULT_UNIT: Record<ItemType, Unit> = {
   other: 'pcs',
 };
 
-export type Household = { persons: number; pets: number };
+/** persons = everyone (adults + children); water and food are counted per person, children included (72h.gov.cz). */
+export type Household = { persons: number; children: number; pets: number };
 
 const now = () => new Date().toISOString();
 
@@ -67,12 +68,15 @@ export async function setSetting(db: SQLiteDatabase, key: string, value: string)
 export async function getHousehold(db: SQLiteDatabase): Promise<Household> {
   const persons = Number((await getSetting(db, 'persons')) ?? 1);
   const pets = Number((await getSetting(db, 'pets')) ?? 0);
-  return { persons, pets };
+  // At least one adult.
+  const children = Math.min(Number((await getSetting(db, 'children')) ?? 0), Math.max(persons - 1, 0));
+  return { persons, children, pets };
 }
 
-export async function setHousehold(db: SQLiteDatabase, h: Household): Promise<void> {
+export async function setHousehold(db: SQLiteDatabase, h: Omit<Household, 'children'> & { children?: number }): Promise<void> {
   await setSetting(db, 'persons', String(h.persons));
   await setSetting(db, 'pets', String(h.pets));
+  if (h.children !== undefined) await setSetting(db, 'children', String(h.children));
 }
 
 export async function isOnboarded(db: SQLiteDatabase): Promise<boolean> {
@@ -153,7 +157,7 @@ export async function deleteItem(db: SQLiteDatabase, id: string): Promise<void> 
   await db.runAsync('UPDATE items SET deleted_at = ?, updated_at = ? WHERE id = ?', ts, ts, id);
 }
 
-/** Id of the stock location the user added as their emergency bag (settings key). */
+/** Legacy (single bag): id of the stock location added as the emergency bag. Now see lib/gobags.ts. */
 export const GOBAG_KEY = 'gobagLocationId';
 
 /** Parent's own help message on the kids screen (settings key; empty = default text). */

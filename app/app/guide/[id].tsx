@@ -9,8 +9,9 @@ import CheckRow from '@/components/CheckRow';
 import { Text } from '@/components/Themed';
 import { Button, Card, Label, Muted, Screen } from '@/components/ui';
 import { loc } from '@/lib/checklist';
+import { bagCheckKey, bagGroups, listBags } from '@/lib/gobags';
 import { GUIDES, type GuideId, guideCheckKey, visibleGroups } from '@/lib/guides';
-import { getChecks, getHousehold, setCheck } from '@/lib/repo';
+import { getChecks, getHousehold, listLocations, setCheck } from '@/lib/repo';
 import { useDbQuery } from '@/lib/useDbQuery';
 
 /** Official guide as a checklist: what food to keep at home, what to pack in the emergency bag. */
@@ -18,13 +19,24 @@ export default function GuideScreen() {
   const db = useSQLiteContext();
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
-  const id = (useLocalSearchParams<{ id: string }>().id ?? 'food') as GuideId;
+  const params = useLocalSearchParams<{ id: string; bag?: string }>();
+  const id = (params.id ?? 'food') as GuideId;
   const guide = GUIDES[id] ?? GUIDES.food;
-  const key = guideCheckKey(id);
-  const { data, reload } = useDbQuery(async (d) => ({ household: await getHousehold(d), checks: await getChecks(d, key) }), [key]);
+  // The packing list is per bag (one per person or one shared).
+  const bagId = id === 'gobag' ? params.bag : undefined;
+  const key = bagId ? bagCheckKey(bagId) : guideCheckKey(id);
+  const { data, reload } = useDbQuery(
+    async (d) => ({
+      household: await getHousehold(d),
+      checks: await getChecks(d, key),
+      bag: bagId ? (await listBags(d)).find((b) => b.id === bagId) : undefined,
+      bagName: bagId ? (await listLocations(d)).find((l) => l.id === bagId)?.name : undefined,
+    }),
+    [key]
+  );
 
   if (!data) return null;
-  const groups = visibleGroups(guide, data.household);
+  const groups = data.bag ? bagGroups(data.bag.kind, data.household) : visibleGroups(guide, data.household);
   const total = groups.reduce((n, g) => n + g.items.length, 0);
   const done = groups.reduce((n, g) => n + g.items.filter((i) => data.checks.has(i.id)).length, 0);
 
@@ -35,8 +47,9 @@ export default function GuideScreen() {
 
   return (
     <Screen>
-      <Stack.Screen options={{ title: t(`guides.${id}`) }} />
+      <Stack.Screen options={{ title: data.bagName ?? t(`guides.${id}`) }} />
       <Muted>{loc(guide.intro, lang)}</Muted>
+      {data.bag?.kind === 'household' ? <Muted>{t('guides.householdNote', { persons: data.household.persons })}</Muted> : null}
       {guide.sections?.map((sec) => (
         <Card key={sec.id}>
           <Label>{loc(sec.label, lang)}</Label>

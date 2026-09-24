@@ -26,6 +26,7 @@ export default function MoreScreen() {
   const [kidsHelp, setKidsHelp] = useState<string | null>(null);
 
   if (!data) return null;
+  const adults = data.household.persons - data.household.children;
 
   async function updateHousehold(h: Household) {
     await setHousehold(db, h);
@@ -55,8 +56,15 @@ export default function MoreScreen() {
     <Screen>
       <Card>
         <Label>{t('more.household')}</Label>
-        <Muted>{t('onboarding.persons')}</Muted>
-        <Stepper value={data.household.persons} min={1} max={20} onChange={(persons) => updateHousehold({ ...data.household, persons })} />
+        <Muted>{t('onboarding.adults')}</Muted>
+        <Stepper value={adults} min={1} max={20} onChange={(a) => updateHousehold({ ...data.household, persons: a + data.household.children })} />
+        <Muted>{t('onboarding.children')}</Muted>
+        <Stepper
+          value={data.household.children}
+          min={0}
+          max={20}
+          onChange={(children) => updateHousehold({ ...data.household, children, persons: adults + children })}
+        />
         <Muted>{t('onboarding.pets')}</Muted>
         <Stepper value={data.household.pets} min={0} max={20} onChange={(pets) => updateHousehold({ ...data.household, pets })} />
       </Card>
