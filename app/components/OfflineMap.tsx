@@ -6,7 +6,7 @@ import { StyleSheet, type ViewStyle } from 'react-native';
 import { View, useThemeColor } from '@/components/Themed';
 import { useColorScheme } from '@/components/useColorScheme';
 import type { LatLon } from '@/lib/geo';
-import { assetsDir } from '@/lib/mapDownload';
+import { areaFile, assetsDir } from '@/lib/mapDownload';
 import { buildOfflineStyle } from '@/lib/mapStyle';
 import type { MapArea, MeetingPoint } from '@/lib/repo';
 
@@ -31,7 +31,12 @@ export default function OfflineMap({ areas, meetingPoints = [], picked, focus, s
   const danger = useThemeColor({}, 'danger');
 
   const mapStyle = useMemo(
-    () => buildOfflineStyle(areas, assetsDir().uri, { dark, lang: i18n.language }),
+    () =>
+      buildOfflineStyle(
+        areas.map((a) => ({ id: a.id, fileUri: areaFile(a.id).uri })),
+        assetsDir().uri,
+        { dark, lang: i18n.language }
+      ),
     [areas, dark, i18n.language]
   );
   const newest = areas.at(-1);

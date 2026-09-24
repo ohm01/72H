@@ -50,7 +50,11 @@ jest.mock('expo-location', () => ({
 jest.mock('@maplibre/maplibre-react-native', () => {
   const { View } = require('react-native');
   return {
-    Map: ({ children }: { children: React.ReactNode }) => <View testID="map">{children}</View>,
+    Map: ({ children, mapStyle }: { children: React.ReactNode; mapStyle: unknown }) => (
+      <View testID="map" mapStyle={mapStyle}>
+        {children}
+      </View>
+    ),
     Camera: () => null,
     NativeUserLocation: () => null,
     Marker: ({ children }: { children: React.ReactNode }) => children,
@@ -58,6 +62,7 @@ jest.mock('@maplibre/maplibre-react-native', () => {
 });
 jest.mock('@/lib/mapDownload', () => ({
   assetsDir: () => ({ uri: 'file:///maps/assets' }),
+  areaFile: (id: string) => ({ uri: `file:///current-install/maps/${id}.pmtiles` }),
   ensureMapAssets: jest.fn(async () => {}),
   downloadArea: jest.fn(),
   deleteAreaFile: jest.fn(),
@@ -111,8 +116,10 @@ describe('MapScreen', () => {
        VALUES ('a1', 'Praha', 14.3, 50.0, 14.5, 50.2, 300, 5000000, 'file:///maps/a1.pmtiles', '2026-09-23')`
     );
     await render(<MapScreen />);
-    expect(await screen.findByTestId('map')).toBeTruthy();
+    const map = await screen.findByTestId('map');
     expect(screen.getByText('Dlouhým podržením na mapě přidáte místo srazu.')).toBeTruthy();
+    // The stored path is from an older install (iOS moves Documents on reinstall/update): the map uses the current one.
+    expect(map.props.mapStyle.sources.area0.url).toBe('pmtiles://file:///current-install/maps/a1.pmtiles');
   });
 });
 

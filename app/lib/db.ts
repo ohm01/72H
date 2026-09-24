@@ -63,7 +63,7 @@ const MIGRATIONS: string[] = [
     north REAL NOT NULL,
     area_km2 REAL NOT NULL,
     size_bytes INTEGER NOT NULL,
-    file_uri TEXT NOT NULL,
+    file_uri TEXT NOT NULL, -- informational only: the path is rebuilt from id at runtime (see areaFile)
     created_at TEXT NOT NULL
   );
   `,

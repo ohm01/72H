@@ -10,6 +10,11 @@ type Manifest = { version: number; files: { path: string; size: number }[] };
 
 export const mapsDir = () => new Directory(Paths.document, 'maps');
 export const assetsDir = () => new Directory(Paths.document, 'maps', 'assets');
+/**
+ * Where an area's file lives. Always derived from the id: iOS moves the app's Documents folder
+ * to a new path on every install/update, so a stored absolute path goes stale.
+ */
+export const areaFile = (id: string) => new File(mapsDir(), `${id}.pmtiles`);
 
 /**
  * Fetches fonts + sprites listed in the server manifest; skips files already present.
@@ -59,7 +64,7 @@ export async function downloadArea(
   const extract = await apiPost<ExtractResponse>('/v1/maps/extracts', bbox, signal);
   const dir = mapsDir();
   dir.create({ intermediates: true, idempotent: true });
-  const file = new File(dir, `${extract.id}.pmtiles`);
+  const file = areaFile(extract.id);
   await File.downloadFileAsync(`${API_URL}${extract.url}`, file, {
     headers: apiHeaders(),
     idempotent: true,
@@ -70,6 +75,6 @@ export async function downloadArea(
 }
 
 export function deleteAreaFile(area: MapArea): void {
-  const file = new File(area.fileUri);
+  const file = areaFile(area.id);
   if (file.exists) file.delete();
 }
