@@ -160,7 +160,7 @@ Nápad (2026-09-23): odlišit, kdo aplikaci používá.
 | Rodič | Vše jako dnes. |
 | Do M3 | Nic – jeden telefon = jedna osoba, zbytečná složitost. |
 
-### M3 – Účty a rodina ⬜ – PLÁN ⏳ čeká na schválení
+### M3 – Účty a rodina 🔄 – plán schválen 2026-09-24
 **Změna zadání:** přihlášení e-mailem s kódem + Google + Apple (Apple je povinný, pokud je nabízený Google). Další poskytovatelé upřesníme.
 Připraveno: všechny tabulky (i `contacts`) mají UUID, `updated_at` a `deleted_at` pro synchronizaci.
 
@@ -168,7 +168,7 @@ Připraveno: všechny tabulky (i `contacts`) mají UUID, `updated_at` a `deleted
 
 | Krok | Co | Poznámka |
 |---|---|---|
-| 1 | Server: účty a přihlášení e-mailem s kódem (6 číslic, 10 min, limit pokusů), relace (token v Secure Store) | nahradí dočasný `X-Dev-Key` |
+| 1 | Server: účty a přihlášení e-mailem s kódem (6 číslic, 10 min, limit pokusů), relace (token v Secure Store) | ✅ server + testy (2026-09-24); e-mail zatím jen do logu (`EMAIL_PROVIDER=log`), aplikace ⬜; `X-Dev-Key` u map nahradí krok 7 |
 | 2 | Server: ověření Google a Apple tokenů (JWKS), propojení s účtem podle e-mailu | potřebuje OAuth klienty od tebe |
 | 3 | Aplikace: Rodina → „Sdílet s rodinou“ → přihlášení (e-mail / Google / Apple) | jediný nový vstup |
 | 4 | Rodinná skupina + pozvánka QR/odkaz s klíčem ve fragmentu (podle modelu hrozeb) | libsodium, Secure Store |
@@ -267,3 +267,5 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Levnější servery: netcup VPS nano ≈ 3,75 €/měsíc s DPH (doporučení), Hetzner CX23 ≈ 7,25–8,60 €, AWS a spol. dražší kvůli poplatkům za přenos. Šifrování R1–R5 rozhodnuto (jednoduchá varianta).
   - Server: vybrán Hetzner CX23 se zálohami Hetzneru (≈ 8,60 €/měsíc s DPH).
   - Mapy lze stahovat i bez účtu (limit na zařízení).
+  - M3 krok 1 (server): Postgres s migracemi, tabulky users/sessions/login_codes, `POST /v1/auth/email/start|verify`, `GET /v1/me`, `POST /v1/auth/logout`. Kód 6 číslic, 10 min, max 5 pokusů, max 5 kódů/h na e-mail + celkový strop, uložený jen jako HMAC. E-mail přes Brevo nebo Resend podle `.env`. 22 testů serveru OK.
+  - Pozn. pro nasazení: Dockerfile stahuje `pmtiles` pro arm64 (RPi) – na Hetzner CX23 (x86) upravit.
