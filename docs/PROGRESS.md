@@ -219,7 +219,8 @@ Připraveno: **model hrozeb a návrh šifrování** `docs/threat-model.md` ⏳ �
 ### M7 – Beta a vydání ⬜
 Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs + en).
 
-### Grafický styl (tvůj požadavek, poslední krok dne) ⬜
+### Grafický styl 🔄 – schválen směr H (2026-09-25)
+Návrhy: artefakt „72h – grafický styl“. **H · Klidné dlaždice v barvách Signálu**: rozložení a písmo z G (Bricolage Grotesque na nadpisy a čísla, Atkinson Hyperlegible na text), tmavě modrá #1C3D5A (tlačítka, čísla), žlutooranžová #F2A541 jen na ukazatele a v ikoně (ne na text), Zásoby = hlavní karta + mřížka 2×2 (voda, jídlo, zavazadla, léky) s tlumenými ikonami; tmavý režim modrý s žlutooranžovými tlačítky.
 
 ## Změny zadání
 | Datum | Změna | Dopad |
@@ -293,3 +294,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Synchronizace dotažena: změna se odešle 3 s po úpravě (víc rychlých úprav = jedna synchronizace), otevřené obrazovky se samy obnoví, když dorazí změny od rodiny. 113 testů aplikace.
   - Zásady ochrany soukromí přepsané podle skutečnosti (M3, Hetzner Helsinky, Cloudflare, anonymní ID zařízení, zálohy 14 dní, vyhledání adresy přes Apple/Google, e-mail vidí členové rodiny). Server: záznamy o stažení map se mažou po 2 měsících, logy kontejnerů se rotují. Zbývá doplnit adresu správce, datum účinnosti a e-mailovou službu; pak právní kontrola.
   - Texty webu (koncept ke schválení): `docs/web/texty-webu.md` – úvod a proč ji stavíme, jak funguje, návod, časté otázky, plán, nápady; fakta ověřena proti aplikaci a datům.
+  - Grafický styl: 8 směrů (A–H) na plátně, vybrán **H** (Klidné dlaždice + barvy Signálu). Hetzner: e-mailový tiket nezpracují, žádost je nutné poslat z přihlášené Hetzner Console (Support).
