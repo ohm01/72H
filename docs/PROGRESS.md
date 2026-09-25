@@ -280,3 +280,6 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Oprava: mapa po přeinstalaci hlásila chybu, protože v databázi byla uložená plná cesta k souboru a iOS při každé instalaci/aktualizaci přesune složku aplikace. Cesta se teď skládá za běhu z ID oblasti. Ověřeno v simulátoru po přeinstalaci, regresní test.
   - Návrhy k revizi (artefakt „Úkoly pro 72h“, sekce Návrhy): web aplikace + nástěnka nápadů, domácnost dospělí/děti, karta krizového zavazadla na Zásobách.
   - Hotovo: domácnost dospělí + děti (onboarding, Více), krizová zavazadla – výchozí jedno na osobu, volitelně jedno společné, karta na Zásobách (sbaleno X z Y, co brzy vyprší), vlastní odškrtávání pro každé zavazadlo, dětská skupina (kartička do kapsy, hračky). Staré jediné zavazadlo se převede automaticky. Pozn.: seznam zavazadel je v telefonu (nastavení), místa zavazadel se synchronizují jako běžná místa zásob. 112 testů aplikace; ověřeno v simulátoru.
+- **2026-09-25**
+  - Stav účtů (od uživatele): Hetzner účet založený (čeká), Google Play čeká na ověření dokladu, Apple Developer čeká na ověření. Cloudflare: nový tunel `72h-hetzner` s route `api-new.jennase.org → http://localhost:8000` (zatím bez konektoru); `api.jennase.org` dál na tunelu RPi.
+  - Dockerfile: `pmtiles` pro arm64 i amd64 (Hetzner CX23 je x86), ověřeno sestavením obou.
