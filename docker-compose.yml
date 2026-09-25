@@ -1,7 +1,15 @@
 # All persistent data lives in ./var so the whole project can be moved (e.g. to SSD).
+# Container logs rotate by size (no request bodies are logged; see docs/privacy-policy.md).
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
 services:
   db:
     image: postgres:16-alpine
+    logging: *logging
     restart: unless-stopped
     env_file: .env
     # Small-footprint settings: RPi RAM is shared with other services.
@@ -17,6 +25,7 @@ services:
     # No published port: DB reachable only from the api container.
 
   api:
+    logging: *logging
     build:
       context: .
       dockerfile: server/Dockerfile

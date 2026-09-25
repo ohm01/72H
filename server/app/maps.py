@@ -111,6 +111,8 @@ def check_download(subject: str, eid: str, limits: dict) -> None:
 def record_download(subject: str, eid: str) -> None:
     with db.pool().connection() as conn:
         conn.execute("INSERT INTO map_downloads (subject, extract_id) VALUES (%s, %s)", (subject, eid))
+        # Only the current month counts: keep ~2 months, nothing older (privacy policy promise).
+        conn.execute("DELETE FROM map_downloads WHERE created_at < now() - interval '62 days'")
 
 
 @router.post("/extracts", response_model=ExtractResponse)

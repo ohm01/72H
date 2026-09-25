@@ -133,3 +133,15 @@ def test_map_assets(tmp_path, monkeypatch):
     assert client.get("/v1/maps/assets/%2E%2E/%2E%2E/etc/passwd").status_code == 404
     assert client.get("/v1/maps/assets/fonts").status_code == 404
     assert TestClient(app).get("/v1/maps/assets/manifest.json").status_code == 401
+
+
+def test_old_download_records_are_deleted():
+    from app import db
+
+    with db.pool().connection() as conn:
+        conn.execute(
+            "INSERT INTO map_downloads (subject, extract_id, created_at) VALUES ('device:x', 'old', now() - interval '90 days')"
+        )
+    assert client.post("/v1/maps/extracts", json=PRAGUE).status_code == 200
+    with db.pool().connection() as conn:
+        assert conn.execute("SELECT count(*) AS n FROM map_downloads WHERE extract_id = 'old'").fetchone()["n"] == 0
