@@ -28,7 +28,7 @@ Stav: **rozhodnuto 2026-09-24** (uživatel nechal R1–R5 na Claude s ohledem na
 - Knihovna: **`@noble/ciphers`** (čistý JavaScript, auditovaná), `xsalsa20poly1305` = stejný formát jako libsodium `crypto_secretbox`; náhodná čísla z `expo-crypto`. (Změna 2026-09-24: bez nativního modulu libsodium.)
 - **Klíč rodiny** `K_family`: 32 B náhodný (`expo-crypto` getRandomBytes), vytvoří ho zakladatel na zařízení.
 - Uložení: `expo-secure-store` (iOS Keychain / Android Keystore), nikdy v SQLite ani v záloze na server.
-- **Pozvánka:** `https://api.jennase.org/join#<familyId>.<inviteToken>.<base64url(K_family)>` (QR obsahuje totéž). Stránka `/join` jen předá fragment aplikaci (`app72h://join#…`); fragment se na server neposílá. Jakýkoli fotoaparát umí otevřít https odkaz.
+- **Pozvánka:** `https://api.rodinnapripravenost.cz/join#<familyId>.<inviteToken>.<base64url(K_family)>` (QR obsahuje totéž). Stránka `/join` jen předá fragment aplikaci (`app72h://join#…`); fragment se na server neposílá. Jakýkoli fotoaparát umí otevřít https odkaz.
   - `inviteToken` = jednorázový token pro server (připojení ke skupině), serveru se posílá jen ten.
   - Klíč je ve fragmentu → prohlížeč ani server ho nedostanou.
 - **Šifrování dat:** `xsalsa20poly1305(K_family, nonce24).encrypt(plaintext)` (= `crypto_secretbox_easy`), nonce náhodný pro každou zprávu, uložen s ciphertextem.

@@ -40,7 +40,7 @@ Show usage + reset date. Paywall only on attempt to use a Plus feature, always s
 - `server/` Python FastAPI + PostgreSQL, Docker Compose. API port 8000, DB local only. Emails via Brevo/Resend.
 - `data/countries/` recommendation JSON per country (CZ, SK, PL, FI).
 - `maps/` map files (not in git). `docs/` plan, threat model, store texts.
-- Public access: Cloudflare Tunnel, hostname `api.jennase.org` → localhost:8000.
+- **CHANGE 2026-09-25 (user): the app gets its own domain `rodinnapripravenost.cz`** (bought by user; DNS on Cloudflare) – nothing app-related on `jennase.org` (private: home library etc.). Bundle ID / Android package `cz.rodinnapripravenost.app`; API `https://api.rodinnapripravenost.cz` via Cloudflare Tunnel → localhost:8000; email sender and website on the same domain. `api.jennase.org` = old RPi dev endpoint only, to be removed.
 
 ## Environment & constraints
 - **CHANGE 2026-09-24 (user): production server = Hetzner Cloud CX23 (DE, Ubuntu 24.04, Hetzner backups on)**; SSH key `~/.ssh/id_ed25519_72h_vps`, not RPi. Dev runs on the Mac (`~/projects/72h`). RPi notes below are historical.
