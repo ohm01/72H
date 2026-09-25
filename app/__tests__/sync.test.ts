@@ -3,6 +3,7 @@ import { createTestDb } from './helpers/sqlite';
 
 import { migrate } from '@/lib/db';
 import { deleteContact, listContacts, listItems, listLocations, saveContact, saveItem, saveLocation } from '@/lib/repo';
+import { onLocalChange, onRemoteChange } from '@/lib/changes';
 import { syncNow } from '@/lib/sync';
 
 jest.mock('expo-crypto', () => ({
@@ -130,4 +131,21 @@ it('does nothing more when nothing changed', async () => {
   await saveContact(phoneA, grandma);
   await syncNow(phoneA);
   expect(await syncNow(phoneA)).toEqual({ pushed: 0, pulled: 0 });
+});
+
+it('edits announce a local change; pulled family changes announce a remote change (screens reload)', async () => {
+  const local = jest.fn();
+  const remote = jest.fn();
+  const offLocal = onLocalChange(local);
+  const offRemote = onRemoteChange(remote);
+  await saveContact(phoneA, grandma);
+  expect(local).toHaveBeenCalledTimes(1);
+
+  await syncNow(phoneA);
+  expect(remote).not.toHaveBeenCalled(); // nothing new came from the family
+  await syncNow(phoneB);
+  expect(remote).toHaveBeenCalledTimes(1);
+  expect(local).toHaveBeenCalledTimes(1); // applying remote rows is not a local edit (no echo)
+  offLocal();
+  offRemote();
 });

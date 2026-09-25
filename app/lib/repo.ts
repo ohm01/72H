@@ -1,6 +1,8 @@
 import { randomUUID } from 'expo-crypto';
 import type { SQLiteDatabase } from 'expo-sqlite';
 
+import { localChanged } from './changes';
+
 // ---------- Types ----------
 
 export type Location = { id: string; name: string; lat: number | null; lon: number | null };
@@ -104,6 +106,7 @@ export async function saveLocation(db: SQLiteDatabase, loc: Omit<Location, 'id'>
     ts,
     ts
   );
+  localChanged();
   return id;
 }
 
@@ -114,6 +117,7 @@ export async function deleteLocation(db: SQLiteDatabase, id: string): Promise<vo
     await db.runAsync('UPDATE items SET deleted_at = ?, updated_at = ? WHERE location_id = ? AND deleted_at IS NULL', ts, ts, id);
     await db.runAsync('UPDATE locations SET deleted_at = ?, updated_at = ? WHERE id = ?', ts, ts, id);
   });
+  localChanged();
 }
 
 // ---------- Items ----------
@@ -149,12 +153,14 @@ export async function saveItem(db: SQLiteDatabase, item: Omit<Item, 'id'> & { id
     ts,
     ts
   );
+  localChanged();
   return id;
 }
 
 export async function deleteItem(db: SQLiteDatabase, id: string): Promise<void> {
   const ts = now();
   await db.runAsync('UPDATE items SET deleted_at = ?, updated_at = ? WHERE id = ?', ts, ts, id);
+  localChanged();
 }
 
 /** Legacy (single bag): id of the stock location added as the emergency bag. Now see lib/gobags.ts. */
@@ -194,6 +200,7 @@ export async function saveMeetingPoint(
     ts,
     ts
   );
+  localChanged();
   return id;
 }
 
@@ -204,6 +211,7 @@ export async function getMeetingPoint(db: SQLiteDatabase, id: string): Promise<M
 export async function deleteMeetingPoint(db: SQLiteDatabase, id: string): Promise<void> {
   const ts = now();
   await db.runAsync('UPDATE meeting_points SET deleted_at = ?, updated_at = ? WHERE id = ?', ts, ts, id);
+  localChanged();
 }
 
 // ---------- Checklist ----------
@@ -268,12 +276,14 @@ export async function saveContact(db: SQLiteDatabase, c: Omit<Contact, 'id'> & {
     ts,
     ts
   );
+  localChanged();
   return id;
 }
 
 export async function deleteContact(db: SQLiteDatabase, id: string): Promise<void> {
   const ts = now();
   await db.runAsync('UPDATE contacts SET deleted_at = ?, updated_at = ? WHERE id = ?', ts, ts, id);
+  localChanged();
 }
 
 // ---------- Offline map areas ----------

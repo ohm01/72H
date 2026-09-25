@@ -10,11 +10,14 @@ import 'react-native-reanimated';
 import { applyLanguage, type LanguagePreference } from '@/i18n';
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
+import { onLocalChange } from '@/lib/changes';
 import { DB_NAME, migrate } from '@/lib/db';
 import { useLimits } from '@/lib/entitlement';
 import { syncReminders } from '@/lib/notifications';
 import { getSetting, listItems } from '@/lib/repo';
 import { syncNow } from '@/lib/sync';
+
+const SYNC_AFTER_EDIT_MS = 3000;
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -65,11 +68,21 @@ function Startup() {
   }, [db, limits.expiryReminders]);
 
   // Family sync (only when signed in and in a family): at start and whenever the app comes back to the foreground.
+  // Also shortly after an edit, so the family sees it without waiting (several quick edits → one sync).
   useEffect(() => {
     const sync = () => void syncNow(db).catch((e) => console.warn('sync failed', e));
     sync();
     const sub = AppState.addEventListener('change', (state) => state === 'active' && sync());
-    return () => sub.remove();
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const unsubscribe = onLocalChange(() => {
+      clearTimeout(timer);
+      timer = setTimeout(sync, SYNC_AFTER_EDIT_MS);
+    });
+    return () => {
+      sub.remove();
+      unsubscribe();
+      clearTimeout(timer);
+    };
   }, [db]);
 
   return null;

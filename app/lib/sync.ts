@@ -3,6 +3,7 @@ import type { SQLiteDatabase } from 'expo-sqlite';
 
 import { getFamilyId, getFamilyKey, getSession } from './account';
 import { ApiError, apiRequest } from './api';
+import { remoteChanged } from './changes';
 import { open, seal } from './crypto';
 import { getSetting, setSetting } from './repo';
 
@@ -48,6 +49,8 @@ async function runSync(db: SQLiteDatabase): Promise<SyncResult> {
     const pulled = await pull(db, session.token, key);
     await setSetting(db, 'syncPushedAt', startedAt);
     await setSetting(db, 'lastSyncAt', startedAt);
+    // Family changes arrived: open screens reload (useDbQuery).
+    if (pulled > 0) remoteChanged();
     return { pushed, pulled };
   } catch (e) {
     // Waiting for approval: nothing to do yet.

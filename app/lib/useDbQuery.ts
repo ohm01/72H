@@ -1,8 +1,10 @@
 import { useFocusEffect } from 'expo-router';
 import { type SQLiteDatabase, useSQLiteContext } from 'expo-sqlite';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
-/** Runs a DB query and re-runs it whenever the screen gains focus. */
+import { onRemoteChange } from './changes';
+
+/** Runs a DB query and re-runs it whenever the screen gains focus or family changes arrive (sync). */
 export function useDbQuery<T>(query: (db: SQLiteDatabase) => Promise<T>, deps: unknown[] = []) {
   const db = useSQLiteContext();
   const [data, setData] = useState<T | undefined>(undefined);
@@ -19,6 +21,7 @@ export function useDbQuery<T>(query: (db: SQLiteDatabase) => Promise<T>, deps: u
   }, [db, ...deps]);
 
   useFocusEffect(reload);
+  useEffect(() => onRemoteChange(() => void reload()), [reload]);
 
   return { data, reload };
 }
