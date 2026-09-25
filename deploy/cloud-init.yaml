@@ -1,0 +1,46 @@
+#cloud-config
+# First boot of the production server (Ubuntu 24.04). Used by scripts/create-server.sh,
+# which replaces __SSH_KEYS__ with the public keys. No secrets in this file.
+package_update: true
+package_upgrade: true
+packages:
+  - docker.io
+  - docker-compose-v2
+  - fail2ban
+  - unattended-upgrades
+  - rsync
+  - curl
+
+users:
+  - name: app
+    groups: [docker]
+    shell: /bin/bash
+    # Key-only SSH, so sudo without a password (root login is disabled below).
+    sudo: "ALL=(ALL) NOPASSWD:ALL"
+    ssh_authorized_keys:
+__SSH_KEYS__
+
+write_files:
+  - path: /etc/ssh/sshd_config.d/10-72h.conf
+    content: |
+      PermitRootLogin no
+      PasswordAuthentication no
+      KbdInteractiveAuthentication no
+  - path: /etc/apt/apt.conf.d/20auto-upgrades
+    content: |
+      APT::Periodic::Update-Package-Lists "1";
+      APT::Periodic::Unattended-Upgrade "1";
+  - path: /etc/cron.d/72h-backup
+    content: |
+      # Nightly database dump (kept 14 days, inside the Hetzner server backups too).
+      30 3 * * * app /home/app/72h/scripts/backup-db.sh >> /home/app/backup.log 2>&1
+
+runcmd:
+  # cloudflared from Cloudflare's apt repository; the tunnel token is installed by hand later.
+  - mkdir -p --mode=0755 /usr/share/keyrings
+  - curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg -o /usr/share/keyrings/cloudflare-main.gpg
+  - echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared any main' > /etc/apt/sources.list.d/cloudflared.list
+  - apt-get update && apt-get install -y cloudflared
+  - systemctl enable --now docker fail2ban
+  - install -d -o app -g app /home/app/72h /home/app/backups
+  - systemctl restart ssh

@@ -43,11 +43,9 @@ Show usage + reset date. Paywall only on attempt to use a Plus feature, always s
 - **CHANGE 2026-09-25 (user): the app gets its own domain `rodinnapripravenost.com`** (Cloudflare Registrar does not sell .cz → .com, registered + DNS at Cloudflare) – nothing app-related on `jennase.org` (private: home library etc.). Bundle ID / Android package `com.rodinnapripravenost.app`; API `https://api.rodinnapripravenost.com` via Cloudflare Tunnel → localhost:8000; email sender and website on the same domain. `api.jennase.org` = old RPi dev endpoint only, to be removed.
 
 ## Environment & constraints
-- **CHANGE 2026-09-24 (user): production server = Hetzner Cloud CX23 (DE, Ubuntu 24.04, Hetzner backups on)**; SSH key `~/.ssh/id_ed25519_72h_vps`, not RPi. Dev runs on the Mac (`~/projects/72h`). RPi notes below are historical.
-- Raspberry Pi (aarch64), **905 MB RAM + 904 MB swap**, shared with Rodinná E-knihovna.
-- **Do not touch the library:** Flask on port 80, files/git/CLAUDE.md in `/home/ohm`. Don't use port 80, don't install/configure anything in `/home/ohm`.
-- Project in `/srv/72h`. Until M2 on SD card (minimize writes). Before M3: move to SSD, `/srv/72h` → symlink to `/mnt/ssd/72h`, Docker data too.
-- User works from Mac via VS Code Remote SSH; iOS Simulator on Mac.
+- **Mac = development** (`~/projects/72h`, Docker via OrbStack, Metro, iOS Simulator). **Hetzner Cloud `72h-prod` = production** (CAX11 ARM, hel1, Ubuntu 24.04, Hetzner backups; CX23 was unavailable for the new account). **RPi = no longer used for 72h** (only the home library + its `knihovna-tunel` run there – don't touch).
+- Deploy/backups/restore: `docs/DEPLOY.md` (`scripts/create-server.sh`, `scripts/deploy.sh`, `deploy/cloud-init.yaml`). Server secrets only in `~/72h/.env` on the server; tunnel token only in the cloudflared service; SSH key `~/.ssh/id_ed25519_72h_vps`.
+- History: RPi (aarch64, 905 MB RAM) hosted dev until 2026-09-23.
 
 ## Working rules
 1. Plan before each milestone, wait for "OK". Inside an approved milestone don't ask needlessly.

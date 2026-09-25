@@ -19,18 +19,15 @@ docker compose up -d --build
 curl http://localhost:8000/health
 ```
 
-## Moving the project (e.g. to SSD)
-All runtime data lives inside the project directory, so a move is:
+## Production
+Hetzner Cloud server `72h-prod`, API at `https://api.rodinnapripravenost.com` (Cloudflare Tunnel).
+Create the server, deploy, maps, backups and restore: see `docs/DEPLOY.md`.
 ```bash
-docker compose down
-sudo rsync -aHAX /srv/72h/ /mnt/ssd/72h/
-sudo mv /srv/72h /srv/72h.old && sudo ln -s /mnt/ssd/72h /srv/72h
-cd /srv/72h && docker compose up -d
-# verify, then: sudo rm -rf /srv/72h.old
+scripts/deploy.sh   # from the Mac: deploys the committed HEAD
 ```
 
 ## App
-Metro runs on the Mac (the RPi has too little RAM):
+Development runs on the Mac (Docker via OrbStack, Metro, iOS Simulator):
 ```bash
 git clone <repo> && cd 72h/app && npm install
 npx expo start --dev-client
@@ -39,4 +36,4 @@ Dev builds: `npx eas-cli build --profile development` (phone) or `development-si
 Translations: `app/i18n/locales/<lang>.json`.
 
 ## Backup and restore
-TBD (M7).
+Nightly database dumps + Hetzner server backups – see `docs/DEPLOY.md`.
