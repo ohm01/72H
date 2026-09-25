@@ -283,3 +283,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
 - **2026-09-25**
   - Stav účtů (od uživatele): Hetzner účet založený (čeká), Google Play čeká na ověření dokladu, Apple Developer čeká na ověření. Cloudflare: nový tunel `72h-hetzner` s route `api-new.jennase.org → http://localhost:8000` (zatím bez konektoru); `api.jennase.org` dál na tunelu RPi.
   - Dockerfile: `pmtiles` pro arm64 i amd64 (Hetzner CX23 je x86), ověřeno sestavením obou.
+  - Hetzner: `hcloud` kontext `72h` nastaven (token zadal uživatel). V Hetzneru vytvořeny SSH klíče `72h-vps-deploy` + `jan-mac` a firewall `72h-ssh` (jen TCP 22 z IP uživatele). Server nešlo založit: nový účet nemá povolené Cost-Optimized typy (CX23/CAX11) → „unsupported location for server type“. Žádost na support@hetzner.com odeslána z Gmailu uživatele. Plán: CAX11 v Helsinkách (ARM, 7,25 €/měs. s DPH) + zálohy, jakmile podpora povolí.
