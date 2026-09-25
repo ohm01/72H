@@ -9,7 +9,7 @@
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "cz.rodinnapripravenost.app"
+      "bundleIdentifier": "com.rodinnapripravenost.app"
     },
     "android": {
       "adaptiveIcon": {
@@ -23,7 +23,7 @@
         "android.permission.ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_FINE_LOCATION"
       ],
-      "package": "cz.rodinnapripravenost.app"
+      "package": "com.rodinnapripravenost.app"
     },
     "web": {
       "bundler": "metro",

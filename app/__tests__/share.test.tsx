@@ -153,12 +153,12 @@ describe('parseInvite', () => {
   const key = toBase64Url(new Uint8Array(32).fill(1));
   it('accepts https links, deep links and bare fragments', () => {
     const expected = { familyId: FAMILY_ID, token: 't', key };
-    expect(parseInvite(`https://api.rodinnapripravenost.cz/join#${FAMILY_ID}.t.${key}`)).toEqual(expected);
+    expect(parseInvite(`https://api.rodinnapripravenost.com/join#${FAMILY_ID}.t.${key}`)).toEqual(expected);
     expect(parseInvite(`app72h://join#${FAMILY_ID}.t.${key}`)).toEqual(expected);
     expect(parseInvite(`${FAMILY_ID}.t.${key}`)).toEqual(expected);
   });
   it('rejects broken invites', () => {
-    expect(parseInvite('https://api.rodinnapripravenost.cz/join')).toBeNull();
+    expect(parseInvite('https://api.rodinnapripravenost.com/join')).toBeNull();
     expect(parseInvite(`app72h://join#not-a-uuid.t.${key}`)).toBeNull();
     expect(parseInvite(`app72h://join#${FAMILY_ID}.t.short`)).toBeNull();
   });

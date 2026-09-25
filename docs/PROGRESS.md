@@ -12,7 +12,7 @@ Aktualizuje Claude po každém kroku. Legenda: ✅ hotovo · 🔄 rozpracováno 
 
 ## ⏳ Co čeká na tebe
 0. **Projít dnešní večerní práci** (krizové zavazadlo, jídlo doma, kontakty v záložce Rodina) a **schválit plán M3** níže.
-1. ✅ Bundle ID: `cz.rodinnapripravenost.app` (rozhodnuto 2026-09-25; aplikace dostane vlastní doménu `rodinnapripravenost.cz`, nic na `jennase.org`).
+1. ✅ Bundle ID: `com.rodinnapripravenost.app` (rozhodnuto 2026-09-25; aplikace dostane vlastní doménu `rodinnapripravenost.com` – Cloudflare .cz neprodává; nic na `jennase.org`).
 2. Otestovat M2 na telefonu (dev build pro zařízení: `npx eas-cli@latest build --profile development --platform ios`, vyžaduje Apple účet).
 3. Schválit zdroje v `docs/country-comparison.md` a rozhodnutí R1–R5 v `docs/threat-model.md` (potřebné pro M3, M5, M6).
 4. ~~Rozhodnout, kde poběží server~~ → **malý VPS v EU** (rozhodnuto 2026-09-24). Návrh viz „Server (VPS)“ níže – založit účet a server.
@@ -234,7 +234,7 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
 | 2026-09-23 | Role rodič / dítě | návrh → M3 |
 | 2026-09-23 | Domácnost dospělí / děti / miminka, potřeby miminek (pleny…) jen když je miminko | návrh → M5 |
 | 2026-09-23 | Doporučené jídlo doma + krizové zavazadlo (Zuzka) | návrh → M5, priorita 1 a 2 |
-| 2026-09-25 | Vlastní doména aplikace `rodinnapripravenost.cz` (ne `jennase.org` – tam běží soukromé věci); Bundle ID `cz.rodinnapripravenost.app`, API `api.rodinnapripravenost.cz` | nový dev build; tunel a e-mail na nové doméně |
+| 2026-09-25 | Vlastní doména aplikace `rodinnapripravenost.com` (ne `jennase.org` – tam běží soukromé věci; .cz Cloudflare neprodává); Bundle ID `com.rodinnapripravenost.app`, API `api.rodinnapripravenost.com` | nový dev build; tunel a e-mail na nové doméně |
 | 2026-09-24 | Šifrování přes `@noble/ciphers` (čistý JS) místo nativní libsodium; QR pozvánku čte systémový fotoaparát | méně nativních modulů, jednodušší build |
 | 2026-09-24 | Server na malém VPS v EU místo RPi + SSD | M3 začne založením VPS; RPi omezení (RAM, SD karta) odpadají |
 | 2026-09-24 | Název „72h – Rodinná připravenost“ jen pro český obchod; SK/PL/FI/EN vlastní názvy (nerozhodnuto) | M7 texty obchodů; FI: „72 tuntia“ je národní doporučení → název bez „72h“ |
@@ -286,4 +286,4 @@ Koncepty: `docs/privacy-policy.md` (doplnit správce), `docs/store-texts.md` (cs
   - Dockerfile: `pmtiles` pro arm64 i amd64 (Hetzner CX23 je x86), ověřeno sestavením obou.
   - Hetzner: `hcloud` kontext `72h` nastaven (token zadal uživatel). V Hetzneru vytvořeny SSH klíče `72h-vps-deploy` + `jan-mac` a firewall `72h-ssh` (jen TCP 22 z IP uživatele). Server nešlo založit: nový účet nemá povolené Cost-Optimized typy (CX23/CAX11) → „unsupported location for server type“. Žádost na support@hetzner.com odeslána z Gmailu uživatele. Plán: CAX11 v Helsinkách (ARM, 7,25 €/měs. s DPH) + zálohy, jakmile podpora povolí.
   - E-maily (kontrola Gmailu): **Apple Developer aktivní** (App Store Connect přístup 25. 9.), **Google Play identita ověřena** (25. 9.), Hetzner účet ověřen, na žádost o levné servery zatím jen automatická odpověď (tiket 2026092503023878); MV potvrdilo příjem dotazu, věcná odpověď zatím ne.
-  - Rozhodnuto: vlastní doména `rodinnapripravenost.cz` (koupí uživatel, DNS na Cloudflare), Bundle ID `cz.rodinnapripravenost.app`, API `https://api.rodinnapripravenost.cz`.
+  - Rozhodnuto: vlastní doména `rodinnapripravenost.com` (Cloudflare Registrar, .cz tam nejde), Bundle ID `com.rodinnapripravenost.app`, API `https://api.rodinnapripravenost.com`.

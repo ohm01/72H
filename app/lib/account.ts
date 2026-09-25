@@ -14,7 +14,7 @@ export type Member = { userId: string; email: string; role: 'admin' | 'member'; 
 export type Family = { id: string; myRole: 'admin' | 'member'; myStatus: 'pending' | 'active'; members: Member[] };
 export type Invite = { familyId: string; token: string; key: string };
 
-const INVITE_BASE = `${process.env.EXPO_PUBLIC_API_URL ?? 'https://api.rodinnapripravenost.cz'}/join`;
+const INVITE_BASE = `${process.env.EXPO_PUBLIC_API_URL ?? 'https://api.rodinnapripravenost.com'}/join`;
 
 export async function getSession(): Promise<Session | null> {
   const raw = await SecureStore.getItemAsync(SESSION);

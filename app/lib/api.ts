@@ -1,7 +1,7 @@
 // Server access. EXPO_PUBLIC_* values are baked into the bundle at build time (set them on the Mac).
 import { deviceId } from './deviceId';
 
-export const API_URL = process.env.EXPO_PUBLIC_API_URL ?? 'https://api.rodinnapripravenost.cz';
+export const API_URL = process.env.EXPO_PUBLIC_API_URL ?? 'https://api.rodinnapripravenost.com';
 
 // Maps work without an account: the server counts downloads per anonymous device id.
 export function apiHeaders(): Record<string, string> {
